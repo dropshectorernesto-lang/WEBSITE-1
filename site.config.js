@@ -1,16 +1,11 @@
 /*
   ============================================================
-  CUSTOMER CONFIG — THIS IS THE MAIN FILE TO EDIT FOR EACH SITE
+  CUSTOMER CONFIG — MAIN FILE TO EDIT FOR EACH CUSTOMER
   ============================================================
-
-  For a new customer:
   1. Duplicate this repository.
-  2. Replace the images in /assets.
-  3. Edit the values below.
-  4. Change theme colors if needed.
-
-  Layout/spacing live in styles.css.
-  Page sections live in index.html and are clearly marked with data-section.
+  2. Replace images in /assets.
+  3. Edit this file.
+  4. Reorder/hide whole sections with layout below.
 */
 
 window.SITE_CONFIG = {
@@ -32,6 +27,12 @@ window.SITE_CONFIG = {
     pinkSoft: "#f7a7b1",
     ink: "#232121",
     orange: "#f16211"
+  },
+
+  /* Reorder these names to reorder complete page windows.
+     Remove a name to hide that section for a customer. */
+  layout: {
+    sectionOrder: ["hero", "services", "experience", "gallery", "final-cta"]
   },
 
   navigation: [
@@ -60,31 +61,9 @@ window.SITE_CONFIG = {
     introHtml: "From refreshing baths to complete makeovers,<br>we provide exceptional care tailored to<br>your pet’s unique needs.",
     linkLabel: "VIEW ALL SERVICES",
     cards: [
-      {
-        number: "01",
-        title: "BATH & BRUSH",
-        descriptionHtml: "A relaxing bath, gentle cleanse<br>and thorough brushing for a<br>fresh, healthy coat.",
-        image: "assets/service-bath.jpg",
-        imageAlt: "White dog wrapped in a towel",
-        style: "green"
-      },
-      {
-        number: "02",
-        title: "HAIRCUT & STYLING",
-        descriptionHtml: "Custom haircuts and styling<br>designed to bring out your pet’s<br>best look.",
-        image: "assets/service-hair.jpg",
-        imageAlt: "Fluffy pomeranian dog",
-        style: "black",
-        featured: true
-      },
-      {
-        number: "03",
-        title: "NAIL CLIPPING",
-        descriptionHtml: "Safe, precise nail trimming<br>to keep your pet comfortable<br>and confident.",
-        image: "assets/service-nails.jpg",
-        imageAlt: "Small dog having nails clipped",
-        style: "orange"
-      }
+      { number: "01", title: "BATH & BRUSH", descriptionHtml: "A relaxing bath, gentle cleanse<br>and thorough brushing for a<br>fresh, healthy coat.", image: "assets/service-bath.jpg", imageAlt: "White dog wrapped in a towel", style: "green" },
+      { number: "02", title: "HAIRCUT & STYLING", descriptionHtml: "Custom haircuts and styling<br>designed to bring out your pet’s<br>best look.", image: "assets/service-hair.jpg", imageAlt: "Fluffy pomeranian dog", style: "black", featured: true },
+      { number: "03", title: "NAIL CLIPPING", descriptionHtml: "Safe, precise nail trimming<br>to keep your pet comfortable<br>and confident.", image: "assets/service-nails.jpg", imageAlt: "Small dog having nails clipped", style: "orange" }
     ]
   },
 
