@@ -1,39 +1,103 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="theme-color" content="#f5ede6" />
-<meta name="description" content="Grüm dog grooming — tailored grooming, bathing and coat care." />
-<title>Grüm — Dog Grooming</title>
-<style>
-:root{color-scheme:light;--cream:#f5ede6;--green:#005f52;--pink:#f39aa3;--ink:#242120}
-*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--cream)}body{margin:0;background:var(--cream);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}button,input,select,textarea{font:inherit}
-.prototype{position:relative;width:100%;margin:0;background:var(--cream)}
-.art{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none;image-rendering:auto}
-.hit,.card-hit{position:absolute;z-index:10;border:0;background:transparent;padding:0;margin:0;cursor:pointer;color:transparent}
-.hit{border-radius:999px}.card-hit{border-radius:16px}
-.hit:focus-visible,.card-hit:focus-visible{outline:3px solid rgba(0,95,82,.6);outline-offset:3px;background:rgba(255,255,255,.04)}
-.book-top{left:83.1%;top:.93%;width:14.7%;height:2.45%}.book-hero{left:7.85%;top:28.43%;width:16.75%;height:2.5%}.book-bottom{left:69.4%;top:94.62%;width:21.7%;height:3.35%}.watch{left:25.7%;top:28.45%;width:11.9%;height:2.48%}
-.nav-about{left:36.5%;top:.8%;width:4.3%;height:2.3%}.nav-services{left:43%;top:.8%;width:5.6%;height:2.3%}.nav-gallery{left:51%;top:.8%;width:5.8%;height:2.3%}.nav-blog{left:58.6%;top:.8%;width:4.5%;height:2.3%}.nav-contact{left:64.3%;top:.8%;width:6.4%;height:2.3%}.ig-hit{left:80.8%;top:81.55%;width:15.7%;height:2%;border-radius:12px}
-.card-1{left:5.96%;top:45.77%;width:26.27%;height:19.34%}.card-2{left:33.69%;top:43.95%;width:32.13%;height:21.16%}.card-3{left:67.38%;top:45.77%;width:26.17%;height:19.34%}
-.anchor{position:absolute;left:0;width:1px;height:1px;pointer-events:none}#services{top:34.9%}#experience{top:68.2%}#gallery{top:79.9%}#contact{top:93.1%}
-dialog{border:0;padding:0;border-radius:28px;background:#fbf7f2;color:var(--ink);width:min(560px,calc(100% - 30px));box-shadow:0 26px 70px rgba(35,25,20,.16)}dialog::backdrop{background:rgba(36,33,32,.26);backdrop-filter:blur(10px)}.modal{padding:28px}.modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:22px}.modal-kicker{margin:0 0 6px;color:var(--pink);font-weight:800;font-size:12px;letter-spacing:.06em;text-transform:uppercase}.modal h2{margin:0;font-weight:900;font-size:36px;line-height:1.02;letter-spacing:-.03em;text-transform:uppercase}.close{width:44px;height:44px;border-radius:50%;border:1px solid #e4d8d1;background:white;cursor:pointer;font-size:23px;line-height:1}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}label{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em}input,select,textarea{width:100%;border:1px solid #e1d5ce;border-radius:14px;background:#fff;padding:13px 14px;color:var(--ink);outline:none}input:focus,select:focus,textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(0,95,82,.1)}textarea{resize:vertical;min-height:90px}.submit{margin-top:18px;width:100%;border:0;border-radius:999px;padding:15px 20px;background:var(--green);color:#fff;font-weight:800;cursor:pointer}.success{display:none;margin-top:16px;padding:14px 16px;border-radius:14px;background:#eef5f2;color:#0b5b4f;font-weight:700}.success.show{display:block}.video-modal .modal{text-align:center}.video-box{aspect-ratio:16/9;border-radius:20px;background:linear-gradient(145deg,#efe5dc,#d7bdab);display:grid;place-items:center;margin-top:18px}.play{width:68px;height:68px;border:0;border-radius:50%;background:#fff;color:var(--green);font-size:24px;box-shadow:0 10px 24px rgba(0,0,0,.08)}
-@media(max-width:720px){.prototype{min-width:720px}body{overflow-x:auto}dialog{position:fixed}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#f5ede6" />
+  <meta name="description" content="Reusable service business website template" />
+  <title>Service Business Template</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="reference.css" />
 </head>
 <body>
-<main class="prototype" id="prototype" aria-label="Grüm dog grooming website">
-<img class="art" src="assets/reference.webp" alt="Grüm pet spa website with a bubble-covered golden retriever, grooming services, experience and Instagram sections" draggable="false" />
-<button class="hit book-top" data-book aria-label="Book appointment"></button><button class="hit book-hero" data-book aria-label="Book appointment"></button><button class="hit book-bottom" data-book aria-label="Book appointment"></button><button class="hit watch" data-video aria-label="Watch video"></button>
-<button class="hit nav-about" data-scroll="experience" aria-label="About"></button><button class="hit nav-services" data-scroll="services" aria-label="Services"></button><button class="hit nav-gallery" data-scroll="gallery" aria-label="Gallery"></button><button class="hit nav-blog" data-scroll="gallery" aria-label="Blog"></button><button class="hit nav-contact" data-scroll="contact" aria-label="Contact"></button><button class="hit ig-hit" data-instagram aria-label="View more on Instagram"></button>
-<button class="card-hit card-1" data-service="Bath & Brush" aria-label="Book Bath and Brush"></button><button class="card-hit card-2" data-service="Haircut & Styling" aria-label="Book Haircut and Styling"></button><button class="card-hit card-3" data-service="Nail Clipping" aria-label="Book Nail Clipping"></button>
-<span class="anchor" id="services"></span><span class="anchor" id="experience"></span><span class="anchor" id="gallery"></span><span class="anchor" id="contact"></span>
-</main>
-<dialog id="booking"><form class="modal" id="bookingForm"><div class="modal-head"><div><p class="modal-kicker">Book their best day</p><h2>Request an appointment.</h2></div><button class="close" type="button" data-close-booking aria-label="Close booking form">×</button></div><div class="form-grid"><div class="field"><label for="owner">Your name</label><input id="owner" name="owner" autocomplete="name" required></div><div class="field"><label for="dog">Dog's name</label><input id="dog" name="dog" required></div><div class="field"><label for="phone">Phone</label><input id="phone" name="phone" autocomplete="tel" required></div><div class="field"><label for="service">Service</label><select id="service" name="service"><option>Bath & Brush</option><option>Haircut & Styling</option><option>Nail Clipping</option></select></div><div class="field full"><label for="notes">Anything we should know?</label><textarea id="notes" name="notes" placeholder="Breed, coat, temperament, preferred date…"></textarea></div></div><button class="submit" type="submit">Request appointment</button><div class="success" id="success" role="status">Perfect — your booking request has been captured.</div></form></dialog>
-<dialog id="video" class="video-modal"><div class="modal"><div class="modal-head"><div><p class="modal-kicker">The Grüm experience</p><h2>Care they can feel.</h2></div><button class="close" type="button" data-close-video aria-label="Close video">×</button></div><div class="video-box"><button class="play" type="button" aria-label="Play experience video">▶</button></div></div></dialog>
-<script>
-(()=>{const booking=document.getElementById('booking'),video=document.getElementById('video'),service=document.getElementById('service'),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;document.querySelectorAll('[data-book]').forEach(b=>b.addEventListener('click',()=>booking.showModal()));document.querySelectorAll('[data-service]').forEach(b=>b.addEventListener('click',()=>{service.value=b.dataset.service;booking.showModal()}));document.querySelectorAll('[data-scroll]').forEach(b=>b.addEventListener('click',()=>document.getElementById(b.dataset.scroll)?.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'})));document.querySelector('[data-video]').addEventListener('click',()=>video.showModal());document.querySelector('[data-close-video]').addEventListener('click',()=>video.close());document.querySelector('[data-close-booking]').addEventListener('click',()=>booking.close());document.querySelector('[data-instagram]').addEventListener('click',()=>window.open('https://www.instagram.com/','_blank','noopener,noreferrer'));const form=document.getElementById('bookingForm'),success=document.getElementById('success');form.addEventListener('submit',e=>{e.preventDefault();if(!form.reportValidity())return;success.classList.add('show');setTimeout(()=>{booking.close();success.classList.remove('show');form.reset()},1000)});[booking,video].forEach(d=>d.addEventListener('click',e=>{const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close()}));})();
-</script>
-</body></html>
+
+  <!-- SECTION 00 — HEADER / NAVIGATION -->
+  <header class="site-header" id="home" data-section="header">
+    <a class="brand" href="#home" aria-label="Home" data-bind="business.name">Brand</a>
+    <nav class="main-nav" aria-label="Main navigation" id="main-nav"></nav>
+    <button class="btn btn-primary btn-header" data-book>
+      <span class="phone-icon" aria-hidden="true"></span>
+      <span data-bind="hero.primaryButton">BOOK APPOINTMENT</span>
+    </button>
+  </header>
+
+  <main>
+    <!-- SECTION 01 — HERO -->
+    <section class="hero section-width" data-section="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 id="hero-title" data-bind-html="hero.headlineHtml"></h1>
+        <p data-bind="hero.subtitle"></p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" data-book><span class="phone-icon" aria-hidden="true"></span><span data-bind="hero.primaryButton"></span></button>
+          <button class="btn btn-secondary" data-video><span class="play-dot" aria-hidden="true"></span><span data-bind="hero.secondaryButton"></span></button>
+        </div>
+      </div>
+      <div class="hero-image-wrap"><img data-bind-src="hero.image" data-bind-alt="hero.imageAlt" fetchpriority="high" /></div>
+      <div class="bubble b1" aria-hidden="true"></div><div class="bubble b2" aria-hidden="true"></div><div class="bubble b3" aria-hidden="true"></div><div class="bubble b4" aria-hidden="true"></div><div class="bubble b5" aria-hidden="true"></div>
+      <div class="care-chip"><span class="paw" aria-hidden="true"></span><div><strong data-bind="hero.chipTitle"></strong><small data-bind-html="hero.chipTextHtml"></small></div></div>
+    </section>
+
+    <!-- SECTION 02 — SERVICES -->
+    <section class="services" id="services" data-section="services">
+      <div class="section-width services-inner">
+        <div class="services-head">
+          <div><p class="kicker" data-bind="services.kicker"></p><h2 data-bind-html="services.headingHtml"></h2></div>
+          <div class="services-intro"><p data-bind-html="services.introHtml"></p><a href="#service-cards"><span data-bind="services.linkLabel"></span><i aria-hidden="true"></i></a></div>
+        </div>
+        <div class="service-cards" id="service-cards"></div>
+        <div class="pager" aria-hidden="true"><span></span><span></span><b></b><span></span><span></span></div>
+      </div>
+    </section>
+
+    <!-- SECTION 03 — EXPERIENCE / ABOUT -->
+    <section class="experience" id="experience" data-section="experience">
+      <div class="experience-img"><img data-bind-src="experience.image" data-bind-alt="experience.imageAlt" loading="lazy" /></div>
+      <div class="experience-copy"><p class="kicker" data-bind="experience.kicker"></p><h2 data-bind-html="experience.headingHtml"></h2><button class="btn btn-primary" data-about><span data-bind="experience.button"></span><i aria-hidden="true"></i></button></div>
+    </section>
+
+    <!-- SECTION 04 — SOCIAL / GALLERY -->
+    <section class="gallery" id="gallery" data-section="gallery">
+      <div class="section-width gallery-inner">
+        <img class="phone-mock" data-bind-src="gallery.phoneImage" data-bind-alt="gallery.phoneAlt" loading="lazy" />
+        <div class="gallery-title"><p class="kicker" data-bind="gallery.kicker"></p><h2 data-bind="gallery.heading"></h2></div>
+        <a class="gallery-more" id="gallery-link" target="_blank" rel="noreferrer"><span data-bind="gallery.linkLabel"></span><i aria-hidden="true"></i></a>
+        <div class="ig-grid" id="ig-grid"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 05 — FINAL CTA / CONTACT -->
+    <section class="final-cta" id="contact" data-section="final-cta">
+      <div class="section-width final-inner">
+        <div class="final-copy"><p class="kicker" data-bind="finalCta.kicker"></p><h2 data-bind="finalCta.heading"></h2><p data-bind="finalCta.body"></p></div>
+        <div class="final-dog"><img data-bind-src="finalCta.image" data-bind-alt="finalCta.imageAlt" loading="lazy" /></div>
+        <button class="btn btn-primary final-book" data-book><span class="phone-icon" aria-hidden="true"></span><strong data-bind="finalCta.button"></strong><small data-bind="finalCta.buttonSmall"></small></button>
+      </div>
+    </section>
+  </main>
+
+  <!-- BOOKING MODAL -->
+  <dialog class="modal" id="bookingModal">
+    <form method="dialog" id="bookingForm">
+      <button class="modal-close" value="cancel" aria-label="Close">×</button>
+      <p class="kicker" data-bind="booking.kicker"></p><h2 data-bind="booking.heading"></h2>
+      <div class="form-grid">
+        <label>Your name<input required name="name" autocomplete="name" /></label>
+        <label>Pet / customer name<input required name="subject" /></label>
+        <label>Phone<input required name="phone" autocomplete="tel" /></label>
+        <label>Service<select name="service" id="serviceSelect"></select></label>
+        <label class="full">Anything we should know?<textarea name="notes" placeholder="Details, preferred date…"></textarea></label>
+      </div>
+      <button class="btn btn-primary submit" value="default" data-bind="booking.submitLabel"></button>
+    </form>
+  </dialog>
+
+  <dialog class="modal video-modal" id="videoModal">
+    <button class="modal-close" data-close-video aria-label="Close">×</button>
+    <p class="kicker" data-bind="experience.kicker"></p><h2 data-bind-html="experience.headingHtml"></h2>
+    <div class="video-placeholder"><button aria-label="Play">▶</button></div>
+  </dialog>
+
+  <script src="site.config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
