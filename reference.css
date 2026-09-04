@@ -135,8 +135,8 @@ h1,h2,h3,
 .final-dog::after{content:"♡";position:absolute;right:-19px;top:18px;color:#ed6f7f;font:46px/1 'Bree Serif',Georgia,serif;transform:rotate(-12deg)}
 .final-dog{overflow:visible}
 
-.hero{background:linear-gradient(90deg,#f1e7df 0%,#f3eae3 39%,#ead8ca 72%,#d8bda7 100%)}
-.bubble{display:block;z-index:4;will-change:transform}
+.hero{background-image:url('assets/hero-bg-v2.png');background-size:1024px 536px;background-position:center top;background-repeat:no-repeat}
+.bubble{display:none}
 .hero::after{content:"";position:absolute;z-index:1;inset:0 auto 0 0;width:500px;pointer-events:none;background:linear-gradient(90deg,rgba(255,255,255,.1) 0%,rgba(255,255,255,.1) 78%,rgba(255,255,255,0) 100%)}
 .hero::before{content:"";position:absolute;z-index:1;top:0;left:0;right:0;height:47px;pointer-events:none;background:linear-gradient(90deg,rgba(243,235,231,.96) 0%,rgba(241,232,225,.94) 35%,rgba(235,221,210,.86) 64%,rgba(216,190,168,.7) 100%)}
 .hero-image-wrap{-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.72) 5%,#000 13%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.72) 5%,#000 13%)}
@@ -152,12 +152,6 @@ h1,h2,h3,
 .service-card:nth-child(3n){width:270px;height:298px;margin-left:17px}
 .service-card:nth-child(n+4){margin-left:17px}
 .service-card img{height:calc(100% - 110px);object-fit:cover}
-.carousel-arrow{position:absolute;z-index:12;top:50%;width:42px;height:42px;margin-top:-21px;border:1px solid rgba(255,255,255,.8);border-radius:50%;background:rgba(250,180,190,.94);box-shadow:0 5px 15px rgba(38,25,20,.18);transition:opacity .2s ease,transform .2s ease;display:grid;place-items:center}
-.carousel-prev{left:8px}.carousel-next{right:8px}
-.carousel-arrow[disabled]{opacity:0;pointer-events:none;transform:scale(.75)}
-.carousel-arrow i{width:10px;height:10px;border-top:1.5px solid #171717;border-right:1.5px solid #171717}
-.carousel-prev i{transform:rotate(-135deg) translate(-1px,1px)}
-.carousel-next i{transform:rotate(45deg) translate(-1px,1px)}
 .pager{top:478px;gap:7px}
 .pager button{width:15px;height:15px;padding:0;border:0;background:center/11px 11px no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='%23efadb6'%3E%3Cellipse cx='19' cy='16' rx='7' ry='9'/%3E%3Cellipse cx='45' cy='16' rx='7' ry='9'/%3E%3Cellipse cx='10' cy='31' rx='7' ry='9' transform='rotate(-24 10 31)'/%3E%3Cellipse cx='54' cy='31' rx='7' ry='9' transform='rotate(24 54 31)'/%3E%3Cpath d='M32 27c-10 0-17 9-17 17 0 7 6 11 12 8 3-2 7-2 10 0 6 3 12-1 12-8 0-8-7-17-17-17z'/%3E%3C/svg%3E");opacity:.65;transition:opacity .18s ease,transform .18s ease}
 .pager button.active{opacity:1;transform:scale(1.35);filter:saturate(1.35)}

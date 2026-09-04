@@ -101,7 +101,7 @@
       cards.innerHTML = config.services.cards.map((card, index) => {
         const style = ['green', 'black', 'orange'].includes(card.style) ? card.style : 'green';
         const title = escapeAttribute(card.title);
-        return `<article class="service-card card-${style}${card.featured ? ' featured' : ''}" data-service="${title}" tabindex="0" role="button" aria-label="Book ${title}"><div class="service-number">${card.number || String(index + 1).padStart(2, '0')}</div><img src="${escapeAttribute(card.image)}" alt="${escapeAttribute(card.imageAlt)}" loading="lazy" /><div class="service-info"><div><h3>${card.title}</h3><p>${card.descriptionHtml || ''}</p></div><span class="card-arrow" aria-hidden="true"></span></div></article>`;
+        return `<article class="service-card card-${style}${card.featured ? ' featured' : ''}" data-service="${title}" tabindex="0" role="button" aria-label="Book ${title}"><img src="${escapeAttribute(card.image)}" alt="${escapeAttribute(card.imageAlt)}" loading="lazy" /><div class="service-info"><div><h3>${card.title}</h3><p>${card.descriptionHtml || ''}</p></div><span class="card-arrow" aria-hidden="true"></span></div></article>`;
       }).join('');
     }
     const select = document.getElementById('serviceSelect');
@@ -228,8 +228,6 @@
   const carousel = document.querySelector('.service-carousel');
   const track = document.querySelector('.service-cards');
   const carouselCards = [...document.querySelectorAll('.service-card')];
-  const previous = document.querySelector('.carousel-prev');
-  const next = document.querySelector('.carousel-next');
   const pager = document.querySelector('.pager');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   let activeService = 0;
@@ -247,8 +245,6 @@
   ), 0);
   const paintRail = () => {
     if (track) track.style.transform = `translate3d(${-railX}px,0,0)`;
-    previous?.toggleAttribute('disabled', railX < 2);
-    next?.toggleAttribute('disabled', railX > maxRail() - 2);
     pager?.querySelectorAll('button').forEach((button, index) => {
       button.classList.toggle('active', index === activeService);
       button.setAttribute('aria-current', index === activeService ? 'true' : 'false');
@@ -265,8 +261,6 @@
       pager.innerHTML = carouselCards.map((card, index) => `<button type="button" aria-label="Show service ${index + 1}: ${card.dataset.service}"></button>`).join('');
       pager.querySelectorAll('button').forEach((button, index) => button.addEventListener('click', () => goToService(index)));
     }
-    previous?.addEventListener('click', () => goToService(activeService - 1));
-    next?.addEventListener('click', () => goToService(activeService + 1));
     carousel.addEventListener('pointerdown', (event) => {
       if (event.button !== 0) return;
       dragging = true;
