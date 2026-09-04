@@ -2,23 +2,16 @@
 @font-face{font-family:'Bree Serif';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/bree-serif-latin.woff2') format('woff2')}
 @font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:url('assets/fonts/inter-latin.woff2') format('woff2')}
 
-:root{
-  --cream:#f3ebe7;
-  --green:#01463c;
-  --pink:#f87686;
-  --ink:#222121;
-  --orange:#f26312;
-}
-
 html,body{background:var(--cream)}
 body{font-family:'Inter',Arial,Helvetica,sans-serif;color:var(--ink)}
 
 .brand{
-  font-family:'Bree Serif','Cooper Black','Cooper Black Std',Georgia,serif;
+  font-family:'Bree Serif',Georgia,serif;
   font-size:30px;
   font-weight:400;
   letter-spacing:-1.3px;
   color:var(--pink);
+  transform:translateY(-2px);
 }
 
 h1,h2,h3,
@@ -34,31 +27,32 @@ h1,h2,h3,
   letter-spacing:-.15px;
 }
 
-.hero h1{font-size:49px;line-height:.91;color:var(--ink)}
-.hero h1 .green{color:var(--green)}
-.hero h1 .dot{color:var(--pink)}
-.hero-copy>p{font-size:11px}
-
-.main-nav a{font-family:'Inter',Arial,sans-serif;font-size:8.5px}
+.main-nav{gap:38px}
+.main-nav a{font-family:'Inter',Arial,sans-serif;font-size:8.5px;font-weight:700}
 .main-nav a.active{color:var(--pink)}
 .main-nav a.active:after{background:var(--pink)}
 
-.btn{font-family:'Inter',Arial,sans-serif;font-size:10px;font-weight:800}
+.btn{font-family:'Inter',Arial,sans-serif;font-size:10px;font-weight:800;white-space:nowrap}
 .btn-header{font-size:8.5px}
+.hero-actions .btn{font-size:9px}
 .btn-primary{background:var(--green)}
 .btn-secondary{background:rgba(255,255,255,.82)}
 
-.kicker{color:var(--pink);font-size:9.5px;font-weight:800}
+.kicker{font-family:'Inter',Arial,sans-serif;color:var(--pink);font-size:9.5px;font-weight:800}
+.hero h1{font-size:49px;line-height:.91;color:var(--ink);letter-spacing:-.35px}
+.hero h1 .green{color:var(--green)}
+.hero h1 .dot{color:var(--pink)}
+.hero-copy>p{font-family:'Inter',Arial,sans-serif;font-size:11px}
 
 .services,.gallery{background:#f3ebe7}
-.services h2{font-size:32px;line-height:.98}
+.services h2{font-size:32px;line-height:.98;letter-spacing:-.1px}
 .services h2 span{color:var(--green)}
-.services-intro p{font-size:9.4px;line-height:1.6}
+.services-intro p{font-family:'Inter',Arial,sans-serif;font-size:9.4px;line-height:1.6}
 .services-intro i,.gallery-more i{background:#f9a9b3}
 
 .service-number{color:var(--pink);font-size:24px}
 .service-info h3{font-size:18px;line-height:1}
-.service-info p{font-size:9px;line-height:1.45}
+.service-info p{font-family:'Inter',Arial,sans-serif;font-size:9px;line-height:1.45}
 .card-green .service-info{background:#01463c}
 .card-black .service-info{background:#222020}
 .card-orange .service-info{background:#f26312}
@@ -71,85 +65,20 @@ h1,h2,h3,
 .experience-copy h2{font-size:29px;line-height:.94;color:var(--ink)}
 .experience-copy h2 span{color:var(--pink)}
 .experience-copy .btn i{background:#f9a9b3}
-
 .gallery-title h2,.gallery-more{color:var(--green)}
-
 .final-cta{background:#f3ece8}
 .final-copy h2{font-size:27px;line-height:1}
-.final-copy>p:last-child{font-size:8.5px}
+.final-copy>p:last-child{font-family:'Inter',Arial,sans-serif;font-size:8.5px}
 
-/* Keep the measured 1024px reference geometry; only correct the appearance. */
 @media (min-width:851px){
-  .hero-image-wrap:before{
-    background:linear-gradient(90deg,#f1e4da 0%,rgba(241,228,218,.62) 6%,rgba(241,228,218,.18) 14%,transparent 22%);
-  }
+  .hero-image-wrap:before{background:linear-gradient(90deg,#f1e4da 0%,rgba(241,228,218,.62) 6%,rgba(241,228,218,.18) 14%,transparent 22%)}
+  .hero h1{transform:scaleX(1.02);transform-origin:left top}
+  .services h2{transform:scaleX(1.04);transform-origin:left top}
+  .experience-copy h2{transform:scaleX(1.04);transform-origin:left top}
+  .gallery-title h2,.final-copy h2{transform:scaleX(1.04);transform-origin:left top}
 }
 
-/* The reference has no third-party overlay. */
 #nl-badge-frame{display:none!important}
-
-/* Match the supplied 1024px reference typography and measured geometry. */
-body{font-family:Arial,Helvetica,sans-serif}
-
-.brand{
-  font-family:Georgia,'Times New Roman',serif;
-  font-weight:700;
-  letter-spacing:-1.6px;
-  transform:translateY(-3px) scaleX(.92);
-  transform-origin:left center;
-}
-
-.main-nav{gap:38px}
-.main-nav a{font-family:Arial,Helvetica,sans-serif;font-size:9px}
-
-.btn{font-family:Arial,Helvetica,sans-serif;font-size:10px;white-space:nowrap}
-.btn-header{font-size:9px}
-.hero-actions .btn{font-size:9px}
-
-.kicker{font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:900}
-
-.hero h1,
-.services h2,
-.service-info h3,
-.experience-copy h2,
-.gallery-title h2,
-.final-copy h2,
-.service-number{
-  font-family:Impact,Haettenschweiler,'Arial Narrow Bold',sans-serif;
-  font-weight:900;
-  letter-spacing:-.55px;
-}
-
-.hero h1{font-size:49px;line-height:.895;transform:scaleX(1.05);transform-origin:left top}
-.hero-copy>p{font-family:Arial,Helvetica,sans-serif;font-size:12px}
-
-.services h2{font-size:32px;line-height:.97;transform:translateY(8px) scaleX(1.1);transform-origin:left top}
-.services-intro p{font-family:Arial,Helvetica,sans-serif;font-size:10px;line-height:1.65}
-
-.service-info h3{font-family:'Anton',Impact,Haettenschweiler,sans-serif;font-size:19px;font-weight:400;line-height:1;letter-spacing:-.15px}
-.service-info h3{transform:translateY(-3px) scaleY(.82);transform-origin:left top}
-.service-info p{font-family:Arial,Helvetica,sans-serif;font-size:9.6px;line-height:1.45}
-.service-info h3{margin-bottom:6px}
-.service-card.card-green .service-info>div{transform:translateY(-4px)}
-.service-card.featured .service-info{padding-left:26px}
-.service-card.featured .service-info>div{transform:translateY(-10px)}
-.service-card.featured .service-info h3{font-size:24px}
-.service-card.card-orange .service-info{padding-left:22px}
-.service-card .card-arrow{transform:translateY(-2px)}
-
-.experience{grid-template-columns:512px 512px}
-.experience-img{width:512px}
-.experience-img img{width:530px}
-.experience-copy{padding-left:31px;transform:translateY(8px)}
-.experience-copy .kicker{transform:translateY(-4px)}
-.experience-copy h2{font-size:30px;line-height:.92;transform:scaleX(1.1);transform-origin:left top}
-.experience-copy .btn{margin-top:13px}
-
-.gallery-title h2{font-size:22px;transform:scaleX(1.1);transform-origin:left top}
-
-.final-copy h2{font-size:28px;transform:scaleX(1.11);transform-origin:left top}
-.final-copy>p:last-child{font-family:Arial,Helvetica,sans-serif;font-size:9px}
-.final-book strong{white-space:nowrap}
 
 .final-cta::before,
 .final-cta::after{
@@ -159,64 +88,23 @@ body{font-family:Arial,Helvetica,sans-serif}
   border-radius:50%;
   border:1px solid rgba(255,255,255,.72);
   background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.85),rgba(255,255,255,.1) 31%,rgba(255,255,255,.03) 57%,rgba(168,127,98,.1));
-  box-shadow:inset 5px 7px 13px rgba(255,255,255,.5),inset -5px -4px 11px rgba(164,125,99,.12);
+  box-shadow:inset 5px 7px 13px rgba(255,255,255,.5),inset -5px -4px 11px rgba(164,125,99,.12)
 }
 .final-cta{
   position:relative;
-  background:
-    radial-gradient(ellipse at 27% 32%,rgba(255,255,255,.18) 0%,rgba(255,255,255,.08) 27%,rgba(255,255,255,0) 55%),
-    linear-gradient(25deg,rgba(160,120,90,0) 45%,rgba(160,120,90,.12) 100%),
-    linear-gradient(180deg,#efe1d5 0%,#ede1d8 100%);
+  background:radial-gradient(ellipse at 27% 32%,rgba(255,255,255,.18) 0%,rgba(255,255,255,.08) 27%,rgba(255,255,255,0) 55%),linear-gradient(25deg,rgba(160,120,90,0) 45%,rgba(160,120,90,.12) 100%),linear-gradient(180deg,#efe1d5 0%,#ede1d8 100%)
 }
 .final-cta::before{left:354px;top:35px;width:35px;height:35px}
 .final-cta::after{right:-11px;top:73px;width:51px;height:51px}
-.final-dog img{
-  mix-blend-mode:normal;
-  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 24%,#000 76%,transparent 100%);
-  mask-image:linear-gradient(90deg,transparent 0%,#000 24%,#000 76%,transparent 100%);
-}
-.final-dog::after{
-  content:"♡";
-  position:absolute;
-  right:-19px;
-  top:18px;
-  color:#ed6f7f;
-  font:46px/1 "Bree Serif",Georgia,serif;
-  transform:rotate(-12deg);
-}
+.final-dog img{mix-blend-mode:normal;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 24%,#000 76%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0%,#000 24%,#000 76%,transparent 100%)}
+.final-dog::after{content:"♡";position:absolute;right:-19px;top:18px;color:#ed6f7f;font:46px/1 'Bree Serif',Georgia,serif;transform:rotate(-12deg)}
 .final-dog{overflow:visible}
 
-.hero{
-  background-image:url('assets/hero-bg-v2.png');
-  background-size:1024px 536px;
-  background-position:center top;
-  background-repeat:no-repeat;
-}
+.hero{background-image:url('assets/hero-bg-v2.png');background-size:1024px 536px;background-position:center top;background-repeat:no-repeat}
 .bubble{display:none}
-.hero::after{
-  content:"";
-  position:absolute;
-  z-index:1;
-  inset:0 auto 0 0;
-  width:500px;
-  pointer-events:none;
-  background:linear-gradient(90deg,rgba(255,255,255,.1) 0%,rgba(255,255,255,.1) 78%,rgba(255,255,255,0) 100%);
-}
-.hero::before{
-  content:"";
-  position:absolute;
-  z-index:1;
-  top:0;
-  left:0;
-  right:0;
-  height:47px;
-  pointer-events:none;
-  background:linear-gradient(90deg,rgba(243,235,231,.96) 0%,rgba(241,232,225,.94) 35%,rgba(235,221,210,.86) 64%,rgba(216,190,168,.7) 100%);
-}
-.hero-image-wrap{
-  -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.72) 5%,#000 13%);
-  mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.72) 5%,#000 13%);
-}
+.hero::after{content:"";position:absolute;z-index:1;inset:0 auto 0 0;width:500px;pointer-events:none;background:linear-gradient(90deg,rgba(255,255,255,.1) 0%,rgba(255,255,255,.1) 78%,rgba(255,255,255,0) 100%)}
+.hero::before{content:"";position:absolute;z-index:1;top:0;left:0;right:0;height:47px;pointer-events:none;background:linear-gradient(90deg,rgba(243,235,231,.96) 0%,rgba(241,232,225,.94) 35%,rgba(235,221,210,.86) 64%,rgba(216,190,168,.7) 100%)}
+.hero-image-wrap{-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.72) 5%,#000 13%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.72) 5%,#000 13%)}
 
 @media(max-width:850px){
   .hero{background:linear-gradient(90deg,#f0e7df 0%,#f1e8e1 50%,#e7d5c7 100%)}
@@ -224,9 +112,6 @@ body{font-family:Arial,Helvetica,sans-serif}
   .bubble{display:block}
   .hero-image-wrap{-webkit-mask-image:none;mask-image:none}
   .hero h1,.services h2,.experience-copy h2,.gallery-title h2,.final-copy h2{transform:none}
-  /* fix: this file loads after styles.css and was forcing the desktop font-size
-     unconditionally, overriding styles.css's mobile sizes and clipping headlines
-     like "DISTINGUISHED" on phones. */
   .hero h1{font-size:44px}
   .services h2{font-size:29px}
   .experience-copy h2{font-size:26px}
@@ -250,6 +135,4 @@ body{font-family:Arial,Helvetica,sans-serif}
   .final-copy h2{font-size:21px}
 }
 
-@media(max-width:360px){
-  .hero h1{font-size:32px}
-}
+@media(max-width:360px){.hero h1{font-size:32px}}
