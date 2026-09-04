@@ -5,6 +5,8 @@
 html,body{background:var(--cream)}
 body{font-family:'Inter',Arial,Helvetica,sans-serif;color:var(--ink)}
 
+.site-header{background:linear-gradient(180deg,rgba(243,235,231,.9) 0%,rgba(243,235,231,.48) 62%,rgba(243,235,231,0) 100%)}
+
 .brand{
   font-family:'Bree Serif',Georgia,serif;
   font-size:30px;
@@ -137,9 +139,9 @@ h1,h2,h3,
 
 .hero{background-image:url('assets/hero-bg-v2.png');background-size:1024px 536px;background-position:center top;background-repeat:no-repeat}
 .bubble{display:none}
-.hero::after{content:"";position:absolute;z-index:1;inset:0 auto 0 0;width:500px;pointer-events:none;background:linear-gradient(90deg,rgba(255,255,255,.1) 0%,rgba(255,255,255,.1) 78%,rgba(255,255,255,0) 100%)}
+.hero::after{content:"";position:absolute;z-index:1;inset:0 auto 0 0;width:455px;pointer-events:none;background:linear-gradient(90deg,rgba(243,235,231,.92) 0%,rgba(243,235,231,.87) 73%,rgba(243,235,231,.35) 90%,rgba(243,235,231,0) 100%)}
 .hero::before{display:none}
-.hero-image-wrap{-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.72) 5%,#000 13%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.72) 5%,#000 13%)}
+.hero-image-wrap{display:block;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.72) 5%,#000 13%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.72) 5%,#000 13%)}
 
 .service-carousel{position:absolute;left:62px;top:133px;width:900px;height:342px;overflow:hidden;touch-action:pan-y;cursor:grab}
 .service-carousel.dragging{cursor:grabbing}
@@ -163,10 +165,11 @@ h1,h2,h3,
 .final-dog img{height:117px;object-fit:contain;object-position:center bottom;transform:none;transform-origin:center bottom}
 
 @media(max-width:850px){
+  .site-header{background:linear-gradient(180deg,rgba(243,235,231,.96),rgba(243,235,231,.78))}
   .hero{background:linear-gradient(90deg,#f0e7df 0%,#f1e8e1 50%,#e7d5c7 100%)}
   .hero::before,.hero::after{display:none}
   .bubble{display:block}
-  .hero-image-wrap{-webkit-mask-image:none;mask-image:none}
+  .hero-image-wrap{display:block;-webkit-mask-image:none;mask-image:none}
   .service-carousel{position:static;width:100%;height:auto;overflow:visible;cursor:default;margin-top:28px}
   .service-cards{height:auto;width:100%;display:grid;grid-template-columns:1fr;gap:16px;transform:none!important}
   .service-card,.service-card:nth-child(n){width:100%;height:auto;margin:0}

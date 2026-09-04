@@ -27,7 +27,7 @@
 .story-split img{width:100%;border-radius:var(--radius);box-shadow:0 10px 24px rgba(41,29,24,.14);object-fit:cover;height:360px}
 
 /* ---------- Value / stat cards (About) ---------- */
-.value-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:34px}
+.value-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:34px}
 .value-card{border-radius:var(--radius);padding:26px 22px;color:#fff;box-shadow:0 7px 14px rgba(41,29,24,.14)}
 .value-card.vc-green{background:var(--green-dark)}
 .value-card.vc-black{background:#232121}
@@ -91,6 +91,7 @@
   .page-hero-copy h1{font-size:36px}
   .page-hero-photo img{height:240px}
   .story-split{grid-template-columns:1fr}
+  .value-grid{grid-template-columns:1fr}
   .story-split img{height:240px}
   .content-section{padding:46px 0}
   .content-section>.section-width{padding:0 24px}
