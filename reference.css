@@ -138,7 +138,7 @@ h1,h2,h3,
 .hero{background-image:url('assets/hero-bg-v2.png');background-size:1024px 536px;background-position:center top;background-repeat:no-repeat}
 .bubble{display:none}
 .hero::after{content:"";position:absolute;z-index:1;inset:0 auto 0 0;width:500px;pointer-events:none;background:linear-gradient(90deg,rgba(255,255,255,.1) 0%,rgba(255,255,255,.1) 78%,rgba(255,255,255,0) 100%)}
-.hero::before{content:"";position:absolute;z-index:1;top:0;left:0;right:0;height:47px;pointer-events:none;background:linear-gradient(90deg,rgba(243,235,231,.96) 0%,rgba(241,232,225,.94) 35%,rgba(235,221,210,.86) 64%,rgba(216,190,168,.7) 100%)}
+.hero::before{display:none}
 .hero-image-wrap{-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.72) 5%,#000 13%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.72) 5%,#000 13%)}
 
 .service-carousel{position:absolute;left:62px;top:133px;width:900px;height:342px;overflow:hidden;touch-action:pan-y;cursor:grab}
@@ -158,8 +158,9 @@ h1,h2,h3,
 .ig-grid img{transition:transform .28s ease,box-shadow .28s ease;transform-origin:center;will-change:transform}
 .ig-grid img:hover{position:relative;z-index:3;transform:translateY(-3px) scale(1.055);box-shadow:0 10px 20px rgba(40,30,24,.2)}
 .hero-image-wrap img{will-change:transform;transform-origin:55% 45%}
-.final-dog{top:-4px;height:121px}
-.final-dog img{height:121px;object-fit:cover;object-position:center 16%;transform:scale(.96);transform-origin:center bottom}
+.final-cta{overflow:visible}
+.final-dog{top:0;height:117px;overflow:visible}
+.final-dog img{height:117px;object-fit:contain;object-position:center bottom;transform:none;transform-origin:center bottom}
 
 @media(max-width:850px){
   .hero{background:linear-gradient(90deg,#f0e7df 0%,#f1e8e1 50%,#e7d5c7 100%)}
@@ -177,6 +178,7 @@ h1,h2,h3,
   .experience-copy h2{font-size:26px}
   .gallery-title h2{font-size:20px}
   .final-copy h2{font-size:24px}
+  .final-dog img{object-fit:contain;object-position:center bottom}
   .experience{grid-template-columns:1fr}
   .experience-img{width:auto}
   .experience-copy{padding:34px 24px;transform:none;background:none}

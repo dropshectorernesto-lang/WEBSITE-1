@@ -230,7 +230,7 @@
   const carouselCards = [...document.querySelectorAll('.service-card')];
   const pager = document.querySelector('.pager');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let activeService = 0;
+  let activeSlide = 0;
   let railX = 0;
   let dragStartX = 0;
   let dragStartRailX = 0;
@@ -240,26 +240,31 @@
   const cardOffset = (index) => carouselCards[index]?.offsetLeft || 0;
   const maxRail = () => Math.max(0, (track?.scrollWidth || 0) - (carousel?.clientWidth || 0));
   const targetFor = (index) => Math.min(maxRail(), Math.max(0, cardOffset(index) - 16));
-  const nearestCard = (position) => carouselCards.reduce((best, card, index) => (
-    Math.abs(targetFor(index) - position) < Math.abs(targetFor(best) - position) ? index : best
+  const slidePositions = () => {
+    const end = Math.round(maxRail());
+    return [0, Math.round(end / 3), Math.round((end * 2) / 3), end];
+  };
+  const nearestSlide = (position) => slidePositions().reduce((best, target, index, positions) => (
+    Math.abs(target - position) < Math.abs(positions[best] - position) ? index : best
   ), 0);
   const paintRail = () => {
     if (track) track.style.transform = `translate3d(${-railX}px,0,0)`;
     pager?.querySelectorAll('button').forEach((button, index) => {
-      button.classList.toggle('active', index === activeService);
-      button.setAttribute('aria-current', index === activeService ? 'true' : 'false');
+      button.classList.toggle('active', index === activeSlide);
+      button.setAttribute('aria-current', index === activeSlide ? 'true' : 'false');
     });
   };
-  const goToService = (index) => {
-    activeService = Math.max(0, Math.min(carouselCards.length - 1, index));
-    railX = targetFor(activeService);
+  const goToSlide = (index) => {
+    const positions = slidePositions();
+    activeSlide = Math.max(0, Math.min(positions.length - 1, index));
+    railX = positions[activeSlide] || 0;
     paintRail();
   };
 
   if (carousel && track && carouselCards.length) {
     if (pager) {
-      pager.innerHTML = carouselCards.map((card, index) => `<button type="button" aria-label="Show service ${index + 1}: ${card.dataset.service}"></button>`).join('');
-      pager.querySelectorAll('button').forEach((button, index) => button.addEventListener('click', () => goToService(index)));
+      pager.innerHTML = slidePositions().map((position, index) => `<button type="button" aria-label="Show service group ${index + 1}"></button>`).join('');
+      pager.querySelectorAll('button').forEach((button, index) => button.addEventListener('click', () => goToSlide(index)));
     }
     carousel.addEventListener('pointerdown', (event) => {
       if (event.button !== 0) return;
@@ -275,7 +280,7 @@
       const delta = event.clientX - dragStartX;
       if (Math.abs(delta) > 5) dragged = true;
       railX = Math.max(0, Math.min(maxRail(), dragStartRailX - delta));
-      activeService = nearestCard(railX);
+      activeSlide = nearestSlide(railX);
       paintRail();
     });
     const finishDrag = (event) => {
@@ -283,7 +288,7 @@
       dragging = false;
       carousel.classList.remove('dragging');
       if (carousel.hasPointerCapture(event.pointerId)) carousel.releasePointerCapture(event.pointerId);
-      goToService(nearestCard(railX));
+      goToSlide(nearestSlide(railX));
     };
     carousel.addEventListener('pointerup', finishDrag);
     carousel.addEventListener('pointercancel', finishDrag);
@@ -294,8 +299,8 @@
         dragged = false;
       }
     }, true);
-    addEventListener('resize', () => goToService(activeService), { passive: true });
-    goToService(0);
+    addEventListener('resize', () => goToSlide(activeSlide), { passive: true });
+    goToSlide(0);
   }
 
   let scrollFrame = 0;
