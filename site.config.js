@@ -25,12 +25,12 @@ window.SITE_CONFIG = {
   },
 
   navigation: [
-    { label: 'HOME', target: '#home' },
-    { label: 'ABOUT', target: '#experience' },
-    { label: 'SERVICES', target: '#services' },
-    { label: 'GALLERY', target: '#gallery' },
-    { label: 'BLOG', target: '#gallery' },
-    { label: 'CONTACT', target: '#contact' },
+    { label: 'HOME', target: 'index.html' },
+    { label: 'ABOUT', target: 'about.html' },
+    { label: 'SERVICES', target: 'services.html' },
+    { label: 'GALLERY', target: 'gallery.html' },
+    { label: 'BLOG', target: 'blog.html' },
+    { label: 'CONTACT', target: 'contact.html' },
   ],
 
   hero: {
@@ -94,5 +94,9 @@ window.SITE_CONFIG = {
     kicker: 'BOOK THEIR BEST DAY',
     heading: 'REQUEST AN APPOINTMENT.',
     submitLabel: 'REQUEST APPOINTMENT',
+    // Full list for the booking modal's dropdown (shared across every page).
+    // Kept separate from services.cards below, which is only the homepage's
+    // 3 featured cards — that section's layout is pixel-fixed for exactly 3.
+    serviceOptions: ['BATH & BRUSH', 'HAIRCUT & STYLING', 'NAIL CLIPPING', 'TEETH CLEANING', 'EAR CLEANING', 'DE-SHEDDING TREATMENT'],
   },
 };

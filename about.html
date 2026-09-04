@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#f5ede6" />
+  <meta name="description" content="About Grüm — a dog grooming studio built around one-on-one care, gentle handling and certified groomers." />
+  <title>About — Grüm</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23f47b89'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-size='42' font-family='Georgia' font-weight='700' fill='white'%3Eg%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="reference.css" />
+  <link rel="stylesheet" href="pages.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Grüm home">grüm</a>
+    <nav class="main-nav" aria-label="Main navigation"></nav>
+    <button class="btn btn-primary btn-header" data-book><span class="phone-icon" aria-hidden="true"></span>BOOK APPOINTMENT</button>
+  </header>
+
+  <main>
+    <section class="page-hero section-width">
+      <div class="page-hero-inner">
+        <div class="page-hero-copy">
+          <p class="kicker">ABOUT GRÜM</p>
+          <h1>GROOMED WITH CARE,<br><span>TREATED LIKE FAMILY.</span></h1>
+          <p>Grüm started with a simple idea: grooming shouldn't feel like a factory line. Every pet gets one groomer, one appointment slot, and undivided attention from the moment they walk in.</p>
+          <button class="btn btn-primary" data-book><span class="phone-icon" aria-hidden="true"></span>BOOK APPOINTMENT</button>
+        </div>
+        <div class="page-hero-photo">
+          <img src="assets/experience.jpg" alt="Golden retriever enjoying a grooming treatment" />
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="section-width story-split">
+        <img src="assets/hero-dog.jpg" alt="Golden retriever being washed with bubbles" loading="lazy" />
+        <div>
+          <p class="kicker">OUR STORY</p>
+          <h2 class="content-heading">A CALMER WAY <span>TO GET GROOMED</span></h2>
+          <p class="content-lede">We built Grüm around a single rule: no cages, no rushing, no stranger-danger stress. Each visit is scheduled one pet at a time, so your dog gets a groomer's full attention from bath to final trim — not a slot in a busy queue.</p>
+          <p class="content-lede">That slower pace means calmer pets, better results, and a coat that actually gets the care it needs — whether that's a quick bath and brush or a full styling session.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section alt">
+      <div class="section-width">
+        <p class="kicker">WHY PET PARENTS CHOOSE US</p>
+        <h2 class="content-heading">WHAT MAKES <span>GRÜM DIFFERENT</span></h2>
+        <div class="value-grid">
+          <div class="value-card vc-green"><div class="value-num">01</div><h3>One-on-One Care</h3><p>Every appointment is a private session — your pet never waits in a cage.</p></div>
+          <div class="value-card vc-black"><div class="value-num">02</div><h3>Certified Groomers</h3><p>Trained, experienced, and genuinely good with nervous or older pets.</p></div>
+          <div class="value-card vc-orange"><div class="value-num">03</div><h3>Gentle Handling</h3><p>Low-stress techniques and breaks whenever your pet needs one.</p></div>
+          <div class="value-card vc-pink"><div class="value-num">04</div><h3>Premium Products</h3><p>Skin-safe shampoos and tools suited to your pet's coat type.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" id="contact">
+      <div class="section-width final-inner">
+        <div class="final-copy"><p class="kicker">READY FOR THEIR</p><h2>BEST DAY EVER?</h2><p>We can’t wait to meet your best friend.</p></div>
+        <div class="final-dog"><img src="assets/bottom-dog.jpg" alt="Happy golden retriever" loading="lazy" /></div>
+        <button class="btn btn-primary final-book" data-book><span class="phone-icon" aria-hidden="true"></span><strong>BOOK APPOINTMENT</strong><small>CLICK TO BOOK</small></button>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="modal" id="bookingModal">
+    <form method="dialog" id="bookingForm">
+      <button class="modal-close" type="submit" formnovalidate value="cancel" aria-label="Close">×</button>
+      <p class="kicker">BOOK THEIR BEST DAY</p>
+      <h2>REQUEST AN APPOINTMENT.</h2>
+      <div class="form-grid">
+        <label>Your name<input required name="name" autocomplete="name" /></label>
+        <label>Dog’s name<input required name="dog" /></label>
+        <label>Phone<input required name="phone" autocomplete="tel" /></label>
+        <label>Service<select name="service" id="serviceSelect"><option>BATH &amp; BRUSH</option><option>HAIRCUT &amp; STYLING</option><option>NAIL CLIPPING</option><option>TEETH CLEANING</option><option>EAR CLEANING</option><option>DE-SHEDDING TREATMENT</option></select></label>
+        <label class="full">Anything we should know?<textarea name="notes" placeholder="Breed, coat, preferred date…"></textarea></label>
+      </div>
+      <button class="btn btn-primary submit" value="default">REQUEST APPOINTMENT</button>
+    </form>
+  </dialog>
+
+  <script src="site.config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

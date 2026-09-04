@@ -50,7 +50,7 @@
           </div>
           <div class="services-intro">
             <p>From refreshing baths to complete makeovers,<br>we provide exceptional care tailored to<br>your pet’s unique needs.</p>
-            <a href="#service-cards">VIEW ALL SERVICES <i aria-hidden="true"></i></a>
+            <a href="services.html">VIEW ALL SERVICES <i aria-hidden="true"></i></a>
           </div>
         </div>
 
@@ -89,7 +89,7 @@
       <div class="experience-copy">
         <p class="kicker">THE GRÜM EXPERIENCE</p>
         <h2>MORE THAN A GROOM.<br>IT’S A MOMENT OF <span>CARE.</span></h2>
-        <button class="btn btn-primary" data-about>LEARN MORE ABOUT US <i aria-hidden="true"></i></button>
+        <a class="btn btn-primary" href="about.html">LEARN MORE ABOUT US <i aria-hidden="true"></i></a>
       </div>
     </section>
 
@@ -120,14 +120,14 @@
 
   <dialog class="modal" id="bookingModal">
     <form method="dialog" id="bookingForm">
-      <button class="modal-close" value="cancel" aria-label="Close">×</button>
+      <button class="modal-close" type="submit" formnovalidate value="cancel" aria-label="Close">×</button>
       <p class="kicker">BOOK THEIR BEST DAY</p>
       <h2>REQUEST AN APPOINTMENT.</h2>
       <div class="form-grid">
         <label>Your name<input required name="name" autocomplete="name" /></label>
         <label>Dog’s name<input required name="dog" /></label>
         <label>Phone<input required name="phone" autocomplete="tel" /></label>
-        <label>Service<select name="service" id="serviceSelect"><option>Bath &amp; Brush</option><option>Haircut &amp; Styling</option><option>Nail Clipping</option></select></label>
+        <label>Service<select name="service" id="serviceSelect"><option>BATH &amp; BRUSH</option><option>HAIRCUT &amp; STYLING</option><option>NAIL CLIPPING</option><option>TEETH CLEANING</option><option>EAR CLEANING</option><option>DE-SHEDDING TREATMENT</option></select></label>
         <label class="full">Anything we should know?<textarea name="notes" placeholder="Breed, coat, preferred date…"></textarea></label>
       </div>
       <button class="btn btn-primary submit" value="default">REQUEST APPOINTMENT</button>

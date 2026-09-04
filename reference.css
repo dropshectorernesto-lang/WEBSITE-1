@@ -224,6 +224,14 @@ body{font-family:Arial,Helvetica,sans-serif}
   .bubble{display:block}
   .hero-image-wrap{-webkit-mask-image:none;mask-image:none}
   .hero h1,.services h2,.experience-copy h2,.gallery-title h2,.final-copy h2{transform:none}
+  /* fix: this file loads after styles.css and was forcing the desktop font-size
+     unconditionally, overriding styles.css's mobile sizes and clipping headlines
+     like "DISTINGUISHED" on phones. */
+  .hero h1{font-size:44px}
+  .services h2{font-size:29px}
+  .experience-copy h2{font-size:26px}
+  .gallery-title h2{font-size:20px}
+  .final-copy h2{font-size:24px}
   .experience{grid-template-columns:1fr}
   .experience-img{width:auto}
   .experience-copy{padding:34px 24px;transform:none;background:none}
@@ -233,4 +241,15 @@ body{font-family:Arial,Helvetica,sans-serif}
   .service-card.card-green .service-info>div,.service-card.featured .service-info>div{transform:none}
   .service-card .card-arrow{transform:none}
   .service-info h3{transform:none}
+}
+
+@media(max-width:560px){
+  .hero h1{font-size:36px}
+  .services h2{font-size:25px}
+  .experience-copy h2{font-size:22px}
+  .final-copy h2{font-size:21px}
+}
+
+@media(max-width:360px){
+  .hero h1{font-size:32px}
 }

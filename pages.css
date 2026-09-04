@@ -1,0 +1,102 @@
+/* pages.css — shared styling for interior pages (About, Services, …).
+   Reuses the same design tokens/fonts as the homepage (styles.css + reference.css)
+   but with normal responsive flow instead of the homepage's pixel-exact absolute
+   layout, since interior pages don't need to match a fixed mockup crop. */
+
+/* ---------- Page hero banner (used at the top of About / Services) ---------- */
+.page-hero{position:relative;padding:150px 0 70px;overflow:hidden;background:linear-gradient(90deg,#f0e7df 0%,#f1e8e1 35%,#ebddd2 64%,#d8bea8 100%)}
+.page-hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:0 80px}
+.page-hero-copy .kicker{margin:0 0 10px}
+.page-hero-copy h1{font-family:'Anton',Impact,Haettenschweiler,'Arial Narrow Bold',sans-serif;font-weight:900;letter-spacing:-.55px;text-transform:uppercase;font-size:46px;line-height:.95;color:var(--ink);margin:0 0 16px}
+.page-hero-copy h1 span{color:var(--green)}
+.page-hero-copy p{font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.6;color:#222;max-width:420px;margin:0 0 22px}
+.page-hero-photo{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:0 12px 30px rgba(41,29,24,.14)}
+.page-hero-photo img{width:100%;height:340px;object-fit:cover}
+
+/* ---------- Generic content section wrapper ---------- */
+.content-section{padding:64px 0}
+.content-section.alt{background:var(--surface)}
+.content-section>.section-width{padding:0 80px}
+.content-section .kicker{margin:0 0 8px}
+.content-heading{font-family:'Anton',Impact,Haettenschweiler,'Arial Narrow Bold',sans-serif;font-weight:900;letter-spacing:-.55px;text-transform:uppercase;font-size:30px;line-height:1;color:var(--ink);margin:0 0 16px}
+.content-heading span{color:var(--green)}
+.content-lede{font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.7;color:#292626;max-width:640px;margin:0 0 10px}
+
+/* ---------- Story split (About) ---------- */
+.story-split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.story-split img{width:100%;border-radius:var(--radius);box-shadow:0 10px 24px rgba(41,29,24,.14);object-fit:cover;height:360px}
+
+/* ---------- Value / stat cards (About) ---------- */
+.value-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:34px}
+.value-card{border-radius:var(--radius);padding:26px 22px;color:#fff;box-shadow:0 7px 14px rgba(41,29,24,.14)}
+.value-card.vc-green{background:var(--green-dark)}
+.value-card.vc-black{background:#232121}
+.value-card.vc-orange{background:var(--orange)}
+.value-card.vc-pink{background:var(--pink)}
+.value-card .value-num{font-family:'Anton',Impact,Haettenschweiler,sans-serif;font-size:26px;color:rgba(255,255,255,.85);margin-bottom:10px}
+.value-card h3{font-family:'Anton',Impact,Haettenschweiler,sans-serif;font-size:17px;letter-spacing:-.2px;margin:0 0 8px;text-transform:uppercase}
+.value-card p{font-family:Arial,Helvetica,sans-serif;font-size:11.5px;line-height:1.5;margin:0;color:rgba(255,255,255,.92)}
+
+/* ---------- Services grid (Services page) ---------- */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px;margin-top:36px}
+.svc-card{position:relative;border-radius:var(--radius);overflow:hidden;color:#fff;box-shadow:0 7px 14px rgba(41,29,24,.16);cursor:pointer;display:flex;flex-direction:column;transition:transform .16s ease,box-shadow .16s ease}
+.svc-card:hover{transform:translateY(-3px);box-shadow:0 12px 22px rgba(41,29,24,.20)}
+.svc-card img{width:100%;height:190px;object-fit:cover;display:block}
+.svc-number{position:absolute;left:14px;top:14px;color:#fff;font-family:'Anton',Impact,Haettenschweiler,sans-serif;font-size:22px;text-shadow:0 1px 3px rgba(0,0,0,.25);z-index:2}
+.svc-body{padding:18px 20px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex:1}
+.svc-body h3{font-family:'Anton',Impact,Haettenschweiler,sans-serif;font-size:18px;line-height:1;margin:0 0 8px;text-transform:uppercase}
+.svc-body p{font-family:Arial,Helvetica,sans-serif;font-size:10.5px;line-height:1.5;margin:0;color:rgba(255,255,255,.92)}
+.svc-price{font-family:Arial,Helvetica,sans-serif;font-size:9.5px;font-weight:800;letter-spacing:.4px;color:rgba(255,255,255,.85);margin-top:8px;display:block}
+.svc-card.svc-green .svc-body{background:var(--green-dark)}
+.svc-card.svc-black .svc-body{background:#232121}
+.svc-card.svc-orange .svc-body{background:var(--orange)}
+.svc-arrow{position:relative;display:grid;place-items:center;flex:none;width:38px;height:38px;border-radius:50%;background:#f8b0ba;color:#171717;box-shadow:inset 0 0 0 1px rgba(255,255,255,.65)}
+.svc-arrow::before{content:"";width:11px;height:1px;background:#171717;transform:translateX(1px)}
+.svc-arrow::after{content:"";position:absolute;width:6px;height:6px;border-top:1px solid #171717;border-right:1px solid #171717;transform:translateX(3px) rotate(45deg)}
+
+/* ---------- Process strip (Services) ---------- */
+.process-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:26px;margin-top:38px}
+.process-step{text-align:left}
+.process-step .step-num{font-family:'Anton',Impact,Haettenschweiler,sans-serif;font-size:34px;color:var(--pink);line-height:1;margin-bottom:10px}
+.process-step h3{font-family:'Anton',Impact,Haettenschweiler,sans-serif;font-size:15px;text-transform:uppercase;margin:0 0 6px;color:var(--ink)}
+.process-step p{font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:1.55;margin:0;color:#3a3636}
+
+/* ---------- Photo grid (Gallery) ---------- */
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:36px}
+.photo-tile{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:0 6px 14px rgba(41,29,24,.14);aspect-ratio:1/1}
+.photo-tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s ease}
+.photo-tile:hover img{transform:scale(1.05)}
+.photo-tile.wide{grid-column:span 2}
+
+/* ---------- Blog list (Blog) ---------- */
+.blog-list{display:flex;flex-direction:column;gap:28px;margin-top:36px}
+.blog-post{display:grid;grid-template-columns:280px 1fr;gap:26px;align-items:center;border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:0 6px 16px rgba(41,29,24,.10)}
+.blog-post img{width:100%;height:100%;min-height:190px;object-fit:cover;display:block}
+.blog-post-body{padding:22px 26px 22px 0}
+.blog-date{font-family:Arial,Helvetica,sans-serif;font-size:9.5px;font-weight:800;letter-spacing:.5px;color:var(--pink);text-transform:uppercase;margin:0 0 8px}
+.blog-post-body h3{font-family:'Anton',Impact,Haettenschweiler,sans-serif;font-size:19px;letter-spacing:-.2px;text-transform:uppercase;margin:0 0 10px;color:var(--ink)}
+.blog-post-body p{font-family:Arial,Helvetica,sans-serif;font-size:11.5px;line-height:1.6;color:#3a3636;margin:0}
+
+/* ---------- Contact page ---------- */
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:44px;margin-top:36px;align-items:start}
+.contact-info-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.contact-form{background:#fff;border-radius:var(--radius);padding:30px;box-shadow:0 8px 22px rgba(41,29,24,.10)}
+.contact-form .btn{margin-top:6px}
+.form-status{font-family:Arial,Helvetica,sans-serif;font-size:11.5px;color:var(--green);margin:14px 0 0;display:none}
+.form-status.show{display:block}
+
+@media(max-width:850px){
+  .page-hero{padding:110px 0 46px}
+  .page-hero-inner{grid-template-columns:1fr;gap:26px;padding:0 24px}
+  .page-hero-copy h1{font-size:36px}
+  .page-hero-photo img{height:240px}
+  .story-split{grid-template-columns:1fr}
+  .story-split img{height:240px}
+  .content-section{padding:46px 0}
+  .content-section>.section-width{padding:0 24px}
+  .blog-post{grid-template-columns:1fr}
+  .blog-post img{height:200px;min-height:0}
+  .blog-post-body{padding:4px 20px 22px}
+  .contact-grid{grid-template-columns:1fr}
+  .photo-tile.wide{grid-column:span 1}
+}

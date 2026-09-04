@@ -44,9 +44,41 @@
     setText('.brand', config.business?.name);
     const navigation = document.querySelector('.main-nav');
     if (navigation && config.navigation) {
-      navigation.innerHTML = config.navigation.map((item, index) => (
-        `<a class="${index === 0 ? 'active' : ''}" href="${escapeAttribute(item.target)}">${item.label}</a>`
-      )).join('');
+      const currentPage = (location.pathname.split('/').pop() || 'index.html');
+      navigation.innerHTML = config.navigation.map((item) => {
+        const [targetPage, targetHash] = String(item.target).split('#');
+        const isActive = (targetPage || 'index.html') === currentPage && (!targetHash || location.hash === `#${targetHash}`);
+        return `<a class="${isActive ? 'active' : ''}" href="${escapeAttribute(item.target)}">${item.label}</a>`;
+      }).join('') + '<button class="btn btn-primary nav-book" type="button" data-book><span class="phone-icon" aria-hidden="true"></span>BOOK APPOINTMENT</button>';
+    }
+
+    // Mobile nav: below 851px the header hides .main-nav/.btn-header for space,
+    // which left every page unreachable from a phone once About/Services/Gallery/
+    // Blog/Contact became real pages instead of same-page anchors. Add a hamburger
+    // toggle that reveals the same nav (plus a Book Appointment button) as a
+    // dropdown, wired here so it works identically on every page.
+    const headerEl = document.querySelector('.site-header');
+    if (headerEl && navigation && !headerEl.querySelector('.nav-toggle')) {
+      const toggle = document.createElement('button');
+      toggle.type = 'button';
+      toggle.className = 'nav-toggle';
+      toggle.setAttribute('aria-label', 'Open menu');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.innerHTML = '<span class="bar"></span><span class="bar"></span><span class="bar"></span>';
+      headerEl.insertBefore(toggle, navigation);
+      toggle.addEventListener('click', () => {
+        const open = navigation.classList.toggle('open');
+        toggle.classList.toggle('open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+      navigation.addEventListener('click', (event) => {
+        if (event.target.closest('a')) {
+          navigation.classList.remove('open');
+          toggle.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
     }
 
     setHtml('#hero-title', config.hero?.headlineHtml);
@@ -73,8 +105,8 @@
       }).join('');
     }
     const select = document.getElementById('serviceSelect');
-    if (select && config.services?.cards) {
-      select.innerHTML = config.services.cards.map((card) => `<option>${card.title}</option>`).join('');
+    if (select && config.booking?.serviceOptions) {
+      select.innerHTML = config.booking.serviceOptions.map((label) => `<option>${label}</option>`).join('');
     }
 
     setText('.experience-copy .kicker', config.experience?.kicker);
@@ -210,6 +242,11 @@
 
   const form = document.getElementById('bookingForm');
   form?.addEventListener('submit', (event) => {
+    // The "x" close button is also type="submit" (method="dialog" needs a submit
+    // button to trigger the native close), so only run the request-appointment
+    // validation/close-and-reset flow for the actual submit — let the cancel
+    // button's own formnovalidate + native dialog close happen untouched.
+    if (event.submitter && event.submitter.value === 'cancel') return;
     event.preventDefault();
     if (!form.reportValidity()) return;
     booking?.close();
