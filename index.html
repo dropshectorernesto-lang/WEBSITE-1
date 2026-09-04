@@ -57,7 +57,9 @@
           </div>
         </div>
 
-        <div class="service-cards" id="service-cards">
+        <div class="service-carousel" aria-label="Grooming services carousel">
+          <button class="carousel-arrow carousel-prev" type="button" aria-label="Previous service"><i aria-hidden="true"></i></button>
+          <div class="service-cards" id="service-cards">
           <article class="service-card card-green" data-service="Bath &amp; Brush" tabindex="0" role="button" aria-label="Book Bath and Brush">
             <div class="service-number">01</div>
             <img src="assets/service-bath.jpg" alt="White dog wrapped in a towel" loading="lazy" />
@@ -82,8 +84,10 @@
               <span class="card-arrow" aria-hidden="true"></span>
             </div>
           </article>
+          </div>
+          <button class="carousel-arrow carousel-next" type="button" aria-label="Next service"><i aria-hidden="true"></i></button>
         </div>
-        <div class="pager" aria-hidden="true"><span></span><span></span><b></b><span></span><span></span></div>
+        <div class="pager" aria-label="Choose a service slide"></div>
       </div>
     </section>
 

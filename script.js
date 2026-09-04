@@ -225,6 +225,112 @@
     });
   });
 
+  const carousel = document.querySelector('.service-carousel');
+  const track = document.querySelector('.service-cards');
+  const carouselCards = [...document.querySelectorAll('.service-card')];
+  const previous = document.querySelector('.carousel-prev');
+  const next = document.querySelector('.carousel-next');
+  const pager = document.querySelector('.pager');
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let activeService = 0;
+  let railX = 0;
+  let dragStartX = 0;
+  let dragStartRailX = 0;
+  let dragging = false;
+  let dragged = false;
+
+  const cardOffset = (index) => carouselCards[index]?.offsetLeft || 0;
+  const maxRail = () => Math.max(0, (track?.scrollWidth || 0) - (carousel?.clientWidth || 0));
+  const targetFor = (index) => Math.min(maxRail(), Math.max(0, cardOffset(index) - 16));
+  const nearestCard = (position) => carouselCards.reduce((best, card, index) => (
+    Math.abs(targetFor(index) - position) < Math.abs(targetFor(best) - position) ? index : best
+  ), 0);
+  const paintRail = () => {
+    if (track) track.style.transform = `translate3d(${-railX}px,0,0)`;
+    previous?.toggleAttribute('disabled', railX < 2);
+    next?.toggleAttribute('disabled', railX > maxRail() - 2);
+    pager?.querySelectorAll('button').forEach((button, index) => {
+      button.classList.toggle('active', index === activeService);
+      button.setAttribute('aria-current', index === activeService ? 'true' : 'false');
+    });
+  };
+  const goToService = (index) => {
+    activeService = Math.max(0, Math.min(carouselCards.length - 1, index));
+    railX = targetFor(activeService);
+    paintRail();
+  };
+
+  if (carousel && track && carouselCards.length) {
+    if (pager) {
+      pager.innerHTML = carouselCards.map((card, index) => `<button type="button" aria-label="Show service ${index + 1}: ${card.dataset.service}"></button>`).join('');
+      pager.querySelectorAll('button').forEach((button, index) => button.addEventListener('click', () => goToService(index)));
+    }
+    previous?.addEventListener('click', () => goToService(activeService - 1));
+    next?.addEventListener('click', () => goToService(activeService + 1));
+    carousel.addEventListener('pointerdown', (event) => {
+      if (event.button !== 0) return;
+      dragging = true;
+      dragged = false;
+      dragStartX = event.clientX;
+      dragStartRailX = railX;
+      carousel.setPointerCapture(event.pointerId);
+      carousel.classList.add('dragging');
+    });
+    carousel.addEventListener('pointermove', (event) => {
+      if (!dragging) return;
+      const delta = event.clientX - dragStartX;
+      if (Math.abs(delta) > 5) dragged = true;
+      railX = Math.max(0, Math.min(maxRail(), dragStartRailX - delta));
+      activeService = nearestCard(railX);
+      paintRail();
+    });
+    const finishDrag = (event) => {
+      if (!dragging) return;
+      dragging = false;
+      carousel.classList.remove('dragging');
+      if (carousel.hasPointerCapture(event.pointerId)) carousel.releasePointerCapture(event.pointerId);
+      goToService(nearestCard(railX));
+    };
+    carousel.addEventListener('pointerup', finishDrag);
+    carousel.addEventListener('pointercancel', finishDrag);
+    carousel.addEventListener('click', (event) => {
+      if (dragged) {
+        event.preventDefault();
+        event.stopPropagation();
+        dragged = false;
+      }
+    }, true);
+    addEventListener('resize', () => goToService(activeService), { passive: true });
+    goToService(0);
+  }
+
+  let scrollFrame = 0;
+  const updateScrollMotion = () => {
+    scrollFrame = 0;
+    if (reducedMotion) return;
+    const hero = document.querySelector('.hero');
+    const heroImage = document.querySelector('.hero-image-wrap img');
+    if (hero && heroImage) {
+      const travelled = Math.max(0, Math.min(1, -hero.getBoundingClientRect().top / (hero.offsetHeight * .72)));
+      heroImage.style.transform = `translate3d(0,${(-travelled * 1.2).toFixed(2)}%,0) scale(${(1 + travelled * .045).toFixed(4)})`;
+      document.querySelectorAll('.bubble').forEach((bubble, index) => {
+        bubble.style.transform = `translate3d(0,${(travelled * (index % 2 ? -9 : -5)).toFixed(2)}px,0)`;
+      });
+    }
+    carouselCards.forEach((card) => {
+      const rect = card.getBoundingClientRect();
+      const proximity = Math.max(0, Math.min(1, 1 - Math.abs(rect.top + rect.height / 2 - innerHeight * .55) / (innerHeight * .7)));
+      card.style.setProperty('--scroll-lift', `${(-proximity * 4).toFixed(2)}px`);
+      card.style.setProperty('--scroll-scale', (1 + proximity * .018).toFixed(4));
+    });
+  };
+  const queueScrollMotion = () => {
+    if (!scrollFrame) scrollFrame = requestAnimationFrame(updateScrollMotion);
+  };
+  addEventListener('scroll', queueScrollMotion, { passive: true });
+  addEventListener('resize', queueScrollMotion, { passive: true });
+  queueScrollMotion();
+
   document.querySelector('[data-video]')?.addEventListener('click', () => video?.showModal());
   document.querySelector('[data-close-video]')?.addEventListener('click', () => video?.close());
   document.querySelector('[data-about]')?.addEventListener('click', () => {
