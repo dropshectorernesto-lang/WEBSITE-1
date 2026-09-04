@@ -99,6 +99,7 @@ h1,h2,h3,
     text-shadow:.45px 0 currentColor;
   }
   .hero-copy>p{font-family:Arial,Helvetica,sans-serif;font-size:12px}
+  .main-nav{transform:translateX(38px)}
 }
 
 .main-nav a::after{
@@ -158,9 +159,9 @@ h1,h2,h3,
 .service-card img{height:calc(100% - 109px);object-fit:cover;pointer-events:none;user-select:none;-webkit-user-select:none;-webkit-user-drag:none}
 .service-info{margin-top:-1px}
 .pager{top:478px;gap:0}
-.pager button{position:relative;width:14px;height:20px;padding:0;border:0;background:none;opacity:1;transition:transform .18s ease}
+.pager button{position:relative;width:15px;height:20px;padding:0;border:0;background:none;opacity:1;transition:transform .18s ease}
 .pager button::before{content:"";position:absolute;left:50%;top:50%;width:7px;height:7px;border-radius:50%;background:#efadb6;transform:translate(-50%,-50%)}
-.pager button.active{width:21px;background:center/18px 18px no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='%23f47b89'%3E%3Cellipse cx='19' cy='16' rx='7' ry='9'/%3E%3Cellipse cx='45' cy='16' rx='7' ry='9'/%3E%3Cellipse cx='10' cy='31' rx='7' ry='9' transform='rotate(-24 10 31)'/%3E%3Cellipse cx='54' cy='31' rx='7' ry='9' transform='rotate(24 54 31)'/%3E%3Cpath d='M32 27c-10 0-17 9-17 17 0 7 6 11 12 8 3-2 7-2 10 0 6 3 12-1 12-8 0-8-7-17-17-17z'/%3E%3C/svg%3E")}
+.pager button.active{width:15px;background:center/15px 15px no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='%23f47b89'%3E%3Cellipse cx='19' cy='16' rx='7' ry='9'/%3E%3Cellipse cx='45' cy='16' rx='7' ry='9'/%3E%3Cellipse cx='10' cy='31' rx='7' ry='9' transform='rotate(-24 10 31)'/%3E%3Cellipse cx='54' cy='31' rx='7' ry='9' transform='rotate(24 54 31)'/%3E%3Cpath d='M32 27c-10 0-17 9-17 17 0 7 6 11 12 8 3-2 7-2 10 0 6 3 12-1 12-8 0-8-7-17-17-17z'/%3E%3C/svg%3E")}
 .pager button.active::before{display:none}
 .ig-grid img{transition:transform .28s ease,box-shadow .28s ease;transform-origin:center;will-change:transform}
 .ig-grid img:hover{position:relative;z-index:3;transform:translateY(-3px) scale(1.055);box-shadow:0 10px 20px rgba(40,30,24,.2)}

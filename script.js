@@ -262,12 +262,15 @@
   };
 
   if (carousel && track && carouselCards.length) {
+    carousel.addEventListener('dragstart', (event) => event.preventDefault());
+    carousel.addEventListener('selectstart', (event) => event.preventDefault());
     if (pager) {
       pager.innerHTML = slidePositions().map((position, index) => `<button type="button" aria-label="Show service group ${index + 1}"></button>`).join('');
       pager.querySelectorAll('button').forEach((button, index) => button.addEventListener('click', () => goToSlide(index)));
     }
     carousel.addEventListener('pointerdown', (event) => {
       if (event.button !== 0) return;
+      event.preventDefault();
       dragging = true;
       dragged = false;
       dragStartX = event.clientX;
