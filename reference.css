@@ -86,7 +86,7 @@ h1,h2,h3,
   .brand{transform:translateY(-2px) scaleX(1.05);transform-origin:left center}
   .site-header{display:block;position:absolute;padding:0 26px}
   .site-header .brand{position:absolute;left:26px;top:20px}
-  .main-nav{position:absolute;left:311px;top:0;height:66px;transform:none}
+  .main-nav{position:absolute;left:380px;top:0;height:66px;transform:none}
   .btn-header{position:absolute;right:26px;top:14px}
   .main-nav a{font-family:Arial,Helvetica,sans-serif;font-size:9px;font-weight:400}
   .site-header .btn,.hero-actions .btn{font-family:Arial,Helvetica,sans-serif}
