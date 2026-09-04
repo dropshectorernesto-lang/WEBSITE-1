@@ -125,7 +125,7 @@
     const grid = document.querySelector('.ig-grid');
     if (grid && config.gallery?.images) {
       grid.innerHTML = config.gallery.images.map((image) => (
-        `<img src="${escapeAttribute(image.src)}" alt="${escapeAttribute(image.alt)}" loading="lazy" />`
+        `<a href="gallery.html" aria-label="View ${escapeAttribute(image.alt)} in the gallery"><img src="${escapeAttribute(image.src)}" alt="${escapeAttribute(image.alt)}" loading="lazy" /></a>`
       )).join('');
     }
 
