@@ -71,7 +71,7 @@ window.SITE_CONFIG = {
     kicker: 'FOLLOW OUR JOURNEY!',
     heading: 'ON INSTAGRAM',
     linkLabel: 'VIEW MORE ON INSTAGRAM',
-    phoneImage: 'assets/phone.jpg',
+    phoneImage: 'assets/instagram-phone.png',
     phoneAlt: 'Grüm Instagram profile on a phone',
     images: [
       { src: 'assets/ig-1.jpg', alt: 'Dog grooming Instagram post' },

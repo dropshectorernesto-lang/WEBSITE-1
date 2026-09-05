@@ -116,7 +116,7 @@
 
     setText('.gallery-title .kicker', config.gallery?.kicker);
     setText('.gallery-title h2', config.gallery?.heading);
-    setImage('.phone-mock', config.gallery?.phoneImage, config.gallery?.phoneAlt);
+    setImage('.phone-mock img', config.gallery?.phoneImage, config.gallery?.phoneAlt);
     const galleryLink = document.querySelector('.gallery-more');
     if (galleryLink) {
       if (config.business?.instagramUrl) galleryLink.href = config.business.instagramUrl;

@@ -248,3 +248,25 @@ h1,h2,h3,
   .experience-img img{object-position:12% center}
   .experience-copy{background:#ecdbc7;padding:30px 24px}
 }
+
+  .grum-instagram { position: relative; width: min(100%, 420px); margin: 0; container-type: inline-size; }
+  .grum-instagram img { display: block; width: 100%; height: auto; }
+  .grum-instagram a { position: absolute; display: block; cursor: pointer; }
+  .grum-instagram a:focus-visible { outline: 3px solid #e44379; outline-offset: 3px; }
+  .grum-instagram .profile { left: 19.67%; top: 17.74%; width: 15.42%; height: 9.47%; border-radius: 50%; background: #fff; box-shadow: 0 0 0 0.25cqw #fff; }
+  .grum-instagram .profile::before { content: ""; position: absolute; inset: 0.85cqw; border-radius: 50%; background-image: url("assets/instagram-phone.png"); background-size: 725% auto; background-position: 23.765% 20.014%; pointer-events: none; }
+  .grum-instagram .profile:hover::before, .grum-instagram .profile:focus-visible::before { opacity: 0; }
+  .grum-instagram .follow { left: 20.18%; top: 33.86%; width: 25.76%; height: 3.64%; border-radius: 1.3cqw; }
+  .grum-instagram .follow::after { content: "Follow"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: #0095f6; box-shadow: 0 0 0 0.15cqw #0095f6; color: white; font: 500 2.6cqw Arial, sans-serif; border-radius: inherit; opacity: 0; transition: opacity 150ms ease; }
+  .grum-instagram .follow:hover { box-shadow: none; outline: none; }
+  .grum-instagram .follow:hover::after, .grum-instagram .follow:focus-visible::after { opacity: 1; }
+  .grum-instagram .profile:hover, .grum-instagram .profile:focus-visible { background: transparent; box-shadow: none; }
+.grum-instagram.phone-mock{position:absolute;width:170px;height:auto;margin:0;overflow:hidden;border-radius:16px}
+.grum-instagram a:hover{opacity:1}
+@media(max-width:850px){
+  .grum-instagram.phone-mock{display:block;position:relative;left:auto;bottom:auto;width:min(280px,100%);margin:0 auto 24px}
+}
+
+/* Keep the phone's clickable profile visible above the gallery edge. */
+.gallery{position:relative;overflow:visible;z-index:2}
+
