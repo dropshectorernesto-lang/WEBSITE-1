@@ -63,7 +63,7 @@ window.SITE_CONFIG = {
     kicker: 'THE GRÜM EXPERIENCE',
     headingHtml: 'MORE THAN A GROOM.<br>IT’S A MOMENT OF <span>CARE.</span>',
     button: 'LEARN MORE ABOUT US',
-    image: 'assets/experience.jpg',
+    image: 'assets/experience-banner.jpg',
     imageAlt: 'Golden retriever enjoying a grooming treatment',
   },
 
