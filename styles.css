@@ -148,6 +148,10 @@ h1,h2,h3{margin:0;font-family:Impact,Haettenschweiler,'Arial Narrow Bold',sans-s
 .final-book .phone-icon{grid-row:1/3;width:21px;height:21px;align-self:center}
 .final-book strong{align-self:end;font-size:13px;line-height:1;text-align:left}
 .final-book small{align-self:start;margin-top:2px;font-size:6px;line-height:1;font-weight:500;text-align:center}
+.legal-links{position:absolute;right:42px;bottom:13px;display:flex;align-items:center;gap:10px;font-size:8px;line-height:1;text-transform:uppercase}
+.legal-links strong{color:#f17080;font-weight:900}
+.legal-links a{color:#00584d;font-weight:800;text-decoration:none}
+.legal-links a:hover,.legal-links a:focus-visible{text-decoration:underline}
 
 /* Dialogs */
 .modal{border:0;border-radius:25px;background:#fbf7f2;color:var(--ink);width:min(560px,calc(100% - 28px));box-shadow:0 28px 80px rgba(35,25,20,.20);padding:28px}
@@ -213,6 +217,7 @@ h1,h2,h3{margin:0;font-family:Impact,Haettenschweiler,'Arial Narrow Bold',sans-s
   .final-dog{width:100%;height:170px}
   .final-dog img{width:100%;height:100%;object-fit:cover}
   .final-book{width:220px}
+  .legal-links{position:static;display:flex;flex-wrap:wrap;gap:10px;margin-top:2px}
 }
 
 @media(max-width:560px){

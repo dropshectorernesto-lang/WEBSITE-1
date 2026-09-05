@@ -214,13 +214,12 @@
     button.addEventListener('click', () => openBooking());
   });
 
+  const activateServiceCard = (card) => openBooking(card.dataset.service);
   document.querySelectorAll('.service-card').forEach((card) => {
-    const activate = () => openBooking(card.dataset.service);
-    card.addEventListener('click', activate);
     card.addEventListener('keydown', (event) => {
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
-        activate();
+        activateServiceCard(card);
       }
     });
   });
@@ -236,6 +235,7 @@
   let dragStartRailX = 0;
   let dragging = false;
   let dragged = false;
+  let pressedCard = null;
 
   const cardOffset = (index) => carouselCards[index]?.offsetLeft || 0;
   const maxRail = () => Math.max(0, (track?.scrollWidth || 0) - (carousel?.clientWidth || 0));
@@ -273,6 +273,7 @@
       event.preventDefault();
       dragging = true;
       dragged = false;
+      pressedCard = event.target.closest('.service-card');
       dragStartX = event.clientX;
       dragStartRailX = railX;
       carousel.setPointerCapture(event.pointerId);
@@ -288,10 +289,14 @@
     });
     const finishDrag = (event) => {
       if (!dragging) return;
+      const wasDragged = dragged;
+      const card = pressedCard;
       dragging = false;
+      pressedCard = null;
       carousel.classList.remove('dragging');
       if (carousel.hasPointerCapture(event.pointerId)) carousel.releasePointerCapture(event.pointerId);
       goToSlide(nearestSlide(railX));
+      if (!wasDragged && card) activateServiceCard(card);
     };
     carousel.addEventListener('pointerup', finishDrag);
     carousel.addEventListener('pointercancel', finishDrag);
@@ -300,7 +305,10 @@
         event.preventDefault();
         event.stopPropagation();
         dragged = false;
+        return;
       }
+      const card = event.target.closest('.service-card');
+      if (card) activateServiceCard(card);
     }, true);
     addEventListener('resize', () => goToSlide(activeSlide), { passive: true });
     goToSlide(0);
@@ -322,8 +330,8 @@
     carouselCards.forEach((card) => {
       const rect = card.getBoundingClientRect();
       const proximity = Math.max(0, Math.min(1, 1 - Math.abs(rect.top + rect.height / 2 - innerHeight * .55) / (innerHeight * .7)));
-      card.style.setProperty('--scroll-lift', `${(-proximity * 4).toFixed(2)}px`);
-      card.style.setProperty('--scroll-scale', (1 + proximity * .018).toFixed(4));
+      card.style.setProperty('--scroll-lift', `${(-proximity * 8).toFixed(2)}px`);
+      card.style.setProperty('--scroll-scale', (1 + proximity * .035).toFixed(4));
     });
   };
   const queueScrollMotion = () => {
