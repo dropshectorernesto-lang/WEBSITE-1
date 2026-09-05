@@ -30,7 +30,7 @@ h1,h2,h3,
 }
 
 .main-nav{gap:38px}
-.main-nav a{font-family:'Inter',Arial,sans-serif;font-size:8.5px;font-weight:700}
+.main-nav a{font-family:'Inter',Arial,sans-serif;font-size:8.5px;font-weight:800;text-shadow:0 1px 0 rgba(255,255,255,.92),.7px .7px 0 rgba(0,0,0,.34),-.45px 0 0 rgba(255,255,255,.7),0 -.45px 0 rgba(255,255,255,.7)}
 .main-nav a.active{color:var(--pink)}
 .main-nav a.active:after{background:var(--pink)}
 
@@ -89,7 +89,7 @@ h1,h2,h3,
   .site-header .brand{position:absolute;left:26px;top:20px}
   .main-nav{position:absolute;left:380px;top:0;height:66px;transform:none}
   .btn-header{position:absolute;right:26px;top:14px}
-  .main-nav a{font-family:Arial,Helvetica,sans-serif;font-size:9px;font-weight:400}
+  .main-nav a{font-family:Arial,Helvetica,sans-serif;font-size:9px;font-weight:800}
   .site-header .btn,.hero-actions .btn{font-family:Arial,Helvetica,sans-serif}
   .btn-header{font-size:9px}
   .hero-actions .btn{font-size:9px}
@@ -99,9 +99,9 @@ h1,h2,h3,
     letter-spacing:-.35px;
     font-size:49px;
     line-height:.895;
-    transform:scaleX(1.12);
+    transform:scaleX(1.12) translateX(.5px);
     transform-origin:left top;
-    text-shadow:.45px 0 currentColor;
+    text-shadow:.45px 0 currentColor,1.1px 1.1px 0 rgba(0,0,0,.32),-1px 0 0 rgba(255,255,255,.82),1px 0 0 rgba(255,255,255,.55),0 -1px 0 rgba(255,255,255,.75),0 1px 0 rgba(255,255,255,.58);
   }
   .hero-copy>p{font-family:Arial,Helvetica,sans-serif;font-size:12px}
 }
