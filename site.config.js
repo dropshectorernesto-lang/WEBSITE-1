@@ -38,7 +38,7 @@ window.SITE_CONFIG = {
     subtitle: 'Luxury care. Happy tails.',
     primaryButton: 'BOOK APPOINTMENT',
     secondaryButton: 'WATCH VIDEO',
-    image: 'assets/hero-dog.jpg',
+    image: 'assets/hero-clean.png',
     imageAlt: 'Golden retriever being washed with bubbles',
     chipTitle: 'ONE-ON-ONE CARE',
     chipTextHtml: 'Each pet enjoys our<br>undivided attention.',

@@ -222,3 +222,17 @@ h1,h2,h3,
 }
 
 @media(max-width:360px){.hero h1{font-size:32px}}
+
+/* Use the complete supplied photograph instead of the previous composite. */
+.hero{background:#f1e6da}
+.hero::before,.hero::after,.hero .bubble,.hero-image-wrap::before{display:none}
+.hero-image-wrap{display:block;inset:0;width:100%;height:100%;aspect-ratio:auto;-webkit-mask-image:none;mask-image:none}
+.hero-image-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transform:none!important}
+@media(max-width:850px){
+  .hero-image-wrap{top:280px;height:calc(100% - 280px)}
+  .hero-image-wrap img{object-position:65% center}
+  .hero-image-wrap::before{display:block;background:linear-gradient(180deg,#f1e6da,transparent 30%)}
+}
+@media(max-width:560px){
+  .hero-image-wrap{top:340px;height:calc(100% - 340px)}
+}
