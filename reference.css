@@ -44,6 +44,7 @@ h1,h2,h3,
 .hero h1{font-size:49px;line-height:.91;color:var(--ink);letter-spacing:-.35px}
 .hero h1 .green{color:var(--green)}
 .hero h1 .dot{color:var(--pink)}
+.hero-headline-img{display:block;width:319px;height:auto;max-width:min(319px,calc(100vw - 48px))}
 .hero-copy>p{font-family:'Inter',Arial,sans-serif;font-size:11px}
 
 .services,.gallery{background:#f3ebe7}
