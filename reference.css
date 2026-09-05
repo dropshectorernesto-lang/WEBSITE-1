@@ -192,7 +192,6 @@ h1,h2,h3,
   .final-dog img{width:280px;height:280px;object-fit:contain;object-position:center top}
   .final-copy,.final-book{z-index:1}
 }
-.final-dog img{filter:url(#footer-dog-cutout)}
 
 @media(max-width:850px){
   .site-header{background:rgba(243,235,231,.9)}
