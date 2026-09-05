@@ -28,7 +28,7 @@
       .replaceAll('<', '&lt;')
       .replaceAll('>', '&gt;');
 
-    document.title = config.business?.title || document.title;
+    if (document.body?.dataset.page === 'home') document.title = config.business?.title || document.title;
     const description = document.querySelector('meta[name="description"]');
     if (description && config.business?.description) description.content = config.business.description;
 

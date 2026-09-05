@@ -12,7 +12,7 @@ window.SITE_CONFIG = {
     surface: '#f3ebe7',
     experience: '#e8ddd6',
     final: '#f3ece8',
-    green: '#004f48',
+    green: '#01463c',
     greenDark: '#01463c',
     pink: '#f87686',
     pinkSoft: '#f7a7b1',
@@ -34,7 +34,7 @@ window.SITE_CONFIG = {
   ],
 
   hero: {
-    headlineHtml: '<span class="green">TAILORED<br>GROOMING</span><br>FOR<br>DISTINGUISHED<br>PETS<span class="dot">.</span>',
+    headlineHtml: '<img class="hero-headline-img" src="assets/hero-headline-tailored-hd.png" alt="Tailored grooming for distinguished pets" />',
     subtitle: 'Luxury care. Happy tails.',
     primaryButton: 'BOOK APPOINTMENT',
     secondaryButton: 'WATCH VIDEO',

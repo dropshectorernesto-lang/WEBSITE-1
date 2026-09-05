@@ -41,8 +41,8 @@ h1,h2,h3,
 .btn-secondary{background:rgba(255,255,255,.82)}
 
 .kicker{font-family:'Inter',Arial,sans-serif;color:var(--pink);font-size:9.5px;font-weight:800}
-.hero h1{font-size:49px;line-height:.91;color:var(--ink);letter-spacing:0}
-.hero h1 .green{color:var(--green);display:inline-block;transform:translateX(-4px)}
+.hero h1{font-size:49px;line-height:.91;color:var(--ink);letter-spacing:-.35px}
+.hero h1 .green{color:var(--green)}
 .hero h1 .dot{color:var(--pink)}
 .hero-headline-img{display:block;width:319px;height:auto;max-width:min(319px,calc(100vw - 48px))}
 .hero-copy>p{font-family:'Inter',Arial,sans-serif;font-size:11px}
@@ -96,14 +96,12 @@ h1,h2,h3,
   .hero h1{
     font-family:'Anton',Impact,Haettenschweiler,sans-serif;
     font-weight:400;
-    letter-spacing:0;
-    font-size:51px;
-    line-height:.89;
-    transform:scaleX(1.16);
+    letter-spacing:-.35px;
+    font-size:49px;
+    line-height:.895;
+    transform:scaleX(1.12);
     transform-origin:left top;
-    text-shadow:.8px 0 currentColor,-.45px 0 currentColor,0 .45px currentColor,1.1px 1.1px 0 rgba(0,0,0,.22),-1px 0 0 rgba(255,255,255,.9),0 -1px 0 rgba(255,255,255,.78);
-    -webkit-font-smoothing:antialiased;
-    text-rendering:geometricPrecision;
+    text-shadow:.45px 0 currentColor;
   }
   .hero-copy>p{font-family:Arial,Helvetica,sans-serif;font-size:12px}
 }
@@ -134,10 +132,7 @@ h1,h2,h3,
   background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.85),rgba(255,255,255,.1) 31%,rgba(255,255,255,.03) 57%,rgba(168,127,98,.1));
   box-shadow:inset 5px 7px 13px rgba(255,255,255,.5),inset -5px -4px 11px rgba(164,125,99,.12)
 }
-.final-cta{
-  position:relative;
-  background:radial-gradient(ellipse at 27% 32%,rgba(255,255,255,.18) 0%,rgba(255,255,255,.08) 27%,rgba(255,255,255,0) 55%),linear-gradient(25deg,rgba(160,120,90,0) 45%,rgba(160,120,90,.12) 100%),linear-gradient(180deg,#efe1d5 0%,#ede1d8 100%)
-}
+.final-cta{position:relative;background:#efe1d5 url("assets/footer-bubbles-banner.jpg") center center/cover no-repeat}
 .final-cta::before{left:354px;top:35px;width:35px;height:35px}
 .final-cta::after{right:-11px;top:73px;width:51px;height:51px}
 .final-dog img{mix-blend-mode:normal;-webkit-mask-image:none;mask-image:none}
@@ -173,11 +168,12 @@ h1,h2,h3,
 .service-card:nth-child(n){width:268px;height:298px;margin-left:17px}
 .service-card:first-child{margin-left:0}
 .service-card img{height:calc(100% - 109px);object-fit:cover;pointer-events:none;user-select:none;-webkit-user-select:none;-webkit-user-drag:none}
+.service-card[data-service="TEETH CLEANING"] img{object-fit:contain;object-position:center bottom;background:#fff;padding-top:24px}
 .service-info{margin-top:-1px}
 .pager{top:478px;gap:0}
 .pager button{position:relative;width:15px;height:20px;padding:0;border:0;background:none;opacity:1;transition:transform .18s ease}
 .pager button::before{content:"";position:absolute;left:50%;top:50%;width:7px;height:7px;border-radius:50%;background:#efadb6;transform:translate(-50%,-50%)}
-.pager button.active{width:20px;background:center/20px 20px no-repeat url("assets/paw-indicator.png")}
+.pager button.active{width:20px;background:center/20px 20px no-repeat url("assets/paw-indicator-clean.png")}
 .pager button.active::before{display:none}
 .ig-grid img{transition:transform .28s ease,box-shadow .28s ease;transform-origin:center;will-change:transform}
 .ig-grid a:hover,.ig-grid a:focus-visible{position:relative;z-index:3;outline:none}
@@ -190,8 +186,7 @@ h1,h2,h3,
 /* Keep the original shallow footer, with the new photo filling the banner. */
 @media(min-width:851px){
   .final-cta{height:155px;overflow:visible;z-index:3}
-  .final-cta::before{left:275px;top:47px;width:36px;height:36px;box-shadow:inset 5px 7px 13px rgba(255,255,255,.5),inset -5px -4px 11px rgba(164,125,99,.12),-78px 42px 0 -13px rgba(255,255,255,.45)}
-  .final-cta::after{right:27px;top:49px;width:52px;height:52px;box-shadow:inset 5px 7px 13px rgba(255,255,255,.5),inset -5px -4px 11px rgba(164,125,99,.12),-132px -26px 0 -18px rgba(255,255,255,.42)}
+  .final-cta::before,.final-cta::after{display:none}
   .final-dog{inset:-55px auto auto 372px;width:280px;height:210px;overflow:hidden;clip-path:none}
   .final-dog img{width:280px;height:280px;object-fit:contain;object-position:center top}
   .final-copy,.final-book{z-index:1}
