@@ -34,7 +34,7 @@ window.SITE_CONFIG = {
   ],
 
   hero: {
-    headlineHtml: '<span class="green">TAILORED<br>GROOMING</span><br>FOR<br>DISTINGUISHED<br>PETS<span class="dot">.</span>',
+    headlineHtml: '<img class="hero-headline-img" src="assets/hero-headline-tailored-hd.png" alt="Tailored grooming for distinguished pets" />',
     subtitle: 'Luxury care. Happy tails.',
     primaryButton: 'BOOK APPOINTMENT',
     secondaryButton: 'WATCH VIDEO',
