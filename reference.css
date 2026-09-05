@@ -180,7 +180,7 @@ h1,h2,h3,
 .ig-grid img{transition:transform .28s ease,box-shadow .28s ease;transform-origin:center;will-change:transform}
 .ig-grid a:hover,.ig-grid a:focus-visible{position:relative;z-index:3;outline:none}
 .ig-grid a:hover img,.ig-grid a:focus-visible img{transform:translateY(-3px) scale(1.055);box-shadow:0 10px 20px rgba(40,30,24,.2)}
-.hero-image-wrap img{will-change:transform;transform-origin:55% 45%}
+.hero-image-wrap img{will-change:transform;transform-origin:63% 35%}
 .final-cta{height:155px;overflow:visible}
 .final-dog{left:332px;top:0;width:360px;height:155px;overflow:visible}
 .final-dog img{width:360px;height:155px;object-fit:contain;object-position:center bottom;transform:none;transform-origin:center bottom}
@@ -237,7 +237,7 @@ h1,h2,h3,
 .hero{background:#f1e6da}
 .hero::before,.hero::after,.hero .bubble,.hero-image-wrap::before{display:none}
 .hero-image-wrap{display:block;inset:0;width:100%;height:100%;aspect-ratio:auto;-webkit-mask-image:none;mask-image:none}
-.hero-image-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transform:none!important}
+.hero-image-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
 @media(max-width:850px){
   .hero-image-wrap{top:280px;height:calc(100% - 280px)}
   .hero-image-wrap img{object-position:65% center}

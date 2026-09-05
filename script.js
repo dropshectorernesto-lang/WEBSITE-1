@@ -314,7 +314,7 @@
     const heroImage = document.querySelector('.hero-image-wrap img');
     if (hero && heroImage) {
       const travelled = Math.max(0, Math.min(1, -hero.getBoundingClientRect().top / (hero.offsetHeight * .72)));
-      heroImage.style.transform = `translate3d(0,${(-travelled * 1.2).toFixed(2)}%,0) scale(${(1 + travelled * .045).toFixed(4)})`;
+      heroImage.style.transform = `scale(${(1 + travelled * .045).toFixed(4)}) translate3d(0,${(-travelled * 1.2).toFixed(3)}%,0)`;
       document.querySelectorAll('.bubble').forEach((bubble, index) => {
         bubble.style.transform = `translate3d(0,${(travelled * (index % 2 ? -9 : -5)).toFixed(2)}px,0)`;
       });
