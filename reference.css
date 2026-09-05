@@ -261,7 +261,7 @@ h1,h2,h3,
   .grum-instagram .follow:hover { box-shadow: none; outline: none; }
   .grum-instagram .follow:hover::after, .grum-instagram .follow:focus-visible::after { opacity: 1; }
   .grum-instagram .profile:hover, .grum-instagram .profile:focus-visible { background: transparent; box-shadow: none; }
-.grum-instagram.phone-mock{position:absolute;width:170px;height:auto;margin:0;overflow:hidden;border-radius:16px}
+.grum-instagram.phone-mock{position:absolute;width:215px;height:auto;margin:0;overflow:hidden;border-radius:16px}
 .grum-instagram a:hover{opacity:1}
 @media(max-width:850px){
   .grum-instagram.phone-mock{display:block;position:relative;left:auto;bottom:auto;width:min(280px,100%);margin:0 auto 24px}

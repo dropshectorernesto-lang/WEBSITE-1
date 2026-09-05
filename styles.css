@@ -122,13 +122,13 @@ h1,h2,h3{margin:0;font-family:Impact,Haettenschweiler,'Arial Narrow Bold',sans-s
 .gallery{height:184px;overflow:hidden;background:var(--surface)}
 .gallery-inner{position:relative;height:100%;padding:0}
 .phone-mock{position:absolute;z-index:4;left:22px;bottom:-11px;height:244px;width:auto;max-width:none;filter:drop-shadow(0 7px 6px rgba(0,0,0,.10))}
-.gallery-title{position:absolute;left:210px;top:14px}
+.gallery-title{position:absolute;left:263px;top:14px}
 .gallery-title .kicker{margin-bottom:1px}
 .gallery-title h2{font-size:22px;line-height:1;color:#00584d}
 .gallery-more{position:absolute;right:42px;top:24px;color:#00584d}
-.ig-grid{position:absolute;left:177px;bottom:4px;height:124px;display:flex;gap:0}
-.ig-grid a{display:block;flex:none;height:124px;text-decoration:none;border-radius:8px}
-.ig-grid img{height:124px;width:auto;max-width:none;object-fit:fill;border-radius:8px;box-shadow:0 2px 7px rgba(40,30,24,.08)}
+.ig-grid{position:absolute;left:235px;bottom:4px;height:115px;display:flex;gap:0}
+.ig-grid a{display:block;flex:none;height:115px;text-decoration:none;border-radius:8px}
+.ig-grid img{height:115px;width:auto;max-width:none;object-fit:fill;border-radius:8px;box-shadow:0 2px 7px rgba(40,30,24,.08)}
 .ig-grid a:nth-child(2){margin-left:9px}
 .ig-grid a:nth-child(3){margin-left:10px}
 .ig-grid a:nth-child(4){margin-left:11px}
