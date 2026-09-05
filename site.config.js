@@ -89,7 +89,7 @@ window.SITE_CONFIG = {
     body: 'We can’t wait to meet your best friend.',
     button: 'BOOK APPOINTMENT',
     buttonSmall: 'CLICK TO BOOK',
-    image: 'assets/bottom-dog-banner.jpg',
+    image: 'assets/footer-dog-keyed.png',
     imageAlt: 'Happy golden retriever',
   },
 
