@@ -9,29 +9,33 @@
 
   const serviceLocale = {
     en: {
-      labels: { details:'SERVICE DETAILS', included:'What’s Included', prices:'Price By Dog Size', note:'Final pricing can change based on coat condition, matting, temperament, and the time needed to groom your pet safely.', book:'BOOK APPOINTMENT' },
+      labels: { details:'SERVICE DETAILS', included:'What’s Included', prices:'Price By Dog Size', menuPrices:'Menu Pricing', note:'Final pricing can change based on coat condition, matting, temperament, and the time needed to groom your pet safely.', book:'BOOK APPOINTMENT' },
       services: {}
     },
     de: {
-      labels: { details:'SERVICE-DETAILS', included:'Enthalten', prices:'Preis nach Hundegröße', note:'Der endgültige Preis kann je nach Fellzustand, Verfilzung, Temperament und benötigter Pflegezeit variieren.', book:'TERMIN BUCHEN' },
+      labels: { details:'SERVICE-DETAILS', included:'Enthalten', prices:'Preis nach Hundegröße', menuPrices:'Menüpreise', note:'Der endgültige Preis kann je nach Fellzustand, Verfilzung, Temperament und benötigter Pflegezeit variieren.', book:'TERMIN BUCHEN' },
       services: {
         'BATH & BRUSH': { title:'BAD & BÜRSTEN', lead:'Eine sanfte Auffrischung für sauberes Fell, frischen Duft und leichteres Bürsten.', includes:['Warmes Bad mit fellfreundlichem Shampoo','Pflegespülung','Föhnen','Gründliches Ausbürsten','Leichtes Finish-Spray'], pricing:[['Kleine Hunde','€35+'],['Mittelgroße Hunde','€45+'],['Große Hunde','€60+']] },
         'HAIRCUT & STYLING': { title:'SCHNITT & STYLING', lead:'Ein kompletter Pflegetermin, abgestimmt auf Fell, Komfort und gewünschten Look deines Hundes.', includes:['Bad und Föhnen','Rassegerechter oder individueller Schnitt','Gesicht, Pfoten und Hygienebereich','Ausbürsten und Styling-Finish','Krallen-Check'], pricing:[['Kleine Hunde','€55+'],['Mittelgroße Hunde','€70+'],['Große Hunde','€90+']] },
         'NAIL CLIPPING': { title:'KRALLEN SCHNEIDEN', lead:'Schnelle und sorgfältige Krallenpflege für bequemes und sicheres Laufen.', includes:['Krallen kürzen','Sanfte Pfotenbehandlung','Bei Bedarf Feilen und Glätten','Kurzer Komfort-Check'], pricing:[['Kleine Hunde','€15+'],['Mittelgroße Hunde','€18+'],['Große Hunde','€22+']] },
         'TEETH CLEANING': { title:'ZAHNREINIGUNG', lead:'Eine sanfte Mundpflege für frischeren Atem und ein gepflegtes Lächeln.', includes:['Sanftes Zähneputzen','Tierfreundliche Zahnpflegeprodukte','Atemerfrischung','Kurzer Sicht- und Komfortcheck'], pricing:[['Alle Größen','€20+'],['Mit Grooming-Service','€15+']] },
         'EAR CLEANING': { title:'OHRENREINIGUNG', lead:'Eine ruhige Ohrenreinigung für frische, saubere und reizfreie Ohren.', includes:['Reinigung des äußeren Ohrs','Tierfreundlicher Reiniger','Sanftes Auswischen','Komfortcheck zum Abschluss'], pricing:[['Alle Größen','€15+'],['Mit Grooming-Service','€12+']] },
-        'DE-SHEDDING TREATMENT': { title:'ENTHAARUNGSBEHANDLUNG', lead:'Eine intensivere Fellpflege gegen lose Unterwolle und saisonalen Fellwechsel.', includes:['De-Shedding-Shampoo','Pflegebehandlung','Föhnen mit hoher Luftleistung','Ausbürsten der Unterwolle','Abschließendes Durchkämmen'], pricing:[['Kleine Hunde','€40+'],['Mittelgroße Hunde','€55+'],['Große Hunde','€75+']] }
+        'DE-SHEDDING TREATMENT': { title:'ENTHAARUNGSBEHANDLUNG', lead:'Eine intensivere Fellpflege gegen lose Unterwolle und saisonalen Fellwechsel.', includes:['De-Shedding-Shampoo','Pflegebehandlung','Föhnen mit hoher Luftleistung','Ausbürsten der Unterwolle','Abschließendes Durchkämmen'], pricing:[['Kleine Hunde','€40+'],['Mittelgroße Hunde','€55+'],['Große Hunde','€75+']] },
+        'A LA CARTE': { title:'A LA CARTE', lead:'Einzelne Touch-up Services, wenn dein Hund keinen kompletten Groom braucht.', includes:['Ohrenreinigung','Ohrenhaare zupfen','Hygienerasur','Krallen schneiden','Pfoten trimmen','Gesicht trimmen','Analdrüsen','Zähne putzen'], pricing:[['Ohrenreinigung','€10+'],['Ohrenhaare zupfen','€25+'],['Hygienerasur','€130+'],['Krallen schneiden','€40+'],['Pfoten trimmen','€40+'],['Gesicht trimmen','€30+'],['Analdrüsen','€30+'],['Zähne putzen','€20+']] },
+        'ADD-ON SERVICES': { title:'ZUSATZSERVICES', lead:'Ergänze jeden Grooming-Termin mit zusätzlicher Pflege für Komfort, Fell, Haut und Finish.', includes:['Zähne putzen','Ohrenreinigung','Krallen schneiden','Pawdicure','Floh- und Zeckenbehandlung','Beruhigende Hautpflege','Fellpflegebehandlung','De-Shedding-Behandlung','Blueberry Facial','Aromatherapie-Bad','Massage','Schleife oder Bandana'], pricing:[['Zähne putzen','€10+'],['Ohrenreinigung','€25+'],['Krallen schneiden','€50+'],['Pawdicure','€40+'],['Floh- und Zeckenbehandlung','€40+'],['Beruhigende Hautpflege','€30+'],['Fellpflegebehandlung','€30+'],['De-Shedding-Behandlung','€40+'],['Blueberry Facial','€65+'],['Aromatherapie-Bad','€50+'],['Massage','€80+'],['Schleife oder Bandana','€30+']] }
       }
     },
     es: {
-      labels: { details:'DETALLES DEL SERVICIO', included:'Qué incluye', prices:'Precio según tamaño', note:'El precio final puede variar según el estado del pelo, nudos, temperamento y el tiempo necesario para trabajar de forma segura.', book:'RESERVAR CITA' },
+      labels: { details:'DETALLES DEL SERVICIO', included:'Qué incluye', prices:'Precio según tamaño', menuPrices:'Precios del menú', note:'El precio final puede variar según el estado del pelo, nudos, temperamento y el tiempo necesario para trabajar de forma segura.', book:'RESERVAR CITA' },
       services: {
         'BATH & BRUSH': { title:'BAÑO & CEPILLADO', lead:'Un cuidado suave para dejar el pelo limpio, fresco y más fácil de cepillar.', includes:['Baño templado con champú apto para el pelo','Acondicionador','Secado','Cepillado completo','Spray de acabado ligero'], pricing:[['Perros pequeños','€35+'],['Perros medianos','€45+'],['Perros grandes','€60+']] },
         'HAIRCUT & STYLING': { title:'CORTE & STYLING', lead:'Una sesión completa adaptada al pelo, comodidad y estilo de tu perro.', includes:['Baño y secado','Corte de raza o personalizado','Recorte de cara, patas y zona higiénica','Cepillado y acabado de styling','Revisión de uñas'], pricing:[['Perros pequeños','€55+'],['Perros medianos','€70+'],['Perros grandes','€90+']] },
         'NAIL CLIPPING': { title:'CORTE DE UÑAS', lead:'Un corte rápido y cuidadoso para mantener las patas cómodas y el movimiento natural.', includes:['Corte de uñas','Manipulación suave de las patas','Limado opcional cuando sea necesario','Revisión rápida de comodidad'], pricing:[['Perros pequeños','€15+'],['Perros medianos','€18+'],['Perros grandes','€22+']] },
         'TEETH CLEANING': { title:'LIMPIEZA DENTAL', lead:'Un cuidado bucal suave para un aliento más fresco y una sonrisa más limpia.', includes:['Cepillado dental suave','Productos bucales seguros para mascotas','Refresco del aliento','Revisión visual de comodidad'], pricing:[['Todos los tamaños','€20+'],['Con servicio de peluquería','€15+']] },
         'EAR CLEANING': { title:'LIMPIEZA DE OÍDOS', lead:'Una limpieza tranquila para mantener los oídos frescos y sin irritaciones.', includes:['Limpieza del oído externo','Limpiador seguro para mascotas','Limpieza suave','Revisión final de comodidad'], pricing:[['Todos los tamaños','€15+'],['Con servicio de peluquería','€12+']] },
-        'DE-SHEDDING TREATMENT': { title:'TRATAMIENTO DESLANADO', lead:'Un tratamiento profundo para retirar subpelo suelto y controlar la muda estacional.', includes:['Champú deslanador','Tratamiento acondicionador','Secado de alta velocidad','Cepillado del subpelo','Peinado final'], pricing:[['Perros pequeños','€40+'],['Perros medianos','€55+'],['Perros grandes','€75+']] }
+        'DE-SHEDDING TREATMENT': { title:'TRATAMIENTO DESLANADO', lead:'Un tratamiento profundo para retirar subpelo suelto y controlar la muda estacional.', includes:['Champú deslanador','Tratamiento acondicionador','Secado de alta velocidad','Cepillado del subpelo','Peinado final'], pricing:[['Perros pequeños','€40+'],['Perros medianos','€55+'],['Perros grandes','€75+']] },
+        'A LA CARTE': { title:'A LA CARTA', lead:'Servicios sueltos para cuando tu perro solo necesita un retoque.', includes:['Limpieza de oídos','Retirada de pelo de oídos','Rasurado higiénico','Corte de uñas','Recorte de patas','Recorte de cara','Glándulas anales','Cepillado dental'], pricing:[['Limpieza de oídos','€10+'],['Retirada de pelo de oídos','€25+'],['Rasurado higiénico','€130+'],['Corte de uñas','€40+'],['Recorte de patas','€40+'],['Recorte de cara','€30+'],['Glándulas anales','€30+'],['Cepillado dental','€20+']] },
+        'ADD-ON SERVICES': { title:'SERVICIOS EXTRA', lead:'Personaliza cualquier cita con cuidados extra de confort, pelo, piel y acabado.', includes:['Cepillado dental','Limpieza de oídos','Corte de uñas','Pawdicure','Tratamiento antipulgas y garrapatas','Tratamiento calmante de piel','Tratamiento acondicionador de pelo','Tratamiento deslanado','Facial blueberry','Baño de aromaterapia','Masaje','Lazo o bandana'], pricing:[['Cepillado dental','€10+'],['Limpieza de oídos','€25+'],['Corte de uñas','€50+'],['Pawdicure','€40+'],['Tratamiento antipulgas y garrapatas','€40+'],['Tratamiento calmante de piel','€30+'],['Tratamiento acondicionador de pelo','€30+'],['Tratamiento deslanado','€40+'],['Facial blueberry','€65+'],['Baño de aromaterapia','€50+'],['Masaje','€80+'],['Lazo o bandana','€30+']] }
       }
     }
   };
@@ -297,7 +301,7 @@
     const book = serviceDetail?.querySelector('[data-service-detail-book]');
     if (kicker) kicker.textContent = labels.details;
     if (blocks?.[0]) blocks[0].textContent = labels.included;
-    if (blocks?.[1]) blocks[1].textContent = labels.prices;
+    if (blocks?.[1]) blocks[1].textContent = ['A LA CARTE','ADD-ON SERVICES'].includes(key) ? labels.menuPrices : labels.prices;
     if (note) note.textContent = labels.note;
     setButtonTextPreserveIcon(book, labels.book);
     if (titleEl) titleEl.textContent = `${localized?.title || key}.`;
@@ -318,6 +322,7 @@
   document.querySelector('[data-service-detail-book]')?.addEventListener('click', () => { serviceDetail?.close(); openBooking(activeDetailService); });
 
   let activeBlogPost = null;
+  const setBlogPageScrollLock = (locked) => document.body.classList.toggle('blog-modal-open', locked);
   const renderBlogDetail = (post) => {
     if (!blogDetail || !post) return;
     const originalTitle = post.dataset.blogTitle || post.querySelector('h3')?.dataset.originalText || post.querySelector('h3')?.textContent || 'Blog post';
@@ -344,7 +349,9 @@
     activeBlogPost = post;
     renderBlogDetail(post);
     if (!blogDetail.open) blogDetail.showModal();
+    setBlogPageScrollLock(true);
   };
+  blogDetail?.addEventListener('close', () => setBlogPageScrollLock(false));
   document.querySelector('[data-close-blog]')?.addEventListener('click', () => blogDetail?.close());
   document.querySelectorAll('.blog-post').forEach((post) => {
     const h3 = post.querySelector('h3');

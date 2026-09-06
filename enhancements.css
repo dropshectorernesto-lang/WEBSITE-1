@@ -45,6 +45,16 @@
   pointer-events:none;
 }
 .hero-headline-language em{font-style:normal;color:var(--green)}
+html[lang="de"] .hero-headline-language{
+  line-height:1.02;
+  letter-spacing:0;
+}
+html[lang="de"] .hero-headline-language em{
+  display:inline-block;
+  margin-top:2px;
+  padding-top:2px;
+  padding-bottom:2px;
+}
 html[lang="de"] .localized-hero-headline .hero-headline-img,
 html[lang="es"] .localized-hero-headline .hero-headline-img{
   display:block!important;
@@ -156,7 +166,7 @@ html[lang="es"] .localized-hero-headline .hero-headline-es{
 }
 .gallery-lightbox::backdrop{background:rgba(24,19,16,.78);backdrop-filter:blur(7px)}
 .gallery-lightbox-shell{position:relative;width:100%;height:100%;display:grid;place-items:center;padding:34px 72px;background:#171717}
-.gallery-lightbox-image{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:10px}
+.gallery-lightbox-image{display:block;width:min(100%,760px);height:min(100%,620px);aspect-ratio:4/3;object-fit:contain;border-radius:10px;background:#0f0f0f}
 .gallery-lightbox-close,.gallery-lightbox-arrow{
   position:absolute;z-index:3;border:0;border-radius:999px;background:rgba(255,255,255,.94);color:#171717;display:grid;place-items:center;box-shadow:0 4px 18px rgba(0,0,0,.18)
 }
@@ -227,6 +237,7 @@ body[data-page="home"] .ig-grid.ig-infinite-carousel img{
   .language-switcher{position:static;justify-content:flex-end;margin-top:8px;padding-right:2px;font-size:10px}
   .language-switcher button{font-size:10px}
   .gallery-lightbox-shell{padding:64px 50px 38px}
+  .gallery-lightbox-image{width:100%;height:auto;max-height:calc(100vh - 140px)}
   .gallery-lightbox-arrow{width:40px;height:40px}
   body[data-page="home"] .ig-grid.ig-infinite-carousel{gap:8px!important}
 }
@@ -286,3 +297,16 @@ body[data-page="home"] .ig-carousel-viewport img{width:150px!important;height:11
 .service-card:has(img[src*="service-teeth-cleaning"]) img{object-position:center 18%!important}
 .blog-detail-scroll>img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:contain;background:#f3ebe7}
 .blog-post img{border:0;box-shadow:none;object-position:center}
+body.blog-modal-open{overflow:hidden}
+html[lang="de"] .page-hero-copy h1,
+html[lang="de"] .content-heading{
+  line-height:1.08;
+  letter-spacing:0;
+}
+html[lang="de"] .page-hero-copy h1 span,
+html[lang="de"] .content-heading span{
+  display:inline-block;
+  margin-top:4px;
+  padding-top:2px;
+  padding-bottom:2px;
+}
