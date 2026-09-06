@@ -235,6 +235,29 @@ body[data-page="home"] .ig-grid.ig-infinite-carousel img{
 .site-header .btn-header{display:inline-flex;white-space:nowrap}
 body[data-page="home"] .phone-mock img{z-index:0;pointer-events:none}
 body[data-page="home"] .phone-mock a{z-index:2}
+body[data-page="home"] .grum-instagram{position:absolute}
+body[data-page="home"] .grum-instagram .instagram-message-label{
+  position:absolute;
+  left:53.5%;
+  top:34.1%;
+  z-index:2;
+  width:26%;
+  height:3.9%;
+  display:grid;
+  place-items:center;
+  border-radius:7px;
+  background:#f8f4ee;
+  color:#151515;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:9px;
+  line-height:1;
+  font-weight:800;
+}
+html[lang="de"] .grum-instagram .instagram-message-label{font-size:7.5px}
+html[lang="de"] .grum-instagram .instagram-message-label{color:transparent}
+html[lang="de"] .grum-instagram .instagram-message-label::after{content:"Nachricht";color:#151515}
+html[lang="es"] .grum-instagram .instagram-message-label{color:transparent}
+html[lang="es"] .grum-instagram .instagram-message-label::after{content:"Mensaje";color:#151515}
 html[lang="de"] .grum-instagram .follow::after{content:"Folgen"}
 html[lang="es"] .grum-instagram .follow::after{content:"Seguir"}
 body[data-page="home"] .ig-carousel-viewport{position:absolute;left:0;right:0;top:100px;height:190px;overflow:hidden;z-index:2;touch-action:pan-y;cursor:grab;user-select:none}

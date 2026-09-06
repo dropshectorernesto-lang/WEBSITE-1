@@ -325,7 +325,7 @@
     const localized = blogLocale[lang]?.[originalTitle];
     const title = localized?.title || originalTitle;
     const category = localized?.category || post.dataset.blogCategory || post.querySelector('.blog-date')?.textContent || 'Blog';
-    const image = post.dataset.blogImage || post.querySelector('img')?.getAttribute('src') || '';
+    const image = post.dataset.blogDetailImage || post.dataset.blogImage || post.querySelector('img')?.getAttribute('src') || '';
     const body = localized?.body || (post.dataset.blogBody || '').split('|').filter(Boolean);
     const titleEl = document.getElementById('blogDetailTitle');
     const categoryEl = document.getElementById('blogDetailCategory');

@@ -9,17 +9,16 @@
   viewport.setAttribute('aria-label', 'Dog photo carousel');
   track.before(viewport); viewport.append(track);
   const images = [
-    ['485294', 'Chihuahua wearing a shampoo foam hat'],
-    ['12943750', 'Curious terrier in a bubble bath'],
-    ['17802173', 'Two smiling poodles surrounded by bubbles'],
-    ['36174558', 'Small fluffy dog bathing in a red bucket'],
-    ['19145874', 'Poodle waiting in a grooming studio'],
-    ['6131151', 'Tiny dog being shampooed'],
-    ['6816870', 'Yorkshire terrier getting a haircut']
+    ['assets/ig-funny-1.webp', 'Dog peeking from a bubble bath'],
+    ['assets/ig-funny-2.webp', 'Dog dressed like a salon client'],
+    ['assets/ig-funny-3.webp', 'Dog inspecting grooming products'],
+    ['assets/ig-funny-4.webp', 'Dog getting a playful blow dry'],
+    ['assets/ig-funny-5.webp', 'Dog wrapped in a towel cape'],
+    ['assets/ig-funny-6.webp', 'Dog posing beside grooming brushes']
   ];
   track.replaceChildren();
-  for (let set = 0; set < 3; set++) images.forEach(([id, alt]) => {
-    const img = new Image(); img.src = `assets/gallery-${id}.webp`; img.alt = alt;
+  for (let set = 0; set < 3; set++) images.forEach(([src, alt]) => {
+    const img = new Image(); img.src = src; img.alt = alt;
     img.draggable = false; img.width = 180; img.height = 180;
     if (set !== 1) { img.alt = ''; img.setAttribute('aria-hidden','true'); }
     track.append(img);

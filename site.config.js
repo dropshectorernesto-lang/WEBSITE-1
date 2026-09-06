@@ -61,9 +61,9 @@ window.SITE_CONFIG = {
   gallery: {
     kicker:'FOLLOW OUR JOURNEY!', heading:'ON INSTAGRAM', linkLabel:'VIEW MORE ON INSTAGRAM', phoneImage:'assets/instagram-phone.webp', phoneAlt:'Grüm Instagram profile on a phone',
     images:[
-      {src:'assets/ig-1.jpg',alt:'Dog grooming Instagram post'}, {src:'assets/ig-2.jpg',alt:'Dog grooming Instagram post'},
-      {src:'assets/ig-3.jpg',alt:'Grüm grooming products'}, {src:'assets/ig-4.jpg',alt:'Golden retriever bathing'},
-      {src:'assets/ig-5.jpg',alt:'Groomed poodle'}, {src:'assets/ig-6.jpg',alt:'Grüm grooming studio'},
+      {src:'assets/ig-funny-1.webp',alt:'Dog peeking from a bubble bath'}, {src:'assets/ig-funny-2.webp',alt:'Dog dressed like a salon client'},
+      {src:'assets/ig-funny-3.webp',alt:'Dog inspecting grooming products'}, {src:'assets/ig-funny-4.webp',alt:'Dog getting a playful blow dry'},
+      {src:'assets/ig-funny-5.webp',alt:'Dog wrapped in a towel cape'}, {src:'assets/ig-funny-6.webp',alt:'Dog posing beside grooming brushes'},
     ],
   },
   finalCta: { kicker:'READY FOR THEIR', heading:'BEST DAY EVER?', body:'We can’t wait to meet your best friend.', button:'BOOK APPOINTMENT', buttonSmall:'CLICK TO BOOK', image:'assets/footer-dog-cutout.webp', imageAlt:'Happy golden retriever' },
