@@ -154,17 +154,66 @@
   <script src="site.config.js"></script>
   <script src="script.js"></script>
   <script>
-    /* Keep the original headline artwork for English; swap only the visible headline layer for DE/ES. */
     (() => {
       const root = document.documentElement;
-      const syncHeadline = () => {
-        const lang = root.lang || 'en';
-        document.querySelector('.hero-headline-img')?.setAttribute('aria-hidden', lang === 'en' ? 'false' : 'true');
-        document.querySelector('.hero-headline-de')?.setAttribute('aria-hidden', lang === 'de' ? 'false' : 'true');
-        document.querySelector('.hero-headline-es')?.setAttribute('aria-hidden', lang === 'es' ? 'false' : 'true');
+      const headlineMarkup = {
+        de: '<span class="hero-headline-language hero-headline-de">INDIVIDUELLE PFLEGE<br><em>FÜR ANSPRUCHSVOLLE</em><br>HUNDE.</span>',
+        es: '<span class="hero-headline-language hero-headline-es">PELUQUERÍA A MEDIDA<br><em>PARA MASCOTAS</em><br>DISTINGUIDAS.</span>'
       };
-      new MutationObserver(syncHeadline).observe(root, { attributes:true, attributeFilter:['lang'] });
-      setTimeout(syncHeadline, 0);
+      const serviceDescriptions = {
+        en: {
+          'BATH & BRUSH':'A relaxing bath, gentle cleanse<br>and thorough brushing for a<br>fresh, healthy coat.',
+          'HAIRCUT & STYLING':'Custom haircuts and styling<br>designed to bring out your pet’s<br>best look.',
+          'NAIL CLIPPING':'Safe, precise nail trimming<br>to keep your pet comfortable<br>and confident.',
+          'TEETH CLEANING':'Gentle oral care for fresher<br>breath and a happier,<br>healthier smile.',
+          'DE-SHEDDING':'A deep coat treatment to<br>remove loose fur and leave<br>your pet feeling lighter.',
+          'PUPPY INTRO':'A calm first visit designed<br>to build trust and make<br>grooming feel easy.'
+        },
+        de: {
+          'BATH & BRUSH':'Ein entspannendes Bad, sanfte Reinigung<br>und gründliches Bürsten für ein<br>frisches, gesundes Fell.',
+          'HAIRCUT & STYLING':'Individuelle Schnitte und Styling<br>für den perfekten Look<br>deines Hundes.',
+          'NAIL CLIPPING':'Sicheres, präzises Krallenschneiden<br>für mehr Komfort<br>und Wohlbefinden.',
+          'TEETH CLEANING':'Sanfte Zahnpflege für<br>frischeren Atem und ein<br>gesundes Lächeln.',
+          'DE-SHEDDING':'Intensive Fellpflege zum<br>Entfernen loser Haare für ein<br>leichteres, gepflegtes Fell.',
+          'PUPPY INTRO':'Ein ruhiger erster Besuch,<br>der Vertrauen schafft und<br>Pflege angenehm macht.'
+        },
+        es: {
+          'BATH & BRUSH':'Un baño relajante, limpieza suave<br>y cepillado completo para un<br>pelo limpio y sano.',
+          'HAIRCUT & STYLING':'Cortes y styling personalizados<br>para sacar lo mejor del<br>look de tu mascota.',
+          'NAIL CLIPPING':'Corte de uñas seguro y preciso<br>para mantener a tu mascota<br>cómoda y tranquila.',
+          'TEETH CLEANING':'Cuidado dental suave para<br>un aliento más fresco y una<br>sonrisa saludable.',
+          'DE-SHEDDING':'Tratamiento profundo para<br>retirar pelo suelto y dejar<br>el manto más ligero.',
+          'PUPPY INTRO':'Una primera visita tranquila<br>para crear confianza y hacer<br>el grooming más fácil.'
+        }
+      };
+
+      const syncHomeLocalization = () => {
+        const lang = ['de','es'].includes(root.lang) ? root.lang : 'en';
+        const title = document.getElementById('hero-title');
+        if (title) {
+          if (lang === 'en') {
+            if (!title.querySelector('.hero-headline-img')) title.innerHTML = '<img class="hero-headline-img" src="assets/hero-headline-tailored-hd.png" alt="Tailored grooming for distinguished pets" />';
+          } else if (!title.querySelector(`.hero-headline-${lang}`)) {
+            title.innerHTML = headlineMarkup[lang];
+          }
+        }
+
+        document.querySelectorAll('#service-cards .service-card').forEach((card) => {
+          const canonical = (card.dataset.service || card.querySelector('h3')?.dataset.original || card.querySelector('h3')?.textContent || '').replaceAll('&amp;','&').trim().toUpperCase();
+          const key = canonical === 'BATH & BRUSH' || canonical.includes('BAD &') || canonical.includes('BAÑO &') ? 'BATH & BRUSH'
+            : canonical.includes('HAIRCUT') || canonical.includes('SCHNITT') || canonical.includes('CORTE & STYLING') ? 'HAIRCUT & STYLING'
+            : canonical.includes('NAIL') || canonical.includes('KRALLEN') || canonical.includes('UÑAS') ? 'NAIL CLIPPING'
+            : canonical.includes('TEETH') || canonical.includes('ZAHN') || canonical.includes('DENTAL') ? 'TEETH CLEANING'
+            : canonical.includes('DE-SHEDDING') || canonical.includes('ENTHAAR') || canonical.includes('DESLAN') ? 'DE-SHEDDING'
+            : canonical.includes('PUPPY') || canonical.includes('WELP') || canonical.includes('CACHOR') ? 'PUPPY INTRO' : canonical;
+          const p = card.querySelector('.service-info p');
+          if (p && serviceDescriptions[lang]?.[key]) p.innerHTML = serviceDescriptions[lang][key];
+        });
+      };
+
+      new MutationObserver(syncHomeLocalization).observe(root, { attributes:true, attributeFilter:['lang'] });
+      setTimeout(syncHomeLocalization, 0);
+      setTimeout(syncHomeLocalization, 50);
     })();
   </script>
 </body>
