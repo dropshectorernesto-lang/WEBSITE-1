@@ -16,9 +16,11 @@
   height:117px!important;
   min-height:117px!important;
   background:var(--final)!important;
-  overflow:hidden;
+  overflow:visible!important;
+  position:relative;
+  z-index:5;
 }
-.final-cta .final-inner{display:block!important}
+.final-cta .final-inner{display:block!important;overflow:visible!important}
 
 /* Remove all fake decorative bubbles from the footer. */
 .final-inner::before,
@@ -26,19 +28,21 @@
 .final-dog::before,
 .final-dog::after{display:none!important;content:none!important}
 
-/* Make the dog larger and crop it so only the head and a little below the mouth remain visible. */
+/* Keep the dog in its natural ratio and let the head overlap the gallery slightly. */
 .final-dog{
-  left:326px!important;
-  top:-8px!important;
-  width:410px!important;
-  height:188px!important;
+  left:350px!important;
+  top:-34px!important;
+  width:320px!important;
+  height:151px!important;
   overflow:hidden!important;
+  z-index:7!important;
 }
 .final-dog img{
-  width:410px!important;
-  height:188px!important;
+  width:320px!important;
+  height:auto!important;
   max-width:none!important;
-  object-fit:fill!important;
+  object-fit:contain!important;
+  object-position:center top!important;
 }
 
 /* Gallery lightbox */
@@ -68,9 +72,9 @@
 
 @media(max-width:850px){
   .main-nav.open a{font-weight:700;font-size:13px}
-  .final-cta{height:auto!important;min-height:310px!important}
+  .final-cta{height:auto!important;min-height:310px!important;overflow:hidden!important}
   .final-dog{left:auto!important;top:auto!important;width:100%!important;height:190px!important}
-  .final-dog img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:center 28%!important}
+  .final-dog img{width:100%!important;height:auto!important;object-fit:contain!important;object-position:center top!important}
   .gallery-lightbox-shell{padding:64px 50px 38px}
   .gallery-lightbox-arrow{width:40px;height:40px}
 }
