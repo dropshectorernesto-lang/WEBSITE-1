@@ -214,3 +214,42 @@ window.SITE_CONFIG = {
   const articleBook = articleDialog?.querySelector('.blog-detail-book');
   articleBook?.addEventListener('click', () => articleDialog.close(), { capture: true });
 })();
+
+/* Compact footer language selector. */
+(() => {
+  const footerInner = document.querySelector('.final-cta .final-inner');
+  if (!footerInner || footerInner.querySelector('.language-switcher')) return;
+
+  const supported = ['en', 'de', 'es'];
+  const saved = localStorage.getItem('grum-language');
+  const initial = supported.includes(saved) ? saved : 'en';
+
+  const nav = document.createElement('nav');
+  nav.className = 'language-switcher';
+  nav.setAttribute('aria-label', 'Language selector');
+  nav.innerHTML = `
+    <button type="button" data-lang="en">EN</button>
+    <span aria-hidden="true">/</span>
+    <button type="button" data-lang="de">DE</button>
+    <span aria-hidden="true">/</span>
+    <button type="button" data-lang="es">ES</button>`;
+  footerInner.appendChild(nav);
+
+  const setLanguage = (lang) => {
+    document.documentElement.lang = lang;
+    localStorage.setItem('grum-language', lang);
+    nav.querySelectorAll('button').forEach((button) => {
+      const active = button.dataset.lang === lang;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-current', active ? 'true' : 'false');
+    });
+  };
+
+  nav.addEventListener('click', (event) => {
+    const button = event.target.closest('button[data-lang]');
+    if (!button) return;
+    setLanguage(button.dataset.lang);
+  });
+
+  setLanguage(initial);
+})();
