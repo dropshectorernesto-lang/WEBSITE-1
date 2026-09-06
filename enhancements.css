@@ -10,6 +10,11 @@
 /* Keep the service pager/paw just clear of the cards. */
 .pager{top:486px}
 
+/* Use the new realistic version everywhere the original bath-dog image appears. */
+img[src$="service-bath.jpg"]{
+  content:url("assets/service-bath-realistic.svg");
+}
+
 /* Localized hero headline.
    Keep the original image in the document flow at all times so NOTHING below it moves.
    DE/ES are absolutely overlaid in the exact same 319px headline box. */
