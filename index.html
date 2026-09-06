@@ -30,7 +30,11 @@
   <main>
     <section class="hero section-width" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <h1 id="hero-title"><img class="hero-headline-img" src="assets/hero-headline-tailored-hd.png" alt="Tailored grooming for distinguished pets" /></h1>
+        <h1 id="hero-title" class="localized-hero-headline">
+          <img class="hero-headline-img" src="assets/hero-headline-tailored-hd.png" alt="Tailored grooming for distinguished pets" />
+          <span class="hero-headline-language hero-headline-de" aria-hidden="true">INDIVIDUELLE PFLEGE<br><em>FÜR ANSPRUCHSVOLLE</em><br>HUNDE.</span>
+          <span class="hero-headline-language hero-headline-es" aria-hidden="true">PELUQUERÍA A MEDIDA<br><em>PARA MASCOTAS</em><br>DISTINGUIDAS.</span>
+        </h1>
         <p>Luxury care. Happy tails.</p>
         <div class="hero-actions">
           <button class="btn btn-primary" data-book><span class="phone-icon" aria-hidden="true"></span>BOOK APPOINTMENT</button>
@@ -149,5 +153,19 @@
 
   <script src="site.config.js"></script>
   <script src="script.js"></script>
+  <script>
+    /* Keep the original headline artwork for English; swap only the visible headline layer for DE/ES. */
+    (() => {
+      const root = document.documentElement;
+      const syncHeadline = () => {
+        const lang = root.lang || 'en';
+        document.querySelector('.hero-headline-img')?.setAttribute('aria-hidden', lang === 'en' ? 'false' : 'true');
+        document.querySelector('.hero-headline-de')?.setAttribute('aria-hidden', lang === 'de' ? 'false' : 'true');
+        document.querySelector('.hero-headline-es')?.setAttribute('aria-hidden', lang === 'es' ? 'false' : 'true');
+      };
+      new MutationObserver(syncHeadline).observe(root, { attributes:true, attributeFilter:['lang'] });
+      setTimeout(syncHeadline, 0);
+    })();
+  </script>
 </body>
 </html>
