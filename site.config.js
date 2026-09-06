@@ -1,3 +1,18 @@
+/* Shared HTML escaper used by config rendering and detail modals. */
+var escapeAttribute = (value = '') => String(value)
+  .replaceAll('&', '&amp;')
+  .replaceAll('"', '&quot;')
+  .replaceAll('<', '&lt;')
+  .replaceAll('>', '&gt;');
+
+/* Load the review refinements after the base styles on every page. */
+(() => {
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'enhancements.css';
+  document.head.appendChild(link);
+})();
+
 /* Edit this file to update site copy, images, links, colors, or section order. */
 window.SITE_CONFIG = {
   business: {
@@ -134,9 +149,68 @@ window.SITE_CONFIG = {
     kicker: 'BOOK THEIR BEST DAY',
     heading: 'REQUEST AN APPOINTMENT.',
     submitLabel: 'REQUEST APPOINTMENT',
-    // Full list for the booking modal's dropdown (shared across every page).
-    // Kept separate from services.cards below, which is only the homepage's
-    // 3 featured cards — that section's layout is pixel-fixed for exactly 3.
     serviceOptions: ['BATH & BRUSH', 'HAIRCUT & STYLING', 'NAIL CLIPPING', 'TEETH CLEANING', 'EAR CLEANING', 'DE-SHEDDING TREATMENT'],
   },
 };
+
+/* Gallery lightbox: click any gallery tile to enlarge, then browse with arrows/keyboard. */
+(() => {
+  const tiles = [...document.querySelectorAll('.photo-grid .photo-tile img')];
+  if (!tiles.length) return;
+
+  const dialog = document.createElement('dialog');
+  dialog.className = 'gallery-lightbox';
+  dialog.innerHTML = `
+    <div class="gallery-lightbox-shell">
+      <button class="gallery-lightbox-close" type="button" aria-label="Close gallery">×</button>
+      <button class="gallery-lightbox-arrow gallery-lightbox-prev" type="button" aria-label="Previous image">‹</button>
+      <img class="gallery-lightbox-image" alt="" />
+      <button class="gallery-lightbox-arrow gallery-lightbox-next" type="button" aria-label="Next image">›</button>
+    </div>`;
+  document.body.appendChild(dialog);
+
+  const image = dialog.querySelector('.gallery-lightbox-image');
+  let activeIndex = 0;
+
+  const show = (index) => {
+    activeIndex = (index + tiles.length) % tiles.length;
+    image.src = tiles[activeIndex].currentSrc || tiles[activeIndex].src;
+    image.alt = tiles[activeIndex].alt || 'Gallery image';
+  };
+  const open = (index) => {
+    show(index);
+    dialog.showModal();
+  };
+
+  tiles.forEach((tile, index) => {
+    tile.tabIndex = 0;
+    tile.setAttribute('role', 'button');
+    tile.setAttribute('aria-label', `${tile.alt || 'Gallery image'} — open larger`);
+    tile.addEventListener('click', () => open(index));
+    tile.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        open(index);
+      }
+    });
+  });
+
+  dialog.querySelector('.gallery-lightbox-close').addEventListener('click', () => dialog.close());
+  dialog.querySelector('.gallery-lightbox-prev').addEventListener('click', () => show(activeIndex - 1));
+  dialog.querySelector('.gallery-lightbox-next').addEventListener('click', () => show(activeIndex + 1));
+  dialog.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') show(activeIndex - 1);
+    if (event.key === 'ArrowRight') show(activeIndex + 1);
+    if (event.key === 'Escape') dialog.close();
+  });
+  dialog.addEventListener('click', (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+})();
+
+/* Make blog article CTA transition cleanly into the booking modal. */
+(() => {
+  const articleDialog = document.getElementById('blogDetailModal');
+  const articleBook = articleDialog?.querySelector('.blog-detail-book');
+  articleBook?.addEventListener('click', () => articleDialog.close(), { capture: true });
+})();
