@@ -187,6 +187,24 @@
         }
       };
 
+      const galleryImages = [
+        ['https://images.pexels.com/photos/6816837/pexels-photo-6816837.jpeg?auto=compress&cs=tinysrgb&w=900','Small Yorkshire Terrier being groomed in a modern pet salon'],
+        ['https://images.pexels.com/photos/13085581/pexels-photo-13085581.jpeg?auto=compress&cs=tinysrgb&w=900','Happy Pomeranian sitting on a grooming table'],
+        ['https://images.pexels.com/photos/6131165/pexels-photo-6131165.jpeg?auto=compress&cs=tinysrgb&w=900','Cute Yorkshire Terrier getting a gentle bath at a grooming salon'],
+        ['https://images.pexels.com/photos/6816870/pexels-photo-6816870.jpeg?auto=compress&cs=tinysrgb&w=900','Cute Yorkshire Terrier getting a haircut with grooming scissors'],
+        ['https://images.pexels.com/photos/19145888/pexels-photo-19145888.jpeg?auto=compress&cs=tinysrgb&w=900','Cute Shih Tzu being bathed in a professional grooming studio'],
+        ['https://images.pexels.com/photos/19145874/pexels-photo-19145874.jpeg?auto=compress&cs=tinysrgb&w=900','Curly poodle sitting patiently inside a grooming studio']
+      ];
+
+      const syncGalleryImages = () => {
+        document.querySelectorAll('.ig-grid img').forEach((img, index) => {
+          const item = galleryImages[index];
+          if (!item) return;
+          img.src = item[0];
+          img.alt = item[1];
+        });
+      };
+
       const syncHomeLocalization = () => {
         const lang = ['de','es'].includes(root.lang) ? root.lang : 'en';
         const title = document.getElementById('hero-title');
@@ -209,6 +227,7 @@
           const p = card.querySelector('.service-info p');
           if (p && serviceDescriptions[lang]?.[key]) p.innerHTML = serviceDescriptions[lang][key];
         });
+        syncGalleryImages();
       };
 
       new MutationObserver(syncHomeLocalization).observe(root, { attributes:true, attributeFilter:['lang'] });
