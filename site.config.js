@@ -13,7 +13,6 @@ var escapeAttribute = (value = '') => String(value)
   document.head.appendChild(link);
 })();
 
-/* Edit this file to update site copy, images, links, colors, or section order. */
 window.SITE_CONFIG = {
   business: {
     name: 'grüm',
@@ -21,309 +20,190 @@ window.SITE_CONFIG = {
     description: 'Grüm dog grooming — tailored grooming, bathing and coat care.',
     instagramUrl: 'https://www.instagram.com/',
   },
-
   theme: {
-    cream: '#f3ebe7',
-    surface: '#f3ebe7',
-    experience: '#e8ddd6',
-    final: '#f3ece8',
-    green: '#01463c',
-    greenDark: '#01463c',
-    pink: '#f87686',
-    pinkSoft: '#f7a7b1',
-    ink: '#222121',
-    orange: '#f26312',
+    cream: '#f3ebe7', surface: '#f3ebe7', experience: '#e8ddd6', final: '#f3ece8',
+    green: '#01463c', greenDark: '#01463c', pink: '#f87686', pinkSoft: '#f7a7b1', ink: '#222121', orange: '#f26312',
   },
-
-  layout: {
-    sectionOrder: ['hero', 'services', 'experience', 'gallery', 'final-cta'],
-  },
-
+  layout: { sectionOrder: ['hero', 'services', 'experience', 'gallery', 'final-cta'] },
   navigation: [
-    { label: 'HOME', target: 'index.html' },
-    { label: 'ABOUT', target: 'about.html' },
-    { label: 'SERVICES', target: 'services.html' },
-    { label: 'GALLERY', target: 'gallery.html' },
-    { label: 'BLOG', target: 'blog.html' },
-    { label: 'CONTACT', target: 'contact.html' },
+    { label: 'HOME', target: 'index.html' }, { label: 'ABOUT', target: 'about.html' },
+    { label: 'SERVICES', target: 'services.html' }, { label: 'GALLERY', target: 'gallery.html' },
+    { label: 'BLOG', target: 'blog.html' }, { label: 'CONTACT', target: 'contact.html' },
   ],
-
   hero: {
     headlineHtml: '<img class="hero-headline-img" src="assets/hero-headline-tailored-hd.png" alt="Tailored grooming for distinguished pets" />',
-    subtitle: 'Luxury care. Happy tails.',
-    primaryButton: 'BOOK APPOINTMENT',
-    secondaryButton: 'WATCH VIDEO',
-    image: 'assets/hero-clean.png',
-    imageAlt: 'Golden retriever being washed with bubbles',
-    chipTitle: 'ONE-ON-ONE CARE',
-    chipTextHtml: 'Each pet enjoys our<br>undivided attention.',
+    subtitle: 'Luxury care. Happy tails.', primaryButton: 'BOOK APPOINTMENT', secondaryButton: 'WATCH VIDEO',
+    image: 'assets/hero-clean.png', imageAlt: 'Golden retriever being washed with bubbles',
+    chipTitle: 'ONE-ON-ONE CARE', chipTextHtml: 'Each pet enjoys our<br>undivided attention.',
   },
-
   services: {
-    kicker: 'OUR SERVICES',
-    headingHtml: 'DOG GROOMING,<br><span>BATHING &amp; COAT CARE</span>',
+    kicker: 'OUR SERVICES', headingHtml: 'DOG GROOMING,<br><span>BATHING &amp; COAT CARE</span>',
     introHtml: 'From refreshing baths to complete makeovers,<br>we provide exceptional care tailored to<br>your pet’s unique needs.',
     linkLabel: 'VIEW ALL SERVICES',
     cards: [
-      { number: '01', title: 'BATH & BRUSH', descriptionHtml: 'A relaxing bath, gentle cleanse<br>and thorough brushing for a<br>fresh, healthy coat.', image: 'assets/service-bath.jpg', imageAlt: 'White dog wrapped in a towel', style: 'green' },
-      { number: '02', title: 'HAIRCUT & STYLING', descriptionHtml: 'Custom haircuts and styling<br>designed to bring out your pet’s<br>best look.', image: 'assets/service-hair.jpg', imageAlt: 'Fluffy pomeranian dog', style: 'black', featured: true },
-      { number: '03', title: 'NAIL CLIPPING', descriptionHtml: 'Safe, precise nail trimming<br>to keep your pet comfortable<br>and confident.', image: 'assets/service-nails.jpg', imageAlt: 'Small dog having nails clipped', style: 'orange' },
-      { number: '04', title: 'TEETH CLEANING', descriptionHtml: 'Gentle oral care for fresher<br>breath and a happier,<br>healthier smile.', image: 'assets/service-teeth-cleaning.png', imageAlt: 'Smiling white dog ready for teeth cleaning', style: 'green' },
-      { number: '05', title: 'DE-SHEDDING', descriptionHtml: 'A deep coat treatment to<br>remove loose fur and leave<br>your pet feeling lighter.', image: 'assets/ig-4.jpg', imageAlt: 'Golden retriever during a bath', style: 'black', featured: true },
-      { number: '06', title: 'PUPPY INTRO', descriptionHtml: 'A calm first visit designed<br>to build trust and make<br>grooming feel easy.', image: 'assets/ig-5.jpg', imageAlt: 'Freshly groomed puppy', style: 'orange' },
+      { number:'01', title:'BATH & BRUSH', descriptionHtml:'A relaxing bath, gentle cleanse<br>and thorough brushing for a<br>fresh, healthy coat.', image:'assets/service-bath.jpg', imageAlt:'White dog wrapped in a towel', style:'green' },
+      { number:'02', title:'HAIRCUT & STYLING', descriptionHtml:'Custom haircuts and styling<br>designed to bring out your pet’s<br>best look.', image:'assets/service-hair.jpg', imageAlt:'Fluffy pomeranian dog', style:'black', featured:true },
+      { number:'03', title:'NAIL CLIPPING', descriptionHtml:'Safe, precise nail trimming<br>to keep your pet comfortable<br>and confident.', image:'assets/service-nails.jpg', imageAlt:'Small dog having nails clipped', style:'orange' },
+      { number:'04', title:'TEETH CLEANING', descriptionHtml:'Gentle oral care for fresher<br>breath and a happier,<br>healthier smile.', image:'assets/service-teeth-cleaning.png', imageAlt:'Smiling white dog ready for teeth cleaning', style:'green' },
+      { number:'05', title:'DE-SHEDDING', descriptionHtml:'A deep coat treatment to<br>remove loose fur and leave<br>your pet feeling lighter.', image:'assets/ig-4.jpg', imageAlt:'Golden retriever during a bath', style:'black', featured:true },
+      { number:'06', title:'PUPPY INTRO', descriptionHtml:'A calm first visit designed<br>to build trust and make<br>grooming feel easy.', image:'assets/ig-5.jpg', imageAlt:'Freshly groomed puppy', style:'orange' },
     ],
     details: {
-      'BATH & BRUSH': {
-        lead: 'A gentle reset for a clean coat, fresh scent, and softer brush-out.',
-        includes: ['Warm bath with coat-safe shampoo', 'Conditioning rinse', 'Blow dry', 'Full brush-out', 'Light finishing spray'],
-        pricing: [['Small dogs', '$35+'], ['Medium dogs', '$45+'], ['Large dogs', '$60+']]
-      },
-      'HAIRCUT & STYLING': {
-        lead: 'A full grooming appointment shaped around your dog’s coat, comfort, and style.',
-        includes: ['Bath and blow dry', 'Breed or custom haircut', 'Face, feet, and sanitary trim', 'Brush-out and styling finish', 'Nail check'],
-        pricing: [['Small dogs', '$55+'], ['Medium dogs', '$70+'], ['Large dogs', '$90+']]
-      },
-      'NAIL CLIPPING': {
-        lead: 'Quick, careful nail care to keep paws comfortable and movement easy.',
-        includes: ['Nail trim', 'Gentle paw handling', 'Optional file/smoothing when needed', 'Quick comfort check'],
-        pricing: [['All small dogs', '$15+'], ['Medium dogs', '$18+'], ['Large dogs', '$22+']]
-      },
-      'TEETH CLEANING': {
-        lead: 'A light oral-care add-on for fresher breath and a brighter smile.',
-        includes: ['Gentle tooth brushing', 'Pet-safe oral care products', 'Breath refresh', 'Visual mouth comfort check'],
-        pricing: [['All sizes', '$20+'], ['With grooming service', '$15+']]
-      },
-      'EAR CLEANING': {
-        lead: 'A calm ear clean that helps keep ears fresh and irritation-free.',
-        includes: ['Outer-ear cleaning', 'Pet-safe cleaner', 'Gentle wipe-out', 'Comfort check before finishing'],
-        pricing: [['All sizes', '$15+'], ['With grooming service', '$12+']]
-      },
-      'DE-SHEDDING TREATMENT': {
-        lead: 'A deeper coat service for loose undercoat, seasonal shedding, and a cleaner home.',
-        includes: ['De-shedding shampoo', 'Conditioning treatment', 'High-velocity dry', 'Undercoat brush-out', 'Finishing comb-through'],
-        pricing: [['Small dogs', '$40+'], ['Medium dogs', '$55+'], ['Large dogs', '$75+']]
-      }
+      'BATH & BRUSH': { lead:'A gentle reset for a clean coat, fresh scent, and softer brush-out.', includes:['Warm bath with coat-safe shampoo','Conditioning rinse','Blow dry','Full brush-out','Light finishing spray'], pricing:[['Small dogs','$35+'],['Medium dogs','$45+'],['Large dogs','$60+']] },
+      'HAIRCUT & STYLING': { lead:'A full grooming appointment shaped around your dog’s coat, comfort, and style.', includes:['Bath and blow dry','Breed or custom haircut','Face, feet, and sanitary trim','Brush-out and styling finish','Nail check'], pricing:[['Small dogs','$55+'],['Medium dogs','$70+'],['Large dogs','$90+']] },
+      'NAIL CLIPPING': { lead:'Quick, careful nail care to keep paws comfortable and movement easy.', includes:['Nail trim','Gentle paw handling','Optional file/smoothing when needed','Quick comfort check'], pricing:[['All small dogs','$15+'],['Medium dogs','$18+'],['Large dogs','$22+']] },
+      'TEETH CLEANING': { lead:'A light oral-care add-on for fresher breath and a brighter smile.', includes:['Gentle tooth brushing','Pet-safe oral care products','Breath refresh','Visual mouth comfort check'], pricing:[['All sizes','$20+'],['With grooming service','$15+']] },
+      'EAR CLEANING': { lead:'A calm ear clean that helps keep ears fresh and irritation-free.', includes:['Outer-ear cleaning','Pet-safe cleaner','Gentle wipe-out','Comfort check before finishing'], pricing:[['All sizes','$15+'],['With grooming service','$12+']] },
+      'DE-SHEDDING TREATMENT': { lead:'A deeper coat service for loose undercoat, seasonal shedding, and a cleaner home.', includes:['De-shedding shampoo','Conditioning treatment','High-velocity dry','Undercoat brush-out','Finishing comb-through'], pricing:[['Small dogs','$40+'],['Medium dogs','$55+'],['Large dogs','$75+']] },
     },
   },
-
-  experience: {
-    kicker: 'THE GRÜM EXPERIENCE',
-    headingHtml: 'MORE THAN A GROOM.<br>IT’S A MOMENT OF <span>CARE.</span>',
-    button: 'LEARN MORE ABOUT US',
-    image: 'assets/experience-banner.jpg',
-    imageAlt: 'Golden retriever enjoying a grooming treatment',
-  },
-
+  experience: { kicker:'THE GRÜM EXPERIENCE', headingHtml:'MORE THAN A GROOM.<br>IT’S A MOMENT OF <span>CARE.</span>', button:'LEARN MORE ABOUT US', image:'assets/experience-banner.jpg', imageAlt:'Golden retriever enjoying a grooming treatment' },
   gallery: {
-    kicker: 'FOLLOW OUR JOURNEY!',
-    heading: 'ON INSTAGRAM',
-    linkLabel: 'VIEW MORE ON INSTAGRAM',
-    phoneImage: 'assets/instagram-phone.png',
-    phoneAlt: 'Grüm Instagram profile on a phone',
-    images: [
-      { src: 'assets/ig-1.jpg', alt: 'Dog grooming Instagram post' },
-      { src: 'assets/ig-2.jpg', alt: 'Dog grooming Instagram post' },
-      { src: 'assets/ig-3.jpg', alt: 'Grüm grooming products' },
-      { src: 'assets/ig-4.jpg', alt: 'Golden retriever bathing' },
-      { src: 'assets/ig-5.jpg', alt: 'Groomed poodle' },
-      { src: 'assets/ig-6.jpg', alt: 'Grüm grooming studio' },
+    kicker:'FOLLOW OUR JOURNEY!', heading:'ON INSTAGRAM', linkLabel:'VIEW MORE ON INSTAGRAM', phoneImage:'assets/instagram-phone.png', phoneAlt:'Grüm Instagram profile on a phone',
+    images:[
+      {src:'assets/ig-1.jpg',alt:'Dog grooming Instagram post'}, {src:'assets/ig-2.jpg',alt:'Dog grooming Instagram post'},
+      {src:'assets/ig-3.jpg',alt:'Grüm grooming products'}, {src:'assets/ig-4.jpg',alt:'Golden retriever bathing'},
+      {src:'assets/ig-5.jpg',alt:'Groomed poodle'}, {src:'assets/ig-6.jpg',alt:'Grüm grooming studio'},
     ],
   },
-
-  finalCta: {
-    kicker: 'READY FOR THEIR',
-    heading: 'BEST DAY EVER?',
-    body: 'We can’t wait to meet your best friend.',
-    button: 'BOOK APPOINTMENT',
-    buttonSmall: 'CLICK TO BOOK',
-    image: 'assets/footer-dog-cutout.png',
-    imageAlt: 'Happy golden retriever',
-  },
-
-  legal: [
-    { label: 'Privacy Policy', target: 'privacy-policy.html' },
-    { label: 'Terms & Conditions', target: 'terms-and-conditions.html' },
-  ],
-
-  booking: {
-    kicker: 'BOOK THEIR BEST DAY',
-    heading: 'REQUEST AN APPOINTMENT.',
-    submitLabel: 'REQUEST APPOINTMENT',
-    serviceOptions: ['BATH & BRUSH', 'HAIRCUT & STYLING', 'NAIL CLIPPING', 'TEETH CLEANING', 'EAR CLEANING', 'DE-SHEDDING TREATMENT'],
-  },
+  finalCta: { kicker:'READY FOR THEIR', heading:'BEST DAY EVER?', body:'We can’t wait to meet your best friend.', button:'BOOK APPOINTMENT', buttonSmall:'CLICK TO BOOK', image:'assets/footer-dog-cutout.png', imageAlt:'Happy golden retriever' },
+  legal: [{label:'Privacy Policy',target:'privacy-policy.html'},{label:'Terms & Conditions',target:'terms-and-conditions.html'}],
+  booking: { kicker:'BOOK THEIR BEST DAY', heading:'REQUEST AN APPOINTMENT.', submitLabel:'REQUEST APPOINTMENT', serviceOptions:['BATH & BRUSH','HAIRCUT & STYLING','NAIL CLIPPING','TEETH CLEANING','EAR CLEANING','DE-SHEDDING TREATMENT'] },
 };
 
 /* Gallery lightbox: click any gallery tile to enlarge, then browse with arrows/keyboard. */
 (() => {
   const tiles = [...document.querySelectorAll('.photo-grid .photo-tile img')];
   if (!tiles.length) return;
-
   const dialog = document.createElement('dialog');
   dialog.className = 'gallery-lightbox';
-  dialog.innerHTML = `
-    <div class="gallery-lightbox-shell">
-      <button class="gallery-lightbox-close" type="button" aria-label="Close gallery">×</button>
-      <button class="gallery-lightbox-arrow gallery-lightbox-prev" type="button" aria-label="Previous image">‹</button>
-      <img class="gallery-lightbox-image" alt="" />
-      <button class="gallery-lightbox-arrow gallery-lightbox-next" type="button" aria-label="Next image">›</button>
-    </div>`;
+  dialog.innerHTML = `<div class="gallery-lightbox-shell"><button class="gallery-lightbox-close" type="button" aria-label="Close gallery">×</button><button class="gallery-lightbox-arrow gallery-lightbox-prev" type="button" aria-label="Previous image">‹</button><img class="gallery-lightbox-image" alt="" /><button class="gallery-lightbox-arrow gallery-lightbox-next" type="button" aria-label="Next image">›</button></div>`;
   document.body.appendChild(dialog);
-
-  const image = dialog.querySelector('.gallery-lightbox-image');
-  let activeIndex = 0;
-
-  const show = (index) => {
-    activeIndex = (index + tiles.length) % tiles.length;
-    image.src = tiles[activeIndex].currentSrc || tiles[activeIndex].src;
-    image.alt = tiles[activeIndex].alt || 'Gallery image';
-  };
-  const open = (index) => {
-    show(index);
-    dialog.showModal();
-  };
-
-  tiles.forEach((tile, index) => {
-    tile.tabIndex = 0;
-    tile.setAttribute('role', 'button');
-    tile.setAttribute('aria-label', `${tile.alt || 'Gallery image'} — open larger`);
-    tile.addEventListener('click', () => open(index));
-    tile.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        open(index);
-      }
-    });
-  });
-
-  dialog.querySelector('.gallery-lightbox-close').addEventListener('click', () => dialog.close());
-  dialog.querySelector('.gallery-lightbox-prev').addEventListener('click', () => show(activeIndex - 1));
-  dialog.querySelector('.gallery-lightbox-next').addEventListener('click', () => show(activeIndex + 1));
-  dialog.addEventListener('keydown', (event) => {
-    if (event.key === 'ArrowLeft') show(activeIndex - 1);
-    if (event.key === 'ArrowRight') show(activeIndex + 1);
-    if (event.key === 'Escape') dialog.close();
-  });
-  dialog.addEventListener('click', (event) => {
-    if (event.target === dialog) dialog.close();
-  });
+  const image = dialog.querySelector('.gallery-lightbox-image'); let activeIndex = 0;
+  const show = (index) => { activeIndex=(index+tiles.length)%tiles.length; image.src=tiles[activeIndex].currentSrc||tiles[activeIndex].src; image.alt=tiles[activeIndex].alt||'Gallery image'; };
+  const open = (index) => { show(index); dialog.showModal(); };
+  tiles.forEach((tile,index)=>{ tile.tabIndex=0; tile.setAttribute('role','button'); tile.addEventListener('click',()=>open(index)); tile.addEventListener('keydown',(e)=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();open(index);} }); });
+  dialog.querySelector('.gallery-lightbox-close').addEventListener('click',()=>dialog.close());
+  dialog.querySelector('.gallery-lightbox-prev').addEventListener('click',()=>show(activeIndex-1));
+  dialog.querySelector('.gallery-lightbox-next').addEventListener('click',()=>show(activeIndex+1));
+  dialog.addEventListener('keydown',(e)=>{if(e.key==='ArrowLeft')show(activeIndex-1);if(e.key==='ArrowRight')show(activeIndex+1);if(e.key==='Escape')dialog.close();});
+  dialog.addEventListener('click',(e)=>{if(e.target===dialog)dialog.close();});
 })();
 
-/* Make blog article CTA transition cleanly into the booking modal. */
-(() => {
-  const articleDialog = document.getElementById('blogDetailModal');
-  const articleBook = articleDialog?.querySelector('.blog-detail-book');
-  articleBook?.addEventListener('click', () => articleDialog.close(), { capture: true });
-})();
+/* Make blog article CTA transition cleanly into booking. */
+(() => { const d=document.getElementById('blogDetailModal'); d?.querySelector('.blog-detail-book')?.addEventListener('click',()=>d.close(),{capture:true}); })();
 
-/* Functional EN / DE / ES selector with visible on-page translations. */
+/* Complete multilingual layer. It translates text nodes only, so nested phone/play/arrow icons and layout markup are never replaced. */
 (() => {
   const footerInner = document.querySelector('.final-cta .final-inner');
-  if (!footerInner || footerInner.querySelector('.language-switcher')) return;
+  if (!footerInner) return;
 
-  const translations = {
-    en: {
-      nav: ['HOME','ABOUT','SERVICES','GALLERY','BLOG','CONTACT'],
-      heroSubtitle: 'Luxury care. Happy tails.',
-      book: 'BOOK APPOINTMENT', watch: 'WATCH VIDEO', chipTitle: 'ONE-ON-ONE CARE', chipText: 'Each pet enjoys our<br>undivided attention.',
-      servicesKicker: 'OUR SERVICES', servicesHeading: 'DOG GROOMING,<br><span>BATHING &amp; COAT CARE</span>', servicesIntro: 'From refreshing baths to complete makeovers,<br>we provide exceptional care tailored to<br>your pet’s unique needs.', servicesLink: 'VIEW ALL SERVICES',
-      experienceKicker: 'THE GRÜM EXPERIENCE', experienceHeading: 'MORE THAN A GROOM.<br>IT’S A MOMENT OF <span>CARE.</span>', learnMore: 'LEARN MORE ABOUT US',
-      galleryKicker: 'FOLLOW OUR JOURNEY!', galleryHeading: 'ON INSTAGRAM', galleryMore: 'VIEW MORE ON INSTAGRAM',
-      finalKicker: 'READY FOR THEIR', finalHeading: 'BEST DAY EVER?', finalBody: 'We can’t wait to meet your best friend.', clickToBook: 'CLICK TO BOOK', privacy: 'Privacy Policy', terms: 'Terms & Conditions',
-      bookingKicker: 'BOOK THEIR BEST DAY', bookingHeading: 'REQUEST AN APPOINTMENT.', request: 'REQUEST APPOINTMENT'
-    },
-    de: {
-      nav: ['START','ÜBER UNS','SERVICES','GALERIE','BLOG','KONTAKT'],
-      heroSubtitle: 'Luxuriöse Pflege. Glückliche Pfoten.',
-      book: 'TERMIN BUCHEN', watch: 'VIDEO ANSEHEN', chipTitle: 'INDIVIDUELLE BETREUUNG', chipText: 'Jedes Tier bekommt unsere<br>volle Aufmerksamkeit.',
-      servicesKicker: 'UNSERE SERVICES', servicesHeading: 'HUNDEPFLEGE,<br><span>BAD & FELLPFLEGE</span>', servicesIntro: 'Vom erfrischenden Bad bis zum kompletten Styling –<br>wir passen jede Behandlung individuell<br>an die Bedürfnisse deines Hundes an.', servicesLink: 'ALLE SERVICES ANSEHEN',
-      experienceKicker: 'DAS GRÜM ERLEBNIS', experienceHeading: 'MEHR ALS PFLEGE.<br>EIN MOMENT VOLLER <span>FÜRSORGE.</span>', learnMore: 'MEHR ÜBER UNS',
-      galleryKicker: 'FOLGE UNSERER REISE!', galleryHeading: 'AUF INSTAGRAM', galleryMore: 'MEHR AUF INSTAGRAM',
-      finalKicker: 'BEREIT FÜR DEN', finalHeading: 'BESTEN TAG?', finalBody: 'Wir freuen uns darauf, deinen besten Freund kennenzulernen.', clickToBook: 'JETZT BUCHEN', privacy: 'Datenschutz', terms: 'AGB',
-      bookingKicker: 'BUCHE DEN BESTEN TAG', bookingHeading: 'TERMIN ANFRAGEN.', request: 'TERMIN ANFRAGEN'
-    },
-    es: {
-      nav: ['INICIO','NOSOTROS','SERVICIOS','GALERÍA','BLOG','CONTACTO'],
-      heroSubtitle: 'Cuidado premium. Colitas felices.',
-      book: 'RESERVAR CITA', watch: 'VER VIDEO', chipTitle: 'ATENCIÓN INDIVIDUAL', chipText: 'Cada mascota recibe<br>toda nuestra atención.',
-      servicesKicker: 'NUESTROS SERVICIOS', servicesHeading: 'PELUQUERÍA CANINA,<br><span>BAÑO & CUIDADO DEL PELO</span>', servicesIntro: 'Desde baños refrescantes hasta cambios completos,<br>adaptamos cada servicio a las necesidades<br>únicas de tu mascota.', servicesLink: 'VER TODOS LOS SERVICIOS',
-      experienceKicker: 'LA EXPERIENCIA GRÜM', experienceHeading: 'MÁS QUE PELUQUERÍA.<br>UN MOMENTO DE <span>CUIDADO.</span>', learnMore: 'CONÓCENOS MEJOR',
-      galleryKicker: '¡SIGUE NUESTRO CAMINO!', galleryHeading: 'EN INSTAGRAM', galleryMore: 'VER MÁS EN INSTAGRAM',
-      finalKicker: '¿LISTO PARA SU', finalHeading: 'MEJOR DÍA?', finalBody: 'Tenemos muchas ganas de conocer a tu mejor amigo.', clickToBook: 'HAZ CLIC PARA RESERVAR', privacy: 'Privacidad', terms: 'Términos y condiciones',
-      bookingKicker: 'RESERVA SU MEJOR DÍA', bookingHeading: 'SOLICITAR UNA CITA.', request: 'SOLICITAR CITA'
-    }
+  const DE = {
+    'HOME':'START','ABOUT':'ÜBER UNS','SERVICES':'SERVICES','GALLERY':'GALERIE','BLOG':'BLOG','CONTACT':'KONTAKT',
+    'BOOK APPOINTMENT':'TERMIN BUCHEN','WATCH VIDEO':'VIDEO ANSEHEN','Luxury care. Happy tails.':'Luxuriöse Pflege. Glückliche Pfoten.',
+    'ONE-ON-ONE CARE':'INDIVIDUELLE BETREUUNG','Each pet enjoys our':'Jedes Tier bekommt unsere','undivided attention.':'volle Aufmerksamkeit.',
+    'OUR SERVICES':'UNSERE SERVICES','DOG GROOMING,':'HUNDEPFLEGE,','BATHING & COAT CARE':'BAD & FELLPFLEGE',
+    'From refreshing baths to complete makeovers,':'Vom erfrischenden Bad bis zum kompletten Styling,','we provide exceptional care tailored to':'wir passen jede Behandlung individuell','your pet’s unique needs.':'an die Bedürfnisse deines Hundes an.','VIEW ALL SERVICES':'ALLE SERVICES ANSEHEN',
+    'THE GRÜM EXPERIENCE':'DAS GRÜM ERLEBNIS','MORE THAN A GROOM.':'MEHR ALS PFLEGE.','IT’S A MOMENT OF':'EIN MOMENT VOLLER','CARE.':'FÜRSORGE.','LEARN MORE ABOUT US':'MEHR ÜBER UNS',
+    'FOLLOW OUR JOURNEY!':'FOLGE UNSERER REISE!','ON INSTAGRAM':'AUF INSTAGRAM','VIEW MORE ON INSTAGRAM':'MEHR AUF INSTAGRAM',
+    'READY FOR THEIR':'BEREIT FÜR DEN','BEST DAY EVER?':'BESTEN TAG?','We can’t wait to meet your best friend.':'Wir freuen uns darauf, deinen besten Freund kennenzulernen.','We can\'t wait to meet your best friend.':'Wir freuen uns darauf, deinen besten Freund kennenzulernen.','CLICK TO BOOK':'JETZT BUCHEN','Privacy Policy':'Datenschutz','Terms & Conditions':'AGB',
+    'BOOK THEIR BEST DAY':'BUCHE DEN BESTEN TAG','REQUEST AN APPOINTMENT.':'TERMIN ANFRAGEN.','REQUEST APPOINTMENT':'TERMIN ANFRAGEN',
+    'Your name':'Dein Name','Dog’s name':'Name des Hundes','Dog\'s name':'Name des Hundes','Phone':'Telefon','Service':'Service','Anything we should know?':'Gibt es etwas, das wir wissen sollten?','Breed, coat, preferred date…':'Rasse, Fell, Wunschtermin…','Breed, coat, preferred date...':'Rasse, Fell, Wunschtermin…',
+    'BATH & BRUSH':'BAD & BÜRSTEN','HAIRCUT & STYLING':'SCHNITT & STYLING','NAIL CLIPPING':'KRALLEN SCHNEIDEN','TEETH CLEANING':'ZAHNREINIGUNG','EAR CLEANING':'OHRENREINIGUNG','DE-SHEDDING TREATMENT':'ENTHAARUNGSBEHANDLUNG','DE-SHEDDING':'ENTHAARUNG','PUPPY INTRO':'WELPEN-KENNENLERNEN',
+    'A relaxing bath, gentle cleanse and thorough brushing for a fresh, healthy coat.':'Ein entspannendes Bad, sanfte Reinigung und gründliches Bürsten für ein frisches, gesundes Fell.',
+    'Custom haircuts and styling designed to bring out your pet\'s best look.':'Individuelle Schnitte und Stylings, die das Beste aus deinem Tier herausholen.',
+    'Safe, precise nail trimming to keep your pet comfortable and confident.':'Sicheres, präzises Krallenschneiden für Komfort und Wohlbefinden.',
+    'Gentle brushing and breath care to keep your pet\'s smile healthy.':'Sanfte Zahnpflege und Atemfrische für ein gesundes Lächeln.',
+    'A careful, soothing clean that keeps ears healthy and irritation-free.':'Sanfte Ohrenreinigung für gesunde, reizfreie Ohren.',
+    'A deep-coat treatment that cuts loose fur and keeps shedding under control.':'Eine intensive Fellbehandlung, die loses Haar entfernt und den Fellwechsel reduziert.',
+    'FROM $35':'AB $35','FROM $55':'AB $55','FROM $15':'AB $15','FROM $20':'AB $20','FROM $40':'AB $40',
+    'ABOUT GRÜM':'ÜBER GRÜM','GROOMED WITH CARE,':'MIT SORGFALT GEPFLEGT,','TREATED LIKE FAMILY.':'WIE FAMILIE BEHANDELT.',
+    'Grüm started with a simple idea: grooming shouldn\'t feel like a factory line. Every pet gets one groomer, one appointment slot, and undivided attention from the moment they walk in.':'Grüm begann mit einer einfachen Idee: Pflege sollte sich nicht wie Fließbandarbeit anfühlen. Jedes Tier bekommt einen Groomer, einen eigenen Termin und vom ersten Moment an volle Aufmerksamkeit.',
+    'OUR STORY':'UNSERE GESCHICHTE','A CALMER WAY':'ENTSPANNTER','TO GET GROOMED':'ZUR PFLEGE',
+    'We built Grüm around a single rule: no cages, no rushing, no stranger-danger stress. Each visit is scheduled one pet at a time, so your dog gets a groomer\'s full attention from bath to final trim — not a slot in a busy queue.':'Grüm folgt einer einfachen Regel: keine Käfige, keine Hektik, kein unnötiger Stress. Jeder Termin gehört nur einem Tier, damit dein Hund vom Bad bis zum letzten Schnitt die volle Aufmerksamkeit bekommt.',
+    'That slower pace means calmer pets, better results, and a coat that actually gets the care it needs — whether that\'s a quick bath and brush or a full styling session.':'Dieses ruhigere Tempo bedeutet entspanntere Tiere, bessere Ergebnisse und genau die Fellpflege, die wirklich nötig ist – vom kurzen Bad bis zum kompletten Styling.',
+    'WHY PET PARENTS CHOOSE US':'WARUM TIERHALTER UNS WÄHLEN','WHAT MAKES':'WAS','GRÜM DIFFERENT':'GRÜM BESONDERS MACHT','One-on-One Care':'Individuelle Betreuung','Certified Groomers':'Zertifizierte Groomer','Gentle Handling':'Sanfter Umgang','Premium Products':'Premium-Produkte',
+    'Every appointment is a private session — your pet never waits in a cage.':'Jeder Termin ist privat – dein Tier wartet niemals in einem Käfig.','Trained, experienced, and genuinely good with nervous or older pets.':'Ausgebildet, erfahren und besonders einfühlsam bei nervösen oder älteren Tieren.','Low-stress techniques and breaks whenever your pet needs one.':'Stressarme Techniken und Pausen, wann immer dein Tier sie braucht.','Skin-safe shampoos and tools suited to your pet\'s coat type.':'Hautfreundliche Shampoos und Werkzeuge passend zum Felltyp deines Tieres.',
+    'GROOMING &':'PFLEGE &','COAT CARE':'FELLPFLEGE','DONE RIGHT.':'RICHTIG GEMACHT.','Every visit is one-on-one — no cages, no rush. From a quick bath and brush to a full styling session, we tailor each service to your pet\'s coat, temperament and needs.':'Jeder Termin ist individuell – ohne Käfige und ohne Hektik. Vom kurzen Bad bis zum kompletten Styling passen wir jeden Service an Fell, Temperament und Bedürfnisse deines Tieres an.',
+    'WHAT WE OFFER':'UNSER ANGEBOT','PICK A SERVICE,':'WÄHLE EINEN SERVICE,','WE\'LL HANDLE THE REST':'WIR KÜMMERN UNS UM DEN REST','Tap any card to start a booking request for that service — we\'ll confirm your appointment by phone.':'Klicke auf einen Service, um eine Terminanfrage zu starten – wir bestätigen deinen Termin telefonisch.',
+    'HOW IT WORKS':'SO FUNKTIONIERT ES','THREE STEPS TO A':'DREI SCHRITTE ZUM','HAPPY TAIL':'GLÜCKLICHEN HUND','Book a time':'Termin wählen','Pick a service above or call — we\'ll find a slot that works for you.':'Wähle oben einen Service oder ruf uns an – wir finden einen passenden Termin.','Meet your groomer':'Groomer kennenlernen','One-on-one attention from arrival to pickup, at your pet\'s pace.':'Individuelle Betreuung von der Ankunft bis zur Abholung – im Tempo deines Tieres.','Leave happy':'Glücklich nach Hause','A fresh, healthy coat and a pet who actually enjoyed the visit.':'Ein frisches, gesundes Fell und ein Tier, das den Besuch wirklich genossen hat.',
+    'SERVICE DETAILS':'SERVICE-DETAILS','SERVICE DETAILS.':'SERVICE-DETAILS.','What’s Included':'Was enthalten ist','Price By Dog Size':'Preis nach Hundegröße','Final pricing can change based on coat condition, matting, temperament, and the time needed to groom your pet safely.':'Der Endpreis kann je nach Fellzustand, Verfilzung, Temperament und benötigter Zeit variieren.',
+    'Small dogs':'Kleine Hunde','Medium dogs':'Mittelgroße Hunde','Large dogs':'Große Hunde','All small dogs':'Alle kleinen Hunde','All sizes':'Alle Größen','With grooming service':'Mit Grooming-Service',
+    'Warm bath with coat-safe shampoo':'Warmes Bad mit fellschonendem Shampoo','Conditioning rinse':'Pflegespülung','Blow dry':'Föhnen','Full brush-out':'Gründliches Ausbürsten','Light finishing spray':'Leichtes Finish-Spray','Bath and blow dry':'Bad und Föhnen','Breed or custom haircut':'Rassegerechter oder individueller Schnitt','Face, feet, and sanitary trim':'Gesicht, Pfoten und Hygienebereich schneiden','Brush-out and styling finish':'Ausbürsten und Styling-Finish','Nail check':'Krallencheck','Nail trim':'Krallen schneiden','Gentle paw handling':'Sanfter Umgang mit den Pfoten','Optional file/smoothing when needed':'Bei Bedarf Feilen/Glätten','Quick comfort check':'Kurzer Komfort-Check','Gentle tooth brushing':'Sanftes Zähneputzen','Pet-safe oral care products':'Tierfreundliche Zahnpflegeprodukte','Breath refresh':'Atemfrische','Visual mouth comfort check':'Visueller Maul-Check','Outer-ear cleaning':'Reinigung der Ohrmuschel','Pet-safe cleaner':'Tierfreundlicher Reiniger','Gentle wipe-out':'Sanftes Auswischen','Comfort check before finishing':'Komfort-Check zum Abschluss','De-shedding shampoo':'De-Shedding-Shampoo','Conditioning treatment':'Pflegebehandlung','High-velocity dry':'Hochleistungs-Föhnen','Undercoat brush-out':'Unterwolle ausbürsten','Finishing comb-through':'Abschließendes Durchkämmen',
+    'GALLERY':'GALERIE','FRESH CUTS,':'FRISCHE SCHNITTE,','HAPPY TAILS.':'GLÜCKLICHE PFOTEN.','A look at the pets we\'ve groomed, the studio they groomed in, and the products we trust. Follow along for more on Instagram.':'Ein Blick auf unsere frisch gepflegten Tiere, unser Studio und die Produkte, denen wir vertrauen. Mehr findest du auf Instagram.','FOLLOW ON INSTAGRAM':'AUF INSTAGRAM FOLGEN','RECENT WORK':'AKTUELLE ARBEITEN','EVERY PET,':'JEDES TIER,','ONE-ON-ONE CARE':'INDIVIDUELLE BETREUUNG','Tap the Instagram link above for the full feed — here\'s a sample of what a Grüm visit looks like.':'Über den Instagram-Link oben findest du den gesamten Feed – hier ist ein kleiner Einblick in einen Besuch bei Grüm.',
+    'THE GRÜM BLOG':'DER GRÜM BLOG','COAT CARE TIPS':'TIPPS ZUR FELLPFLEGE','FROM OUR GROOMERS.':'VON UNSEREN GROOMERN.','Advice on bathing, brushing and keeping your pet comfortable between visits — straight from the people who groom them.':'Tipps zu Baden, Bürsten und Wohlbefinden zwischen den Terminen – direkt von unseren Groomern.','LATEST POSTS':'NEUESTE BEITRÄGE','GROOMING':'GROOMING','GUIDES & TIPS':'RATGEBER & TIPPS',
+    'GROOMING BASICS':'GROOMING-GRUNDLAGEN','COAT CARE':'FELLPFLEGE','NAIL & PAW CARE':'KRALLEN- & PFOTENPFLEGE','FIRST VISIT':'ERSTER BESUCH',
+    'HOW OFTEN SHOULD YOU ACTUALLY BATHE YOUR DOG?':'WIE OFT SOLLTEST DU DEINEN HUND WIRKLICH BADEN?','BRUSHING BETWEEN VISITS: A 5-MINUTE ROUTINE THAT WORKS':'BÜRSTEN ZWISCHEN TERMINEN: EINE 5-MINUTEN-ROUTINE, DIE FUNKTIONIERT','SIGNS YOUR DOG\'S NAILS ARE OVERDUE FOR A TRIM':'ANZEICHEN, DASS DIE KRALLEN DEINES HUNDES GESCHNITTEN WERDEN SOLLTEN','WHAT TO EXPECT AT YOUR DOG\'S FIRST GRÜM APPOINTMENT':'WAS DICH BEIM ERSTEN GRÜM-TERMIN DEINES HUNDES ERWARTET',
+    'Too often strips natural oils, too rarely lets dirt and odor build up. Here\'s how to find the right rhythm for your dog\'s coat type, activity level, and skin sensitivity — and why "once a month" isn\'t a one-size-fits-all rule.':'Zu häufiges Baden entzieht natürliche Öle, zu seltenes lässt Schmutz und Geruch entstehen. So findest du den richtigen Rhythmus für Felltyp, Aktivität und Haut deines Hundes.','A few minutes of brushing a few times a week prevents mats, cuts shedding, and makes every grooming appointment faster and more comfortable. We walk through the simple routine we recommend to every client.':'Ein paar Minuten Bürsten mehrmals pro Woche verhindern Verfilzungen, reduzieren Haaren und machen jeden Grooming-Termin angenehmer.','Clicking on hardwood floors, visible curling, or your dog favoring certain steps are all signs it\'s time. Overgrown nails can actually change how a dog walks — here\'s what to watch for.':'Klickende Geräusche auf hartem Boden, eingerollte Krallen oder ein veränderter Gang zeigen, dass es Zeit zum Schneiden ist.','Nervous about your pet\'s first professional groom? Here\'s exactly how a Grüm session runs, start to finish — from check-in to the one-on-one attention that makes the whole visit lower-stress.':'Unsicher vor dem ersten professionellen Grooming? Hier erfährst du genau, wie ein Grüm-Termin von Anfang bis Ende abläuft.',
+    'Most dogs do well with a bath every four to six weeks, but the right schedule depends on coat type, skin sensitivity, activity level, and how much time they spend outside.':'Für die meisten Hunde ist ein Bad alle vier bis sechs Wochen passend. Der richtige Rhythmus hängt aber von Felltyp, Hautempfindlichkeit, Aktivität und Zeit im Freien ab.','Short-coated dogs may need less frequent baths, while curly, long, or double-coated dogs often need more regular professional care to prevent buildup and matting.':'Kurzhaarige Hunde brauchen oft seltener ein Bad, während lockiges, langes oder doppeltes Fell regelmäßiger professionelle Pflege benötigt.','If your dog smells, feels greasy, scratches more than usual, or leaves extra dirt on bedding, it may be time for a bath. If the skin looks dry or irritated, we can help choose a gentler rhythm.':'Wenn dein Hund riecht, fettiges Fell hat, sich häufiger kratzt oder mehr Schmutz hinterlässt, kann ein Bad sinnvoll sein. Bei trockener oder gereizter Haut helfen wir, einen sanfteren Rhythmus zu finden.',
+    'A short brushing routine a few times a week can make a huge difference, especially around the ears, chest, tail, belly, and legs where mats start fastest.':'Eine kurze Bürstenroutine mehrmals pro Woche macht einen großen Unterschied – besonders an Ohren, Brust, Rute, Bauch und Beinen.','Use slow passes, work in small sections, and stop if your dog gets uncomfortable. The goal is consistency, not a wrestling match.':'Arbeite langsam in kleinen Partien und hör auf, wenn dein Hund sich unwohl fühlt. Regelmäßigkeit ist wichtiger als Zwang.','Regular brushing helps keep appointments calmer because the coat is easier to wash, dry, and style. It also lets you spot skin changes before they become bigger problems.':'Regelmäßiges Bürsten macht Termine entspannter, weil sich das Fell leichter waschen, trocknen und stylen lässt. Außerdem fallen Hautveränderungen früher auf.',
+    'If you hear clicking on hard floors, see nails touching the ground while your dog stands, or notice curling tips, it is probably time for a trim.':'Wenn du Krallen auf hartem Boden klicken hörst, sie im Stand den Boden berühren oder sich einrollen, ist es wahrscheinlich Zeit zum Schneiden.','Long nails can change posture and make walking less comfortable. Some dogs also start slipping more because their paws cannot sit naturally.':'Zu lange Krallen können die Haltung verändern und das Laufen unangenehm machen. Manche Hunde rutschen dadurch auch häufiger.','For nervous pets, shorter and more frequent nail appointments can be easier than waiting until the nails are very long.':'Für nervöse Tiere sind kürzere, häufigere Krallentermine oft leichter als lange Abstände.',
+    'The first visit starts with a quick check-in so we can learn about your dog\'s coat, comfort level, health notes, and the service you want.':'Der erste Besuch beginnt mit einem kurzen Check-in zu Fell, Wohlbefinden, Gesundheit und gewünschtem Service.','From there, we move at your pet\'s pace. A one-on-one appointment keeps things calmer because your dog is not waiting in a crowded space.':'Danach richten wir uns nach dem Tempo deines Tieres. Der individuelle Termin bleibt ruhig, weil dein Hund nicht in einem vollen Raum warten muss.','After the groom, we will let you know how the coat did, what maintenance helps at home, and when the next appointment should be.':'Nach dem Grooming erklären wir dir, wie das Fell reagiert hat, welche Pflege zu Hause hilft und wann der nächste Termin sinnvoll ist.',
+    'GET IN TOUCH':'MELDE DICH','LET\'S TALK':'LASS UNS ÜBER','ABOUT YOUR PET.':'DEIN TIER SPRECHEN.','Questions about a service, or ready to book? Call, email, or send a message below and we\'ll get back to you the same day.':'Fragen zu einem Service oder bereit zu buchen? Ruf an, schreib eine E-Mail oder sende uns unten eine Nachricht – wir melden uns noch am selben Tag.','STOP BY,':'KOMM VORBEI,','CALL, OR WRITE':'RUF AN ODER SCHREIB','EMAIL':'E-MAIL','STUDIO ADDRESS':'STUDIOADRESSE','HOURS':'ÖFFNUNGSZEITEN','Tue–Sat, 9am–5pm':'Di–Sa, 9–17 Uhr','Closed Sun & Mon':'So & Mo geschlossen','SEND A MESSAGE':'NACHRICHT SENDEN','Phone (optional)':'Telefon (optional)','Message':'Nachricht','How can we help?':'Wie können wir helfen?','SEND MESSAGE':'NACHRICHT SENDEN','Thanks — we\'ve got your message and will reply within one business day.':'Danke – wir haben deine Nachricht erhalten und antworten innerhalb eines Werktags.',
+    'GRUM LEGAL':'GRUM RECHTLICHES','PRIVACY':'DATENSCHUTZ','POLICY.':'RICHTLINIE.','We respect your privacy when you browse our website, contact us, or request a grooming appointment for your pet.':'Wir respektieren deine Privatsphäre beim Besuch unserer Website, bei Kontaktanfragen und bei Terminwünschen.','Last updated: September 6, 2026':'Zuletzt aktualisiert: 6. September 2026','Information We Collect':'Welche Informationen wir erfassen','When you use our website or appointment form, we may collect your name, phone number, email address, pet name, pet details, service preferences, appointment notes, and any message you choose to send us.':'Wenn du unsere Website oder das Terminformular nutzt, können wir Name, Telefonnummer, E-Mail-Adresse, Tiername, Tierdetails, Servicewünsche, Terminnotizen und Nachrichten erfassen.','How We Use Information':'Wie wir Informationen nutzen','We use your information to answer questions, schedule and confirm appointments, prepare for your pet\'s visit, provide grooming services, follow up about your request, and improve the website experience.':'Wir nutzen deine Angaben, um Fragen zu beantworten, Termine zu planen und zu bestätigen, uns auf den Besuch vorzubereiten, Grooming-Services zu erbringen, nachzufassen und die Website zu verbessern.','Website And Device Information':'Website- und Geräteinformationen','Like most websites, we may receive basic technical information such as browser type, pages viewed, referring pages, and general usage activity. This helps us understand whether the site is working properly.':'Wie die meisten Websites können wir grundlegende technische Informationen wie Browsertyp, besuchte Seiten, Verweise und allgemeine Nutzung erhalten. Das hilft uns, die Funktion der Website zu prüfen.','Sharing Information':'Weitergabe von Informationen','We do not sell personal information. We may share limited information with trusted service providers who help operate the website, manage appointment requests, or support our business, and only when needed for those services.':'Wir verkaufen keine personenbezogenen Daten. Begrenzte Informationen können nur bei Bedarf mit vertrauenswürdigen Dienstleistern geteilt werden, die Website, Terminanfragen oder unseren Betrieb unterstützen.','Pet Health Details':'Gesundheitsdaten deines Tieres','If you provide allergy, medical, behavior, matting, flea, tick, or special handling information, we use it only to help us provide safer and more comfortable care for your pet.':'Angaben zu Allergien, Gesundheit, Verhalten, Verfilzungen, Flöhen, Zecken oder besonderem Umgang nutzen wir ausschließlich für eine sicherere und angenehmere Betreuung deines Tieres.','Your Choices':'Deine Rechte','You can contact us to ask about the information you submitted, request an update, or ask us to remove appointment request details when we no longer need them for business records.':'Du kannst uns kontaktieren, um Auskunft zu deinen Angaben zu erhalten, Änderungen zu verlangen oder die Löschung von Termindaten zu bitten, sobald wir sie nicht mehr für Geschäftsunterlagen benötigen.','If you have questions about this Privacy Policy, please contact Grum through the contact form on our website.':'Bei Fragen zu dieser Datenschutzrichtlinie kontaktiere Grum bitte über das Kontaktformular auf unserer Website.',
+    'TERMS &':'ALLGEMEINE','CONDITIONS.':'BEDINGUNGEN.','These terms explain how visitors may use the Grum website and submit grooming appointment requests.':'Diese Bedingungen erklären die Nutzung der Grum-Website und das Senden von Grooming-Terminanfragen.','Website Use':'Nutzung der Website','By using this website, you agree to use it respectfully and only for lawful purposes. Please do not submit false information, attempt to interfere with the website, or misuse any forms or links.':'Mit der Nutzung dieser Website erklärst du dich mit einer respektvollen und rechtmäßigen Nutzung einverstanden. Bitte sende keine falschen Angaben, störe die Website nicht und missbrauche keine Formulare oder Links.','Appointment Requests':'Terminanfragen','Submitting a form does not automatically confirm an appointment. A grooming appointment is confirmed only after Grum contacts you and confirms the service, date, time, price range, and availability.':'Das Absenden eines Formulars bestätigt noch keinen Termin. Ein Grooming-Termin ist erst bestätigt, wenn Grum Service, Datum, Uhrzeit, Preisrahmen und Verfügbarkeit bestätigt hat.','Pet Health And Safety':'Gesundheit und Sicherheit des Tieres','You agree to tell us about allergies, medical conditions, injuries, behavior concerns, matting, fleas, ticks, anxiety, age-related needs, or any special handling requirements before your pet\'s visit.':'Bitte informiere uns vor dem Besuch über Allergien, Erkrankungen, Verletzungen, Verhaltensauffälligkeiten, Verfilzungen, Flöhe, Zecken, Ängste, altersbedingte Bedürfnisse oder besondere Anforderungen.','Services And Pricing':'Services und Preise','Service descriptions and starting prices are general information. Final recommendations and pricing may vary based on breed, size, coat condition, behavior, service time, and the work needed to groom your pet safely.':'Servicebeschreibungen und Startpreise sind allgemeine Angaben. Empfehlungen und Endpreise können je nach Rasse, Größe, Fellzustand, Verhalten, Dauer und notwendigem Aufwand variieren.','Cancellations And Delays':'Stornierungen und Verspätungen','If you need to cancel or reschedule, please contact us as soon as possible. Late arrivals may require a shorter service, a different appointment time, or rescheduling depending on the day\'s schedule.':'Wenn du absagen oder verschieben musst, kontaktiere uns bitte so früh wie möglich. Bei Verspätung kann je nach Tagesplan ein kürzerer Service, ein anderer Termin oder eine Verschiebung nötig sein.','Website Content':'Website-Inhalte','The text, layout, images, branding, and other website materials are provided for Grum and may not be copied or reused without permission, except where allowed by law.':'Texte, Layout, Bilder, Branding und weitere Website-Materialien sind für Grum bestimmt und dürfen ohne Erlaubnis nicht kopiert oder wiederverwendet werden, soweit dies nicht gesetzlich erlaubt ist.','If you have questions about these Terms & Conditions, please contact Grum through the contact form on our website.':'Bei Fragen zu diesen Bedingungen kontaktiere Grum bitte über das Kontaktformular auf unserer Website.'
   };
 
-  const supported = Object.keys(translations);
-  const saved = localStorage.getItem('grum-language');
-  const initial = supported.includes(saved) ? saved : 'en';
+  const ES = {
+    'HOME':'INICIO','ABOUT':'NOSOTROS','SERVICES':'SERVICIOS','GALLERY':'GALERÍA','BLOG':'BLOG','CONTACT':'CONTACTO',
+    'BOOK APPOINTMENT':'RESERVAR CITA','WATCH VIDEO':'VER VIDEO','Luxury care. Happy tails.':'Cuidado premium. Colitas felices.',
+    'ONE-ON-ONE CARE':'ATENCIÓN INDIVIDUAL','Each pet enjoys our':'Cada mascota recibe','undivided attention.':'toda nuestra atención.',
+    'OUR SERVICES':'NUESTROS SERVICIOS','DOG GROOMING,':'PELUQUERÍA CANINA,','BATHING & COAT CARE':'BAÑO & CUIDADO DEL PELO',
+    'From refreshing baths to complete makeovers,':'Desde baños refrescantes hasta cambios completos,','we provide exceptional care tailored to':'adaptamos cada servicio a','your pet’s unique needs.':'las necesidades únicas de tu mascota.','VIEW ALL SERVICES':'VER TODOS LOS SERVICIOS',
+    'THE GRÜM EXPERIENCE':'LA EXPERIENCIA GRÜM','MORE THAN A GROOM.':'MÁS QUE PELUQUERÍA.','IT’S A MOMENT OF':'UN MOMENTO DE','CARE.':'CUIDADO.','LEARN MORE ABOUT US':'CONÓCENOS MEJOR',
+    'FOLLOW OUR JOURNEY!':'¡SIGUE NUESTRO CAMINO!','ON INSTAGRAM':'EN INSTAGRAM','VIEW MORE ON INSTAGRAM':'VER MÁS EN INSTAGRAM',
+    'READY FOR THEIR':'¿LISTO PARA SU','BEST DAY EVER?':'MEJOR DÍA?','We can’t wait to meet your best friend.':'Tenemos muchas ganas de conocer a tu mejor amigo.','We can\'t wait to meet your best friend.':'Tenemos muchas ganas de conocer a tu mejor amigo.','CLICK TO BOOK':'HAZ CLIC PARA RESERVAR','Privacy Policy':'Privacidad','Terms & Conditions':'Términos y condiciones',
+    'BOOK THEIR BEST DAY':'RESERVA SU MEJOR DÍA','REQUEST AN APPOINTMENT.':'SOLICITAR UNA CITA.','REQUEST APPOINTMENT':'SOLICITAR CITA',
+    'Your name':'Tu nombre','Dog’s name':'Nombre del perro','Dog\'s name':'Nombre del perro','Phone':'Teléfono','Service':'Servicio','Anything we should know?':'¿Hay algo que debamos saber?','Breed, coat, preferred date…':'Raza, pelo, fecha preferida…','Breed, coat, preferred date...':'Raza, pelo, fecha preferida…',
+    'BATH & BRUSH':'BAÑO & CEPILLADO','HAIRCUT & STYLING':'CORTE & ESTILISMO','NAIL CLIPPING':'CORTE DE UÑAS','TEETH CLEANING':'LIMPIEZA DENTAL','EAR CLEANING':'LIMPIEZA DE OÍDOS','DE-SHEDDING TREATMENT':'TRATAMIENTO ANTICAÍDA','DE-SHEDDING':'ANTICAÍDA','PUPPY INTRO':'PRIMERA VISITA CACHORRO',
+    'A relaxing bath, gentle cleanse and thorough brushing for a fresh, healthy coat.':'Un baño relajante, limpieza suave y cepillado completo para un pelo fresco y sano.','Custom haircuts and styling designed to bring out your pet\'s best look.':'Cortes y estilismo personalizados para sacar lo mejor de tu mascota.','Safe, precise nail trimming to keep your pet comfortable and confident.':'Corte de uñas seguro y preciso para mantener a tu mascota cómoda.','Gentle brushing and breath care to keep your pet\'s smile healthy.':'Cepillado suave y cuidado del aliento para una sonrisa sana.','A careful, soothing clean that keeps ears healthy and irritation-free.':'Limpieza cuidadosa y suave para mantener los oídos sanos y sin irritación.','A deep-coat treatment that cuts loose fur and keeps shedding under control.':'Tratamiento profundo que elimina pelo suelto y ayuda a controlar la muda.','FROM $35':'DESDE $35','FROM $55':'DESDE $55','FROM $15':'DESDE $15','FROM $20':'DESDE $20','FROM $40':'DESDE $40',
+    'ABOUT GRÜM':'SOBRE GRÜM','GROOMED WITH CARE,':'CUIDADO CON CARIÑO,','TREATED LIKE FAMILY.':'TRATADO COMO FAMILIA.','Grüm started with a simple idea: grooming shouldn\'t feel like a factory line. Every pet gets one groomer, one appointment slot, and undivided attention from the moment they walk in.':'Grüm nació de una idea sencilla: la peluquería no debería sentirse como una cadena de montaje. Cada mascota tiene un groomer, una cita propia y atención completa desde que entra.','OUR STORY':'NUESTRA HISTORIA','A CALMER WAY':'UNA FORMA MÁS TRANQUILA','TO GET GROOMED':'DE CUIDARSE','We built Grüm around a single rule: no cages, no rushing, no stranger-danger stress. Each visit is scheduled one pet at a time, so your dog gets a groomer\'s full attention from bath to final trim — not a slot in a busy queue.':'Construimos Grüm con una regla: sin jaulas, sin prisas y sin estrés innecesario. Cada cita es para una sola mascota, con atención completa del baño al último corte.','That slower pace means calmer pets, better results, and a coat that actually gets the care it needs — whether that\'s a quick bath and brush or a full styling session.':'Ese ritmo más tranquilo significa mascotas más relajadas, mejores resultados y el cuidado que su pelo realmente necesita.','WHY PET PARENTS CHOOSE US':'POR QUÉ NOS ELIGEN','WHAT MAKES':'QUÉ HACE','GRÜM DIFFERENT':'DIFERENTE A GRÜM','One-on-One Care':'Atención individual','Certified Groomers':'Groomers certificados','Gentle Handling':'Trato suave','Premium Products':'Productos premium','Every appointment is a private session — your pet never waits in a cage.':'Cada cita es privada: tu mascota nunca espera en una jaula.','Trained, experienced, and genuinely good with nervous or older pets.':'Formados, con experiencia y especialmente cuidadosos con mascotas nerviosas o mayores.','Low-stress techniques and breaks whenever your pet needs one.':'Técnicas de bajo estrés y pausas siempre que tu mascota las necesite.','Skin-safe shampoos and tools suited to your pet\'s coat type.':'Champús suaves con la piel y herramientas adaptadas a su tipo de pelo.',
+    'GROOMING &':'PELUQUERÍA &','COAT CARE':'CUIDADO DEL PELO','DONE RIGHT.':'BIEN HECHO.','Every visit is one-on-one — no cages, no rush. From a quick bath and brush to a full styling session, we tailor each service to your pet\'s coat, temperament and needs.':'Cada visita es individual, sin jaulas ni prisas. Desde un baño rápido hasta un estilismo completo, adaptamos cada servicio al pelo, temperamento y necesidades de tu mascota.','WHAT WE OFFER':'LO QUE OFRECEMOS','PICK A SERVICE,':'ELIGE UN SERVICIO,','WE\'LL HANDLE THE REST':'NOSOTROS HACEMOS EL RESTO','Tap any card to start a booking request for that service — we\'ll confirm your appointment by phone.':'Pulsa cualquier servicio para iniciar una solicitud de cita; la confirmaremos por teléfono.','HOW IT WORKS':'CÓMO FUNCIONA','THREE STEPS TO A':'TRES PASOS PARA UNA','HAPPY TAIL':'COLITA FELIZ','Book a time':'Reserva una hora','Pick a service above or call — we\'ll find a slot that works for you.':'Elige un servicio arriba o llámanos; encontraremos una hora que te vaya bien.','Meet your groomer':'Conoce a tu groomer','One-on-one attention from arrival to pickup, at your pet\'s pace.':'Atención individual desde la llegada hasta la recogida, al ritmo de tu mascota.','Leave happy':'Sal feliz','A fresh, healthy coat and a pet who actually enjoyed the visit.':'Un pelo fresco y sano, y una mascota que disfrutó de la visita.',
+    'SERVICE DETAILS':'DETALLES DEL SERVICIO','SERVICE DETAILS.':'DETALLES DEL SERVICIO.','What’s Included':'Qué incluye','Price By Dog Size':'Precio según tamaño','Final pricing can change based on coat condition, matting, temperament, and the time needed to groom your pet safely.':'El precio final puede variar según el estado del pelo, nudos, temperamento y tiempo necesario para trabajar con seguridad.','Small dogs':'Perros pequeños','Medium dogs':'Perros medianos','Large dogs':'Perros grandes','All small dogs':'Todos los perros pequeños','All sizes':'Todos los tamaños','With grooming service':'Con servicio de peluquería',
+    'Warm bath with coat-safe shampoo':'Baño caliente con champú suave','Conditioning rinse':'Acondicionador','Blow dry':'Secado','Full brush-out':'Cepillado completo','Light finishing spray':'Spray final ligero','Bath and blow dry':'Baño y secado','Breed or custom haircut':'Corte de raza o personalizado','Face, feet, and sanitary trim':'Recorte de cara, patas e higiene','Brush-out and styling finish':'Cepillado y acabado de estilismo','Nail check':'Revisión de uñas','Nail trim':'Corte de uñas','Gentle paw handling':'Manipulación suave de patas','Optional file/smoothing when needed':'Limado opcional si hace falta','Quick comfort check':'Revisión rápida de comodidad','Gentle tooth brushing':'Cepillado dental suave','Pet-safe oral care products':'Productos dentales seguros','Breath refresh':'Aliento fresco','Visual mouth comfort check':'Revisión visual de la boca','Outer-ear cleaning':'Limpieza externa del oído','Pet-safe cleaner':'Limpiador seguro para mascotas','Gentle wipe-out':'Limpieza suave','Comfort check before finishing':'Revisión de comodidad al terminar','De-shedding shampoo':'Champú anticaída','Conditioning treatment':'Tratamiento acondicionador','High-velocity dry':'Secado de alta potencia','Undercoat brush-out':'Cepillado de subpelo','Finishing comb-through':'Peinado final',
+    'GALLERY':'GALERÍA','FRESH CUTS,':'CORTES FRESCOS,','HAPPY TAILS.':'COLITAS FELICES.','A look at the pets we\'ve groomed, the studio they groomed in, and the products we trust. Follow along for more on Instagram.':'Un vistazo a las mascotas que cuidamos, nuestro estudio y los productos en los que confiamos. Síguenos en Instagram para ver más.','FOLLOW ON INSTAGRAM':'SEGUIR EN INSTAGRAM','RECENT WORK':'TRABAJOS RECIENTES','EVERY PET,':'CADA MASCOTA,','Tap the Instagram link above for the full feed — here\'s a sample of what a Grüm visit looks like.':'Pulsa el enlace de Instagram para ver el feed completo; aquí tienes una muestra de una visita a Grüm.',
+    'THE GRÜM BLOG':'EL BLOG DE GRÜM','COAT CARE TIPS':'CONSEJOS PARA EL PELO','FROM OUR GROOMERS.':'DE NUESTROS GROOMERS.','Advice on bathing, brushing and keeping your pet comfortable between visits — straight from the people who groom them.':'Consejos sobre baño, cepillado y comodidad entre citas, directamente de nuestros groomers.','LATEST POSTS':'ÚLTIMOS POSTS','GUIDES & TIPS':'GUÍAS & CONSEJOS','GROOMING BASICS':'BÁSICOS DE PELUQUERÍA','COAT CARE':'CUIDADO DEL PELO','NAIL & PAW CARE':'UÑAS & PATAS','FIRST VISIT':'PRIMERA VISITA','HOW OFTEN SHOULD YOU ACTUALLY BATHE YOUR DOG?':'¿CON QUÉ FRECUENCIA DEBERÍAS BAÑAR REALMENTE A TU PERRO?','BRUSHING BETWEEN VISITS: A 5-MINUTE ROUTINE THAT WORKS':'CEPILLADO ENTRE CITAS: UNA RUTINA DE 5 MINUTOS QUE FUNCIONA','SIGNS YOUR DOG\'S NAILS ARE OVERDUE FOR A TRIM':'SEÑALES DE QUE TU PERRO NECESITA UN CORTE DE UÑAS','WHAT TO EXPECT AT YOUR DOG\'S FIRST GRÜM APPOINTMENT':'QUÉ ESPERAR DE LA PRIMERA CITA DE TU PERRO EN GRÜM',
+    'Too often strips natural oils, too rarely lets dirt and odor build up. Here\'s how to find the right rhythm for your dog\'s coat type, activity level, and skin sensitivity — and why "once a month" isn\'t a one-size-fits-all rule.':'Bañar demasiado elimina aceites naturales; hacerlo muy poco acumula suciedad y olor. Te contamos cómo encontrar el ritmo adecuado según el pelo, actividad y piel de tu perro.','A few minutes of brushing a few times a week prevents mats, cuts shedding, and makes every grooming appointment faster and more comfortable. We walk through the simple routine we recommend to every client.':'Unos minutos de cepillado varias veces por semana evitan nudos, reducen la muda y hacen cada cita más cómoda.','Clicking on hardwood floors, visible curling, or your dog favoring certain steps are all signs it\'s time. Overgrown nails can actually change how a dog walks — here\'s what to watch for.':'El sonido de las uñas en el suelo, uñas curvadas o cambios al caminar son señales de que toca cortarlas.','Nervous about your pet\'s first professional groom? Here\'s exactly how a Grüm session runs, start to finish — from check-in to the one-on-one attention that makes the whole visit lower-stress.':'¿Nervioso por la primera sesión profesional? Te contamos exactamente cómo funciona una cita en Grüm de principio a fin.',
+    'Most dogs do well with a bath every four to six weeks, but the right schedule depends on coat type, skin sensitivity, activity level, and how much time they spend outside.':'A la mayoría de perros les va bien un baño cada cuatro a seis semanas, aunque depende del tipo de pelo, sensibilidad de la piel, actividad y tiempo al aire libre.','Short-coated dogs may need less frequent baths, while curly, long, or double-coated dogs often need more regular professional care to prevent buildup and matting.':'Los perros de pelo corto pueden necesitar menos baños; los de pelo rizado, largo o doble suelen necesitar más cuidado profesional.','If your dog smells, feels greasy, scratches more than usual, or leaves extra dirt on bedding, it may be time for a bath. If the skin looks dry or irritated, we can help choose a gentler rhythm.':'Si tu perro huele, tiene el pelo graso, se rasca más o ensucia más su cama, quizá sea hora de un baño. Si la piel está seca o irritada, podemos recomendar un ritmo más suave.','A short brushing routine a few times a week can make a huge difference, especially around the ears, chest, tail, belly, and legs where mats start fastest.':'Una rutina corta de cepillado varias veces por semana marca una gran diferencia, especialmente en orejas, pecho, cola, barriga y patas.','Use slow passes, work in small sections, and stop if your dog gets uncomfortable. The goal is consistency, not a wrestling match.':'Cepilla despacio, por zonas pequeñas, y para si tu perro se incomoda. La clave es la constancia, no forzar.','Regular brushing helps keep appointments calmer because the coat is easier to wash, dry, and style. It also lets you spot skin changes before they become bigger problems.':'El cepillado regular hace las citas más tranquilas porque el pelo se lava, seca y peina mejor, y permite detectar cambios en la piel antes.','If you hear clicking on hard floors, see nails touching the ground while your dog stands, or notice curling tips, it is probably time for a trim.':'Si oyes las uñas en el suelo, tocan el suelo al estar de pie o se curvan, probablemente toca cortarlas.','Long nails can change posture and make walking less comfortable. Some dogs also start slipping more because their paws cannot sit naturally.':'Las uñas largas pueden cambiar la postura, hacer incómodo caminar y provocar más resbalones.','For nervous pets, shorter and more frequent nail appointments can be easier than waiting until the nails are very long.':'Para mascotas nerviosas, citas de uñas más cortas y frecuentes suelen ser más fáciles.','The first visit starts with a quick check-in so we can learn about your dog\'s coat, comfort level, health notes, and the service you want.':'La primera visita empieza con una breve charla sobre el pelo, comodidad, salud y servicio que quieres.','From there, we move at your pet\'s pace. A one-on-one appointment keeps things calmer because your dog is not waiting in a crowded space.':'A partir de ahí seguimos el ritmo de tu mascota. La cita individual mantiene todo más tranquilo porque tu perro no espera en un espacio lleno.','After the groom, we will let you know how the coat did, what maintenance helps at home, and when the next appointment should be.':'Después te contamos cómo ha respondido el pelo, qué cuidados ayudan en casa y cuándo recomendamos la siguiente cita.',
+    'GET IN TOUCH':'CONTACTA','LET\'S TALK':'HABLEMOS','ABOUT YOUR PET.':'DE TU MASCOTA.','Questions about a service, or ready to book? Call, email, or send a message below and we\'ll get back to you the same day.':'¿Tienes preguntas o quieres reservar? Llámanos, envía un email o un mensaje y te responderemos el mismo día.','STOP BY,':'PÁSATE,','CALL, OR WRITE':'LLAMA O ESCRIBE','PHONE':'TELÉFONO','EMAIL':'EMAIL','STUDIO ADDRESS':'DIRECCIÓN DEL ESTUDIO','HOURS':'HORARIO','Tue–Sat, 9am–5pm':'Mar–Sáb, 9–17 h','Closed Sun & Mon':'Dom & Lun cerrado','SEND A MESSAGE':'ENVÍA UN MENSAJE','Phone (optional)':'Teléfono (opcional)','Message':'Mensaje','How can we help?':'¿Cómo podemos ayudarte?','SEND MESSAGE':'ENVIAR MENSAJE','Thanks — we\'ve got your message and will reply within one business day.':'Gracias, hemos recibido tu mensaje y responderemos en un día laborable.',
+    'GRUM LEGAL':'GRUM LEGAL','PRIVACY':'PRIVACIDAD','POLICY.':'POLÍTICA.','We respect your privacy when you browse our website, contact us, or request a grooming appointment for your pet.':'Respetamos tu privacidad cuando visitas nuestra web, contactas con nosotros o solicitas una cita para tu mascota.','Last updated: September 6, 2026':'Última actualización: 6 de septiembre de 2026','Information We Collect':'Información que recopilamos','When you use our website or appointment form, we may collect your name, phone number, email address, pet name, pet details, service preferences, appointment notes, and any message you choose to send us.':'Al usar la web o el formulario de citas, podemos recopilar nombre, teléfono, email, nombre y detalles de la mascota, preferencias de servicio, notas de cita y mensajes.','How We Use Information':'Cómo usamos la información','We use your information to answer questions, schedule and confirm appointments, prepare for your pet\'s visit, provide grooming services, follow up about your request, and improve the website experience.':'Usamos tus datos para responder preguntas, programar y confirmar citas, preparar la visita, prestar servicios, hacer seguimiento y mejorar la experiencia web.','Website And Device Information':'Información de web y dispositivo','Like most websites, we may receive basic technical information such as browser type, pages viewed, referring pages, and general usage activity. This helps us understand whether the site is working properly.':'Como muchas webs, podemos recibir información técnica básica como navegador, páginas vistas, referencias y actividad general de uso para comprobar que la web funciona correctamente.','Sharing Information':'Compartir información','We do not sell personal information. We may share limited information with trusted service providers who help operate the website, manage appointment requests, or support our business, and only when needed for those services.':'No vendemos información personal. Podemos compartir información limitada con proveedores de confianza que ayudan a operar la web, gestionar citas o apoyar el negocio, solo cuando sea necesario.','Pet Health Details':'Datos de salud de la mascota','If you provide allergy, medical, behavior, matting, flea, tick, or special handling information, we use it only to help us provide safer and more comfortable care for your pet.':'Si nos das información sobre alergias, salud, comportamiento, nudos, pulgas, garrapatas o manejo especial, la usamos únicamente para cuidar a tu mascota de forma más segura y cómoda.','Your Choices':'Tus opciones','You can contact us to ask about the information you submitted, request an update, or ask us to remove appointment request details when we no longer need them for business records.':'Puedes contactarnos para consultar tus datos, pedir una actualización o solicitar que eliminemos información de citas cuando ya no sea necesaria para nuestros registros.','If you have questions about this Privacy Policy, please contact Grum through the contact form on our website.':'Si tienes preguntas sobre esta Política de Privacidad, contacta con Grum mediante el formulario de nuestra web.',
+    'TERMS &':'TÉRMINOS &','CONDITIONS.':'CONDICIONES.','These terms explain how visitors may use the Grum website and submit grooming appointment requests.':'Estos términos explican cómo usar la web de Grum y enviar solicitudes de citas.','Website Use':'Uso de la web','By using this website, you agree to use it respectfully and only for lawful purposes. Please do not submit false information, attempt to interfere with the website, or misuse any forms or links.':'Al usar esta web aceptas hacerlo de forma respetuosa y legal. No envíes información falsa, no interfieras con la web ni hagas un uso indebido de formularios o enlaces.','Appointment Requests':'Solicitudes de cita','Submitting a form does not automatically confirm an appointment. A grooming appointment is confirmed only after Grum contacts you and confirms the service, date, time, price range, and availability.':'Enviar un formulario no confirma automáticamente una cita. La cita se confirma solo cuando Grum confirma servicio, fecha, hora, rango de precio y disponibilidad.','Pet Health And Safety':'Salud y seguridad de la mascota','You agree to tell us about allergies, medical conditions, injuries, behavior concerns, matting, fleas, ticks, anxiety, age-related needs, or any special handling requirements before your pet\'s visit.':'Debes informarnos antes de la visita sobre alergias, enfermedades, lesiones, comportamiento, nudos, pulgas, garrapatas, ansiedad, necesidades por edad o manejo especial.','Services And Pricing':'Servicios y precios','Service descriptions and starting prices are general information. Final recommendations and pricing may vary based on breed, size, coat condition, behavior, service time, and the work needed to groom your pet safely.':'Las descripciones y precios iniciales son orientativos. Recomendaciones y precios finales pueden variar según raza, tamaño, estado del pelo, comportamiento, tiempo y trabajo necesario.','Cancellations And Delays':'Cancelaciones y retrasos','If you need to cancel or reschedule, please contact us as soon as possible. Late arrivals may require a shorter service, a different appointment time, or rescheduling depending on the day\'s schedule.':'Si necesitas cancelar o cambiar la cita, avísanos lo antes posible. Llegar tarde puede requerir un servicio más corto, otra hora o reprogramar según la agenda.','Website Content':'Contenido de la web','The text, layout, images, branding, and other website materials are provided for Grum and may not be copied or reused without permission, except where allowed by law.':'Los textos, diseño, imágenes, branding y demás materiales de la web pertenecen a Grum y no pueden copiarse o reutilizarse sin permiso salvo cuando la ley lo permita.','If you have questions about these Terms & Conditions, please contact Grum through the contact form on our website.':'Si tienes preguntas sobre estos Términos y Condiciones, contacta con Grum mediante el formulario de nuestra web.'
+  };
+
+  const dictionaries = { de: DE, es: ES };
+  const originals = new WeakMap();
+  let currentLang = ['de','es'].includes(localStorage.getItem('grum-language')) ? localStorage.getItem('grum-language') : 'en';
 
   const nav = document.createElement('nav');
-  nav.className = 'language-switcher';
-  nav.setAttribute('aria-label', 'Language selector');
+  nav.className = 'language-switcher'; nav.setAttribute('aria-label','Language selector');
   nav.innerHTML = '<button type="button" data-lang="en">EN</button><span aria-hidden="true">/</span><button type="button" data-lang="de">DE</button><span aria-hidden="true">/</span><button type="button" data-lang="es">ES</button>';
   footerInner.appendChild(nav);
 
-  const setText = (selector, value) => { const el = document.querySelector(selector); if (el && value != null) el.textContent = value; };
-  const setHTML = (selector, value) => { const el = document.querySelector(selector); if (el && value != null) el.innerHTML = value; };
-
-  const applyLanguage = (lang) => {
-    const t = translations[lang] || translations.en;
-    document.documentElement.lang = lang;
-    localStorage.setItem('grum-language', lang);
-
-    document.querySelectorAll('.main-nav a').forEach((link, index) => { if (t.nav[index]) link.textContent = t.nav[index]; });
-    setText('.hero-copy > p', t.heroSubtitle);
-    setText('.btn-header', t.book);
-    setText('.hero-actions .btn-primary', t.book);
-    setText('.hero-actions .btn-secondary', t.watch);
-    setText('.care-chip strong', t.chipTitle);
-    setHTML('.care-chip small', t.chipText);
-
-    setText('.services-head .kicker', t.servicesKicker);
-    setHTML('.services-head h2', t.servicesHeading);
-    setHTML('.services-intro p', t.servicesIntro);
-    const servicesLink = document.querySelector('.services-intro a');
-    if (servicesLink) servicesLink.firstChild.textContent = `${t.servicesLink} `;
-
-    setText('.experience-copy .kicker', t.experienceKicker);
-    setHTML('.experience-copy h2', t.experienceHeading);
-    setText('.experience-copy .btn', t.learnMore);
-
-    setText('.gallery-title .kicker', t.galleryKicker);
-    setText('.gallery-title h2', t.galleryHeading);
-    const galleryMore = document.querySelector('.gallery-more');
-    if (galleryMore) galleryMore.firstChild.textContent = `${t.galleryMore} `;
-
-    setText('.final-copy .kicker', t.finalKicker);
-    setText('.final-copy h2', t.finalHeading);
-    setText('.final-copy > p:last-child', t.finalBody);
-    setText('.final-book strong', t.book);
-    setText('.final-book small', t.clickToBook);
-    document.querySelectorAll('.legal-links a').forEach((link) => {
-      if (link.href.includes('privacy-policy')) link.textContent = t.privacy;
-      if (link.href.includes('terms-and-conditions')) link.textContent = t.terms;
-    });
-
-    setText('#bookingModal .kicker', t.bookingKicker);
-    setText('#bookingModal h2', t.bookingHeading);
-    setText('#bookingModal .submit', t.request);
-    setText('.blog-detail-book', t.book);
-    setText('[data-service-detail-book]', t.book);
-
-    nav.querySelectorAll('button').forEach((button) => {
-      const active = button.dataset.lang === lang;
-      button.classList.toggle('active', active);
-      button.setAttribute('aria-current', active ? 'true' : 'false');
+  const translateNode = (node, lang) => {
+    if (node.nodeType !== Node.TEXT_NODE || !node.parentElement || ['SCRIPT','STYLE','NOSCRIPT'].includes(node.parentElement.tagName)) return;
+    if (!originals.has(node)) originals.set(node,node.nodeValue);
+    const source = originals.get(node); const trimmed = source.trim(); if (!trimmed) return;
+    const replacement = lang === 'en' ? trimmed : (dictionaries[lang]?.[trimmed] ?? trimmed);
+    const lead = source.match(/^\s*/)?.[0] || ''; const tail = source.match(/\s*$/)?.[0] || '';
+    node.nodeValue = lead + replacement + tail;
+  };
+  const translateTree = (root, lang) => {
+    const walker = document.createTreeWalker(root,NodeFilter.SHOW_TEXT); let n;
+    while((n=walker.nextNode())) translateNode(n,lang);
+    root.querySelectorAll?.('input[placeholder],textarea[placeholder]').forEach((el)=>{
+      if(!el.dataset.i18nPlaceholder) el.dataset.i18nPlaceholder=el.getAttribute('placeholder')||'';
+      const src=el.dataset.i18nPlaceholder; el.setAttribute('placeholder',lang==='en'?src:(dictionaries[lang]?.[src]??src));
     });
   };
+  const applyLanguage = (lang) => {
+    currentLang = ['en','de','es'].includes(lang)?lang:'en';
+    localStorage.setItem('grum-language',currentLang); document.documentElement.lang=currentLang;
+    translateTree(document.body,currentLang);
+    nav.querySelectorAll('button').forEach((b)=>{const active=b.dataset.lang===currentLang;b.classList.toggle('active',active);b.setAttribute('aria-current',active?'true':'false');});
+  };
 
-  nav.addEventListener('click', (event) => {
-    const button = event.target.closest('button[data-lang]');
-    if (!button) return;
-    applyLanguage(button.dataset.lang);
-  });
-
-  /* script.js renders shared content immediately after this file, so apply once
-     more on the next task to ensure the selected language wins. */
-  setTimeout(() => applyLanguage(initial), 0);
+  nav.addEventListener('click',(e)=>{const b=e.target.closest('button[data-lang]');if(b)applyLanguage(b.dataset.lang);});
+  const observer = new MutationObserver((records)=>{ for(const record of records){ record.addedNodes.forEach((node)=>{ if(node.nodeType===Node.TEXT_NODE) translateNode(node,currentLang); else if(node.nodeType===Node.ELEMENT_NODE) translateTree(node,currentLang); }); } });
+  observer.observe(document.body,{childList:true,subtree:true});
+  setTimeout(()=>applyLanguage(currentLang),0);
 })();
