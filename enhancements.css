@@ -1,0 +1,45 @@
+/* Interaction + visual refinements requested during review */
+.main-nav a{
+  font-family:Arial,Helvetica,sans-serif;
+  font-weight:900;
+  font-size:9.5px;
+  letter-spacing:-.18px;
+  text-shadow:0 0 .35px currentColor;
+}
+
+/* Keep the service pager/paw just clear of the cards. */
+.pager{top:486px}
+
+/* Remove the old bottom CTA/banner and its decorative bubble treatment. */
+.final-cta{display:none!important}
+
+/* Gallery lightbox */
+.gallery-lightbox{
+  width:min(920px,calc(100vw - 34px));
+  max-width:920px;
+  height:min(760px,calc(100vh - 34px));
+  max-height:760px;
+  padding:0;
+  border:0;
+  border-radius:22px;
+  overflow:hidden;
+  background:#171717;
+  box-shadow:0 30px 90px rgba(0,0,0,.38);
+}
+.gallery-lightbox::backdrop{background:rgba(24,19,16,.78);backdrop-filter:blur(7px)}
+.gallery-lightbox-shell{position:relative;width:100%;height:100%;display:grid;place-items:center;padding:34px 72px;background:#171717}
+.gallery-lightbox-image{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:10px}
+.gallery-lightbox-close,.gallery-lightbox-arrow{
+  position:absolute;z-index:3;border:0;border-radius:999px;background:rgba(255,255,255,.94);color:#171717;display:grid;place-items:center;box-shadow:0 4px 18px rgba(0,0,0,.18)
+}
+.gallery-lightbox-close{right:18px;top:18px;width:42px;height:42px;font-size:25px;line-height:1}
+.gallery-lightbox-arrow{top:50%;transform:translateY(-50%);width:46px;height:46px;font-size:30px;line-height:1}
+.gallery-lightbox-prev{left:16px}
+.gallery-lightbox-next{right:16px}
+.photo-tile{cursor:zoom-in}
+
+@media(max-width:850px){
+  .main-nav.open a{font-weight:900;font-size:13px}
+  .gallery-lightbox-shell{padding:64px 50px 38px}
+  .gallery-lightbox-arrow{width:40px;height:40px}
+}
