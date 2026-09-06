@@ -10,11 +10,11 @@
 /* Keep the service pager/paw just clear of the cards. */
 .pager{top:486px}
 
-/* Bottom CTA composition matching the approved reference. */
+/* Bottom CTA proportions matched to the approved screenshot. */
 .final-cta{
   display:block!important;
-  height:238px!important;
-  min-height:238px!important;
+  height:160px!important;
+  min-height:160px!important;
   background:var(--final)!important;
   overflow:visible!important;
   position:relative;
@@ -22,39 +22,39 @@
 }
 .final-cta .final-inner{
   display:block!important;
-  height:238px!important;
+  height:160px!important;
   overflow:visible!important;
 }
 
-/* Remove all fake decorative bubbles from the footer. */
+/* No decorative/fake bubbles in the footer. */
 .final-inner::before,
 .final-inner::after,
 .final-dog::before,
 .final-dog::after{display:none!important;content:none!important}
 
-/* Approved layout: a large, proportional dog head centered in the footer,
-   rising slightly into the Instagram row above. Never stretch the image. */
+/* Match the reference: broad natural dog proportions, centered, with only the
+   upper head overlapping the Instagram row and the lower body cropped by CTA. */
 .final-dog{
-  left:338px!important;
-  top:-54px!important;
-  width:360px!important;
-  height:292px!important;
+  left:340px!important;
+  top:-38px!important;
+  width:344px!important;
+  height:198px!important;
   overflow:hidden!important;
   z-index:7!important;
 }
 .final-dog img{
   display:block!important;
-  width:360px!important;
+  width:344px!important;
   height:auto!important;
   max-width:none!important;
   object-fit:contain!important;
   object-position:center top!important;
 }
 
-/* Rebalance the existing CTA copy and booking controls for the taller footer. */
-.final-copy{left:64px!important;top:88px!important;width:300px!important}
-.final-book{left:712px!important;top:92px!important}
-.legal-links{left:712px!important;top:153px!important}
+/* Keep the original left copy / right booking balance from the screenshot. */
+.final-copy{left:64px!important;top:60px!important;width:286px!important}
+.final-book{left:712px!important;top:55px!important}
+.legal-links{left:712px!important;top:116px!important}
 
 /* Gallery lightbox */
 .gallery-lightbox{
@@ -83,10 +83,10 @@
 
 @media(max-width:850px){
   .main-nav.open a{font-weight:700;font-size:13px}
-  .final-cta{height:auto!important;min-height:360px!important;overflow:hidden!important}
+  .final-cta{height:auto!important;min-height:330px!important;overflow:hidden!important}
   .final-cta .final-inner{height:auto!important}
   .final-copy{left:auto!important;top:auto!important;width:auto!important}
-  .final-dog{left:auto!important;top:auto!important;width:100%!important;height:210px!important}
+  .final-dog{left:auto!important;top:auto!important;width:100%!important;height:190px!important}
   .final-dog img{width:100%!important;height:auto!important;object-fit:contain!important;object-position:center top!important}
   .final-book{left:auto!important;top:auto!important}
   .legal-links{left:auto!important;top:auto!important}
