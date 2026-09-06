@@ -10,6 +10,26 @@
 /* Keep the service pager/paw just clear of the cards. */
 .pager{top:486px}
 
+/* Localized hero headline: English keeps the supplied artwork; DE/ES occupy the exact same box. */
+.localized-hero-headline{position:relative;width:319px;min-height:132px;margin:0}
+.hero-headline-language{
+  display:none;
+  width:319px;
+  max-width:min(319px,calc(100vw - 48px));
+  font-family:'Anton',Impact,Haettenschweiler,sans-serif;
+  font-size:41px;
+  line-height:.93;
+  letter-spacing:-.5px;
+  color:var(--ink);
+  transform:scaleX(1.04);
+  transform-origin:left top;
+}
+.hero-headline-language em{font-style:normal;color:var(--green)}
+html[lang="de"] .hero-headline-img,
+html[lang="es"] .hero-headline-img{display:none!important}
+html[lang="de"] .hero-headline-de,
+html[lang="es"] .hero-headline-es{display:block!important}
+
 /* Bottom CTA proportions matched to the approved screenshot. */
 .final-cta{
   display:block!important;
@@ -123,6 +143,8 @@
 
 @media(max-width:850px){
   .main-nav.open a{font-weight:700;font-size:13px}
+  .localized-hero-headline{width:100%;min-height:120px}
+  .hero-headline-language{font-size:34px;max-width:100%;width:100%;transform:none}
   .final-cta{height:auto!important;min-height:330px!important;overflow:hidden!important}
   .final-cta .final-inner{height:auto!important}
   .final-copy{left:auto!important;top:auto!important;width:auto!important}
