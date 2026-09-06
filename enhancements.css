@@ -170,6 +170,34 @@ html[lang="es"] .localized-hero-headline .hero-headline-es{
 .gallery-lightbox-next{right:16px}
 .photo-tile{cursor:pointer}
 
+/* Homepage Instagram strip: endless, draggable, and visually passing behind the phone. */
+body[data-page="home"] .gallery-inner{overflow:hidden}
+body[data-page="home"] .phone-mock{z-index:8!important;pointer-events:auto}
+body[data-page="home"] .gallery-title,
+body[data-page="home"] .gallery-more{z-index:9}
+body[data-page="home"] .ig-grid.ig-infinite-carousel{
+  left:0!important;
+  right:auto!important;
+  z-index:2!important;
+  display:flex!important;
+  align-items:center;
+  width:max-content!important;
+  max-width:none!important;
+  gap:8px!important;
+  cursor:grab!important;
+  user-select:none;
+  -webkit-user-select:none;
+  touch-action:pan-y;
+  will-change:transform;
+}
+body[data-page="home"] .ig-grid.ig-infinite-carousel.is-dragging{cursor:grabbing!important}
+body[data-page="home"] .ig-grid.ig-infinite-carousel img{
+  flex:0 0 auto!important;
+  pointer-events:none;
+  user-select:none;
+  -webkit-user-drag:none;
+}
+
 @media(max-width:850px){
   .main-nav.open a{font-weight:700;font-size:13px}
   .localized-hero-headline{width:100%;max-width:319px}
@@ -186,4 +214,5 @@ html[lang="es"] .localized-hero-headline .hero-headline-es{
   .language-switcher button{font-size:10px}
   .gallery-lightbox-shell{padding:64px 50px 38px}
   .gallery-lightbox-arrow{width:40px;height:40px}
+  body[data-page="home"] .ig-grid.ig-infinite-carousel{gap:8px!important}
 }
