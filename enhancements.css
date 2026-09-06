@@ -10,15 +10,15 @@
 /* Keep the service pager/paw just clear of the cards. */
 .pager{top:486px}
 
-/* Replace the old CTA treatment with the supplied photographic banner. */
+/* Restore the original bottom CTA with booking button and legal links. */
 .final-cta{
   display:block!important;
-  height:250px!important;
-  min-height:250px!important;
-  background:url('assets/bottom-dog-banner.jpg') center 48%/cover no-repeat!important;
+  height:117px!important;
+  min-height:117px!important;
+  background:var(--final)!important;
   overflow:hidden;
 }
-.final-cta .final-inner{display:none!important}
+.final-cta .final-inner{display:block!important}
 
 /* Back button shown only when booking was opened from another modal. */
 .booking-back{
@@ -66,7 +66,7 @@
 
 @media(max-width:850px){
   .main-nav.open a{font-weight:700;font-size:13px}
-  .final-cta{height:220px!important;min-height:220px!important}
+  .final-cta{height:auto!important;min-height:310px!important}
   .gallery-lightbox-shell{padding:64px 50px 38px}
   .gallery-lightbox-arrow{width:40px;height:40px}
 }
