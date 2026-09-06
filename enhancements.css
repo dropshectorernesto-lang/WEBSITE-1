@@ -62,7 +62,7 @@
 .gallery-lightbox-arrow{top:50%;transform:translateY(-50%);width:46px;height:46px;font-size:30px;line-height:1}
 .gallery-lightbox-prev{left:16px}
 .gallery-lightbox-next{right:16px}
-.photo-tile{cursor:zoom-in}
+.photo-tile{cursor:pointer}
 
 @media(max-width:850px){
   .main-nav.open a{font-weight:700;font-size:13px}
