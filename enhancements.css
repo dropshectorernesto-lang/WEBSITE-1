@@ -19,27 +19,27 @@
   overflow:hidden;
 }
 .final-cta .final-inner{display:block!important}
-.final-dog{left:342px!important;top:-24px!important;width:350px!important;height:150px!important}
-.final-dog img{width:350px!important;height:150px!important;max-width:none!important;object-fit:fill!important}
 
-/* Back button shown only when booking was opened from another modal. */
-.booking-back{
-  position:absolute;
-  left:18px;
-  top:16px;
-  width:42px;
-  height:42px;
-  border:1px solid #e4d8d1;
-  border-radius:50%;
-  background:#fff;
-  color:#171717;
-  display:grid;
-  place-items:center;
-  font-size:24px;
-  line-height:1;
-  z-index:3;
+/* Remove all fake decorative bubbles from the footer. */
+.final-inner::before,
+.final-inner::after,
+.final-dog::before,
+.final-dog::after{display:none!important;content:none!important}
+
+/* Make the dog larger and crop it so only the head and a little below the mouth remain visible. */
+.final-dog{
+  left:326px!important;
+  top:-8px!important;
+  width:410px!important;
+  height:188px!important;
+  overflow:hidden!important;
 }
-.booking-back[hidden]{display:none!important}
+.final-dog img{
+  width:410px!important;
+  height:188px!important;
+  max-width:none!important;
+  object-fit:fill!important;
+}
 
 /* Gallery lightbox */
 .gallery-lightbox{
@@ -70,7 +70,7 @@
   .main-nav.open a{font-weight:700;font-size:13px}
   .final-cta{height:auto!important;min-height:310px!important}
   .final-dog{left:auto!important;top:auto!important;width:100%!important;height:190px!important}
-  .final-dog img{width:100%!important;height:100%!important;object-fit:cover!important}
+  .final-dog img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:center 28%!important}
   .gallery-lightbox-shell{padding:64px 50px 38px}
   .gallery-lightbox-arrow{width:40px;height:40px}
 }
