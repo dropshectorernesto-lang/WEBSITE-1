@@ -216,6 +216,17 @@
   const serviceDetail = document.getElementById('serviceDetailModal');
   const blogDetail = document.getElementById('blogDetailModal');
   const serviceSelect = document.getElementById('serviceSelect');
+  const setModalScrollLock = () => {
+    const locked = [booking, video, serviceDetail, blogDetail, document.querySelector('.gallery-lightbox')]
+      .filter(Boolean)
+      .some((dialog) => dialog.open);
+    document.body.classList.toggle('modal-open', locked);
+  };
+  const showDialog = (dialog) => {
+    if (!dialog) return;
+    if (!dialog.open) dialog.showModal();
+    setModalScrollLock();
+  };
   const main = document.querySelector('main');
   const header = document.querySelector('.site-header');
   const BASE_WIDTH = 1024;
@@ -276,7 +287,7 @@
         if ((option.value || option.dataset.serviceKey) === service) serviceSelect.selectedIndex = index;
       });
     }
-    booking.showModal();
+    showDialog(booking);
   };
 
   let activeDetailService = '';
@@ -314,7 +325,7 @@
   const openServiceDetail = (service) => {
     const key = normalizeService(service);
     if (!serviceDetail || !renderServiceDetail(key)) { openBooking(key); return; }
-    if (!serviceDetail.open) serviceDetail.showModal();
+    showDialog(serviceDetail);
   };
 
   document.querySelectorAll('[data-book]').forEach((button) => button.addEventListener('click', () => openBooking()));
@@ -348,7 +359,7 @@
     if (!blogDetail) return;
     activeBlogPost = post;
     renderBlogDetail(post);
-    if (!blogDetail.open) blogDetail.showModal();
+    showDialog(blogDetail);
     setBlogPageScrollLock(true);
   };
   blogDetail?.addEventListener('close', () => setBlogPageScrollLock(false));
@@ -421,11 +432,12 @@
   const queueScrollMotion = () => { if (!scrollFrame) scrollFrame=requestAnimationFrame(updateScrollMotion); };
   addEventListener('scroll', queueScrollMotion, { passive:true }); addEventListener('resize', queueScrollMotion, { passive:true }); queueScrollMotion();
 
-  document.querySelector('[data-video]')?.addEventListener('click', () => video?.showModal());
+  document.querySelector('[data-video]')?.addEventListener('click', () => showDialog(video));
   document.querySelector('[data-close-video]')?.addEventListener('click', () => video?.close());
   document.querySelector('[data-about]')?.addEventListener('click', () => document.getElementById('experience')?.scrollIntoView({ behavior:'smooth' }));
 
   [booking, video, serviceDetail, blogDetail].filter(Boolean).forEach((dialog) => {
+    dialog.addEventListener('close', setModalScrollLock);
     dialog.addEventListener('click', (event) => {
       const rect = dialog.getBoundingClientRect();
       if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();

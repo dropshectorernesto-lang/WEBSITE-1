@@ -249,28 +249,45 @@ body[data-page="home"] .phone-mock a{z-index:2}
 body[data-page="home"] .grum-instagram{position:absolute}
 body[data-page="home"] .grum-instagram .instagram-message-label{
   position:absolute;
-  left:53.5%;
-  top:34.1%;
+  left:47.15%;
+  top:33.86%;
   z-index:2;
-  width:26%;
-  height:3.9%;
+  width:27.9%;
+  height:3.64%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:1.3cqw;
+  background:#f4f1ec;
+  color:#171717;
+  font:500 2.45cqw Arial,Helvetica,sans-serif;
+  line-height:1;
+  letter-spacing:0;
+}
+html[lang="de"] .grum-instagram .follow,
+html[lang="es"] .grum-instagram .follow{
+  background:#f4f1ec;
+  border-radius:7px;
+}
+html[lang="de"] .grum-instagram .follow::after,
+html[lang="es"] .grum-instagram .follow::after{
   display:grid;
   place-items:center;
-  border-radius:7px;
-  background:#f8f4ee;
+  width:100%;
+  height:100%;
   color:#151515;
-  font-family:Arial,Helvetica,sans-serif;
-  font-size:9px;
+  background:#f4f1ec;
+  box-shadow:0 0 0 .15cqw #f4f1ec;
+  font:500 2.45cqw Arial,Helvetica,sans-serif;
   line-height:1;
-  font-weight:800;
+  opacity:1;
 }
-html[lang="de"] .grum-instagram .instagram-message-label{font-size:7.5px}
-html[lang="de"] .grum-instagram .instagram-message-label{color:transparent}
-html[lang="de"] .grum-instagram .instagram-message-label::after{content:"Nachricht";color:#151515}
-html[lang="es"] .grum-instagram .instagram-message-label{color:transparent}
-html[lang="es"] .grum-instagram .instagram-message-label::after{content:"Mensaje";color:#151515}
 html[lang="de"] .grum-instagram .follow::after{content:"Folgen"}
 html[lang="es"] .grum-instagram .follow::after{content:"Seguir"}
+html[lang="de"] .grum-instagram .instagram-message-label{font-size:2.12cqw;color:transparent}
+html[lang="de"] .grum-instagram .instagram-message-label::after{content:"Nachricht";color:#171717}
+html[lang="es"] .grum-instagram .instagram-message-label{color:transparent}
+html[lang="es"] .grum-instagram .instagram-message-label::after{content:"Mensaje";color:#171717}
 body[data-page="home"] .ig-carousel-viewport{position:absolute;left:0;right:0;top:100px;height:190px;overflow:hidden;z-index:2;touch-action:pan-y;cursor:grab;user-select:none}
 body[data-page="home"] .ig-carousel-viewport.is-dragging{cursor:grabbing}
 body[data-page="home"] .ig-carousel-viewport .ig-grid{position:relative;top:0!important;bottom:auto!important;margin:0!important;left:0!important;height:180px;transition:none!important}
@@ -297,6 +314,7 @@ body[data-page="home"] .ig-carousel-viewport img{width:150px!important;height:11
 .service-card:has(img[src*="service-teeth-cleaning"]) img{object-position:center 18%!important}
 .blog-detail-scroll>img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:contain;background:#f3ebe7}
 .blog-post img{border:0;box-shadow:none;object-position:center}
+body.modal-open{overflow:hidden}
 body.blog-modal-open{overflow:hidden}
 html[lang="de"] .page-hero-copy h1,
 html[lang="de"] .content-heading{

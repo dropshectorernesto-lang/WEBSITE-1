@@ -65,9 +65,9 @@ window.SITE_CONFIG = {
   gallery: {
     kicker:'FOLLOW OUR JOURNEY!', heading:'ON INSTAGRAM', linkLabel:'VIEW MORE ON INSTAGRAM', phoneImage:'assets/instagram-phone.webp', phoneAlt:'Grüm Instagram profile on a phone',
     images:[
-      {src:'assets/ig-funny-1.webp',alt:'Dog peeking from a bubble bath'}, {src:'assets/ig-funny-2.webp',alt:'Dog dressed like a salon client'},
-      {src:'assets/ig-funny-3.webp',alt:'Dog inspecting grooming products'}, {src:'assets/ig-funny-4.webp',alt:'Dog getting a playful blow dry'},
-      {src:'assets/ig-funny-5.webp',alt:'Dog wrapped in a towel cape'}, {src:'assets/ig-funny-6.webp',alt:'Dog posing beside grooming brushes'},
+      {src:'assets/gallery-19145874.webp',alt:'Poodle waiting in a grooming studio'}, {src:'assets/gallery-13085581.webp',alt:'Happy Pomeranian on a grooming table'},
+      {src:'assets/gallery-7391070.webp',alt:'Fluffy Pomeranian being groomed'}, {src:'assets/gallery-6131165.webp',alt:'Terrier having a gentle bath'},
+      {src:'assets/gallery-19145888.webp',alt:'Shih Tzu enjoying a salon bath'}, {src:'assets/gallery-19145895.webp',alt:'Dog relaxing during its bath'},
     ],
   },
   finalCta: { kicker:'READY FOR THEIR', heading:'BEST DAY EVER?', body:'We can’t wait to meet your best friend.', button:'BOOK APPOINTMENT', buttonSmall:'CLICK TO BOOK', image:'assets/footer-dog-cutout.webp', imageAlt:'Happy golden retriever' },
@@ -85,11 +85,13 @@ window.SITE_CONFIG = {
   document.body.appendChild(dialog);
   const image = dialog.querySelector('.gallery-lightbox-image'); let activeIndex = 0;
   const show = (index) => { activeIndex=(index+tiles.length)%tiles.length; image.src=tiles[activeIndex].currentSrc||tiles[activeIndex].src; image.alt=tiles[activeIndex].alt||'Gallery image'; };
-  const open = (index) => { show(index); dialog.showModal(); };
+  const setLightboxLock = () => document.body.classList.toggle('modal-open', dialog.open);
+  const open = (index) => { show(index); dialog.showModal(); setLightboxLock(); };
   tiles.forEach((tile,index)=>{ tile.tabIndex=0; tile.setAttribute('role','button'); tile.addEventListener('click',()=>open(index)); tile.addEventListener('keydown',(e)=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();open(index);} }); });
   dialog.querySelector('.gallery-lightbox-close').addEventListener('click',()=>dialog.close());
   dialog.querySelector('.gallery-lightbox-prev').addEventListener('click',()=>show(activeIndex-1));
   dialog.querySelector('.gallery-lightbox-next').addEventListener('click',()=>show(activeIndex+1));
+  dialog.addEventListener('close',setLightboxLock);
   dialog.addEventListener('keydown',(e)=>{if(e.key==='ArrowLeft')show(activeIndex-1);if(e.key==='ArrowRight')show(activeIndex+1);if(e.key==='Escape')dialog.close();});
   dialog.addEventListener('click',(e)=>{if(e.target===dialog)dialog.close();});
 })();
