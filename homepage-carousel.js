@@ -1,7 +1,16 @@
 (() => {
   if (document.body?.dataset.page !== 'home') return;
   const strip = document.querySelector('.ig-grid');
-  if (!strip) return;
+  const dragSurface = strip?.closest('.gallery-inner');
+  if (!strip || !dragSurface) return;
+
+  /* Make the Bath & Brush image robustly visible on the homepage after the
+     config layer has rebuilt the cards. */
+  const bathImage = document.querySelector('#service-cards img[src$="service-bath.jpg"]');
+  if (bathImage) {
+    bathImage.src = 'https://images.pexels.com/photos/16544122/pexels-photo-16544122.jpeg?auto=compress&cs=tinysrgb&w=1200';
+    bathImage.alt = 'Cute white dog wrapped in a towel after a bath';
+  }
 
   const images = [
     ['https://images.pexels.com/photos/485294/pexels-photo-485294.jpeg?auto=compress&cs=tinysrgb&w=900','Funny Chihuahua in a bath with a foam hat'],
@@ -21,6 +30,7 @@
       img.alt = alt;
       img.loading = 'lazy';
       img.draggable = false;
+      img.setAttribute('draggable', 'false');
     });
   };
 
@@ -32,6 +42,7 @@
       img.alt = alt;
       img.loading = 'lazy';
       img.draggable = false;
+      img.setAttribute('draggable', 'false');
       strip.appendChild(img);
     });
     makeSet();
@@ -41,6 +52,9 @@
 
   buildItems();
   strip.classList.add('ig-infinite-carousel');
+
+  /* Never allow the browser's native image-drag ghost. */
+  dragSurface.addEventListener('dragstart', (event) => event.preventDefault());
 
   /* Another localization layer also touches .ig-grid images. Always restore this
      approved carousel set after a language switch so EN/DE/ES look identical. */
@@ -55,13 +69,13 @@
   let startX = 0;
   let startOffset = 0;
   let lastT = performance.now();
-  const speed = 18;
+  const speed = 9; // half the previous speed
 
   const measure = () => {
     const first = strip.children[0];
-    const ninth = strip.children[images.length];
-    if (!first || !ninth) return;
-    setWidth = ninth.offsetLeft - first.offsetLeft;
+    const nextSet = strip.children[images.length];
+    if (!first || !nextSet) return;
+    setWidth = nextSet.offsetLeft - first.offsetLeft;
     if (setWidth > 0 && x === 0) x = -setWidth;
   };
 
@@ -86,17 +100,24 @@
     requestAnimationFrame(frame);
   };
 
-  strip.addEventListener('pointerdown', (event) => {
-    if (event.button !== 0) return;
+  const isInteractiveOverlay = (target) => Boolean(target.closest('.phone-mock, .gallery-title, .gallery-more'));
+
+  /* Use the whole visible carousel area as the drag surface, while keeping the
+     phone and Instagram link fully clickable. This makes mouse/touch dragging
+     much easier than requiring the pointer to land on the moving track itself. */
+  dragSurface.addEventListener('pointerdown', (event) => {
+    if (event.button !== 0 || isInteractiveOverlay(event.target)) return;
+    event.preventDefault();
     dragging = true;
     startX = event.clientX;
     startOffset = x;
-    strip.setPointerCapture?.(event.pointerId);
+    dragSurface.setPointerCapture?.(event.pointerId);
     strip.classList.add('is-dragging');
   });
 
-  strip.addEventListener('pointermove', (event) => {
+  dragSurface.addEventListener('pointermove', (event) => {
     if (!dragging) return;
+    event.preventDefault();
     x = startOffset + (event.clientX - startX);
     paint();
   });
@@ -105,14 +126,15 @@
     if (!dragging) return;
     dragging = false;
     strip.classList.remove('is-dragging');
-    if (event?.pointerId != null && strip.hasPointerCapture?.(event.pointerId)) {
-      strip.releasePointerCapture(event.pointerId);
+    if (event?.pointerId != null && dragSurface.hasPointerCapture?.(event.pointerId)) {
+      dragSurface.releasePointerCapture(event.pointerId);
     }
     normalize();
+    paint();
   };
-  strip.addEventListener('pointerup', endDrag);
-  strip.addEventListener('pointercancel', endDrag);
-  strip.addEventListener('lostpointercapture', endDrag);
+  dragSurface.addEventListener('pointerup', endDrag);
+  dragSurface.addEventListener('pointercancel', endDrag);
+  dragSurface.addEventListener('lostpointercapture', endDrag);
 
   strip.addEventListener('wheel', (event) => {
     if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) {
