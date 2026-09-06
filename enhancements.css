@@ -56,6 +56,46 @@
 .final-book{left:712px!important;top:55px!important}
 .legal-links{left:712px!important;top:116px!important}
 
+/* Minimal language switcher at the bottom-right. */
+.language-switcher{
+  position:absolute;
+  right:28px;
+  bottom:12px;
+  z-index:12;
+  display:flex;
+  align-items:center;
+  gap:5px;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:7.5px;
+  font-weight:700;
+  line-height:1;
+  letter-spacing:.18px;
+  color:rgba(0,88,77,.45);
+}
+.language-switcher button{
+  appearance:none;
+  border:0;
+  padding:2px 0;
+  margin:0;
+  background:transparent;
+  color:#00584d;
+  font-size:7.5px;
+  font-weight:700;
+  line-height:1;
+  cursor:pointer;
+  opacity:.48;
+}
+.language-switcher button:hover,
+.language-switcher button:focus-visible{opacity:.78;outline:none}
+.language-switcher button.active{opacity:1}
+.language-switcher button.active::after{
+  content:"";
+  display:block;
+  height:1px;
+  margin-top:2px;
+  background:#f17080;
+}
+
 /* Gallery lightbox */
 .gallery-lightbox{
   width:min(920px,calc(100vw - 34px));
@@ -90,6 +130,8 @@
   .final-dog img{width:100%!important;height:auto!important;object-fit:contain!important;object-position:center top!important}
   .final-book{left:auto!important;top:auto!important}
   .legal-links{left:auto!important;top:auto!important}
+  .language-switcher{position:static;justify-content:flex-end;margin-top:8px;padding-right:2px;font-size:10px}
+  .language-switcher button{font-size:10px}
   .gallery-lightbox-shell{padding:64px 50px 38px}
   .gallery-lightbox-arrow{width:40px;height:40px}
 }
