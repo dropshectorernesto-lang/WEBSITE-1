@@ -19,6 +19,8 @@
   overflow:hidden;
 }
 .final-cta .final-inner{display:block!important}
+.final-dog{left:342px!important;top:-24px!important;width:350px!important;height:150px!important}
+.final-dog img{width:350px!important;height:150px!important;max-width:none!important;object-fit:fill!important}
 
 /* Back button shown only when booking was opened from another modal. */
 .booking-back{
@@ -67,6 +69,8 @@
 @media(max-width:850px){
   .main-nav.open a{font-weight:700;font-size:13px}
   .final-cta{height:auto!important;min-height:310px!important}
+  .final-dog{left:auto!important;top:auto!important;width:100%!important;height:190px!important}
+  .final-dog img{width:100%!important;height:100%!important;object-fit:cover!important}
   .gallery-lightbox-shell{padding:64px 50px 38px}
   .gallery-lightbox-arrow{width:40px;height:40px}
 }
