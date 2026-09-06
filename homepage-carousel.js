@@ -16,17 +16,16 @@
 
   const buildItems = () => {
     strip.innerHTML = '';
-    const makeSet = () => images.forEach(([src, alt]) => {
-      const img = document.createElement('img');
-      img.src = src;
-      img.alt = alt;
-      img.loading = 'lazy';
-      img.draggable = false;
-      strip.appendChild(img);
-    });
-    makeSet();
-    makeSet();
-    makeSet();
+    for (let set = 0; set < 3; set += 1) {
+      images.forEach(([src, alt]) => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = alt;
+        img.loading = 'lazy';
+        img.draggable = false;
+        strip.appendChild(img);
+      });
+    }
   };
 
   buildItems();
@@ -38,13 +37,37 @@
   let startX = 0;
   let startOffset = 0;
   let lastT = performance.now();
+  let enforcing = false;
   const speed = 18;
+
+  const enforceImages = () => {
+    if (enforcing) return;
+    const nodes = [...strip.querySelectorAll('img')];
+    if (nodes.length !== images.length * 3) {
+      enforcing = true;
+      buildItems();
+      enforcing = false;
+      requestAnimationFrame(() => { measure(); paint(); });
+      return;
+    }
+    enforcing = true;
+    nodes.forEach((img, index) => {
+      const [src, alt] = images[index % images.length];
+      if (img.src !== src) img.src = src;
+      if (img.alt !== alt) img.alt = alt;
+      img.draggable = false;
+    });
+    enforcing = false;
+  };
+
+  const imageObserver = new MutationObserver(() => enforceImages());
+  imageObserver.observe(strip, { subtree:true, childList:true, attributes:true, attributeFilter:['src','alt'] });
 
   const measure = () => {
     const first = strip.children[0];
-    const ninth = strip.children[images.length];
-    if (!first || !ninth) return;
-    setWidth = ninth.offsetLeft - first.offsetLeft;
+    const nextSet = strip.children[images.length];
+    if (!first || !nextSet) return;
+    setWidth = nextSet.offsetLeft - first.offsetLeft;
     if (setWidth > 0 && x === 0) x = -setWidth;
   };
 
@@ -88,9 +111,7 @@
     if (!dragging) return;
     dragging = false;
     strip.classList.remove('is-dragging');
-    if (event?.pointerId != null && strip.hasPointerCapture?.(event.pointerId)) {
-      strip.releasePointerCapture(event.pointerId);
-    }
+    if (event?.pointerId != null && strip.hasPointerCapture?.(event.pointerId)) strip.releasePointerCapture(event.pointerId);
     normalize();
   };
   strip.addEventListener('pointerup', endDrag);
@@ -113,6 +134,7 @@
   }, { passive:true });
 
   requestAnimationFrame(() => {
+    enforceImages();
     measure();
     paint();
     requestAnimationFrame(frame);
