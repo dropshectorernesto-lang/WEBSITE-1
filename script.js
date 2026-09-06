@@ -27,6 +27,9 @@
       .replaceAll('"', '&quot;')
       .replaceAll('<', '&lt;')
       .replaceAll('>', '&gt;');
+    const legalMarkup = () => (config.legal || [])
+      .map((item) => `<a href="${escapeAttribute(item.target)}" target="_blank" rel="noreferrer">${item.label}</a>`)
+      .join('');
 
     if (document.body?.dataset.page === 'home') document.title = config.business?.title || document.title;
     const description = document.querySelector('meta[name="description"]');
@@ -135,6 +138,18 @@
     setText('.final-book strong', config.finalCta?.button);
     setText('.final-book small', config.finalCta?.buttonSmall);
     setImage('.final-dog img', config.finalCta?.image, config.finalCta?.imageAlt);
+    document.querySelectorAll('.final-inner').forEach((inner) => {
+      if (!inner.querySelector('.legal-links') && config.legal?.length) {
+        const nav = document.createElement('nav');
+        nav.className = 'legal-links';
+        nav.setAttribute('aria-label', 'Legal links');
+        nav.innerHTML = legalMarkup();
+        inner.appendChild(nav);
+      }
+    });
+    document.querySelectorAll('.legal-links').forEach((nav) => {
+      if (config.legal?.length) nav.innerHTML = legalMarkup();
+    });
 
     setText('#bookingModal .kicker', config.booking?.kicker);
     setText('#bookingModal h2', config.booking?.heading);
@@ -161,6 +176,8 @@
 
   const booking = document.getElementById('bookingModal');
   const video = document.getElementById('videoModal');
+  const serviceDetail = document.getElementById('serviceDetailModal');
+  const blogDetail = document.getElementById('blogDetailModal');
   const serviceSelect = document.getElementById('serviceSelect');
   const main = document.querySelector('main');
   const header = document.querySelector('.site-header');
@@ -210,8 +227,74 @@
     booking.showModal();
   };
 
+  let activeDetailService = '';
+  const serviceDetails = config?.services?.details || {};
+  const normalizeService = (service = '') => String(service).replaceAll('&amp;', '&').trim();
+  const openServiceDetail = (service) => {
+    const title = normalizeService(service);
+    const detail = serviceDetails[title];
+    if (!serviceDetail || !detail) {
+      openBooking(title);
+      return;
+    }
+    activeDetailService = title;
+    const titleEl = document.getElementById('serviceDetailTitle');
+    const leadEl = document.getElementById('serviceDetailLead');
+    const includesEl = document.getElementById('serviceDetailIncludes');
+    const pricesEl = document.getElementById('serviceDetailPrices');
+    if (titleEl) titleEl.textContent = `${title}.`;
+    if (leadEl) leadEl.textContent = detail.lead || '';
+    if (includesEl) includesEl.innerHTML = (detail.includes || []).map((item) => `<li>${escapeAttribute(item)}</li>`).join('');
+    if (pricesEl) {
+      pricesEl.innerHTML = (detail.pricing || []).map(([label, price]) => (
+        `<div class="price-row"><span>${escapeAttribute(label)}</span><strong>${escapeAttribute(price)}</strong></div>`
+      )).join('');
+    }
+    serviceDetail.showModal();
+  };
+
   document.querySelectorAll('[data-book]').forEach((button) => {
     button.addEventListener('click', () => openBooking());
+  });
+
+  document.querySelector('[data-close-service]')?.addEventListener('click', () => serviceDetail?.close());
+  document.querySelector('[data-service-detail-book]')?.addEventListener('click', () => {
+    serviceDetail?.close();
+    openBooking(activeDetailService);
+  });
+
+  const openBlogDetail = (post) => {
+    if (!blogDetail) return;
+    const title = post.dataset.blogTitle || post.querySelector('h3')?.textContent || 'Blog post';
+    const category = post.dataset.blogCategory || post.querySelector('.blog-date')?.textContent || 'Blog';
+    const image = post.dataset.blogImage || post.querySelector('img')?.getAttribute('src') || '';
+    const titleEl = document.getElementById('blogDetailTitle');
+    const categoryEl = document.getElementById('blogDetailCategory');
+    const imageEl = document.getElementById('blogDetailImage');
+    const bodyEl = document.getElementById('blogDetailBody');
+    if (titleEl) titleEl.textContent = title;
+    if (categoryEl) categoryEl.innerHTML = category;
+    if (imageEl && image) {
+      imageEl.src = image;
+      imageEl.alt = title;
+    }
+    if (bodyEl) {
+      bodyEl.innerHTML = (post.dataset.blogBody || '').split('|')
+        .filter(Boolean)
+        .map((paragraph) => `<p>${escapeAttribute(paragraph)}</p>`)
+        .join('');
+    }
+    blogDetail.showModal();
+  };
+  document.querySelector('[data-close-blog]')?.addEventListener('click', () => blogDetail?.close());
+  document.querySelectorAll('.blog-post').forEach((post) => {
+    post.addEventListener('click', () => openBlogDetail(post));
+    post.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openBlogDetail(post);
+      }
+    });
   });
 
   const activateServiceCard = (card) => openBooking(card.dataset.service);
@@ -314,6 +397,17 @@
     goToSlide(0);
   }
 
+  document.querySelectorAll('.svc-card').forEach((card) => {
+    const openDetail = () => openServiceDetail(card.dataset.service);
+    card.addEventListener('click', openDetail);
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openDetail();
+      }
+    });
+  });
+
   let scrollFrame = 0;
   const updateScrollMotion = () => {
     scrollFrame = 0;
@@ -347,7 +441,7 @@
     document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
   });
 
-  [booking, video].filter(Boolean).forEach((dialog) => {
+  [booking, video, serviceDetail, blogDetail].filter(Boolean).forEach((dialog) => {
     dialog.addEventListener('click', (event) => {
       const rect = dialog.getBoundingClientRect();
       if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) {

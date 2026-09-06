@@ -39,7 +39,7 @@
         <h2 class="content-heading">GROOMING <span>GUIDES &amp; TIPS</span></h2>
 
         <div class="blog-list">
-          <article class="blog-post">
+          <article class="blog-post" tabindex="0" role="button" data-blog-title="HOW OFTEN SHOULD YOU ACTUALLY BATHE YOUR DOG?" data-blog-category="GROOMING BASICS" data-blog-image="assets/service-bath.jpg" data-blog-body="Most dogs do well with a bath every four to six weeks, but the right schedule depends on coat type, skin sensitivity, activity level, and how much time they spend outside.|Short-coated dogs may need less frequent baths, while curly, long, or double-coated dogs often need more regular professional care to prevent buildup and matting.|If your dog smells, feels greasy, scratches more than usual, or leaves extra dirt on bedding, it may be time for a bath. If the skin looks dry or irritated, we can help choose a gentler rhythm.">
             <img src="assets/service-bath.jpg" alt="White dog wrapped in a towel" loading="lazy" />
             <div class="blog-post-body">
               <p class="blog-date">GROOMING BASICS</p>
@@ -48,7 +48,7 @@
             </div>
           </article>
 
-          <article class="blog-post">
+          <article class="blog-post" tabindex="0" role="button" data-blog-title="BRUSHING BETWEEN VISITS: A 5-MINUTE ROUTINE THAT WORKS" data-blog-category="COAT CARE" data-blog-image="assets/service-hair.jpg" data-blog-body="A short brushing routine a few times a week can make a huge difference, especially around the ears, chest, tail, belly, and legs where mats start fastest.|Use slow passes, work in small sections, and stop if your dog gets uncomfortable. The goal is consistency, not a wrestling match.|Regular brushing helps keep appointments calmer because the coat is easier to wash, dry, and style. It also lets you spot skin changes before they become bigger problems.">
             <img src="assets/service-hair.jpg" alt="Fluffy pomeranian dog" loading="lazy" />
             <div class="blog-post-body">
               <p class="blog-date">COAT CARE</p>
@@ -57,7 +57,7 @@
             </div>
           </article>
 
-          <article class="blog-post">
+          <article class="blog-post" tabindex="0" role="button" data-blog-title="SIGNS YOUR DOG'S NAILS ARE OVERDUE FOR A TRIM" data-blog-category="NAIL &amp; PAW CARE" data-blog-image="assets/service-nails.jpg" data-blog-body="If you hear clicking on hard floors, see nails touching the ground while your dog stands, or notice curling tips, it is probably time for a trim.|Long nails can change posture and make walking less comfortable. Some dogs also start slipping more because their paws cannot sit naturally.|For nervous pets, shorter and more frequent nail appointments can be easier than waiting until the nails are very long.">
             <img src="assets/service-nails.jpg" alt="Small dog having nails clipped" loading="lazy" />
             <div class="blog-post-body">
               <p class="blog-date">NAIL &amp; PAW CARE</p>
@@ -66,7 +66,7 @@
             </div>
           </article>
 
-          <article class="blog-post">
+          <article class="blog-post" tabindex="0" role="button" data-blog-title="WHAT TO EXPECT AT YOUR DOG'S FIRST GRÜM APPOINTMENT" data-blog-category="FIRST VISIT" data-blog-image="assets/hero-dog.jpg" data-blog-body="The first visit starts with a quick check-in so we can learn about your dog's coat, comfort level, health notes, and the service you want.|From there, we move at your pet's pace. A one-on-one appointment keeps things calmer because your dog is not waiting in a crowded space.|After the groom, we will let you know how the coat did, what maintenance helps at home, and when the next appointment should be.">
             <img src="assets/hero-dog.jpg" alt="Golden retriever being washed with bubbles" loading="lazy" />
             <div class="blog-post-body">
               <p class="blog-date">FIRST VISIT</p>
@@ -86,6 +86,19 @@
       </div>
     </section>
   </main>
+
+  <dialog class="modal blog-detail-modal" id="blogDetailModal">
+    <button class="modal-close" type="button" data-close-blog aria-label="Close">×</button>
+    <div class="blog-detail-scroll">
+      <img id="blogDetailImage" src="assets/service-bath.jpg" alt="" loading="lazy" />
+      <div class="blog-detail-copy">
+        <p class="kicker" id="blogDetailCategory">BLOG</p>
+        <h2 id="blogDetailTitle">BLOG POST.</h2>
+        <div class="blog-detail-body" id="blogDetailBody"></div>
+        <button class="btn btn-primary blog-detail-book" type="button" data-book><span class="phone-icon" aria-hidden="true"></span>BOOK APPOINTMENT</button>
+      </div>
+    </div>
+  </dialog>
 
   <dialog class="modal" id="bookingModal">
     <form method="dialog" id="bookingForm">

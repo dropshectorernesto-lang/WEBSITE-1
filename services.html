@@ -59,7 +59,7 @@
             </div>
           </article>
           <article class="svc-card svc-green" data-service="TEETH CLEANING" tabindex="0" role="button" aria-label="Book Teeth Cleaning">
-            <img src="assets/experience.jpg" alt="Golden retriever enjoying a grooming treatment" loading="lazy" />
+            <img class="teeth-cleaning-img" src="assets/service-teeth-cleaning.png" alt="Smiling white dog ready for teeth cleaning" loading="lazy" />
             <div class="svc-body">
               <div><h3>TEETH CLEANING</h3><p>Gentle brushing and breath care to keep your pet's smile healthy.</p><span class="svc-price">FROM $20</span></div>
             </div>
@@ -101,6 +101,25 @@
     </section>
   </main>
 
+  <dialog class="modal service-detail-modal" id="serviceDetailModal">
+    <button class="modal-close" type="button" data-close-service aria-label="Close">×</button>
+    <div class="service-detail-scroll">
+      <p class="kicker">SERVICE DETAILS</p>
+      <h2 id="serviceDetailTitle">SERVICE DETAILS.</h2>
+      <p class="service-detail-lede" id="serviceDetailLead"></p>
+      <div class="service-detail-block">
+        <h3>What’s Included</h3>
+        <ul id="serviceDetailIncludes"></ul>
+      </div>
+      <div class="service-detail-block">
+        <h3>Price By Dog Size</h3>
+        <div class="price-list" id="serviceDetailPrices"></div>
+      </div>
+      <p class="service-note">Final pricing can change based on coat condition, matting, temperament, and the time needed to groom your pet safely.</p>
+      <button class="btn btn-primary service-detail-book" type="button" data-service-detail-book><span class="phone-icon" aria-hidden="true"></span>BOOK APPOINTMENT</button>
+    </div>
+  </dialog>
+
   <dialog class="modal" id="bookingModal">
     <form method="dialog" id="bookingForm">
       <button class="modal-close" type="submit" formnovalidate value="cancel" aria-label="Close">×</button>
@@ -119,28 +138,5 @@
 
   <script src="site.config.js"></script>
   <script src="script.js"></script>
-  <script>
-    // Wire the extra service cards on this page into the same booking modal
-    // used across the site (script.js only auto-wires ".service-card").
-    document.querySelectorAll('.svc-card').forEach((card) => {
-      const openBooking = () => {
-        const select = document.getElementById('serviceSelect');
-        const service = card.dataset.service;
-        if (select && service) {
-          [...select.options].forEach((option, index) => {
-            if (option.textContent === service) select.selectedIndex = index;
-          });
-        }
-        document.getElementById('bookingModal')?.showModal();
-      };
-      card.addEventListener('click', openBooking);
-      card.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter' || event.key === ' ') {
-          event.preventDefault();
-          openBooking();
-        }
-      });
-    });
-  </script>
 </body>
 </html>

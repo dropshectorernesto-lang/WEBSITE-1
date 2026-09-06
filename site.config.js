@@ -57,6 +57,38 @@ window.SITE_CONFIG = {
       { number: '05', title: 'DE-SHEDDING', descriptionHtml: 'A deep coat treatment to<br>remove loose fur and leave<br>your pet feeling lighter.', image: 'assets/ig-4.jpg', imageAlt: 'Golden retriever during a bath', style: 'black', featured: true },
       { number: '06', title: 'PUPPY INTRO', descriptionHtml: 'A calm first visit designed<br>to build trust and make<br>grooming feel easy.', image: 'assets/ig-5.jpg', imageAlt: 'Freshly groomed puppy', style: 'orange' },
     ],
+    details: {
+      'BATH & BRUSH': {
+        lead: 'A gentle reset for a clean coat, fresh scent, and softer brush-out.',
+        includes: ['Warm bath with coat-safe shampoo', 'Conditioning rinse', 'Blow dry', 'Full brush-out', 'Light finishing spray'],
+        pricing: [['Small dogs', '$35+'], ['Medium dogs', '$45+'], ['Large dogs', '$60+']]
+      },
+      'HAIRCUT & STYLING': {
+        lead: 'A full grooming appointment shaped around your dog’s coat, comfort, and style.',
+        includes: ['Bath and blow dry', 'Breed or custom haircut', 'Face, feet, and sanitary trim', 'Brush-out and styling finish', 'Nail check'],
+        pricing: [['Small dogs', '$55+'], ['Medium dogs', '$70+'], ['Large dogs', '$90+']]
+      },
+      'NAIL CLIPPING': {
+        lead: 'Quick, careful nail care to keep paws comfortable and movement easy.',
+        includes: ['Nail trim', 'Gentle paw handling', 'Optional file/smoothing when needed', 'Quick comfort check'],
+        pricing: [['All small dogs', '$15+'], ['Medium dogs', '$18+'], ['Large dogs', '$22+']]
+      },
+      'TEETH CLEANING': {
+        lead: 'A light oral-care add-on for fresher breath and a brighter smile.',
+        includes: ['Gentle tooth brushing', 'Pet-safe oral care products', 'Breath refresh', 'Visual mouth comfort check'],
+        pricing: [['All sizes', '$20+'], ['With grooming service', '$15+']]
+      },
+      'EAR CLEANING': {
+        lead: 'A calm ear clean that helps keep ears fresh and irritation-free.',
+        includes: ['Outer-ear cleaning', 'Pet-safe cleaner', 'Gentle wipe-out', 'Comfort check before finishing'],
+        pricing: [['All sizes', '$15+'], ['With grooming service', '$12+']]
+      },
+      'DE-SHEDDING TREATMENT': {
+        lead: 'A deeper coat service for loose undercoat, seasonal shedding, and a cleaner home.',
+        includes: ['De-shedding shampoo', 'Conditioning treatment', 'High-velocity dry', 'Undercoat brush-out', 'Finishing comb-through'],
+        pricing: [['Small dogs', '$40+'], ['Medium dogs', '$55+'], ['Large dogs', '$75+']]
+      }
+    },
   },
 
   experience: {
@@ -92,6 +124,11 @@ window.SITE_CONFIG = {
     image: 'assets/footer-dog-cutout.png',
     imageAlt: 'Happy golden retriever',
   },
+
+  legal: [
+    { label: 'Privacy Policy', target: 'privacy-policy.html' },
+    { label: 'Terms & Conditions', target: 'terms-and-conditions.html' },
+  ],
 
   booking: {
     kicker: 'BOOK THEIR BEST DAY',
