@@ -1,17 +1,43 @@
 /* Interaction + visual refinements requested during review */
 .main-nav a{
   font-family:Arial,Helvetica,sans-serif;
-  font-weight:900;
+  font-weight:700;
   font-size:9.5px;
-  letter-spacing:-.18px;
-  text-shadow:0 0 .35px currentColor;
+  letter-spacing:-.08px;
+  text-shadow:none;
 }
 
 /* Keep the service pager/paw just clear of the cards. */
 .pager{top:486px}
 
-/* Remove the old bottom CTA/banner and its decorative bubble treatment. */
-.final-cta{display:none!important}
+/* Replace the old CTA treatment with the supplied photographic banner. */
+.final-cta{
+  display:block!important;
+  height:250px!important;
+  min-height:250px!important;
+  background:url('assets/bottom-dog-banner.jpg') center 48%/cover no-repeat!important;
+  overflow:hidden;
+}
+.final-cta .final-inner{display:none!important}
+
+/* Back button shown only when booking was opened from another modal. */
+.booking-back{
+  position:absolute;
+  left:18px;
+  top:16px;
+  width:42px;
+  height:42px;
+  border:1px solid #e4d8d1;
+  border-radius:50%;
+  background:#fff;
+  color:#171717;
+  display:grid;
+  place-items:center;
+  font-size:24px;
+  line-height:1;
+  z-index:3;
+}
+.booking-back[hidden]{display:none!important}
 
 /* Gallery lightbox */
 .gallery-lightbox{
@@ -39,7 +65,8 @@
 .photo-tile{cursor:zoom-in}
 
 @media(max-width:850px){
-  .main-nav.open a{font-weight:900;font-size:13px}
+  .main-nav.open a{font-weight:700;font-size:13px}
+  .final-cta{height:220px!important;min-height:220px!important}
   .gallery-lightbox-shell{padding:64px 50px 38px}
   .gallery-lightbox-arrow{width:40px;height:40px}
 }
