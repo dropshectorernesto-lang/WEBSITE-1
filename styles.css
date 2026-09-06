@@ -161,7 +161,7 @@ h1,h2,h3{margin:0;font-family:Impact,Haettenschweiler,'Arial Narrow Bold',sans-s
 .legal-page main{background:var(--surface)}
 .legal-page .page-hero{padding-top:92px;background:var(--cream)}
 .legal-page .page-hero-inner{min-height:292px;background:linear-gradient(90deg,#f3ebe7 0%,#f0e4dc 54%,#dfc8b6 100%);overflow:hidden}
-.legal-page .page-hero-inner::after{content:"";position:absolute;right:-20px;bottom:-24px;width:420px;height:260px;background:url("assets/hero-clean.png") center/cover no-repeat;opacity:.22}
+.legal-page .page-hero-inner::after{content:"";position:absolute;right:-20px;bottom:-24px;width:420px;height:260px;background:url("assets/hero-clean.webp") center/cover no-repeat;opacity:.22}
 .legal-page .page-hero-copy{position:relative;z-index:2;max-width:610px}
 .legal-page .content-section{padding:54px 24px 58px}
 .legal-shell{width:min(100%,860px);margin:0 auto}

@@ -42,7 +42,7 @@
         </div>
       </div>
       <div class="hero-image-wrap">
-        <img src="assets/hero-clean.png" alt="Golden retriever being washed with bubbles" fetchpriority="high" />
+        <img src="assets/hero-clean.webp" alt="Golden retriever being washed with bubbles" fetchpriority="high" />
       </div>
       <div class="bubble b1" aria-hidden="true"></div><div class="bubble b2" aria-hidden="true"></div><div class="bubble b3" aria-hidden="true"></div><div class="bubble b4" aria-hidden="true"></div><div class="bubble b5" aria-hidden="true"></div>
     </section>
@@ -63,7 +63,7 @@
         <div class="service-carousel" aria-label="Grooming services carousel">
           <div class="service-cards" id="service-cards">
           <article class="service-card card-green" data-service="Bath &amp; Brush" tabindex="0" role="button" aria-label="Book Bath and Brush">
-            <img src="assets/service-bath.jpg" alt="White dog wrapped in a towel" loading="lazy" draggable="false" />
+            <img src="assets/service-bath.webp" alt="White dog wrapped in a towel" loading="lazy" draggable="false" />
             <div class="service-info"><div><h3>BATH &amp; BRUSH</h3><p>A relaxing bath, gentle cleanse<br>and thorough brushing for a<br>fresh, healthy coat.</p></div></div>
           </article>
           <article class="service-card card-black featured" data-service="Haircut &amp; Styling" tabindex="0" role="button" aria-label="Book Haircut and Styling">
@@ -92,7 +92,7 @@
     <section class="gallery" id="gallery">
       <div class="section-width gallery-inner">
         <figure class="phone-mock grum-instagram">
-          <img src="assets/instagram-phone.png" alt="Grum dog grooming Instagram profile showing a dog enjoying a bath" />
+          <img src="assets/instagram-phone.webp" alt="Grum dog grooming Instagram profile showing a dog enjoying a bath" />
           <a class="profile" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Instagram (opens in a new tab)"></a>
           <a class="follow" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Instagram to follow (opens in a new tab)"></a>
         </figure>
@@ -112,7 +112,7 @@
     <section class="final-cta" id="contact">
       <div class="section-width final-inner">
         <div class="final-copy"><p class="kicker">READY FOR THEIR</p><h2>BEST DAY EVER?</h2><p>We can’t wait to meet your best friend.</p></div>
-        <div class="final-dog"><img src="assets/footer-dog-cutout.png" alt="Happy golden retriever" loading="lazy" /></div>
+        <div class="final-dog"><img src="assets/footer-dog-cutout.webp" alt="Happy golden retriever" loading="lazy" /></div>
         <button class="btn btn-primary final-book" data-book><span class="phone-icon" aria-hidden="true"></span><strong>BOOK APPOINTMENT</strong><small>CLICK TO BOOK</small></button>
         <nav class="legal-links" aria-label="Legal links">
           <a href="privacy-policy.html" target="_blank" rel="noreferrer">Privacy Policy</a>
@@ -181,24 +181,6 @@
         }
       };
 
-      const galleryImages = [
-        ['https://images.pexels.com/photos/6816837/pexels-photo-6816837.jpeg?auto=compress&cs=tinysrgb&w=900','Small Yorkshire Terrier being groomed in a modern pet salon'],
-        ['https://images.pexels.com/photos/13085581/pexels-photo-13085581.jpeg?auto=compress&cs=tinysrgb&w=900','Happy Pomeranian sitting on a grooming table'],
-        ['https://images.pexels.com/photos/6131165/pexels-photo-6131165.jpeg?auto=compress&cs=tinysrgb&w=900','Cute Yorkshire Terrier getting a gentle bath at a grooming salon'],
-        ['https://images.pexels.com/photos/6816870/pexels-photo-6816870.jpeg?auto=compress&cs=tinysrgb&w=900','Cute Yorkshire Terrier getting a haircut with grooming scissors'],
-        ['https://images.pexels.com/photos/19145888/pexels-photo-19145888.jpeg?auto=compress&cs=tinysrgb&w=900','Cute Shih Tzu being bathed in a professional grooming studio'],
-        ['https://images.pexels.com/photos/19145874/pexels-photo-19145874.jpeg?auto=compress&cs=tinysrgb&w=900','Curly poodle sitting patiently inside a grooming studio']
-      ];
-
-      const syncGalleryImages = () => {
-        document.querySelectorAll('.ig-grid img').forEach((img, index) => {
-          const item = galleryImages[index];
-          if (!item) return;
-          img.src = item[0];
-          img.alt = item[1];
-        });
-      };
-
       const syncHomeLocalization = () => {
         const lang = ['de','es'].includes(root.lang) ? root.lang : 'en';
         const title = document.getElementById('hero-title');
@@ -221,7 +203,7 @@
           const p = card.querySelector('.service-info p');
           if (p && serviceDescriptions[lang]?.[key]) p.innerHTML = serviceDescriptions[lang][key];
         });
-        syncGalleryImages();
+
       };
 
       new MutationObserver(syncHomeLocalization).observe(root, { attributes:true, attributeFilter:['lang'] });

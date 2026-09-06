@@ -10,11 +10,6 @@
 /* Keep the service pager/paw just clear of the cards. */
 .pager{top:486px}
 
-/* Use a directly rendered realistic bath-dog photo instead of the broken
-   embedded SVG version. This applies on both Home and Services. */
-img[src$="service-bath.jpg"]{
-  content:url("https://images.pexels.com/photos/16544122/pexels-photo-16544122.jpeg?auto=compress&cs=tinysrgb&w=1200");
-}
 
 /* Localized hero headline.
    Keep the original image in the document flow at all times so NOTHING below it moves.
@@ -235,3 +230,36 @@ body[data-page="home"] .ig-grid.ig-infinite-carousel img{
   .gallery-lightbox-arrow{width:40px;height:40px}
   body[data-page="home"] .ig-grid.ig-infinite-carousel{gap:8px!important}
 }
+
+/* Keep the booking action visible in every language and at mobile widths. */
+.site-header .btn-header{display:inline-flex;white-space:nowrap}
+body[data-page="home"] .phone-mock img{z-index:0;pointer-events:none}
+body[data-page="home"] .phone-mock a{z-index:2}
+html[lang="de"] .grum-instagram .follow::after{content:"Folgen"}
+html[lang="es"] .grum-instagram .follow::after{content:"Seguir"}
+body[data-page="home"] .ig-carousel-viewport{position:absolute;left:0;right:0;top:100px;height:190px;overflow:hidden;z-index:2;touch-action:pan-y;cursor:grab;user-select:none}
+body[data-page="home"] .ig-carousel-viewport.is-dragging{cursor:grabbing}
+body[data-page="home"] .ig-carousel-viewport .ig-grid{position:relative;top:0!important;bottom:auto!important;margin:0!important;left:0!important;height:180px;transition:none!important}
+body[data-page="home"] .ig-carousel-viewport img{width:180px!important;height:180px!important;object-fit:cover;object-position:center}
+body[data-page="home"] .ig-carousel-viewport:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+.teeth-cleaning-img{object-fit:cover!important;object-position:center!important}
+.service-card:has(img[src*="service-teeth-cleaning"]) img{object-fit:cover!important;object-position:center!important}
+@media(max-width:850px){
+ .site-header{grid-template-columns:1fr auto auto;gap:12px}
+ .site-header .btn-header{position:static;width:auto;min-height:38px;font-size:9px;padding:0 10px;grid-column:2;grid-row:1}
+ .site-header .nav-toggle{grid-column:3;grid-row:1}
+ body[data-page="home"] .ig-carousel-viewport{top:auto;bottom:0;height:160px}
+ body[data-page="home"] .ig-carousel-viewport img{width:150px!important;height:150px!important}
+}
+body[data-page="home"] .ig-carousel-viewport{top:auto;bottom:4px;height:115px}
+body[data-page="home"] .ig-carousel-viewport .ig-grid{height:115px}
+body[data-page="home"] .ig-carousel-viewport img{width:150px!important;height:115px!important}
+@media(max-width:850px){
+ body[data-page="home"] .gallery-inner{padding-bottom:170px}
+ body[data-page="home"] .ig-carousel-viewport{height:150px;bottom:0}
+ body[data-page="home"] .ig-carousel-viewport img{width:150px!important;height:150px!important}
+}
+.teeth-cleaning-img{padding:0!important;transform:none!important;object-position:center 18%!important}
+.service-card:has(img[src*="service-teeth-cleaning"]) img{object-position:center 18%!important}
+.blog-detail-scroll>img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:contain;background:#f3ebe7}
+.blog-post img{border:0;box-shadow:none;object-position:center}
