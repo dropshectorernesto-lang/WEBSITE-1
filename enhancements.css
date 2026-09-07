@@ -108,7 +108,7 @@ html[lang="es"] .localized-hero-headline .hero-headline-es{
 
 /* Keep the original left copy / right booking balance from the screenshot. */
 .final-copy{left:64px!important;top:60px!important;width:286px!important}
-.final-book{left:712px!important;top:55px!important}
+.final-book{left:50%!important;top:55px!important;transform:translateX(160px)!important}
 .legal-links{left:712px!important;top:116px!important}
 
 /* Minimal language switcher at the bottom-right. */
@@ -232,7 +232,7 @@ body[data-page="home"] .ig-grid.ig-infinite-carousel img{
   .final-copy{left:auto!important;top:auto!important;width:auto!important}
   .final-dog{left:auto!important;top:auto!important;width:100%!important;height:190px!important}
   .final-dog img{width:100%!important;height:auto!important;object-fit:contain!important;object-position:center top!important}
-  .final-book{left:auto!important;top:auto!important}
+  .final-book{left:auto!important;top:auto!important;transform:none!important}
   .legal-links{left:auto!important;top:auto!important}
   .language-switcher{position:static;justify-content:flex-end;margin-top:8px;padding-right:2px;font-size:10px}
   .language-switcher button{font-size:10px}
@@ -347,6 +347,7 @@ html[lang="de"] .content-heading span{
 .price-row strong{color:var(--green);font-weight:900}
 .service-note{margin:20px 0 18px;font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:1.55;color:#5d5550}
 .service-detail-book{width:100%;height:46px}
+.booking-calendar input{font-family:Arial,Helvetica,sans-serif;color:#272423}
 body[data-page="home"] .instagram-message-label{transform:translateX(-1%)}
 .svc-price{font-weight:650}
 .service-detail-modal[data-service="A LA CARTE"] .service-detail-block:first-of-type,
