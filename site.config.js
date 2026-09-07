@@ -41,7 +41,7 @@ window.SITE_CONFIG = {
     introHtml: 'From refreshing baths to complete makeovers,<br>we provide exceptional care tailored to<br>your pet’s unique needs.',
     linkLabel: 'VIEW ALL SERVICES',
     cards: [
-      { number:'01', title:'BATH & BRUSH', descriptionHtml:'A relaxing bath, gentle cleanse<br>and thorough brushing for a<br>fresh, healthy coat.', image:'assets/service-bath-user.webp', imageAlt:'White dog wrapped in a spa robe after a bath', style:'green' },
+      { number:'01', title:'BATH & BRUSH', descriptionHtml:'A relaxing bath, gentle cleanse<br>and thorough brushing for a<br>fresh, healthy coat.', image:'assets/service-hachiko-relaxed.webp', imageAlt:'Relaxed Hachiko-like dog enjoying a full grooming spa treatment', style:'green' },
       { number:'02', title:'HAIRCUT & STYLING', descriptionHtml:'Custom haircuts and styling<br>designed to bring out your pet’s<br>best look.', image:'assets/service-hair.jpg', imageAlt:'Fluffy pomeranian dog', style:'black', featured:true },
       { number:'03', title:'NAIL CLIPPING', descriptionHtml:'Safe, precise nail trimming<br>to keep your pet comfortable<br>and confident.', image:'assets/service-nails.jpg', imageAlt:'Small dog having nails clipped', style:'orange' },
       { number:'04', title:'TEETH CLEANING', descriptionHtml:'Gentle oral care for fresher<br>breath and a happier,<br>healthier smile.', image:'assets/service-teeth-cleaning.webp', imageAlt:'Smiling white dog ready for teeth cleaning', style:'green' },
@@ -95,7 +95,14 @@ window.SITE_CONFIG = {
   dialog.querySelector('.gallery-lightbox-next').addEventListener('click',()=>show(activeIndex+1));
   dialog.addEventListener('close',setLightboxLock);
   dialog.addEventListener('keydown',(e)=>{if(e.key==='ArrowLeft')show(activeIndex-1);if(e.key==='ArrowRight')show(activeIndex+1);if(e.key==='Escape')dialog.close();});
-  dialog.addEventListener('click',(e)=>{if(e.target===dialog)dialog.close();});
+  dialog.addEventListener('pointerdown',(e)=>{
+    if (!dialog.open) return;
+    if (e.target.closest('.gallery-lightbox-close,.gallery-lightbox-arrow')) return;
+    const rect = image.getBoundingClientRect();
+    const insideImage = e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom;
+    if (!insideImage) dialog.close();
+  }, true);
+  image.addEventListener('click',(e)=>e.stopPropagation());
 })();
 
 /* Make blog article CTA transition cleanly into booking. */
