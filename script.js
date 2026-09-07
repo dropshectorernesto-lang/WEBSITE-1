@@ -303,6 +303,7 @@
     const detail = localized || base;
     if (!detail) return false;
     activeDetailService = key;
+    serviceDetail?.setAttribute('data-service', key);
     const labels = serviceLocale[lang]?.labels || serviceLocale.en.labels;
     const titleEl = document.getElementById('serviceDetailTitle');
     const leadEl = document.getElementById('serviceDetailLead');
@@ -320,6 +321,7 @@
     if (titleEl) titleEl.textContent = `${localized?.title || key}.`;
     if (leadEl) leadEl.textContent = detail.lead || '';
     if (includesEl) includesEl.innerHTML = (detail.includes || []).map((item) => `<li>${escapeAttribute(item)}</li>`).join('');
+    if (includesEl?.parentElement) includesEl.parentElement.hidden = ['A LA CARTE','ADD-ON SERVICES'].includes(key);
     if (pricesEl) pricesEl.innerHTML = (detail.pricing || []).map(([label, price]) => `<div class="price-row"><span>${escapeAttribute(label)}</span><strong>${escapeAttribute(price)}</strong></div>`).join('');
     return true;
   };
