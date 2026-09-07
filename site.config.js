@@ -41,15 +41,15 @@ window.SITE_CONFIG = {
     introHtml: 'From refreshing baths to complete makeovers,<br>we provide exceptional care tailored to<br>your pet’s unique needs.',
     linkLabel: 'VIEW ALL SERVICES',
     cards: [
-      { number:'01', title:'BATH & BRUSH', descriptionHtml:'A relaxing bath, gentle cleanse<br>and thorough brushing for a<br>fresh, healthy coat.', image:'assets/service-bath.webp', imageAlt:'White dog wrapped in a towel', style:'green' },
+      { number:'01', title:'BATH & BRUSH', descriptionHtml:'A relaxing bath, gentle cleanse<br>and thorough brushing for a<br>fresh, healthy coat.', image:'assets/service-bath-user.webp', imageAlt:'White dog wrapped in a spa robe after a bath', style:'green' },
       { number:'02', title:'HAIRCUT & STYLING', descriptionHtml:'Custom haircuts and styling<br>designed to bring out your pet’s<br>best look.', image:'assets/service-hair.jpg', imageAlt:'Fluffy pomeranian dog', style:'black', featured:true },
       { number:'03', title:'NAIL CLIPPING', descriptionHtml:'Safe, precise nail trimming<br>to keep your pet comfortable<br>and confident.', image:'assets/service-nails.jpg', imageAlt:'Small dog having nails clipped', style:'orange' },
       { number:'04', title:'TEETH CLEANING', descriptionHtml:'Gentle oral care for fresher<br>breath and a happier,<br>healthier smile.', image:'assets/service-teeth-cleaning.webp', imageAlt:'Smiling white dog ready for teeth cleaning', style:'green' },
       { number:'05', title:'DE-SHEDDING', descriptionHtml:'A deep coat treatment to<br>remove loose fur and leave<br>your pet feeling lighter.', image:'assets/hairless-chinese-crested.webp', imageAlt:'Smiling hairless dog with its tongue out', style:'black', featured:true },
       { number:'06', title:'PUPPY INTRO', descriptionHtml:'A calm first visit designed<br>to build trust and make<br>grooming feel easy.', image:'assets/tiny-puppy.webp', imageAlt:'Tiny fluffy puppy', style:'orange' },
       { number:'07', title:'COMBO', descriptionHtml:'Bundle favorite services<br>into one polished spa-day<br>appointment.', image:'assets/service-combo-funny.webp', imageAlt:'Golden retriever enjoying a combo grooming spa treatment', style:'green' },
-      { number:'08', title:'A LA CARTE', descriptionHtml:'Pick any single service<br>from our grooming menu<br>as a quick touch-up.', image:'assets/service-a-la-carte-funny.webp', imageAlt:'Playful dog ready for a la carte grooming touch-ups', style:'black', featured:true },
-      { number:'09', title:'ADD-ON SERVICES', descriptionHtml:'Add extra care to any<br>service on our grooming<br>menu.', image:'assets/service-add-ons-funny.webp', imageAlt:'Happy dog enjoying extra spa add-on services', style:'orange' },
+      { number:'08', title:'A LA CARTE', descriptionHtml:'Pick any single service<br>from our grooming menu<br>as a quick touch-up.', image:'assets/service-a-la-carte-pitbull.webp', imageAlt:'Pitbull enjoying a la carte grooming touch-ups', style:'black', featured:true },
+      { number:'09', title:'ADD-ON SERVICES', descriptionHtml:'Add extra care to any<br>service on our grooming<br>menu.', image:'assets/service-add-ons-black-retriever.webp', imageAlt:'Black retriever enjoying extra spa add-on services', style:'orange' },
     ],
     details: {
       'BATH & BRUSH': { lead:'A gentle reset for a clean coat, fresh scent, and softer brush-out.', includes:['Warm bath with coat-safe shampoo','Conditioning rinse','Blow dry','Full brush-out','Light finishing spray'], pricing:[['Small dogs','€35+'],['Medium dogs','€45+'],['Large dogs','€60+']] },
@@ -67,9 +67,9 @@ window.SITE_CONFIG = {
   gallery: {
     kicker:'FOLLOW OUR JOURNEY!', heading:'ON INSTAGRAM', linkLabel:'VIEW MORE ON INSTAGRAM', phoneImage:'assets/instagram-phone-transparent.webp', phoneAlt:'Grüm Instagram profile on a phone',
     images:[
-      {src:'assets/gallery-19145874.webp',alt:'Poodle waiting in a grooming studio'}, {src:'assets/gallery-13085581.webp',alt:'Happy Pomeranian on a grooming table'},
-      {src:'assets/gallery-7391070.webp',alt:'Fluffy Pomeranian being groomed'}, {src:'assets/gallery-6131165.webp',alt:'Terrier having a gentle bath'},
-      {src:'assets/gallery-19145888.webp',alt:'Shih Tzu enjoying a salon bath'}, {src:'assets/gallery-19145895.webp',alt:'Dog relaxing during its bath'},
+      {src:'assets/gallery-12943750.webp',alt:'Curious terrier in a bubble bath'}, {src:'assets/gallery-17802173.webp',alt:'Two smiling poodles surrounded by bubbles'},
+      {src:'assets/gallery-36174558.webp',alt:'Small fluffy dog bathing in a red bucket'}, {src:'assets/gallery-6131151.webp',alt:'Tiny dog being shampooed'},
+      {src:'assets/gallery-6816870.webp',alt:'Yorkshire terrier getting a haircut'}, {src:'assets/gallery-485294.webp',alt:'Chihuahua wearing a shampoo foam hat'},
     ],
   },
   finalCta: { kicker:'READY FOR THEIR', heading:'BEST DAY EVER?', body:'We can’t wait to meet your best friend.', button:'BOOK APPOINTMENT', buttonSmall:'CLICK TO BOOK', image:'assets/footer-dog-cutout.webp', imageAlt:'Happy golden retriever' },

@@ -9,12 +9,12 @@
   viewport.setAttribute('aria-label', 'Dog photo carousel');
   track.before(viewport); viewport.append(track);
   const images = [
-    ['assets/gallery-19145874.webp', 'Poodle waiting in a grooming studio'],
-    ['assets/gallery-13085581.webp', 'Happy Pomeranian on a grooming table'],
-    ['assets/gallery-7391070.webp', 'Fluffy Pomeranian being groomed'],
-    ['assets/gallery-6131165.webp', 'Terrier having a gentle bath'],
-    ['assets/gallery-19145888.webp', 'Shih Tzu enjoying a salon bath'],
-    ['assets/gallery-19145895.webp', 'Dog relaxing during its bath']
+    ['assets/gallery-12943750.webp', 'Curious terrier in a bubble bath'],
+    ['assets/gallery-17802173.webp', 'Two smiling poodles surrounded by bubbles'],
+    ['assets/gallery-36174558.webp', 'Small fluffy dog bathing in a red bucket'],
+    ['assets/gallery-6131151.webp', 'Tiny dog being shampooed'],
+    ['assets/gallery-6816870.webp', 'Yorkshire terrier getting a haircut'],
+    ['assets/gallery-485294.webp', 'Chihuahua wearing a shampoo foam hat']
   ];
   track.replaceChildren();
   for (let set = 0; set < 3; set++) images.forEach(([src, alt]) => {

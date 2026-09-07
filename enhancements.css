@@ -109,7 +109,7 @@ html[lang="es"] .localized-hero-headline .hero-headline-es{
 /* Keep the original left copy / right booking balance from the screenshot. */
 .final-copy{left:64px!important;top:60px!important;width:286px!important}
 .final-book{left:50%!important;top:55px!important;transform:translateX(160px)!important}
-.legal-links{left:712px!important;top:116px!important}
+.legal-links{left:50%!important;top:116px!important;transform:translateX(160px)!important}
 
 /* Minimal language switcher at the bottom-right. */
 .language-switcher{
@@ -153,20 +153,20 @@ html[lang="es"] .localized-hero-headline .hero-headline-es{
 
 /* Gallery lightbox */
 .gallery-lightbox{
-  width:min(920px,calc(100vw - 34px));
-  max-width:920px;
-  height:min(760px,calc(100vh - 34px));
-  max-height:760px;
+  width:auto;
+  max-width:calc(100vw - 28px);
+  height:auto;
+  max-height:calc(100vh - 28px);
   padding:0;
   border:0;
-  border-radius:22px;
-  overflow:hidden;
-  background:#fffaf6;
-  box-shadow:0 30px 90px rgba(0,0,0,.38);
+  border-radius:0;
+  overflow:visible;
+  background:transparent;
+  box-shadow:none;
 }
 .gallery-lightbox::backdrop{background:rgba(24,19,16,.36);backdrop-filter:blur(5px)}
-.gallery-lightbox-shell{position:relative;width:100%;height:100%;display:grid;place-items:center;padding:34px 72px;background:transparent}
-.gallery-lightbox-image{display:block;width:auto;height:auto;max-width:calc(100vw - 120px);max-height:calc(100vh - 90px);object-fit:contain;border-radius:0;background:transparent;box-shadow:none}
+.gallery-lightbox-shell{position:relative;display:grid;place-items:center;padding:0;background:transparent}
+.gallery-lightbox-image{display:block;width:auto;height:auto;max-width:calc(100vw - 96px);max-height:calc(100vh - 72px);object-fit:contain;border-radius:0;background:transparent;box-shadow:none}
 .gallery-lightbox-close,.gallery-lightbox-arrow{
   position:absolute;z-index:3;border:0;border-radius:999px;background:rgba(255,255,255,.94);color:#171717;display:grid;place-items:center;box-shadow:0 4px 18px rgba(0,0,0,.18)
 }
@@ -191,10 +191,16 @@ body[data-page="home"] .gallery-inner{
 body[data-page="home"] .phone-mock{
   z-index:30!important;
   pointer-events:auto!important;
+  width:215px!important;
+  height:auto!important;
+  overflow:visible!important;
+  border-radius:0!important;
 }
 body[data-page="home"] .phone-mock img{
   position:relative;
   z-index:30;
+  width:100%!important;
+  height:auto!important;
 }
 body[data-page="home"] .gallery-title,
 body[data-page="home"] .gallery-more{z-index:31}
@@ -233,11 +239,11 @@ body[data-page="home"] .ig-grid.ig-infinite-carousel img{
   .final-dog{left:auto!important;top:auto!important;width:100%!important;height:190px!important}
   .final-dog img{width:100%!important;height:auto!important;object-fit:contain!important;object-position:center top!important}
   .final-book{left:auto!important;top:auto!important;transform:none!important}
-  .legal-links{left:auto!important;top:auto!important}
+  .legal-links{left:auto!important;top:auto!important;transform:none!important}
   .language-switcher{position:static;justify-content:flex-end;margin-top:8px;padding-right:2px;font-size:10px}
   .language-switcher button{font-size:10px}
-  .gallery-lightbox-shell{padding:64px 50px 38px}
-  .gallery-lightbox-image{width:100%;height:auto;max-height:calc(100vh - 140px)}
+  .gallery-lightbox-shell{padding:0}
+  .gallery-lightbox-image{width:auto;height:auto;max-width:calc(100vw - 72px);max-height:calc(100vh - 64px)}
   .gallery-lightbox-arrow{width:40px;height:40px}
   body[data-page="home"] .ig-grid.ig-infinite-carousel{gap:8px!important}
 }
@@ -247,27 +253,37 @@ body[data-page="home"] .ig-grid.ig-infinite-carousel img{
 body[data-page="home"] .phone-mock img{z-index:0;pointer-events:none}
 body[data-page="home"] .phone-mock a{z-index:2}
 body[data-page="home"] .grum-instagram{position:absolute}
+body[data-page="home"] .grum-instagram .profile,
+body[data-page="home"] .grum-instagram .profile:hover,
+body[data-page="home"] .grum-instagram .profile:focus-visible{background:transparent;box-shadow:none}
+body[data-page="home"] .grum-instagram .profile::before{display:none;content:none}
 body[data-page="home"] .grum-instagram .instagram-message-label{
   position:absolute;
-  left:47.15%;
-  top:33.86%;
-  z-index:2;
-  width:27.9%;
-  height:3.64%;
+  left:45.4%;
+  top:32.85%;
+  z-index:32;
+  width:29.2%;
+  height:3.82%;
   display:flex;
   align-items:center;
   justify-content:center;
   border-radius:1.3cqw;
   background:#f4f1ec;
-  color:#171717;
+  color:transparent;
   font:500 2.45cqw Arial,Helvetica,sans-serif;
   line-height:1;
   letter-spacing:0;
+  opacity:0;
 }
 html[lang="de"] .grum-instagram .follow,
 html[lang="es"] .grum-instagram .follow{
-  background:#f4f1ec;
-  border-radius:7px;
+  left:8.3%;
+  top:32.85%;
+  width:33.9%;
+  height:3.82%;
+  background:transparent;
+  border-radius:1.3cqw;
+  z-index:32;
 }
 html[lang="de"] .grum-instagram .follow::after,
 html[lang="es"] .grum-instagram .follow::after{
@@ -276,8 +292,8 @@ html[lang="es"] .grum-instagram .follow::after{
   width:100%;
   height:100%;
   color:#151515;
-  background:#f4f1ec;
-  box-shadow:0 0 0 .15cqw #f4f1ec;
+  background:#4b3327;
+  box-shadow:0 0 0 .15cqw #4b3327;
   font:500 2.45cqw Arial,Helvetica,sans-serif;
   line-height:1;
   opacity:1;
@@ -286,9 +302,10 @@ html[lang="de"] .grum-instagram .follow::after{content:"Folgen"}
 html[lang="es"] .grum-instagram .follow::after{content:"Seguir"}
 html[lang="de"] .grum-instagram .follow:hover::after,html[lang="de"] .grum-instagram .follow:focus-visible::after,
 html[lang="es"] .grum-instagram .follow:hover::after,html[lang="es"] .grum-instagram .follow:focus-visible::after{color:#fff;background:#0095f6;box-shadow:0 0 0 .15cqw #0095f6}
-html[lang="de"] .grum-instagram .instagram-message-label{font-size:2.12cqw;color:transparent}
+html[lang="de"] .grum-instagram .instagram-message-label,
+html[lang="es"] .grum-instagram .instagram-message-label{opacity:1}
+html[lang="de"] .grum-instagram .instagram-message-label{font-size:2.12cqw}
 html[lang="de"] .grum-instagram .instagram-message-label::after{content:"Nachricht";color:#171717}
-html[lang="es"] .grum-instagram .instagram-message-label{color:transparent}
 html[lang="es"] .grum-instagram .instagram-message-label::after{content:"Mensaje";color:#171717}
 body[data-page="home"] .ig-carousel-viewport{position:absolute;left:0;right:0;top:100px;height:190px;overflow:hidden;z-index:2;touch-action:pan-y;cursor:grab;user-select:none}
 body[data-page="home"] .ig-carousel-viewport.is-dragging{cursor:grabbing}
@@ -314,7 +331,7 @@ body[data-page="home"] .ig-carousel-viewport img{width:150px!important;height:11
 }
 .teeth-cleaning-img{padding:0!important;transform:none!important;object-position:center 18%!important}
 .service-card:has(img[src*="service-teeth-cleaning"]) img{object-position:center 18%!important}
-.blog-detail-scroll>img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:contain;background:#f3ebe7}
+.blog-detail-scroll>img{display:block;width:100%;height:260px;object-fit:cover;background:transparent}
 .blog-post img{border:0;box-shadow:none;object-position:center}
 body.modal-open{overflow:hidden}
 body.blog-modal-open{overflow:hidden}
@@ -348,6 +365,11 @@ html[lang="de"] .content-heading span{
 .service-note{margin:20px 0 18px;font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:1.55;color:#5d5550}
 .service-detail-book{width:100%;height:46px}
 .booking-calendar input{font-family:Arial,Helvetica,sans-serif;color:#272423}
+
+.legal-page .page-hero{display:grid;place-items:center;text-align:center}
+.legal-page .page-hero-inner{width:min(100%,1024px);display:grid;grid-template-columns:1fr;place-items:center}
+.legal-page .page-hero-copy{margin:0 auto;text-align:center}
+.legal-page .legal-card{text-align:left}
 body[data-page="home"] .instagram-message-label{transform:translateX(-1%)}
 .svc-price{font-weight:650}
 .service-detail-modal[data-service="A LA CARTE"] .service-detail-block:first-of-type,
