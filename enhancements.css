@@ -191,7 +191,7 @@ body[data-page="home"] .gallery-inner{
 body[data-page="home"] .phone-mock{
   z-index:30!important;
   pointer-events:auto!important;
-  width:215px!important;
+  width:172px!important;
   height:auto!important;
   overflow:visible!important;
   border-radius:0!important;
@@ -263,10 +263,10 @@ body[data-page="home"] .grum-instagram{position:absolute}
 body[data-page="home"] .grum-instagram .profile,
 body[data-page="home"] .grum-instagram .profile:hover,
 body[data-page="home"] .grum-instagram .profile:focus-visible{
-  left:13.6%;
-  top:16.2%;
-  width:18.5%;
-  height:9.6%;
+  left:19.67%;
+  top:17.74%;
+  width:15.42%;
+  height:9.47%;
   background:transparent;
   box-shadow:none;
   z-index:32;
@@ -274,11 +274,11 @@ body[data-page="home"] .grum-instagram .profile:focus-visible{
 body[data-page="home"] .grum-instagram .profile::before{display:none;content:none}
 body[data-page="home"] .grum-instagram .instagram-message-label{
   position:absolute;
-  left:46.5%;
-  top:32.6%;
+  left:49.6%;
+  top:33.86%;
   z-index:32;
-  width:33.4%;
-  height:3.82%;
+  width:28.5%;
+  height:3.64%;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -292,10 +292,10 @@ body[data-page="home"] .grum-instagram .instagram-message-label{
 }
 html[lang="de"] .grum-instagram .follow,
 html[lang="es"] .grum-instagram .follow{
-  left:14.2%;
-  top:32.6%;
-  width:30.9%;
-  height:3.82%;
+  left:20.18%;
+  top:33.86%;
+  width:25.76%;
+  height:3.64%;
   background:transparent;
   border-radius:1.3cqw;
   z-index:32;
@@ -389,13 +389,13 @@ body[data-page="home"] .instagram-message-label{transform:translateX(-1%)}
 .final-book{
   width:auto!important;
   min-width:238px!important;
-  padding:0 26px 0 54px!important;
+  padding:0 26px!important;
   justify-items:center!important;
   text-align:center!important;
 }
 .final-book strong,
 .final-book small{width:100%;text-align:center}
-.final-book .phone-icon{left:24px!important}
+.final-book .phone-icon{left:22px!important}
 .svc-price{font-weight:650}
 .service-detail-modal[data-service="A LA CARTE"] .service-detail-block:first-of-type,
 .service-detail-modal[data-service="ADD-ON SERVICES"] .service-detail-block:first-of-type{display:none}
