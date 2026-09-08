@@ -108,8 +108,8 @@ html[lang="es"] .localized-hero-headline .hero-headline-es{
 
 /* Keep the original left copy / right booking balance from the screenshot. */
 .final-copy{left:64px!important;top:60px!important;width:286px!important}
-.final-book{left:50%!important;top:55px!important;transform:translateX(190px)!important}
-.legal-links{left:50%!important;top:116px!important;transform:translateX(160px)!important}
+.final-book{left:50%!important;top:55px!important;transform:translateX(235px)!important}
+.legal-links{left:50%!important;top:116px!important;transform:translateX(205px)!important}
 
 /* Minimal language switcher at the bottom-right. */
 .language-switcher{
@@ -329,7 +329,7 @@ body[data-page="home"] .ig-carousel-viewport .ig-grid{position:relative;top:0!im
 body[data-page="home"] .ig-carousel-viewport img{width:180px!important;height:180px!important;object-fit:cover;object-position:center}
 body[data-page="home"] .ig-carousel-viewport:focus-visible{outline:2px solid var(--green);outline-offset:3px}
 .teeth-cleaning-img{object-fit:cover!important;object-position:center!important}
-.service-card:has(img[src*="service-teeth-cleaning"]) img{object-fit:contain!important;object-position:center!important;background:#f6eadf!important}
+.service-card:has(img[src*="service-teeth-cleaning"]) img{object-fit:cover!important;object-position:center!important;background:#f6eadf!important}
 @media(max-width:850px){
  .site-header{grid-template-columns:1fr auto auto;gap:12px}
  .site-header .btn-header{position:static;width:auto;min-height:38px;font-size:9px;padding:0 10px;grid-column:2;grid-row:1}
