@@ -194,7 +194,7 @@ body[data-page="home"] .gallery-inner{
 body[data-page="home"] .phone-mock{
   z-index:30!important;
   pointer-events:auto!important;
-  width:340px!important;
+  width:245px!important;
   height:auto!important;
   overflow:visible!important;
   border-radius:0!important;
@@ -275,21 +275,9 @@ body[data-page="home"] .grum-instagram .profile{
 body[data-page="home"] .grum-instagram .profile:hover,
 body[data-page="home"] .grum-instagram .profile:focus-visible{
   background:transparent!important;
-  box-shadow:none!important;
+  box-shadow:0 0 0 2px rgba(244,123,137,.95)!important;
 }
-body[data-page="home"] .grum-instagram .profile::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:50%;
-  background-image:var(--active-phone-image);
-  background-size:714% auto;
-  background-position:23.6% 19.8%;
-  pointer-events:none;
-  opacity:1;
-}
-body[data-page="home"] .grum-instagram .profile:hover::before,
-body[data-page="home"] .grum-instagram .profile:focus-visible::before{opacity:0}
+body[data-page="home"] .grum-instagram .profile::before{display:none!important;content:none!important}
 body[data-page="home"] .grum-instagram .instagram-message-label{
   display:none!important;
   position:absolute;
