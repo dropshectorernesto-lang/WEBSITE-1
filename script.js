@@ -78,6 +78,12 @@
       const textNode = [...button.childNodes].find((node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim());
       if (textNode) textNode.textContent = value;
     };
+
+    function syncPhoneImage(activeConfig = window.SITE_CONFIG) {
+      const lang = getLang();
+      const src = activeConfig.gallery?.phoneImages?.[lang] || activeConfig.gallery?.phoneImage;
+      setImage('.phone-mock img', src, activeConfig.gallery?.phoneAlt);
+    }
     const escapeAttribute = (value = '') => String(value)
       .replaceAll('&', '&amp;')
       .replaceAll('"', '&quot;')
@@ -157,7 +163,7 @@
       cards.innerHTML = config.services.cards.map((card) => {
         const style = ['green', 'black', 'orange'].includes(card.style) ? card.style : 'green';
         const title = escapeAttribute(card.title);
-        return `<article class="service-card card-${style}${card.featured ? ' featured' : ''}" data-service="${title}" tabindex="0" role="button" aria-label="Book ${title}"><img src="${escapeAttribute(card.image)}" alt="${escapeAttribute(card.imageAlt)}" loading="lazy" draggable="false" /><div class="service-info"><div><h3>${card.title}</h3><p>${card.descriptionHtml || ''}</p></div></div></article>`;
+        return `<article class="service-card card-${style}${card.featured ? ' featured' : ''}" data-service="${title}" tabindex="0" role="button" aria-label="Book ${title}"><img class="${card.title === 'TEETH CLEANING' ? 'teeth-cleaning-img' : ''}" src="${escapeAttribute(card.image)}" alt="${escapeAttribute(card.imageAlt)}" loading="lazy" draggable="false" /><div class="service-info"><div><h3>${card.title}</h3><p>${card.descriptionHtml || ''}</p></div></div></article>`;
       }).join('');
     }
     const select = document.getElementById('serviceSelect');
@@ -172,7 +178,7 @@
 
     setText('.gallery-title .kicker', config.gallery?.kicker);
     setText('.gallery-title h2', config.gallery?.heading);
-    setImage('.phone-mock img', config.gallery?.phoneImage, config.gallery?.phoneAlt);
+    syncPhoneImage(config);
     const galleryLink = document.querySelector('.gallery-more');
     if (galleryLink) {
       if (config.business?.instagramUrl) galleryLink.href = config.business.instagramUrl;
@@ -199,6 +205,14 @@
       }
     });
     document.querySelectorAll('.legal-links').forEach((nav) => { if (config.legal?.length) nav.innerHTML = legalMarkup(); });
+    document.querySelectorAll('.final-inner').forEach((inner) => {
+      if (!inner.querySelector('.site-copyright')) {
+        const copy = document.createElement('p');
+        copy.className = 'site-copyright';
+        copy.textContent = '© Copyright 2026';
+        inner.appendChild(copy);
+      }
+    });
 
     setText('#bookingModal .kicker', config.booking?.kicker);
     setText('#bookingModal h2', config.booking?.heading);
@@ -250,6 +264,7 @@
 
   syncReferenceScale();
   addEventListener('resize', syncReferenceScale, { passive:true });
+
 
   const syncHeroHeadline = () => {
     const lang = getLang();
@@ -377,6 +392,7 @@
 
   const syncDynamicLocale = () => {
     syncHeroHeadline();
+    syncPhoneImage(window.SITE_CONFIG);
     syncBookingOptions();
     if (serviceDetail?.open && activeDetailService) renderServiceDetail(activeDetailService);
     if (blogDetail?.open && activeBlogPost) renderBlogDetail(activeBlogPost);
