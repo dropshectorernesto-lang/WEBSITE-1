@@ -192,7 +192,7 @@ body[data-page="home"] .gallery-inner{
 body[data-page="home"] .phone-mock{
   z-index:30!important;
   pointer-events:auto!important;
-  width:225px!important;
+  width:280px!important;
   height:auto!important;
   overflow:visible!important;
   border-radius:0!important;
