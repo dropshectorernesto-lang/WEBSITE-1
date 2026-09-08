@@ -83,25 +83,21 @@ window.SITE_CONFIG = {
   if (!tiles.length) return;
   const dialog = document.createElement('dialog');
   dialog.className = 'gallery-lightbox';
-  dialog.innerHTML = `<div class="gallery-lightbox-shell"><button class="gallery-lightbox-close" type="button" aria-label="Close gallery">×</button><button class="gallery-lightbox-arrow gallery-lightbox-prev" type="button" aria-label="Previous image">‹</button><img class="gallery-lightbox-image" alt="" /><button class="gallery-lightbox-arrow gallery-lightbox-next" type="button" aria-label="Next image">›</button></div>`;
+  dialog.innerHTML = `<div class="gallery-lightbox-shell"><button class="gallery-lightbox-backdrop" type="button" aria-label="Close gallery" onclick="this.closest('dialog').close()"></button><button class="gallery-lightbox-close" type="button" aria-label="Close gallery">×</button><button class="gallery-lightbox-arrow gallery-lightbox-prev" type="button" aria-label="Previous image">‹</button><img class="gallery-lightbox-image" alt="" /><button class="gallery-lightbox-arrow gallery-lightbox-next" type="button" aria-label="Next image">›</button></div>`;
   document.body.appendChild(dialog);
+  const shell = dialog.querySelector('.gallery-lightbox-shell');
   const image = dialog.querySelector('.gallery-lightbox-image'); let activeIndex = 0;
   const show = (index) => { activeIndex=(index+tiles.length)%tiles.length; image.src=tiles[activeIndex].currentSrc||tiles[activeIndex].src; image.alt=tiles[activeIndex].alt||'Gallery image'; };
   const setLightboxLock = () => document.body.classList.toggle('modal-open', dialog.open);
   const open = (index) => { show(index); dialog.showModal(); setLightboxLock(); };
   tiles.forEach((tile,index)=>{ tile.tabIndex=0; tile.setAttribute('role','button'); tile.addEventListener('click',()=>open(index)); tile.addEventListener('keydown',(e)=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();open(index);} }); });
   dialog.querySelector('.gallery-lightbox-close').addEventListener('click',()=>dialog.close());
-  dialog.querySelector('.gallery-lightbox-prev').addEventListener('click',()=>show(activeIndex-1));
-  dialog.querySelector('.gallery-lightbox-next').addEventListener('click',()=>show(activeIndex+1));
+  dialog.querySelector('.gallery-lightbox-prev').addEventListener('click',(e)=>{ e.stopPropagation(); show(activeIndex-1); });
+  dialog.querySelector('.gallery-lightbox-next').addEventListener('click',(e)=>{ e.stopPropagation(); show(activeIndex+1); });
+  shell.addEventListener('click',(e)=>{ if(e.target === shell) dialog.close(); });
   dialog.addEventListener('close',setLightboxLock);
   dialog.addEventListener('keydown',(e)=>{if(e.key==='ArrowLeft')show(activeIndex-1);if(e.key==='ArrowRight')show(activeIndex+1);if(e.key==='Escape')dialog.close();});
-  dialog.addEventListener('pointerdown',(e)=>{
-    if (!dialog.open) return;
-    if (e.target.closest('.gallery-lightbox-close,.gallery-lightbox-arrow')) return;
-    const rect = image.getBoundingClientRect();
-    const insideImage = e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom;
-    if (!insideImage) dialog.close();
-  }, true);
+  image.addEventListener('pointerdown',(e)=>e.stopPropagation());
   image.addEventListener('click',(e)=>e.stopPropagation());
 })();
 
