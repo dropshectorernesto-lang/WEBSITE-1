@@ -108,7 +108,7 @@ html[lang="es"] .localized-hero-headline .hero-headline-es{
 
 /* Keep the original left copy / right booking balance from the screenshot. */
 .final-copy{left:64px!important;top:60px!important;width:286px!important}
-.final-book{left:50%!important;top:55px!important;transform:translateX(70px)!important}
+.final-book{left:50%!important;top:55px!important;transform:translateX(130px)!important}
 .legal-links{left:50%!important;top:116px!important;transform:translateX(160px)!important}
 
 /* Minimal language switcher at the bottom-right. */
@@ -390,8 +390,10 @@ body[data-page="home"] .instagram-message-label{transform:translateX(-1%)}
 .final-book{
   width:auto!important;
   min-width:238px!important;
-  padding:0 26px!important;
+  padding:0 30px!important;
   justify-items:center!important;
+  justify-content:center!important;
+  align-items:center!important;
   text-align:center!important;
 }
 .final-book strong,
