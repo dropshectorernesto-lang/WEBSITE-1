@@ -192,7 +192,7 @@ body[data-page="home"] .gallery-inner{
 body[data-page="home"] .phone-mock{
   z-index:30!important;
   pointer-events:auto!important;
-  width:205px!important;
+  width:225px!important;
   height:auto!important;
   overflow:visible!important;
   border-radius:0!important;
@@ -273,7 +273,7 @@ body[data-page="home"] .grum-instagram .profile{
 body[data-page="home"] .grum-instagram .profile:hover,
 body[data-page="home"] .grum-instagram .profile:focus-visible{
   background:transparent!important;
-  box-shadow:0 0 0 2px rgba(244,123,137,.95)!important;
+  box-shadow:none!important;
 }
 body[data-page="home"] .grum-instagram .profile::before{
   content:"";
@@ -435,3 +435,8 @@ body[data-page="home"] .instagram-message-label{transform:translateX(-1%)}
 html[lang="de"] .grum-instagram .follow::after,
 html[lang="es"] .grum-instagram .follow::after{content:none!important;display:none!important}
 body[data-page="home"] .grum-instagram .instagram-message-label{display:none!important}
+
+.service-card:has(.teeth-cleaning-img),
+.svc-card:has(.teeth-cleaning-img){background:linear-gradient(145deg,#f8eee6 0%,#ead6c8 52%,#f6e9df 100%)!important}
+.service-card .teeth-cleaning-img,
+.svc-card .teeth-cleaning-img{width:100%!important;height:190px!important;object-fit:contain!important;object-position:center center!important;padding:0!important;transform:none!important;background:#f6eadf!important}

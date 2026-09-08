@@ -165,7 +165,7 @@
       cards.innerHTML = config.services.cards.map((card) => {
         const style = ['green', 'black', 'orange'].includes(card.style) ? card.style : 'green';
         const title = escapeAttribute(card.title);
-        return `<article class="service-card card-${style}${card.featured ? ' featured' : ''}" data-service="${title}" tabindex="0" role="button" aria-label="Book ${title}"><img src="${escapeAttribute(card.image)}" alt="${escapeAttribute(card.imageAlt)}" loading="lazy" draggable="false" /><div class="service-info"><div><h3>${card.title}</h3><p>${card.descriptionHtml || ''}</p></div></div></article>`;
+        return `<article class="service-card card-${style}${card.featured ? ' featured' : ''}" data-service="${title}" tabindex="0" role="button" aria-label="Book ${title}"><img class="${card.title === 'TEETH CLEANING' ? 'teeth-cleaning-img' : ''}" src="${escapeAttribute(card.image)}" alt="${escapeAttribute(card.imageAlt)}" loading="lazy" draggable="false" /><div class="service-info"><div><h3>${card.title}</h3><p>${card.descriptionHtml || ''}</p></div></div></article>`;
       }).join('');
     }
     const select = document.getElementById('serviceSelect');
