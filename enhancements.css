@@ -181,18 +181,20 @@ html[lang="es"] .localized-hero-headline .hero-headline-es{
    Do NOT clip the phone itself — only the page's existing horizontal overflow hides
    the distant carousel copies. */
 body[data-page="home"] .gallery{
+  height:250px!important;
   overflow:visible!important;
   position:relative;
   z-index:6;
 }
 body[data-page="home"] .gallery-inner{
+  height:250px!important;
   overflow:visible!important;
   isolation:isolate;
 }
 body[data-page="home"] .phone-mock{
   z-index:30!important;
   pointer-events:auto!important;
-  width:280px!important;
+  width:340px!important;
   height:auto!important;
   overflow:visible!important;
   border-radius:0!important;
@@ -353,7 +355,7 @@ body[data-page="home"] .ig-carousel-viewport:focus-visible{outline:2px solid var
  body[data-page="home"] .ig-carousel-viewport{top:auto;bottom:0;height:160px}
  body[data-page="home"] .ig-carousel-viewport img{width:150px!important;height:150px!important}
 }
-body[data-page="home"] .ig-carousel-viewport{top:auto;bottom:4px;height:115px}
+body[data-page="home"] .ig-carousel-viewport{top:auto;bottom:18px;height:115px}
 body[data-page="home"] .ig-carousel-viewport .ig-grid{height:115px}
 body[data-page="home"] .ig-carousel-viewport img{width:150px!important;height:115px!important}
 @media(max-width:850px){
@@ -436,7 +438,5 @@ html[lang="de"] .grum-instagram .follow::after,
 html[lang="es"] .grum-instagram .follow::after{content:none!important;display:none!important}
 body[data-page="home"] .grum-instagram .instagram-message-label{display:none!important}
 
-.service-card:has(.teeth-cleaning-img),
-.svc-card:has(.teeth-cleaning-img){background:linear-gradient(145deg,#f8eee6 0%,#ead6c8 52%,#f6e9df 100%)!important}
 .service-card .teeth-cleaning-img,
-.svc-card .teeth-cleaning-img{width:100%!important;height:190px!important;object-fit:contain!important;object-position:center center!important;padding:0!important;transform:none!important;background:#f6eadf!important}
+.svc-card .teeth-cleaning-img{width:100%!important;height:190px!important;object-fit:cover!important;object-position:center center!important;padding:0!important;transform:none!important;background:transparent!important}
