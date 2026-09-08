@@ -83,6 +83,8 @@
       const lang = getLang();
       const src = activeConfig.gallery?.phoneImages?.[lang] || activeConfig.gallery?.phoneImage;
       setImage('.phone-mock img', src, activeConfig.gallery?.phoneAlt);
+      const phone = document.querySelector('.phone-mock');
+      if (phone && src) phone.style.setProperty('--active-phone-image', `url("${src}")`);
     }
     const escapeAttribute = (value = '') => String(value)
       .replaceAll('&', '&amp;')

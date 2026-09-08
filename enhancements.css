@@ -192,7 +192,7 @@ body[data-page="home"] .gallery-inner{
 body[data-page="home"] .phone-mock{
   z-index:30!important;
   pointer-events:auto!important;
-  width:185px!important;
+  width:205px!important;
   height:auto!important;
   overflow:visible!important;
   border-radius:0!important;
@@ -275,7 +275,19 @@ body[data-page="home"] .grum-instagram .profile:focus-visible{
   background:transparent!important;
   box-shadow:0 0 0 2px rgba(244,123,137,.95)!important;
 }
-body[data-page="home"] .grum-instagram .profile::before{display:none;content:none}
+body[data-page="home"] .grum-instagram .profile::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  background-image:var(--active-phone-image);
+  background-size:714% auto;
+  background-position:23.6% 19.8%;
+  pointer-events:none;
+  opacity:1;
+}
+body[data-page="home"] .grum-instagram .profile:hover::before,
+body[data-page="home"] .grum-instagram .profile:focus-visible::before{opacity:0}
 body[data-page="home"] .grum-instagram .instagram-message-label{
   display:none!important;
   position:absolute;
@@ -414,10 +426,10 @@ body[data-page="home"] .instagram-message-label{transform:translateX(-1%)}
 
 
 
-.final-book strong{align-self:end!important;line-height:.9!important;transform:translateY(8px)!important}
-.final-book small{align-self:start!important;margin-top:-3px!important;line-height:.85!important;transform:translateY(8px)!important}
+.final-book strong{align-self:end!important;line-height:.9!important;transform:translateY(5px)!important}
+.final-book small{align-self:start!important;margin-top:1px!important;line-height:.85!important;transform:translateY(5px)!important}
 
-.site-copyright{position:absolute;left:64px;top:98px;width:286px;margin:0;text-align:center;font-family:Georgia,'Times New Roman',serif;font-size:9px;font-weight:700;color:rgba(34,33,33,.58);letter-spacing:-.1px;z-index:20}
+.site-copyright{position:absolute;left:64px;bottom:10px;width:auto;margin:0;text-align:left;font-family:Arial,Helvetica,sans-serif;font-size:8px;font-weight:600;color:rgba(34,33,33,.58);letter-spacing:.02em;z-index:20}
 @media(max-width:850px){.site-copyright{position:static;margin-top:10px;text-align:left}}
 
 html[lang="de"] .grum-instagram .follow::after,
