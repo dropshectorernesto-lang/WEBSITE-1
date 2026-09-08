@@ -109,7 +109,7 @@ html[lang="es"] .localized-hero-headline .hero-headline-es{
 /* Keep the original left copy / right booking balance from the screenshot. */
 .final-copy{left:64px!important;top:60px!important;width:286px!important}
 .final-book{left:50%!important;top:55px!important;transform:translateX(190px)!important}
-.legal-links{left:50%!important;top:124px!important;transform:translateX(190px)!important;width:238px!important;justify-content:center!important;text-align:center!important}
+.legal-links{left:50%!important;top:113px!important;transform:translateX(190px)!important;width:238px!important;justify-content:center!important;text-align:center!important}
 
 /* Minimal language switcher at the bottom-right. */
 .language-switcher{
@@ -329,7 +329,7 @@ body[data-page="home"] .ig-carousel-viewport .ig-grid{position:relative;top:0!im
 body[data-page="home"] .ig-carousel-viewport img{width:180px!important;height:180px!important;object-fit:cover;object-position:center}
 body[data-page="home"] .ig-carousel-viewport:focus-visible{outline:2px solid var(--green);outline-offset:3px}
 .teeth-cleaning-img{object-fit:cover!important;object-position:center!important}
-.service-card:has(img[src*="service-teeth-cleaning"]) img{object-fit:cover!important;object-position:center 42%!important;background:#f6eadf!important}
+.service-card:has(img[src*="service-teeth-cleaning"]) img{object-fit:cover!important;object-position:center top!important;background:#f6eadf!important}
 @media(max-width:850px){
  .site-header{grid-template-columns:1fr auto auto;gap:12px}
  .site-header .btn-header{position:static;width:auto;min-height:38px;font-size:9px;padding:0 10px;grid-column:2;grid-row:1}
@@ -346,7 +346,7 @@ body[data-page="home"] .ig-carousel-viewport img{width:150px!important;height:11
  body[data-page="home"] .ig-carousel-viewport img{width:150px!important;height:150px!important}
 }
 .teeth-cleaning-img{padding:0!important;transform:none!important;object-position:center 18%!important}
-.service-card:has(img[src*="service-teeth-cleaning"]) img{object-position:center 42%!important}
+.service-card:has(img[src*="service-teeth-cleaning"]) img{object-position:center top!important}
 .blog-detail-scroll>img{display:block;width:100%;height:260px;object-fit:cover;background:transparent}
 .blog-post img{border:0;box-shadow:none;object-position:center}
 body.modal-open{overflow:hidden}
@@ -410,3 +410,6 @@ body[data-page="home"] .instagram-message-label{transform:translateX(-1%)}
 .svc-card:has(img[src*="service-puppy-aussie"]) img{object-fit:cover!important;object-position:center 34%!important}
 
 
+
+.final-book strong{align-self:end!important;line-height:.9!important}
+.final-book small{align-self:start!important;margin-top:0!important;line-height:.85!important}
