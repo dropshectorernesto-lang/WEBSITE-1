@@ -192,8 +192,8 @@ body[data-page="home"] .gallery-inner{
 body[data-page="home"] .phone-mock{
   z-index:30!important;
   pointer-events:auto!important;
-  width:151px!important;
-  height:244px!important;
+  width:185px!important;
+  height:auto!important;
   overflow:visible!important;
   border-radius:0!important;
 }
@@ -261,16 +261,19 @@ body[data-page="home"] .ig-grid.ig-infinite-carousel img{
 body[data-page="home"] .phone-mock img{z-index:0;pointer-events:none}
 body[data-page="home"] .phone-mock a{z-index:2}
 body[data-page="home"] .grum-instagram{position:absolute}
-body[data-page="home"] .grum-instagram .profile,
-body[data-page="home"] .grum-instagram .profile:hover,
-body[data-page="home"] .grum-instagram .profile:focus-visible{
+body[data-page="home"] .grum-instagram .profile{
   left:19.6%;
   top:17.7%;
   width:15.5%;
   height:9.5%;
-  background:transparent;
-  box-shadow:none;
+  background:transparent!important;
+  box-shadow:none!important;
   z-index:32;
+}
+body[data-page="home"] .grum-instagram .profile:hover,
+body[data-page="home"] .grum-instagram .profile:focus-visible{
+  background:transparent!important;
+  box-shadow:0 0 0 2px rgba(244,123,137,.95)!important;
 }
 body[data-page="home"] .grum-instagram .profile::before{display:none;content:none}
 body[data-page="home"] .grum-instagram .instagram-message-label{
@@ -394,6 +397,7 @@ body[data-page="home"] .instagram-message-label{transform:translateX(-1%)}
   justify-content:center!important;
   align-items:center!important;
   text-align:center!important;
+  row-gap:0!important;
 }
 .final-book strong,
 .final-book small{width:100%;text-align:center}
@@ -410,12 +414,10 @@ body[data-page="home"] .instagram-message-label{transform:translateX(-1%)}
 
 
 
-.final-book strong{align-self:end!important;line-height:.9!important;transform:translateY(5px)!important}
-.final-book small{align-self:start!important;margin-top:1px!important;line-height:.85!important;transform:translateY(5px)!important}
+.final-book strong{align-self:end!important;line-height:.9!important;transform:translateY(8px)!important}
+.final-book small{align-self:start!important;margin-top:-3px!important;line-height:.85!important;transform:translateY(8px)!important}
 
-.service-card:has(.teeth-cleaning-img){background:linear-gradient(145deg,#f8eee6 0%,#ead6c8 52%,#f6e9df 100%)!important}
-.service-card .teeth-cleaning-img{height:190px!important;object-fit:contain!important;object-position:center bottom!important;padding:16px 18px 0!important;transform:scale(1.12) translateY(7px)!important}
-.site-copyright{position:absolute;left:22px;bottom:14px;margin:0;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;color:rgba(34,33,33,.68);letter-spacing:.02em;z-index:20}
+.site-copyright{position:absolute;left:64px;top:98px;width:286px;margin:0;text-align:center;font-family:Georgia,'Times New Roman',serif;font-size:9px;font-weight:700;color:rgba(34,33,33,.58);letter-spacing:-.1px;z-index:20}
 @media(max-width:850px){.site-copyright{position:static;margin-top:10px;text-align:left}}
 
 html[lang="de"] .grum-instagram .follow::after,
