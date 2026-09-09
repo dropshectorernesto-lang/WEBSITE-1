@@ -406,7 +406,7 @@ body[data-page="home"] .instagram-message-label{transform:translateX(-1%)}
 body[data-page="home"] .grum-instagram .instagram-message-label{display:none!important}
 
 .service-card .teeth-cleaning-img,
-.svc-card .teeth-cleaning-img{width:100%!important;height:190px!important;object-fit:cover!important;object-position:center center!important;padding:0!important;transform:none!important;background:transparent!important}
+.svc-card .teeth-cleaning-img{width:100%!important;height:190px!important;object-fit:cover!important;object-position:center 28%!important;padding:0!important;transform:none!important;background:transparent!important}
 
 body[data-page="home"] .grum-instagram .follow::after{content:""!important;position:absolute!important;inset:0!important;display:block!important;border-radius:inherit!important;background:#0095f6!important;box-shadow:0 0 0 .15cqw #0095f6!important;opacity:0!important;transition:opacity .15s ease!important}
 body[data-page="home"] .grum-instagram .follow:hover::after,
