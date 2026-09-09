@@ -423,3 +423,8 @@ body[data-page="home"] .phone-mock>.instagram-message-label{display:none!importa
 
 body[data-page="services"] .svc-card img[src*="service-puppy-aussie"]{object-position:center 20%!important}
 
+
+html[lang="en"] .final-book{min-width:226px!important}
+html[lang="en"] .final-book strong{font-size:14px!important}
+html[lang="en"] .final-book small{font-size:6.5px!important}
+
