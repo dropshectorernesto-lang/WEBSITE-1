@@ -176,7 +176,8 @@
       const root = document.documentElement;
       const headlineMarkup = {
         de: '<span class="hero-headline-language hero-headline-de">INDIVIDUELLE PFLEGE<br><em>FÜR ANSPRUCHSVOLLE</em><br>HUNDE.</span>',
-        es: '<span class="hero-headline-language hero-headline-es">PELUQUERÍA A MEDIDA<br><em>PARA MASCOTAS</em><br>DISTINGUIDAS.</span>'
+        es: '<span class="hero-headline-language hero-headline-es">PELUQUERÍA A MEDIDA<br><em>PARA MASCOTAS</em><br>DISTINGUIDAS.</span>',
+        ca: '<span class="hero-headline-language hero-headline-ca">PERRUQUERIA A MIDA<br><em>PER A MASCOTES</em><br>DISTINGIDES.</span>'
       };
       const serviceDescriptions = {
         en: {
@@ -211,11 +212,22 @@
           'COMBO':'Combina servicios favoritos<br>en una cita spa<br>bien completa.',
           'A LA CARTE':'Elige un servicio suelto<br>de nuestro menú<br>como retoque rápido.',
           'ADD-ON SERVICES':'Añade cuidados extra<br>a cualquier servicio<br>del menú.'
+        },
+        ca: {
+          'BATH & BRUSH':'Un bany relaxant, neteja suau<br>i raspallat complet per a un<br>pelatge fresc i sa.',
+          'HAIRCUT & STYLING':'Talls i estilisme personalitzats<br>per treure el millor aspecte<br>de la teva mascota.',
+          'NAIL CLIPPING':'Tall d’ungles segur i precís<br>per mantenir la teva mascota<br>còmoda i tranquil·la.',
+          'TEETH CLEANING':'Cura dental suau per a<br>un alè més fresc i un<br>somriure saludable.',
+          'DE-SHEDDING':'Tractament profund per<br>retirar pèl solt i deixar<br>el pelatge més lleuger.',
+          'PUPPY INTRO':'Una primera visita tranquil·la<br>per crear confiança i fer<br>la perruqueria més fàcil.',
+          'COMBO':'Combina serveis preferits<br>en una cita de spa<br>ben completa.',
+          'A LA CARTE':'Tria un servei solt<br>del nostre menú<br>com a retoc ràpid.',
+          'ADD-ON SERVICES':'Afegeix cures extra<br>a qualsevol servei<br>del menú.'
         }
       };
 
       const syncHomeLocalization = () => {
-        const lang = ['de','es'].includes(root.lang) ? root.lang : 'en';
+        const lang = ['de','es','ca'].includes(root.lang) ? root.lang : 'en';
         const title = document.getElementById('hero-title');
         if (title) {
           if (lang === 'en') {
@@ -227,12 +239,12 @@
 
         document.querySelectorAll('#service-cards .service-card').forEach((card) => {
           const canonical = (card.dataset.service || card.querySelector('h3')?.dataset.original || card.querySelector('h3')?.textContent || '').replaceAll('&amp;','&').trim().toUpperCase();
-          const key = canonical === 'BATH & BRUSH' || canonical.includes('BAD &') || canonical.includes('BAÑO &') ? 'BATH & BRUSH'
+          const key = canonical === 'BATH & BRUSH' || canonical.includes('BAD &') || canonical.includes('BAÑO &') || canonical.includes('BANY &') ? 'BATH & BRUSH'
             : canonical.includes('HAIRCUT') || canonical.includes('SCHNITT') || canonical.includes('CORTE & STYLING') ? 'HAIRCUT & STYLING'
-            : canonical.includes('NAIL') || canonical.includes('KRALLEN') || canonical.includes('UÑAS') ? 'NAIL CLIPPING'
+            : canonical.includes('NAIL') || canonical.includes('KRALLEN') || canonical.includes('UÑAS') || canonical.includes('UNGLES') ? 'NAIL CLIPPING'
             : canonical.includes('TEETH') || canonical.includes('ZAHN') || canonical.includes('DENTAL') ? 'TEETH CLEANING'
-            : canonical.includes('DE-SHEDDING') || canonical.includes('ENTHAAR') || canonical.includes('DESLAN') ? 'DE-SHEDDING'
-            : canonical.includes('PUPPY') || canonical.includes('WELP') || canonical.includes('CACHOR') ? 'PUPPY INTRO' : canonical;
+            : canonical.includes('DE-SHEDDING') || canonical.includes('ENTHAAR') || canonical.includes('DESLAN') || canonical.includes('ANTICAIGUDA') ? 'DE-SHEDDING'
+            : canonical.includes('PUPPY') || canonical.includes('WELP') || canonical.includes('CACHOR') || canonical.includes('CADELL') ? 'PUPPY INTRO' : canonical;
           const p = card.querySelector('.service-info p');
           if (p && serviceDescriptions[lang]?.[key]) p.innerHTML = serviceDescriptions[lang][key];
         });
