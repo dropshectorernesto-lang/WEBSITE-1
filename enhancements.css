@@ -393,8 +393,8 @@ body[data-page="home"] .instagram-message-label{transform:translateX(-1%)}
 
 
 
-.service-card:has(img[src*="service-puppy-aussie"]) img{object-fit:cover!important;object-position:center 34%!important}
-.svc-card:has(img[src*="service-puppy-aussie"]) img{object-fit:cover!important;object-position:center 34%!important}
+.service-card:has(img[src*="service-puppy-aussie"]) img{object-fit:cover!important;object-position:center 8%!important}
+.svc-card:has(img[src*="service-puppy-aussie"]) img{object-fit:cover!important;object-position:center 8%!important}
 
 
 
@@ -406,7 +406,7 @@ body[data-page="home"] .instagram-message-label{transform:translateX(-1%)}
 body[data-page="home"] .grum-instagram .instagram-message-label{display:none!important}
 
 .service-card .teeth-cleaning-img,
-.svc-card .teeth-cleaning-img{width:100%!important;height:190px!important;object-fit:cover!important;object-position:center 10%!important;padding:0!important;transform:none!important;background:transparent!important}
+.svc-card .teeth-cleaning-img{width:100%!important;height:190px!important;object-fit:cover!important;object-position:center 4%!important;padding:0!important;transform:none!important;background:transparent!important}
 
 body[data-page="home"] .grum-instagram .follow::after{content:""!important;position:absolute!important;inset:0!important;display:block!important;border-radius:inherit!important;background:#0095f6!important;box-shadow:0 0 0 .15cqw #0095f6!important;opacity:0!important;transition:opacity .15s ease!important}
 body[data-page="home"] .grum-instagram .follow:hover::after,
@@ -420,3 +420,6 @@ body[data-page="home"] .phone-mock>img,
 body[data-page="home"] .phone-mock>.profile,
 body[data-page="home"] .phone-mock>.follow,
 body[data-page="home"] .phone-mock>.instagram-message-label{display:none!important}
+
+body[data-page="services"] .svc-card img[src*="service-puppy-aussie"]{object-position:center 8%!important}
+
