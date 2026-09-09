@@ -14,7 +14,12 @@
     ['assets/ig-4.jpg', 'Golden dog surrounded by bath bubbles'],
     ['assets/ig-5.jpg', 'Small groomed dog posing with a bow tie'],
     ['assets/ig-3.jpg', 'Premium grooming products arranged on towels'],
-    ['assets/ig-6.jpg', 'Warm quiet grooming studio interior']
+    ['assets/ig-6.jpg', 'Warm quiet grooming studio interior'],
+    ['assets/gallery-17802173.webp', 'Two dogs surrounded by bath bubbles'],
+    ['assets/gallery-36174558.webp', 'Small fluffy dog bathing in a red bucket'],
+    ['assets/gallery-pitbull-turban.webp', 'Pitbull wearing a towel turban during a paw trim'],
+    ['assets/gallery-dachshund-foam-crown.webp', 'Dachshund with a foam crown getting towel dried'],
+    ['assets/gallery-6131165.webp', 'Playful dog smiling during a grooming visit']
   ];  track.replaceChildren();
   for (let set = 0; set < 3; set++) images.forEach(([src, alt]) => {
     const img = new Image(); img.src = src; img.alt = alt;
