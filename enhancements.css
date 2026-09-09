@@ -393,12 +393,12 @@ body[data-page="home"] .instagram-message-label{transform:translateX(-1%)}
 
 
 
-.service-card:has(img[src*="service-puppy-aussie"]) img{object-fit:cover!important;object-position:center 8%!important}
-.svc-card:has(img[src*="service-puppy-aussie"]) img{object-fit:cover!important;object-position:center 8%!important}
+.service-card:has(img[src*="service-puppy-aussie"]) img{object-fit:cover!important;object-position:center 20%!important}
+.svc-card:has(img[src*="service-puppy-aussie"]) img{object-fit:cover!important;object-position:center 20%!important}
 
 
 
-.final-book strong{align-self:end!important;line-height:.9!important;transform:translateY(5px)!important}
+.final-book strong{align-self:end!important;line-height:.9!important;transform:translateY(3px)!important}
 .final-book small{align-self:start!important;margin-top:1px!important;line-height:.85!important;transform:translateY(5px)!important}
 
 .site-copyright{position:absolute;left:64px;bottom:10px;width:auto;margin:0;text-align:left;font-family:Arial,Helvetica,sans-serif;font-size:8px;font-weight:600;color:rgba(34,33,33,.58);letter-spacing:.02em;z-index:20}
@@ -421,5 +421,5 @@ body[data-page="home"] .phone-mock>.profile,
 body[data-page="home"] .phone-mock>.follow,
 body[data-page="home"] .phone-mock>.instagram-message-label{display:none!important}
 
-body[data-page="services"] .svc-card img[src*="service-puppy-aussie"]{object-position:center 8%!important}
+body[data-page="services"] .svc-card img[src*="service-puppy-aussie"]{object-position:center 20%!important}
 
