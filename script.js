@@ -1,7 +1,7 @@
 (() => {
   const config = window.SITE_CONFIG;
 
-  const supportedLangs = ['en', 'de', 'es'];
+  const supportedLangs = ['en', 'de', 'es', 'ca'];
   const getLang = () => {
     const lang = document.documentElement.lang || localStorage.getItem('grum-language') || 'en';
     return supportedLangs.includes(lang) ? lang : 'en';
@@ -39,6 +39,20 @@
         'A LA CARTE': { title:'A LA CARTA', lead:'Elige un servicio suelto de nuestro menú cuando tu perro solo necesita un retoque.', includes:['Baño & cepillado','Corte & styling','Corte de uñas','Limpieza dental','Limpieza de oídos','Tratamiento deslanado','Intro cachorro','Recorte de patas','Recorte de cara','Recorte higiénico','Glándulas anales'], pricing:[['Baño & cepillado','€35+'],['Corte & styling','€55+'],['Corte de uñas','€15+'],['Limpieza dental','€20+'],['Limpieza de oídos','€15+'],['Tratamiento deslanado','€40+'],['Intro cachorro','€25+'],['Recorte de patas','€40+'],['Recorte de cara','€30+'],['Recorte higiénico','€30+'],['Glándulas anales','€30+']] },
         'ADD-ON SERVICES': { title:'SERVICIOS EXTRA', lead:'Añade cualquier cuidado extra de nuestro menú a una cita de peluquería.', includes:['Añadir a baño & cepillado','Añadir a corte & styling','Añadir a corte de uñas','Añadir a limpieza dental','Añadir a limpieza de oídos','Añadir a tratamiento deslanado','Añadir a intro cachorro','Pawdicure','Facial blueberry','Baño de aromaterapia','Masaje','Lazo o bandana'], pricing:[['Cepillado dental','€10+'],['Limpieza de oídos','€15+'],['Corte de uñas','€15+'],['Pawdicure','€40+'],['Antipulgas y garrapatas','€40+'],['Tratamiento calmante de piel','€30+'],['Acondicionador de pelo','€30+'],['Refuerzo deslanado','€40+'],['Facial blueberry','€20+'],['Baño de aromaterapia','€20+'],['Masaje','€30+'],['Lazo o bandana','€10+']] }
       }
+    },
+    ca: {
+      labels: { details:'DETALLS DEL SERVEI', included:'Què inclou', prices:'Preu segons la mida', menuPrices:'Preus del menú', note:'El preu final pot variar segons l’estat del pelatge, els nusos, el temperament i el temps necessari per cuidar la teva mascota amb seguretat.', book:'RESERVAR CITA' },
+      services: {
+        'BATH & BRUSH': { title:'BANY & RASPALLAT', lead:'Una cura suau per deixar el pelatge net, fresc i més fàcil de raspallar.', includes:['Bany tebi amb xampú adequat per al pelatge','Acondicionador','Assecat','Raspallat complet','Esprai final lleuger'], pricing:[['Gossos petits','€35+'],['Gossos mitjans','€45+'],['Gossos grans','€60+']] },
+        'HAIRCUT & STYLING': { title:'TALL & ESTILISME', lead:'Una sessió completa adaptada al pelatge, la comoditat i l’estil del teu gos.', includes:['Bany i assecat','Tall de raça o personalitzat','Retoc de cara, potes i zona higiènica','Raspallat i acabat d’estilisme','Revisió d’ungles'], pricing:[['Gossos petits','€55+'],['Gossos mitjans','€70+'],['Gossos grans','€90+']] },
+        'NAIL CLIPPING': { title:'TALL D’UNGLES', lead:'Un tall ràpid i acurat per mantenir les potes còmodes i el moviment natural.', includes:['Tall d’ungles','Manipulació suau de les potes','Llimat opcional quan calgui','Revisió ràpida de comoditat'], pricing:[['Gossos petits','€15+'],['Gossos mitjans','€18+'],['Gossos grans','€22+']] },
+        'TEETH CLEANING': { title:'NETEJA DENTAL', lead:'Una cura bucal suau per a un alè més fresc i un somriure més net.', includes:['Raspallat dental suau','Productes bucals segurs per a mascotes','Refresc de l’alè','Revisió visual de comoditat'], pricing:[['Totes les mides','€20+'],['Amb servei de perruqueria','€15+']] },
+        'EAR CLEANING': { title:'NETEJA D’ORELLES', lead:'Una neteja tranquil·la per mantenir les orelles fresques i sense irritacions.', includes:['Neteja de l’orella externa','Netejador segur per a mascotes','Neteja suau','Revisió final de comoditat'], pricing:[['Totes les mides','€15+'],['Amb servei de perruqueria','€12+']] },
+        'DE-SHEDDING TREATMENT': { title:'TRACTAMENT ANTICAIGUDA', lead:'Un tractament profund per retirar subpèl solt i controlar la muda estacional.', includes:['Xampú anticaiguda','Tractament acondicionador','Assecat d’alta velocitat','Raspallat del subpèl','Pentinat final'], pricing:[['Gossos petits','€40+'],['Gossos mitjans','€55+'],['Gossos grans','€75+']] },
+        'COMBO': { title:'COMBO', lead:'Combina diversos serveis en una sola cita de spa tranquil·la.', includes:['Dos o més serveis del menú de perruqueria','Bany, raspallat, tall, ungles, dents, orelles, anticaiguda, cadell, a la carta o extres','Una cita més senzilla amb menys anades i vingudes','Recomanació segons pelatge i comoditat'], pricing:[['Dos serveis','Pressupost personalitzat'],['Tres o més serveis','Pressupost personalitzat'],['Millors combos','Pregunta’ns']] },
+        'A LA CARTE': { title:'A LA CARTA', lead:'Tria un servei solt del nostre menú quan el teu gos només necessita un retoc.', includes:['Bany & raspallat','Tall & estilisme','Tall d’ungles','Neteja dental','Neteja d’orelles','Tractament anticaiguda','Intro cadell','Retoc de potes','Retoc de cara','Retoc higiènic','Glàndules anals'], pricing:[['Bany & raspallat','€35+'],['Tall & estilisme','€55+'],['Tall d’ungles','€15+'],['Neteja dental','€20+'],['Neteja d’orelles','€15+'],['Tractament anticaiguda','€40+'],['Intro cadell','€25+'],['Retoc de potes','€40+'],['Retoc de cara','€30+'],['Retoc higiènic','€30+'],['Glàndules anals','€30+']] },
+        'ADD-ON SERVICES': { title:'SERVEIS EXTRA', lead:'Afegeix qualsevol cura extra del nostre menú a una cita de perruqueria.', includes:['Afegir a bany & raspallat','Afegir a tall & estilisme','Afegir a tall d’ungles','Afegir a neteja dental','Afegir a neteja d’orelles','Afegir a tractament anticaiguda','Afegir a intro cadell','Pawdicure','Facial blueberry','Bany d’aromateràpia','Massatge','Llaç o bandana'], pricing:[['Raspallat dental','€10+'],['Neteja d’orelles','€15+'],['Tall d’ungles','€15+'],['Pawdicure','€40+'],['Antipuces i paparres','€40+'],['Tractament calmant de pell','€30+'],['Acondicionador de pelatge','€30+'],['Reforç anticaiguda','€40+'],['Facial blueberry','€20+'],['Bany d’aromateràpia','€20+'],['Massatge','€30+'],['Llaç o bandana','€10+']] }
+      }
     }
   };
 
@@ -54,6 +68,12 @@
       'BRUSHING BETWEEN VISITS: A 5-MINUTE ROUTINE THAT WORKS': { category:'CUIDADO DEL PELO', title:'CEPILLADO ENTRE VISITAS: UNA RUTINA DE 5 MINUTOS QUE FUNCIONA', body:['Una rutina corta de cepillado varias veces por semana marca una gran diferencia, especialmente alrededor de orejas, pecho, cola, barriga y patas, donde aparecen nudos más rápido.','Haz pasadas lentas, trabaja por pequeñas zonas y para si tu perro se incomoda. El objetivo es la constancia, no una lucha.','El cepillado regular hace que las citas sean más tranquilas porque el pelo se lava, seca y estiliza con más facilidad. También ayuda a detectar cambios en la piel antes.'] },
       "SIGNS YOUR DOG'S NAILS ARE OVERDUE FOR A TRIM": { category:'UÑAS & PATAS', title:'SEÑALES DE QUE TU PERRO NECESITA UN CORTE DE UÑAS', body:['Si escuchas clics en suelos duros, ves que las uñas tocan el suelo al estar de pie o notas puntas curvadas, probablemente sea hora de cortarlas.','Las uñas largas pueden cambiar la postura y hacer que caminar sea menos cómodo. Algunos perros también resbalan más porque las patas no apoyan de forma natural.','Para perros nerviosos, las citas más cortas y frecuentes suelen ser más fáciles que esperar a que las uñas estén demasiado largas.'] },
       "WHAT TO EXPECT AT YOUR DOG'S FIRST GRÜM APPOINTMENT": { category:'PRIMERA VISITA', title:'QUÉ ESPERAR EN LA PRIMERA CITA DE TU PERRO EN GRÜM', body:['La primera visita empieza con una breve conversación para conocer el pelo, nivel de comodidad, datos de salud y el servicio que buscas.','A partir de ahí vamos al ritmo de tu mascota. Una cita individual mantiene todo más tranquilo porque tu perro no espera en un espacio lleno.','Después del grooming te contamos cómo respondió el pelo, qué mantenimiento ayuda en casa y cuándo recomendamos la siguiente cita.'] }
+    },
+    ca: {
+      'HOW OFTEN SHOULD YOU ACTUALLY BATHE YOUR DOG?': { category:'BÀSICS DE PERRUQUERIA', title:'CADA QUANT HAURIES DE BANYAR REALMENTE EL TEU GOS?', body:['A la majoria de gossos els va bé un bany cada quatre o sis setmanes, però la freqüència correcta depèn del tipus de pelatge, la sensibilitat de la pell, l’activitat i el temps que passen a l’aire lliure.','Els gossos de pèl curt poden necessitar menys banys, mentre que els de pèl arrissat, llarg o doble solen necessitar una cura professional més regular per evitar acumulació i nusos.','Si el teu gos fa olor, té el pèl greixós, es grata més del normal o deixa més brutícia, pot ser moment de banyar-lo. Si la pell està seca o irritada, podem ajudar-te a trobar un ritme més suau.'] },
+      'BRUSHING BETWEEN VISITS: A 5-MINUTE ROUTINE THAT WORKS': { category:'CURA DEL PELATGE', title:'RASPALLAT ENTRE VISITES: UNA RUTINA DE 5 MINUTS QUE FUNCIONA', body:['Una rutina curta de raspallat diverses vegades per setmana marca una gran diferència, sobretot al voltant de les orelles, el pit, la cua, la panxa i les potes, on els nusos apareixen més ràpid.','Fes passades lentes, treballa per zones petites i atura’t si el teu gos se sent incòmode. L’objectiu és la constància, no una lluita.','El raspallat regular fa que les cites siguin més tranquil·les perquè el pelatge es renta, s’asseca i s’estilitza amb més facilitat. També ajuda a detectar canvis a la pell abans.'] },
+      "SIGNS YOUR DOG'S NAILS ARE OVERDUE FOR A TRIM": { category:'UNGLES & POTES', title:'SENYALS QUE EL TEU GOS NECESSITA UN TALL D’UNGLES', body:['Si sents clics en terres durs, veus que les ungles toquen el terra quan està dret o notes les puntes corbades, probablement és hora de tallar-les.','Les ungles llargues poden canviar la postura i fer que caminar sigui menys còmode. Alguns gossos també rellisquen més perquè les potes no recolzen de manera natural.','Per a gossos nerviosos, les cites més curtes i freqüents solen ser més fàcils que esperar fins que les ungles siguin massa llargues.'] },
+      "WHAT TO EXPECT AT YOUR DOG'S FIRST GRÜM APPOINTMENT": { category:'PRIMERA VISITA', title:'QUÈ ESPERAR A LA PRIMERA CITA DEL TEU GOS A GRÜM', body:['La primera visita comença amb una breu conversa per conèixer el pelatge, el nivell de comoditat, dades de salut i el servei que busques.','A partir d’aquí anem al ritme de la teva mascota. Una cita individual manté tot més tranquil perquè el teu gos no espera en un espai ple.','Després de la perruqueria t’expliquem com ha respost el pelatge, quina cura ajuda a casa i quan recomanem la següent cita.'] }
     }
   };
 
@@ -272,10 +292,12 @@
     const img = document.querySelector('.hero-headline-img');
     const de = document.querySelector('.hero-headline-de');
     const es = document.querySelector('.hero-headline-es');
-    if (!img && !de && !es) return;
+    const ca = document.querySelector('.hero-headline-ca');
+    if (!img && !de && !es && !ca) return;
     if (img) { img.style.display = lang === 'en' ? 'block' : 'none'; img.setAttribute('aria-hidden', lang === 'en' ? 'false' : 'true'); }
     if (de) { de.style.display = lang === 'de' ? 'block' : 'none'; de.setAttribute('aria-hidden', lang === 'de' ? 'false' : 'true'); }
     if (es) { es.style.display = lang === 'es' ? 'block' : 'none'; es.setAttribute('aria-hidden', lang === 'es' ? 'false' : 'true'); }
+    if (ca) { ca.style.display = lang === 'ca' ? 'block' : 'none'; ca.setAttribute('aria-hidden', lang === 'ca' ? 'false' : 'true'); }
   };
 
   const setButtonTextPreserveIcon = (button, text) => {
@@ -372,7 +394,7 @@
     if (imageEl && image) { imageEl.src = image; imageEl.alt = title; }
     if (bodyEl) bodyEl.innerHTML = body.map((paragraph) => `<p>${escapeAttribute(paragraph)}</p>`).join('');
     const blogBook = blogDetail.querySelector('.blog-detail-book');
-    setButtonTextPreserveIcon(blogBook, getLang() === 'de' ? 'TERMIN BUCHEN' : getLang() === 'es' ? 'RESERVAR CITA' : 'BOOK APPOINTMENT');
+    setButtonTextPreserveIcon(blogBook, getLang() === 'de' ? 'TERMIN BUCHEN' : ['es','ca'].includes(getLang()) ? 'RESERVAR CITA' : 'BOOK APPOINTMENT');
   };
 
   const openBlogDetail = (post) => {

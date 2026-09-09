@@ -45,6 +45,15 @@
   pointer-events:none;
 }
 .hero-headline-language em{font-style:normal;color:var(--green)}
+img.hero-headline-language{
+  height:auto!important;
+  object-fit:contain;
+  transform:none!important;
+}
+html[lang="es"] img.hero-headline-language,
+html[lang="ca"] img.hero-headline-language{
+  top:-24px;
+}
 html[lang="de"] .hero-headline-language{
   line-height:1.02;
   letter-spacing:0;
@@ -56,12 +65,14 @@ html[lang="de"] .hero-headline-language em{
   padding-bottom:2px;
 }
 html[lang="de"] .localized-hero-headline .hero-headline-img,
-html[lang="es"] .localized-hero-headline .hero-headline-img{
+html[lang="es"] .localized-hero-headline .hero-headline-img,
+html[lang="ca"] .localized-hero-headline .hero-headline-img{
   display:block!important;
   visibility:hidden!important;
 }
 html[lang="de"] .localized-hero-headline .hero-headline-de,
-html[lang="es"] .localized-hero-headline .hero-headline-es{
+html[lang="es"] .localized-hero-headline .hero-headline-es,
+html[lang="ca"] .localized-hero-headline .hero-headline-ca{
   display:block!important;
 }
 
@@ -81,7 +92,34 @@ html[lang="es"] .localized-hero-headline .hero-headline-es{
   overflow:visible!important;
 }
 
-/* No decorative/fake bubbles in the footer. */
+/* Photorealistic bubble overlays for both sides of the bottom banner. */
+.final-cta::before,
+.final-cta::after{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  pointer-events:none!important;
+  background:url("assets/footer-bubbles-realistic-clean.png") center/contain no-repeat!important;
+  background-color:transparent!important;
+  opacity:.72!important;
+  mix-blend-mode:multiply;
+  z-index:6!important;
+}
+.final-cta::before{
+  left:106px!important;
+  top:-24px!important;
+  width:590px!important;
+  height:178px!important;
+}
+.final-cta::after{
+  right:112px!important;
+  top:-18px!important;
+  width:520px!important;
+  height:164px!important;
+  transform:scaleX(-1) rotate(-2deg)!important;
+  transform-origin:center!important;
+  opacity:.66!important;
+}
 .final-inner::before,
 .final-inner::after,
 .final-dog::before,
@@ -377,6 +415,7 @@ body[data-page="home"] .instagram-message-label{transform:translateX(-1%)}
   width:auto!important;
   min-width:238px!important;
   padding:0 30px!important;
+  z-index:8!important;
   justify-items:center!important;
   justify-content:center!important;
   align-items:center!important;
