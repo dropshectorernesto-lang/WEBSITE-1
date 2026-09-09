@@ -413,3 +413,10 @@ body[data-page="home"] .grum-instagram .follow:hover::after,
 body[data-page="home"] .grum-instagram .follow:focus-visible::after{opacity:1!important}
 body[data-page="home"] .grum-instagram .profile:hover,
 body[data-page="home"] .grum-instagram .profile:focus-visible{box-shadow:none!important;background:transparent!important}
+
+body[data-page="home"] .phone-mock{width:245px!important;height:auto!important;aspect-ratio:986/1595!important;overflow:visible!important;background:transparent!important}
+body[data-page="home"] .instaphone-frame{display:block;width:100%!important;height:100%!important;border:0;background:transparent!important;overflow:hidden!important}
+body[data-page="home"] .phone-mock>img,
+body[data-page="home"] .phone-mock>.profile,
+body[data-page="home"] .phone-mock>.follow,
+body[data-page="home"] .phone-mock>.instagram-message-label{display:none!important}

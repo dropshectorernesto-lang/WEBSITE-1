@@ -81,10 +81,9 @@
 
     function syncPhoneImage(activeConfig = window.SITE_CONFIG) {
       const lang = getLang();
-      const src = activeConfig.gallery?.phoneImages?.[lang] || activeConfig.gallery?.phoneImage;
-      setImage('.phone-mock img', src, activeConfig.gallery?.phoneAlt);
-      const phone = document.querySelector('.phone-mock');
-      if (phone && src) phone.style.setProperty('--active-phone-image', `url("${src}")`);
+      const src = activeConfig.gallery?.phoneFrames?.[lang] || activeConfig.gallery?.phoneFrame;
+      const frame = document.querySelector('.instaphone-frame');
+      if (frame && src && frame.getAttribute('src') !== src) frame.setAttribute('src', src);
     }
     const escapeAttribute = (value = '') => String(value)
       .replaceAll('&', '&amp;')

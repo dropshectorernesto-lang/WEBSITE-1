@@ -65,7 +65,7 @@ window.SITE_CONFIG = {
   },
   experience: { kicker:'THE GRÜM EXPERIENCE', headingHtml:'MORE THAN A GROOM.<br>IT’S A MOMENT OF <span>CARE.</span>', button:'LEARN MORE ABOUT US', image:'assets/experience-banner.jpg', imageAlt:'Golden retriever enjoying a grooming treatment' },
   gallery: {
-    kicker:'FOLLOW OUR JOURNEY!', heading:'ON INSTAGRAM', linkLabel:'VIEW MORE ON INSTAGRAM', phoneImage:'assets/instagram-phone-doberman-en-clean.webp', phoneImages:{en:'assets/instagram-phone-doberman-en-clean.webp',de:'assets/instagram-phone-doberman-de-clean.webp',es:'assets/instagram-phone-doberman-es-clean.webp'}, phoneAlt:'Grüm Instagram profile on a phone',
+    kicker:'FOLLOW OUR JOURNEY!', heading:'ON INSTAGRAM', linkLabel:'VIEW MORE ON INSTAGRAM', phoneFrame:'assets/instaphone/doberman-en.html', phoneFrames:{en:'assets/instaphone/doberman-en.html',de:'assets/instaphone/doberman-de.html',es:'assets/instaphone/doberman-es.html'}, phoneAlt:'Grüm Instagram profile on a phone',
     images:[
       {src:'assets/ig-1.jpg',alt:'Smiling dog enjoying a bath in the studio'}, {src:'assets/ig-2.jpg',alt:'Dog wrapped in a towel after a spa bath'},
       {src:'assets/ig-4.jpg',alt:'Golden dog surrounded by bath bubbles'}, {src:'assets/ig-5.jpg',alt:'Small groomed dog posing with a bow tie'},
