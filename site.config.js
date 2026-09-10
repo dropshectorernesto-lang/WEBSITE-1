@@ -109,8 +109,8 @@ window.SITE_CONFIG = {
 
 /* Complete multilingual layer. It translates text nodes only, so nested phone/play/arrow icons and layout markup are never replaced. */
 (() => {
-  const footerInner = document.querySelector('.final-cta .final-inner');
-  if (!footerInner) return;
+  const languageTarget = document.querySelector('.site-header');
+  if (!languageTarget) return;
 
   const DE = {
     'HOME':'START','ABOUT':'ÜBER UNS','SERVICES':'SERVICES','GALLERY':'GALERIE','BLOG':'BLOG','CONTACT':'KONTAKT',
@@ -220,10 +220,14 @@ window.SITE_CONFIG = {
   const originals = new WeakMap();
   let currentLang = ['de','es','ca'].includes(localStorage.getItem('grum-language')) ? localStorage.getItem('grum-language') : 'en';
 
-  const nav = document.createElement('nav');
-  nav.className = 'language-switcher'; nav.setAttribute('aria-label','Language selector');
-  nav.innerHTML = '<button type="button" data-lang="en">EN</button><span aria-hidden="true">/</span><button type="button" data-lang="de">DE</button><span aria-hidden="true">/</span><button type="button" data-lang="es">ES</button><span aria-hidden="true">/</span><button type="button" data-lang="ca">CA</button>';
-  footerInner.appendChild(nav);
+  let nav = languageTarget.querySelector('.language-switcher');
+  if (!nav) {
+    nav = document.createElement('nav');
+    nav.className = 'language-switcher';
+    nav.setAttribute('aria-label','Language selector');
+    nav.innerHTML = '<button type="button" data-lang="en">EN</button><span aria-hidden="true">/</span><button type="button" data-lang="de">DE</button><span aria-hidden="true">/</span><button type="button" data-lang="es">ES</button><span aria-hidden="true">/</span><button type="button" data-lang="ca">CA</button>';
+    languageTarget.appendChild(nav);
+  }
 
   const translateNode = (node, lang) => {
     if (node.nodeType !== Node.TEXT_NODE || !node.parentElement || ['SCRIPT','STYLE','NOSCRIPT'].includes(node.parentElement.tagName)) return;
