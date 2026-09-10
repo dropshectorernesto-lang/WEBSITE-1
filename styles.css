@@ -97,7 +97,6 @@ h1,h2,h3{margin:0;font-family:Impact,Haettenschweiler,'Arial Narrow Bold',sans-s
 .service-card:nth-child(2){width:328px;height:298px;margin-left:15px}
 .service-card:nth-child(3){width:270px;height:298px;margin-left:17px}
 .service-card img{width:100%;height:calc(100% - 110px);max-width:none;object-fit:cover}
-.service-card[data-service="Haircut & Styling"] img{height:205px}
 .service-number{position:absolute;z-index:3;left:14px;top:15px;color:#f37a8a;font-family:Impact,Haettenschweiler,'Arial Narrow Bold',sans-serif;font-size:24px;line-height:1;text-shadow:0 1px 3px rgba(0,0,0,.10)}
 .service-info{height:110px;min-height:110px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px}
 .service-info h3{margin:0 0 9px;font-size:19px;line-height:1;color:#fff}

@@ -12,6 +12,8 @@
 .page-hero-copy p{font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.6;color:#222;max-width:420px;margin:0 0 22px}
 .page-hero-photo{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:0 12px 30px rgba(41,29,24,.14)}
 .page-hero-photo img{width:100%;height:340px;object-fit:cover}
+.about-map-link{display:block;background:#e9ded6}
+.about-map-link iframe{display:block;width:100%;height:340px;border:0;pointer-events:none}
 
 /* ---------- Generic content section wrapper ---------- */
 .content-section{padding:64px 0}
@@ -36,6 +38,23 @@
 .value-card .value-num{font-family:'Anton',Impact,Haettenschweiler,sans-serif;font-size:26px;color:rgba(255,255,255,.85);margin-bottom:10px}
 .value-card h3{font-family:'Anton',Impact,Haettenschweiler,sans-serif;font-size:17px;letter-spacing:-.2px;margin:0 0 8px;text-transform:uppercase}
 .value-card p{font-family:Arial,Helvetica,sans-serif;font-size:11.5px;line-height:1.5;margin:0;color:rgba(255,255,255,.92)}
+
+/* ---------- Google reviews carousel (About) ---------- */
+.reviews-section{background:#fffaf6}
+.reviews-carousel{overflow:hidden;touch-action:pan-y;cursor:grab;margin-top:28px;padding:8px 2px 18px}
+.reviews-carousel.dragging{cursor:grabbing}
+.reviews-track{display:flex;gap:18px;width:max-content;transition:transform .42s cubic-bezier(.22,.72,.24,1);will-change:transform}
+.reviews-carousel.dragging .reviews-track{transition:none}
+.review-card{width:280px;min-height:210px;border-radius:var(--radius);padding:24px 22px;color:#fff;box-shadow:0 7px 14px rgba(41,29,24,.14);display:flex;flex-direction:column;justify-content:space-between;gap:14px;user-select:none}
+.review-stars{font-family:Arial,Helvetica,sans-serif;font-size:14px;letter-spacing:2px;color:#fff3b0}
+.review-card p{font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.58;margin:0;color:rgba(255,255,255,.94)}
+.review-card strong{font-family:'Anton',Impact,Haettenschweiler,sans-serif;font-size:18px;line-height:1;text-transform:uppercase}
+.review-card span{font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:800;text-transform:uppercase;color:rgba(255,255,255,.72)}
+.reviews-pager{display:flex;align-items:center;justify-content:center;gap:0;margin-top:4px}
+.reviews-pager button{position:relative;width:15px;height:20px;padding:0;border:0;background:none;opacity:1;transition:transform .18s ease}
+.reviews-pager button::before{content:"";position:absolute;left:50%;top:50%;width:7px;height:7px;border-radius:50%;background:#efadb6;transform:translate(-50%,-50%)}
+.reviews-pager button.active{width:20px;background:center/20px 20px no-repeat url("assets/paw-indicator-clean.png")}
+.reviews-pager button.active::before{display:none}
 
 /* ---------- Services grid (Services page) ---------- */
 .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px;margin-top:36px}
@@ -118,9 +137,10 @@
   .page-hero{padding:110px 0 46px}
   .page-hero-inner{grid-template-columns:1fr;gap:26px;padding:0 24px}
   .page-hero-copy h1{font-size:36px}
-  .page-hero-photo img{height:240px}
+  .page-hero-photo img,.about-map-link iframe{height:240px}
   .story-split{grid-template-columns:1fr}
   .value-grid{grid-template-columns:1fr}
+  .review-card{width:calc(100vw - 48px);min-height:190px}
   .story-split img{height:240px}
   .content-section{padding:46px 0}
   .content-section>.section-width{padding:0 24px}

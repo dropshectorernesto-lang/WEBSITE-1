@@ -453,6 +453,94 @@
     addEventListener('resize', () => goToSlide(activeSlide), { passive:true }); goToSlide(0);
   }
 
+  const reviewsCarousel = document.querySelector('.reviews-carousel');
+  const reviewsTrack = document.querySelector('.reviews-track');
+  const reviewCards = [...document.querySelectorAll('.review-card')];
+  const reviewsPager = document.querySelector('.reviews-pager');
+  if (reviewsCarousel && reviewsTrack && reviewCards.length) {
+    const originalReviewCards = reviewCards.map((card) => card.cloneNode(true));
+    reviewsTrack.replaceChildren(
+      ...originalReviewCards.map((card) => card.cloneNode(true)),
+      ...originalReviewCards.map((card) => card.cloneNode(true)),
+      ...originalReviewCards.map((card) => card.cloneNode(true))
+    );
+    const reviewLoopCards = [...reviewsTrack.querySelectorAll('.review-card')];
+    let reviewSlide = 0, reviewRailX = 0, reviewStartX = 0, reviewStartRailX = 0, reviewPeriod = 0, reviewDragging = false, reviewLastTime = performance.now(), reviewResumeAt = 0;
+    const reviewOffsets = () => originalReviewCards.map((card,index) => (reviewLoopCards[index]?.offsetLeft || 0));
+    const measureReviews = () => {
+      reviewPeriod = Math.max(0, (reviewLoopCards[originalReviewCards.length]?.offsetLeft || 0) - (reviewLoopCards[0]?.offsetLeft || 0));
+      if (reviewPeriod) reviewRailX = Math.max(reviewPeriod, reviewRailX || reviewPeriod);
+      paintReviews();
+    };
+    const normalizeReviews = () => {
+      if (!reviewPeriod) return;
+      while (reviewRailX < reviewPeriod) reviewRailX += reviewPeriod;
+      while (reviewRailX >= reviewPeriod * 2) reviewRailX -= reviewPeriod;
+    };
+    const nearestReview = () => {
+      if (!reviewPeriod) return 0;
+      const local = reviewRailX - reviewPeriod;
+      return reviewOffsets().reduce((best,target,index,offsets) => Math.abs(target - local) < Math.abs(offsets[best] - local) ? index : best, 0);
+    };
+    const paintReviews = () => {
+      normalizeReviews();
+      reviewSlide = nearestReview();
+      reviewsTrack.style.transform = `translate3d(${-reviewRailX}px,0,0)`;
+      reviewsPager?.querySelectorAll('button').forEach((button,index) => {
+        button.classList.toggle('active', index === reviewSlide);
+        button.setAttribute('aria-current', index === reviewSlide ? 'true' : 'false');
+      });
+    };
+    const goToReview = (index) => {
+      reviewSlide = Math.max(0, Math.min(originalReviewCards.length - 1, index));
+      reviewRailX = reviewPeriod + (reviewOffsets()[reviewSlide] || 0);
+      reviewResumeAt = performance.now() + 2200;
+      paintReviews();
+    };
+    reviewsCarousel.addEventListener('dragstart', (event) => event.preventDefault());
+    reviewsCarousel.addEventListener('selectstart', (event) => event.preventDefault());
+    if (reviewsPager) {
+      reviewsPager.innerHTML = originalReviewCards.map((position,index) => `<button type="button" aria-label="Show review ${index + 1}"></button>`).join('');
+      reviewsPager.querySelectorAll('button').forEach((button,index) => button.addEventListener('click', () => goToReview(index)));
+    }
+    reviewsCarousel.addEventListener('pointerdown', (event) => {
+      if (event.button !== 0) return;
+      event.preventDefault();
+      reviewDragging = true;
+      reviewStartX = event.clientX;
+      reviewStartRailX = reviewRailX;
+      reviewsCarousel.setPointerCapture(event.pointerId);
+      reviewsCarousel.classList.add('dragging');
+    });
+    reviewsCarousel.addEventListener('pointermove', (event) => {
+      if (!reviewDragging) return;
+      const delta = event.clientX - reviewStartX;
+      reviewRailX = reviewStartRailX - delta;
+      paintReviews();
+    });
+    const finishReviewDrag = (event) => {
+      if (!reviewDragging) return;
+      reviewDragging = false;
+      reviewsCarousel.classList.remove('dragging');
+      if (reviewsCarousel.hasPointerCapture(event.pointerId)) reviewsCarousel.releasePointerCapture(event.pointerId);
+      reviewResumeAt = performance.now() + 1200;
+      };
+    reviewsCarousel.addEventListener('pointerup', finishReviewDrag);
+    reviewsCarousel.addEventListener('pointercancel', finishReviewDrag);
+    const tickReviews = (now) => {
+      const dt = Math.min(.05, (now - reviewLastTime) / 1000);
+      reviewLastTime = now;
+      if (!reviewDragging && !document.hidden && !reducedMotion && now > reviewResumeAt && reviewPeriod) {
+        reviewRailX += 18 * dt;
+        paintReviews();
+      }
+      requestAnimationFrame(tickReviews);
+    };
+    addEventListener('resize', measureReviews, { passive:true });
+    measureReviews();
+    requestAnimationFrame(tickReviews);
+  }
+
   document.querySelectorAll('.svc-card').forEach((card) => {
     const openDetail = () => openServiceDetail(card.dataset.service);
     card.addEventListener('click', openDetail);
