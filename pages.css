@@ -40,7 +40,7 @@
 /* ---------- Services grid (Services page) ---------- */
 .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px;margin-top:36px}
 .svc-card{position:relative;border:0;outline:0;border-radius:var(--radius);overflow:hidden;color:#fff;box-shadow:0 7px 14px rgba(41,29,24,.16);cursor:pointer;display:flex;flex-direction:column;transition:transform .16s ease,box-shadow .16s ease;background:#232121;isolation:isolate}
-.svc-card:hover{transform:translateY(-3px);box-shadow:0 12px 22px rgba(41,29,24,.20)}
+.svc-card:hover{transform:none;box-shadow:0 12px 22px rgba(41,29,24,.20)}
 .svc-card:focus,.svc-card:focus-visible{outline:0}
 .svc-card img{width:100%;height:190px;object-fit:cover;display:block;pointer-events:none;user-select:none;-webkit-user-select:none;-webkit-user-drag:none;transform:translateZ(0);backface-visibility:hidden}
 .svc-card:has(.teeth-cleaning-img){background:linear-gradient(145deg,#f8eee6 0%,#ead6c8 52%,#f6e9df 100%)}
