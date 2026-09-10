@@ -495,4 +495,25 @@
     booking?.close();
     form.reset();
   });
+
+  const languageSwitcher = document.querySelector('.language-switcher');
+  if (languageSwitcher) {
+    const savedLanguage = localStorage.getItem('grum-language');
+    const initialLanguage = ['en', 'de', 'es', 'ca'].includes(savedLanguage) ? savedLanguage : 'en';
+    const setLanguage = (language) => {
+      document.documentElement.lang = language;
+      localStorage.setItem('grum-language', language);
+      languageSwitcher.querySelectorAll('button[data-lang]').forEach((button) => {
+        const active = button.dataset.lang === language;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-current', active ? 'true' : 'false');
+      });
+    };
+
+    languageSwitcher.addEventListener('click', (event) => {
+      const button = event.target.closest('button[data-lang]');
+      if (button) setLanguage(button.dataset.lang);
+    });
+    setLanguage(initialLanguage);
+  }
 })();
