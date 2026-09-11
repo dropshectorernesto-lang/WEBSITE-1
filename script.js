@@ -111,7 +111,7 @@
       .replaceAll('<', '&lt;')
       .replaceAll('>', '&gt;');
     const legalMarkup = () => (config.legal || [])
-      .map((item) => `<a href="${escapeAttribute(item.target)}" target="_blank" rel="noreferrer">${item.label}</a>`)
+      .map((item) => `<a href="${escapeAttribute(item.target)}" data-legal-link="${escapeAttribute(item.target)}">${item.label}</a>`)
       .join('');
 
     if (document.body?.dataset.page === 'home') document.title = config.business?.title || document.title;
@@ -573,6 +573,36 @@
       const rect = dialog.getBoundingClientRect();
       if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
     });
+  });
+
+  const mobileLegalQuery = matchMedia('(max-width: 850px)');
+  let legalDialog;
+  const openLegalPanel = (target) => {
+    const legalItems = config?.legal || [];
+    if (!legalItems.length) return;
+    if (!legalDialog) {
+      legalDialog = document.createElement('dialog');
+      legalDialog.className = 'modal legal-modal';
+      legalDialog.innerHTML = `<div class="legal-modal-tabs"></div><iframe class="legal-modal-frame" title="Legal information"></iframe><button class="modal-close legal-modal-close" type="button" aria-label="Close">×</button>`;
+      document.body.appendChild(legalDialog);
+      legalDialog.querySelector('.legal-modal-close')?.addEventListener('click', () => legalDialog.close());
+      legalDialog.addEventListener('close', setModalScrollLock);
+    }
+    const tabs = legalDialog.querySelector('.legal-modal-tabs');
+    const frame = legalDialog.querySelector('.legal-modal-frame');
+    const active = legalItems.find((item) => item.target === target) || legalItems[0];
+    tabs.innerHTML = legalItems.map((item) => `<button type="button" class="${item.target === active.target ? 'active' : ''}" data-legal-tab="${escapeAttribute(item.target)}">${item.label}</button>`).join('');
+    tabs.querySelectorAll('button').forEach((button) => button.addEventListener('click', () => openLegalPanel(button.dataset.legalTab)));
+    frame.src = active.target;
+    frame.title = active.label;
+    if (!legalDialog.open) legalDialog.showModal();
+    setModalScrollLock();
+  };
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest('.legal-links a[data-legal-link]');
+    if (!link || !mobileLegalQuery.matches) return;
+    event.preventDefault();
+    openLegalPanel(link.dataset.legalLink);
   });
 
   const form = document.getElementById('bookingForm');
