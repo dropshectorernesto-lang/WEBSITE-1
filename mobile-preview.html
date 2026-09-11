@@ -5,7 +5,7 @@ body{margin:0;min-height:100vh;display:grid;place-items:center;background:#d9d0c
 iframe{width:390px;height:844px;border:0;display:block;background:white}
 </style></head><body><div class="frame"><iframe id="phone" src="/index.html?v=mobile-banners-1"></iframe></div><script>
 const params=new URLSearchParams(location.search);
-const v=params.get('v')||'mobile-banners-20';
+const v=params.get('v')||'mobile-banners-21';
 const page=(params.get('page')||'index.html').replace(/^\//,'');
 const phone=document.getElementById('phone');
 const loadInPhone=(href)=>{phone.src='/' + href.replace(/^\//,'').split('?')[0] + '?v=' + encodeURIComponent(v);};
