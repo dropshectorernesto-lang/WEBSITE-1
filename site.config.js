@@ -9,7 +9,7 @@ var escapeAttribute = (value = '') => String(value)
 (() => {
   const link = document.createElement('link');
   link.rel = 'stylesheet';
-  link.href = 'enhancements.css';
+  link.href = 'enhancements.css?v=mobile-banners-20';
   document.head.appendChild(link);
 })();
 
@@ -297,3 +297,5 @@ window.SITE_CONFIG = {
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => applyLanguage(currentLang), {once:true});
   else applyLanguage(currentLang);
 })();
+
+
