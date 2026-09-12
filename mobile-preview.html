@@ -16,7 +16,7 @@
   <div class="frame"><iframe id="phone" title="Grüm mobile website"></iframe></div>
   <script>
     const params=new URLSearchParams(location.search);
-    const v=params.get('v')||'mobile-preview-stable-1';
+    const v=params.get('v')||'mobile-preview-stable-2';
     const phone=document.getElementById('phone');
     const normalizePage=(value='index.html')=>{
       let page=String(value||'index.html').split('#')[0].split('?')[0].replace(/^\/+/, '');
@@ -40,30 +40,6 @@
       try{
         const doc=phone.contentDocument;
         if(!doc) return;
-
-        let style=doc.getElementById('mobile-preview-stability');
-        if(!style){
-          style=doc.createElement('style');
-          style.id='mobile-preview-stability';
-          style.textContent=`
-            @media(max-width:560px){
-              .final-dog>img{opacity:1!important;visibility:visible!important;display:block!important}
-              .final-dog.has-mobile-rig>img{opacity:1!important}
-              .mobile-dog-rig{opacity:0!important;transition:opacity .2s ease!important}
-              .mobile-dog-rig.preview-rig-ready{opacity:1!important}
-            }
-          `;
-          doc.head.appendChild(style);
-        }
-
-        const rig=doc.querySelector('.mobile-dog-rig');
-        if(rig){
-          rig.setAttribute('loading','lazy');
-          const markReady=()=>rig.classList.add('preview-rig-ready');
-          if(rig.contentDocument?.readyState==='complete') markReady();
-          else rig.addEventListener('load',markReady,{once:true});
-        }
-
         doc.querySelectorAll('a[href]').forEach(link=>{
           if(link.dataset.mobilePreviewBound) return;
           link.dataset.mobilePreviewBound='1';
