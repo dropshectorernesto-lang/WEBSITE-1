@@ -8,7 +8,8 @@
   <title>BAN-KUVO — Demo</title>
   <style>
     html,body{margin:0;width:100%;height:100%;background:#f3ebe7;overflow:hidden}
-    iframe{display:block;width:100%;height:100dvh;border:0;background:#f3ebe7;visibility:hidden}
+    body{display:flex;justify-content:center;align-items:stretch}
+    iframe{display:block;width:min(100vw,430px);max-width:430px;height:100dvh;border:0;background:#f3ebe7;visibility:hidden}
     .fallback{position:fixed;inset:auto 12px 12px;z-index:2;text-align:center;font:12px Arial,sans-serif}
     .fallback a{color:#01463c}
   </style>
@@ -17,5 +18,6 @@
   <iframe id="customer-demo" src="../../mobile/index.html" title="BAN-KUVO website demo" allow="fullscreen" loading="eager"></iframe>
   <div class="fallback"><a href="./">Reload BAN-KUVO demo</a></div>
   <script src="customize.js"></script>
+  <script src="runtime-fixes.js"></script>
 </body>
 </html>
