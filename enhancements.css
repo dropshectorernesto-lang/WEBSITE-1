@@ -127,8 +127,8 @@ html[lang="ca"] .localized-hero-headline .hero-headline-ca{
 
 /* Match the reference: broad natural dog proportions, centered, with only the
    upper head overlapping the Instagram row and the lower body cropped by CTA. */
-.final-dog{position:static!important;order:2!important;width:100%!important;height:96px!important;margin:0!important;overflow:hidden!important;text-align:center!important;display:flex!important;justify-content:center!important;align-items:flex-start!important}
-.final-dog img{height:190px!important;max-width:100%!important;width:auto!important;object-fit:contain!important;object-position:center top!important;transform:translateY(0)!important}
+.final-dog{left:340px!important;top:0!important;width:344px!important;height:155px!important;overflow:visible!important;z-index:7!important}
+.final-dog img{display:block!important;width:344px!important;height:155px!important;max-width:none!important;object-fit:contain!important;object-position:center bottom!important;transform:translateY(0)!important}
 
 /* Keep the original left copy / right booking balance from the screenshot. */
 .final-copy{left:64px!important;top:60px!important;width:286px!important}
@@ -252,8 +252,8 @@ body[data-page="home"] .ig-grid.ig-infinite-carousel img{
   .final-cta{height:auto!important;min-height:330px!important;overflow:hidden!important}
   .final-cta .final-inner{height:auto!important}
   .final-copy{left:auto!important;top:auto!important;width:auto!important}
-  .final-dog{position:static!important;order:2!important;width:100%!important;height:96px!important;margin:0!important;overflow:hidden!important;text-align:center!important;display:flex!important;justify-content:center!important;align-items:flex-start!important}
-  .final-dog img{height:190px!important;max-width:100%!important;width:auto!important;object-fit:contain!important;object-position:center top!important;transform:translateY(0)!important}
+  .final-dog{left:auto!important;top:auto!important;width:100%!important;height:190px!important}
+  .final-dog img{width:100%!important;height:auto!important;object-fit:contain!important;object-position:center top!important;transform:translateY(0)!important}
   .final-book{left:auto!important;top:auto!important;transform:none!important}
   .legal-links{left:auto!important;top:auto!important;transform:none!important}
   .language-switcher{position:static;justify-content:flex-end;margin-top:8px;padding-right:2px;font-size:10px}
@@ -553,8 +553,8 @@ body[data-page="services"] .service-card img[src*="service-puppy-aussie"]{object
   .final-inner{display:grid!important;grid-template-columns:1fr!important;height:auto!important;padding:14px 24px 12px!important;gap:4px!important;justify-items:center!important;text-align:center!important}
   .final-copy{position:static!important;order:1!important;width:auto!important;left:auto!important;top:auto!important;text-align:center!important}
   .final-copy p:last-child{font-size:12px!important;margin-top:8px!important}
-  .final-dog{position:static!important;order:2!important;width:100%!important;height:96px!important;margin:0!important;overflow:hidden!important;text-align:center!important;display:flex!important;justify-content:center!important;align-items:flex-start!important}
-  .final-dog img{height:190px!important;max-width:100%!important;width:auto!important;object-fit:contain!important;object-position:center top!important;transform:translateY(0)!important}
+  .final-dog{left:auto!important;top:auto!important;width:100%!important;height:190px!important}
+  .final-dog img{width:100%!important;height:auto!important;object-fit:contain!important;object-position:center top!important;transform:translateY(0)!important}
   .final-book{position:relative!important;order:3!important;justify-self:center!important;left:auto!important;top:auto!important;transform:none!important;width:238px!important;min-width:238px!important;height:54px!important;min-height:54px!important;margin:-44px auto 0!important;padding:0 26px 0 48px!important;display:grid!important;grid-template-rows:1fr 1fr!important;place-items:center!important;row-gap:0!important;overflow:hidden!important}
   .final-book .phone-icon{position:absolute!important;left:22px!important;top:50%!important;width:18px!important;height:18px!important;transform:translateY(-50%)!important}
   .final-book strong,.final-book small{width:100%!important;text-align:center!important;transform:none!important;line-height:1!important}
