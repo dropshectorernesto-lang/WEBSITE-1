@@ -1,0 +1,19 @@
+# Grüm
+
+Grüm is a premium dog grooming and pet spa website. This site is intentionally published as crawlable, pre-rendered HTML so search engines, AI assistants, and other text-based agents can read the primary content without executing JavaScript.
+
+## Main pages
+- /index.html — Home, services overview, booking entry points, Grüm experience, gallery, and contact CTA.
+- /about.html — About Grüm and the grooming experience.
+- /services.html — Dog grooming, bathing, coat care, nail care, and related services.
+- /gallery.html — Grooming and pet spa gallery.
+- /blog.html — Grooming and pet care content.
+- /contact.html — Contact information and appointment entry points.
+- /privacy-policy.html — Privacy Policy.
+- /terms-and-conditions.html — Terms & Conditions.
+
+## Notes for crawlers
+- Primary editorial and service content is present in the initial HTML response.
+- JavaScript is used for progressive enhancement, animation, carousels, booking dialogs, and the legal-document modal.
+- The standalone legal pages remain linked and crawlable even though users can view them in an in-page modal.
+- /mobile-preview.html is a development preview and should not be indexed as a separate page.
