@@ -239,9 +239,19 @@ h1,h2,h3,
 .hero::before,.hero::after,.hero .bubble,.hero-image-wrap::before{display:none}
 .hero-image-wrap{display:block;inset:0;width:100%;height:100%;aspect-ratio:auto;-webkit-mask-image:none;mask-image:none}
 .hero-image-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-image-wrap .hero-dog-animation{position:absolute;inset:0;width:100%;height:100%;max-width:none;overflow:hidden}
+.hero-image-wrap .hero-dog-animation img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center}
+.hero-image-wrap .hero-dog-eye .hero-dog-iris img{position:absolute;width:100cqw;height:52.19cqw;max-width:none;inset:auto;object-fit:fill}
+.hero-image-wrap .hero-dog-eye-left .hero-dog-iris img{left:-51.0225cqw;top:-13.2125cqw}
+.hero-image-wrap .hero-dog-eye-right .hero-dog-iris img{left:-65.2275cqw;top:-12.5275cqw}
+.hero-image-wrap .hero-dog-wink-mask{display:block;position:absolute;z-index:2;inset:0;overflow:hidden;-webkit-mask-image:radial-gradient(ellipse 30% 39% at 54.6% 53%,#000 0%,#000 66%,rgba(0,0,0,0) 100%);mask-image:radial-gradient(ellipse 30% 39% at 54.6% 53%,#000 0%,#000 66%,rgba(0,0,0,0) 100%)}
+.hero-image-wrap .hero-dog-wink-skin img{position:absolute;width:100cqw;height:52.19cqw;max-width:none;left:-63.3cqw;top:-16.02cqw;inset:auto;object-fit:fill}
+.hero-image-wrap .hero-dog-wink-texture{display:block;position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 17% 13% at 46% 41%,rgba(255,245,224,.2) 0%,rgba(255,245,224,.06) 58%,rgba(255,245,224,0) 82%),radial-gradient(ellipse 24% 20% at 66% 70%,rgba(32,15,5,.17) 0%,rgba(32,15,5,.05) 60%,rgba(32,15,5,0) 84%),radial-gradient(ellipse 15% 26% at 32% 56%,rgba(26,12,4,.26) 0%,rgba(26,12,4,.08) 58%,rgba(26,12,4,0) 86%),radial-gradient(ellipse 22% 16% at 60% 88%,rgba(150,86,64,.13) 0%,rgba(150,86,64,0) 82%),linear-gradient(180deg,rgba(24,11,4,.2) 0%,rgba(24,11,4,.06) 32%,rgba(24,11,4,.02) 58%,rgba(24,11,4,.05) 86%,rgba(24,11,4,.09) 100%);-webkit-mask-image:radial-gradient(ellipse 29% 37% at 54.6% 53%,#000 0%,#000 62%,rgba(0,0,0,0) 100%);mask-image:radial-gradient(ellipse 29% 37% at 54.6% 53%,#000 0%,#000 62%,rgba(0,0,0,0) 100%)}
+.hero-image-wrap .hero-dog-wink-margin img{position:absolute;width:100cqw;height:52.19cqw;max-width:none;left:-62.4cqw;top:-11.26cqw;inset:auto;object-fit:fill}
 @media(max-width:850px){
   .hero-image-wrap{top:280px;height:calc(100% - 280px)}
   .hero-image-wrap img{object-position:65% center}
+  .hero-image-wrap .hero-dog-animation img{object-position:65% center}
   .hero-image-wrap::before{display:block;background:linear-gradient(180deg,#f1e6da,transparent 30%)}
 }
 @media(max-width:560px){
