@@ -55,51 +55,53 @@
         winkStyle.textContent = `
           .grum-web-wink{
             position:absolute;
-            left:56.15cqw;
-            top:36.05cqw;
-            width:10.9cqw;
-            height:6.1cqw;
+            left:55.1cqw;
+            top:34.1cqw;
+            width:14.2cqw;
+            height:9.8cqw;
             z-index:30;
             pointer-events:none;
             opacity:0;
-            transform:translateY(-14%) rotate(-5.3deg) scaleY(.72);
-            transform-origin:50% 46%;
-            filter:saturate(.98) contrast(.99);
+            transform:translateY(-10%) rotate(-5.4deg) scaleY(.76);
+            transform-origin:51% 55%;
           }
           .grum-web-wink::before{
             content:'';
             position:absolute;
-            inset:-22% -11% -20%;
+            inset:-8% -6% -4%;
             border-radius:50%;
-            background-image:url('dog-mobile-smile.jpg');
-            background-repeat:no-repeat;
-            background-size:100cqw 177.69cqw;
-            background-position:-55.55cqw -31.9cqw;
-            -webkit-mask-image:radial-gradient(ellipse 48% 46% at 51% 53%,#000 0%,#000 63%,rgba(0,0,0,.65) 78%,transparent 100%);
-            mask-image:radial-gradient(ellipse 48% 46% at 51% 53%,#000 0%,#000 63%,rgba(0,0,0,.65) 78%,transparent 100%);
+            background-image:
+              radial-gradient(ellipse 62% 54% at 51% 59%,rgba(115,70,39,.10) 0%,rgba(115,70,39,.035) 58%,transparent 88%),
+              url('dog-mobile-smile.jpg');
+            background-repeat:no-repeat,no-repeat;
+            background-size:100% 100%,100cqw 177.69cqw;
+            background-position:center,-54.6cqw -25.6cqw;
+            -webkit-mask-image:radial-gradient(ellipse 58% 57% at 51% 54%,#000 0%,#000 69%,rgba(0,0,0,.96) 80%,rgba(0,0,0,.46) 92%,transparent 100%);
+            mask-image:radial-gradient(ellipse 58% 57% at 51% 54%,#000 0%,#000 69%,rgba(0,0,0,.96) 80%,rgba(0,0,0,.46) 92%,transparent 100%);
+            filter:saturate(.98) contrast(.99) brightness(1.01);
           }
           .grum-web-wink::after{
             content:'';
             position:absolute;
-            left:17%;
-            right:10%;
-            top:57%;
-            height:.52cqw;
-            border-radius:999px;
-            background:linear-gradient(180deg,rgba(35,18,8,.44),rgba(63,34,17,.26));
-            box-shadow:0 .13cqw .17cqw rgba(43,22,10,.15);
-            filter:blur(.08cqw);
-            transform:rotate(-1deg) scaleX(.92);
+            left:18%;
+            right:12%;
+            top:61%;
+            height:.62cqw;
+            border-radius:999px 999px 60% 60%;
+            background:linear-gradient(180deg,rgba(34,17,7,.48),rgba(66,37,18,.30));
+            box-shadow:0 .18cqw .22cqw rgba(43,22,10,.16);
+            filter:blur(.07cqw);
+            transform:rotate(-1.2deg) scaleX(.94);
             transform-origin:center;
           }
           .grum-web-wink.is-winking{
-            animation:grumWebWink 500ms cubic-bezier(.22,.7,.25,1) both;
+            animation:grumWebWink 560ms cubic-bezier(.22,.72,.24,1) both;
           }
           @keyframes grumWebWink{
-            0%{opacity:0;transform:translateY(-14%) rotate(-5.3deg) scaleY(.72)}
-            18%{opacity:1;transform:translateY(1%) rotate(-5.3deg) scaleY(1)}
-            62%{opacity:1;transform:translateY(2%) rotate(-5.3deg) scaleY(1)}
-            100%{opacity:0;transform:translateY(-12%) rotate(-5.3deg) scaleY(.78)}
+            0%{opacity:0;transform:translateY(-10%) rotate(-5.4deg) scaleY(.72)}
+            16%{opacity:1;transform:translateY(0) rotate(-5.4deg) scaleY(1)}
+            68%{opacity:1;transform:translateY(1%) rotate(-5.4deg) scaleY(1)}
+            100%{opacity:0;transform:translateY(-9%) rotate(-5.4deg) scaleY(.76)}
           }
         `;
         doc.head.appendChild(winkStyle);
@@ -134,7 +136,7 @@
     webWink.classList.remove('is-winking');
     void webWink.offsetWidth;
     webWink.classList.add('is-winking');
-    winkTimer = window.setTimeout(() => webWink?.classList.remove('is-winking'), 540);
+    winkTimer = window.setTimeout(() => webWink?.classList.remove('is-winking'), 600);
   };
 
   const markRigReady = () => {
