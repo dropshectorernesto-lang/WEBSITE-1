@@ -1,7 +1,11 @@
 # LISSY
 
-## [▶ Open live demo](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/lissy/)
+## [📱 Open Mobile Demo](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/lissy/)
 
-Copy URL:
+## [🖥️ Open WEB IPAD Demo](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/lissy/web-ipad/)
+
+Copy URLs:
 
 `https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/lissy/`
+
+`https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/lissy/web-ipad/`

@@ -1,7 +1,11 @@
 # AMIGO MIO
 
-## [▶ Open live demo](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/amigo-mio/)
+## [📱 Open Mobile Demo](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/amigo-mio/)
 
-Copy URL:
+## [🖥️ Open WEB IPAD Demo](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/amigo-mio/web-ipad/)
+
+Copy URLs:
 
 `https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/amigo-mio/`
+
+`https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/amigo-mio/web-ipad/`

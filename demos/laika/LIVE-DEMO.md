@@ -1,7 +1,11 @@
 # LAIKA
 
-## [▶ Open live demo](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/laika/)
+## [📱 Open Mobile Demo](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/laika/)
 
-Copy URL:
+## [🖥️ Open WEB IPAD Demo](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/laika/web-ipad/)
+
+Copy URLs:
 
 `https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/laika/`
+
+`https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/laika/web-ipad/`

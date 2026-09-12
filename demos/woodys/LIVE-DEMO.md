@@ -1,7 +1,11 @@
 # WOODYS
 
-## [▶ Open live demo](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/woodys/)
+## [📱 Open Mobile Demo](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/woodys/)
 
-Copy URL:
+## [🖥️ Open WEB IPAD Demo](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/woodys/web-ipad/)
+
+Copy URLs:
 
 `https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/woodys/`
+
+`https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/woodys/web-ipad/`

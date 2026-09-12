@@ -1,17 +1,19 @@
 # Customer demos
 
-Tap any customer name below to open the live GitHub Pages demo directly.
+Tap a demo mode below. **WEB IPAD** uses the full desktop/web layout but disables the cursor-following dog eyes for touch devices.
 
-- [MAI FRIENDS](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/mai-friends/)
-- [BAN KUVO](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/ban-kuvo/)
-- [ART GOS](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/art-gos/)
-- [BUB BUB SCP](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/bub-bub-scp/)
-- [BIGOTIS](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/bigotis/)
-- [LISSY](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/lissy/)
-- [GUSBORAL](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/gusboral/)
-- [WOODYS](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/woodys/)
-- [AMIGO MIO](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/amigo-mio/)
-- [LAIKA](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/laika/)
-- [MARC OLIVA](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/marc-oliva/)
+| Customer | Mobile | Web/Desktop | WEB IPAD |
+|---|---|---|---|
+| MAI FRIENDS | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/mai-friends/) | — | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/mai-friends/web-ipad/) |
+| BAN KUVO | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/ban-kuvo/) | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/ban-kuvo/web/) | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/ban-kuvo/web-ipad/) |
+| ART GOS | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/art-gos/) | — | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/art-gos/web-ipad/) |
+| BUB BUB SCP | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/bub-bub-scp/) | — | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/bub-bub-scp/web-ipad/) |
+| BIGOTIS | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/bigotis/) | — | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/bigotis/web-ipad/) |
+| LISSY | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/lissy/) | — | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/lissy/web-ipad/) |
+| GUSBORAL | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/gusboral/) | — | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/gusboral/web-ipad/) |
+| WOODYS | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/woodys/) | — | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/woodys/web-ipad/) |
+| AMIGO MIO | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/amigo-mio/) | — | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/amigo-mio/web-ipad/) |
+| LAIKA | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/laika/) | — | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/laika/web-ipad/) |
+| MARC OLIVA | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/marc-oliva/) | — | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/marc-oliva/web-ipad/) |
 
-Each customer folder also contains a `LIVE-DEMO.md` file with its direct URL for easy copying from the GitHub app.
+Each customer folder also contains `LIVE-DEMO.md` with its permanent demo URLs for quick access from the GitHub app.

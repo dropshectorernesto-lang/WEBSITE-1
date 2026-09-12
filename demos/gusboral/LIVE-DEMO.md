@@ -1,7 +1,11 @@
 # GUSBORAL
 
-## [▶ Open live demo](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/gusboral/)
+## [📱 Open Mobile Demo](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/gusboral/)
 
-Copy URL:
+## [🖥️ Open WEB IPAD Demo](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/gusboral/web-ipad/)
+
+Copy URLs:
 
 `https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/gusboral/`
+
+`https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/gusboral/web-ipad/`
