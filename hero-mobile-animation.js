@@ -40,9 +40,106 @@
   let rig = null;
   let rigReady = false;
   let bookingTimer = 0;
+  let winkTimer = 0;
+  let webWink = null;
+
+  const installWebWink = () => {
+    try {
+      const doc = rig?.contentDocument;
+      const root = doc?.querySelector('[data-rig-root="1"]');
+      if (!doc || !root) return;
+
+      if (!doc.getElementById('grum-web-wink-style')) {
+        const winkStyle = doc.createElement('style');
+        winkStyle.id = 'grum-web-wink-style';
+        winkStyle.textContent = `
+          .grum-web-wink{
+            position:absolute;
+            left:56.15cqw;
+            top:36.05cqw;
+            width:10.9cqw;
+            height:6.1cqw;
+            z-index:30;
+            pointer-events:none;
+            opacity:0;
+            transform:translateY(-14%) rotate(-5.3deg) scaleY(.72);
+            transform-origin:50% 46%;
+            filter:saturate(.98) contrast(.99);
+          }
+          .grum-web-wink::before{
+            content:'';
+            position:absolute;
+            inset:-22% -11% -20%;
+            border-radius:50%;
+            background-image:url('dog-mobile-smile.jpg');
+            background-repeat:no-repeat;
+            background-size:100cqw 177.69cqw;
+            background-position:-55.55cqw -31.9cqw;
+            -webkit-mask-image:radial-gradient(ellipse 48% 46% at 51% 53%,#000 0%,#000 63%,rgba(0,0,0,.65) 78%,transparent 100%);
+            mask-image:radial-gradient(ellipse 48% 46% at 51% 53%,#000 0%,#000 63%,rgba(0,0,0,.65) 78%,transparent 100%);
+          }
+          .grum-web-wink::after{
+            content:'';
+            position:absolute;
+            left:17%;
+            right:10%;
+            top:57%;
+            height:.52cqw;
+            border-radius:999px;
+            background:linear-gradient(180deg,rgba(35,18,8,.44),rgba(63,34,17,.26));
+            box-shadow:0 .13cqw .17cqw rgba(43,22,10,.15);
+            filter:blur(.08cqw);
+            transform:rotate(-1deg) scaleX(.92);
+            transform-origin:center;
+          }
+          .grum-web-wink.is-winking{
+            animation:grumWebWink 500ms cubic-bezier(.22,.7,.25,1) both;
+          }
+          @keyframes grumWebWink{
+            0%{opacity:0;transform:translateY(-14%) rotate(-5.3deg) scaleY(.72)}
+            18%{opacity:1;transform:translateY(1%) rotate(-5.3deg) scaleY(1)}
+            62%{opacity:1;transform:translateY(2%) rotate(-5.3deg) scaleY(1)}
+            100%{opacity:0;transform:translateY(-12%) rotate(-5.3deg) scaleY(.78)}
+          }
+        `;
+        doc.head.appendChild(winkStyle);
+      }
+
+      const oldWinkSelectors = [
+        '[style*="left: 53.10cqw"][style*="top: 31.19cqw"]',
+        '[style*="left: 57.75cqw"][style*="top: 39.07cqw"]',
+        '[style*="left: 58.31cqw"][style*="top: 39.77cqw"]',
+        '[style*="left: 57.09cqw"][style*="top: 39.64cqw"]'
+      ];
+      oldWinkSelectors.forEach(selector => {
+        doc.querySelectorAll(selector).forEach(node => { node.style.visibility = 'hidden'; });
+      });
+
+      webWink = doc.querySelector('.grum-web-wink');
+      if (!webWink) {
+        webWink = doc.createElement('div');
+        webWink.className = 'grum-web-wink';
+        webWink.setAttribute('aria-hidden', 'true');
+        root.appendChild(webWink);
+      }
+    } catch (error) {
+      webWink = null;
+    }
+  };
+
+  const playWebWink = () => {
+    if (!webWink) installWebWink();
+    if (!webWink) return;
+    clearTimeout(winkTimer);
+    webWink.classList.remove('is-winking');
+    void webWink.offsetWidth;
+    webWink.classList.add('is-winking');
+    winkTimer = window.setTimeout(() => webWink?.classList.remove('is-winking'), 540);
+  };
 
   const markRigReady = () => {
     rigReady = true;
+    installWebWink();
     heroWrap.classList.add('hero-dog-rig-ready');
     hero?.classList.add('hero-dog-rig-active');
   };
@@ -63,11 +160,13 @@
   const unmountRig = () => {
     if (mobile.matches) return;
     clearTimeout(bookingTimer);
+    clearTimeout(winkTimer);
     heroWrap.classList.remove('hero-dog-rig-ready');
     hero?.classList.remove('hero-dog-rig-active');
     rig?.remove();
     rig = null;
     rigReady = false;
+    webWink = null;
   };
 
   const sendAssetTrigger = () => rig?.contentWindow?.postMessage('grum-mobile-dog-animate', '*');
@@ -75,9 +174,13 @@
   const playExactAssetAnimation = () => {
     if (!rig) mountRig();
     if (rigReady) {
+      playWebWink();
       sendAssetTrigger();
     } else {
-      rig?.addEventListener('load', sendAssetTrigger, { once:true });
+      rig?.addEventListener('load', () => {
+        playWebWink();
+        sendAssetTrigger();
+      }, { once:true });
     }
   };
 
