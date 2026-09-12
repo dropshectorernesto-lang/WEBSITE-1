@@ -387,39 +387,9 @@
   const winkHero = () => {
     if (!heroAnimation) return;
     heroAnimation.classList.add('is-winking');
-    const lid = heroAnimation.querySelector('.hero-dog-wink-lid');
-    const skin = heroAnimation.querySelector('.hero-dog-wink-skin');
-    const margin = heroAnimation.querySelector('.hero-dog-wink-margin');
-    const line = heroAnimation.querySelector('.hero-dog-wink-line');
-    const glint = heroAnimation.querySelector('.hero-dog-wink-glint');
-    const shadow = heroAnimation.querySelector('.hero-dog-wink-shadow');
-    const setLid = (clip, skinTransform, marginY, lidY, duration) => {
-      if (lid) {
-        lid.style.transitionDuration = `${duration}ms`;
-        lid.style.webkitClipPath = clip;
-        lid.style.clipPath = clip;
-        lid.style.transform = `translateY(${lidY}%)`;
-      }
-      if (skin) {
-        skin.style.transitionDuration = `${duration}ms`;
-        skin.style.transform = skinTransform;
-      }
-      if (margin) {
-        margin.style.transitionDuration = `${duration}ms`;
-        margin.style.transform = `translateY(${marginY}%) rotate(-5.5deg)`;
-      }
-    };
-    setLid('ellipse(200% 130% at 50% -26%)', 'translateY(0%)', 0, 0, 150);
-    if (line) { line.style.transitionDelay = '80ms'; line.style.opacity = '1'; line.style.transform = 'rotate(-6.5deg) scaleX(1)'; }
-    if (glint) { glint.style.transitionDelay = '110ms'; glint.style.opacity = '1'; }
-    if (shadow) { shadow.style.transitionDelay = '80ms'; shadow.style.opacity = '1'; }
     clearTimeout(heroAnimation.winkTimer);
     heroAnimation.winkTimer = setTimeout(() => {
       heroAnimation.classList.remove('is-winking');
-      setLid('ellipse(200% 130% at 50% -160%)', 'translateY(-6%)', -150, -2.5, 250);
-      if (line) { line.style.transitionDelay = '0ms'; line.style.opacity = '0'; line.style.transform = 'rotate(-6.5deg) scaleX(.84)'; }
-      if (glint) { glint.style.transitionDelay = '0ms'; glint.style.opacity = '0'; }
-      if (shadow) { shadow.style.transitionDelay = '0ms'; shadow.style.opacity = '0'; }
     }, 400);
   };
   if (heroAnimation) {

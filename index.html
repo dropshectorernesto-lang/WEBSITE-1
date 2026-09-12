@@ -67,10 +67,6 @@
           <img class="hero-dog-wink-full" src="assets/dog-animation/dog-wink-full.png" alt="" aria-hidden="true" />
           <span class="hero-dog-eye hero-dog-eye-left" aria-hidden="true"><span class="hero-dog-iris"><img src="assets/dog-animation/dog-base.jpg" alt="" /></span><span class="hero-dog-eye-shade"></span></span>
           <span class="hero-dog-eye hero-dog-eye-right" aria-hidden="true"><span class="hero-dog-iris"><img src="assets/dog-animation/dog-base.jpg" alt="" /></span><span class="hero-dog-eye-shade"></span></span>
-          <div class="hero-dog-wink-lid" aria-hidden="true"><div class="hero-dog-wink-mask"><div class="hero-dog-wink-skin"><img src="assets/dog-animation/dog-base.jpg" alt="" /></div></div><div class="hero-dog-wink-texture"></div><div class="hero-dog-wink-margin"><img src="assets/dog-animation/dog-base.jpg" alt="" /></div></div>
-          <div class="hero-dog-wink-line" aria-hidden="true"></div>
-          <div class="hero-dog-wink-glint" aria-hidden="true"></div>
-          <div class="hero-dog-wink-shadow" aria-hidden="true"></div>
           <div class="hero-asset-bubbles" aria-hidden="true">
             <span class="hero-asset-bubble hero-asset-bubble-0"><span><span><span></span></span></span></span>
             <span class="hero-asset-bubble hero-asset-bubble-1"><span><span><span></span></span></span></span>
@@ -262,7 +258,7 @@
       };
 
       const syncHomeLocalization = () => {
-        const lang = ['de','es','ca'].includes(root.lang) ? root.lang : 'en';
+        const lang = root && ['de','es','ca'].includes(root.lang) ? root.lang : 'en';
         const title = document.getElementById('hero-title');
         if (title) {
           if (lang === 'en') {
@@ -286,7 +282,7 @@
 
       };
 
-      new MutationObserver(syncHomeLocalization).observe(root, { attributes:true, attributeFilter:['lang'] });
+      if (root instanceof Node) new MutationObserver(syncHomeLocalization).observe(root, { attributes:true, attributeFilter:['lang'] });
       setTimeout(syncHomeLocalization, 0);
       setTimeout(syncHomeLocalization, 50);
     })();
