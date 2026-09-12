@@ -1,5 +1,37 @@
 (() => {
   if (document.body.dataset.page !== 'home') return;
+
+  const mobile = matchMedia('(max-width: 560px)');
+  if (mobile.matches) {
+    const heroWrap = document.querySelector('.hero-image-wrap');
+    if (heroWrap) {
+      heroWrap.querySelector('.hero-dog-animation')?.remove();
+      if (![...heroWrap.children].some(child => child.tagName === 'IMG')) {
+        const fallback = new Image();
+        fallback.src = 'assets/hero-mobile-friendly.jpg';
+        fallback.alt = 'Golden retriever being washed with bubbles';
+        fallback.fetchPriority = 'high';
+        heroWrap.prepend(fallback);
+      }
+    }
+
+    if (!document.getElementById('approved-mobile-css')) {
+      const css = document.createElement('link');
+      css.id = 'approved-mobile-css';
+      css.rel = 'stylesheet';
+      css.href = 'mobile-approved.css?v=3ff3b3dc';
+      document.head.appendChild(css);
+    }
+
+    if (!document.querySelector('script[data-approved-mobile-homepage]')) {
+      const script = document.createElement('script');
+      script.src = 'mobile-approved-homepage.js?v=3ff3b3dc';
+      script.dataset.approvedMobileHomepage = '1';
+      document.head.appendChild(script);
+    }
+    return;
+  }
+
   const track = document.querySelector('.ig-grid');
   if (!track) return;
   const viewport = document.createElement('div');
@@ -20,7 +52,8 @@
     ['assets/ig-9.webp', 'Playful dog posing after a grooming session'],
     ['assets/ig-10.webp', 'Cute dog enjoying a grooming table moment'],
     ['assets/ig-11.webp', 'Funny dog during a fresh grooming visit']
-  ];  track.replaceChildren();
+  ];
+  track.replaceChildren();
   for (let set = 0; set < 3; set++) images.forEach(([src, alt]) => {
     const img = new Image(); img.src = src; img.alt = alt;
     img.draggable = false; img.width = 180; img.height = 180;
@@ -33,7 +66,6 @@
   const scale = () => viewport.getBoundingClientRect().width / viewport.offsetWidth || 1;
   function paint() {
     if (!period) return;
-    // A full repeated set is visually identical at either boundary.
     x = -period + ((x + period) % period + period) % period;
     track.style.transform = `translate3d(${x}px,0,0)`;
   }
