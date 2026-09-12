@@ -570,11 +570,3 @@ body[data-page="services"] .service-card img[src*="service-puppy-aussie"]{object
   body[data-page="home"] .ig-carousel-viewport.is-dragging{cursor:grabbing!important}
 }
 
-
-.mobile-dog-rig{display:none}
-@media(max-width:560px){
-  .final-dog{position:relative!important}
-  .final-dog .mobile-dog-rig{display:block!important;position:absolute!important;left:50%!important;top:0!important;height:190px!important;width:107px!important;transform:translateX(-50%)!important;border:0!important;background:transparent!important;overflow:hidden!important;z-index:2!important;pointer-events:none!important}
-  .final-dog.has-mobile-rig>img{opacity:0!important}
-  .final-dog.is-booking-animate .mobile-dog-rig{filter:saturate(1.02)}
-}

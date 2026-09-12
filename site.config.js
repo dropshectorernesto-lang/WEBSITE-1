@@ -9,7 +9,7 @@ var escapeAttribute = (value = '') => String(value)
 (() => {
   const link = document.createElement('link');
   link.rel = 'stylesheet';
-  link.href = 'enhancements.css?v=mobile-banners-21';
+  link.href = 'enhancements.css?v=mobile-banners-20';
   document.head.appendChild(link);
 })();
 

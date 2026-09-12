@@ -319,43 +319,13 @@
     });
   };
 
-  const mobileBookingQuery = matchMedia('(max-width: 560px)');
-  const setupMobileDogRig = () => {
-    document.querySelectorAll('.final-dog').forEach((dog) => {
-      if (dog.querySelector('.mobile-dog-rig')) return;
-      const rig = document.createElement('iframe');
-      rig.className = 'mobile-dog-rig';
-      rig.title = 'Happy dog animation';
-      rig.src = 'assets/mobile-dog-animation/Dog Asset Rig Mobile.dc.html';
-      rig.setAttribute('aria-hidden', 'true');
-      dog.appendChild(rig);
-      dog.classList.add('has-mobile-rig');
-    });
-  };
-  const playMobileDogRig = () => {
-    const dog = document.querySelector('.final-dog');
-    const rig = dog?.querySelector('.mobile-dog-rig');
-    if (!dog || !rig?.contentWindow) return;
-    dog.classList.remove('is-booking-animate');
-    void dog.offsetWidth;
-    dog.classList.add('is-booking-animate');
-    rig.contentWindow.postMessage('grum-mobile-dog-animate', '*');
-    setTimeout(() => dog.classList.remove('is-booking-animate'), 1800);
-  };
-  setupMobileDogRig();
-
-  const openBooking = (service, options = {}) => {
+  const openBooking = (service) => {
     if (!booking) return;
     syncBookingOptions();
     if (service && serviceSelect) {
       [...serviceSelect.options].forEach((option, index) => {
         if ((option.value || option.dataset.serviceKey) === service) serviceSelect.selectedIndex = index;
       });
-    }
-    if (options.delayForMobileDog && mobileBookingQuery.matches) {
-      playMobileDogRig();
-      setTimeout(() => showDialog(booking), 850);
-      return;
     }
     showDialog(booking);
   };
@@ -400,7 +370,7 @@
     showDialog(serviceDetail);
   };
 
-  document.querySelectorAll('[data-book]').forEach((button) => button.addEventListener('click', () => openBooking(undefined, { delayForMobileDog: button.classList.contains('final-book') })));
+  document.querySelectorAll('[data-book]').forEach((button) => button.addEventListener('click', () => openBooking()));
   document.querySelector('[data-close-service]')?.addEventListener('click', () => serviceDetail?.close());
   document.querySelector('[data-service-detail-book]')?.addEventListener('click', () => { serviceDetail?.close(); openBooking(activeDetailService); });
 
