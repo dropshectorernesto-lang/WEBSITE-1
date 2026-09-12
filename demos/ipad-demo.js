@@ -34,8 +34,10 @@
   });
 
   const start = async () => {
-    if (slug === 'ban-kuvo') {
+    if (slug === 'ban-kuvo' || slug === 'art-gos') {
       await loadScript('../customize.js');
+    }
+    if (slug === 'ban-kuvo') {
       await loadScript('../runtime-fixes.js');
     }
     frame.src = frame.dataset.src || '../../../index.html';
