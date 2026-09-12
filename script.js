@@ -169,7 +169,7 @@
     setInlineButtonText('.btn-header', config.hero?.primaryButton);
     setInlineButtonText('.hero-actions .btn-primary', config.hero?.primaryButton);
     setInlineButtonText('.hero-actions .btn-secondary', config.hero?.secondaryButton);
-    setImage('.hero-image-wrap > img', config.hero?.image, config.hero?.imageAlt);
+    setImage('.hero-image-wrap img', config.hero?.image, config.hero?.imageAlt);
     setText('.care-chip strong', config.hero?.chipTitle);
     setHtml('.care-chip small', config.hero?.chipTextHtml);
 
@@ -321,7 +321,6 @@
 
   const openBooking = (service) => {
     if (!booking) return;
-    updateHeroSmileLock(true);
     syncBookingOptions();
     if (service && serviceSelect) {
       [...serviceSelect.options].forEach((option, index) => {
@@ -371,87 +370,7 @@
     showDialog(serviceDetail);
   };
 
-  const heroAnimation = document.querySelector('.hero-dog-animation');
-  const setHeroGaze = (x, y) => {
-    if (!heroAnimation) return;
-    heroAnimation.style.setProperty('--eye-x', Math.max(-1, Math.min(1, x || 0)).toFixed(3));
-    heroAnimation.style.setProperty('--eye-y', Math.max(-1, Math.min(1, y || 0)).toFixed(3));
-  };
-  const setHeroSmile = (active) => heroAnimation?.classList.toggle('is-smiling', active);
-  const heroBookButton = document.querySelector('.hero-actions [data-book]');
-  let heroSmileLocked = false;
-  const updateHeroSmileLock = (active) => {
-    heroSmileLocked = active;
-    setHeroSmile(active || heroBookButton?.matches(':hover'));
-  };
-  const winkHero = () => {
-    if (!heroAnimation) return;
-    heroAnimation.classList.add('is-winking');
-    const lid = heroAnimation.querySelector('.hero-dog-wink-lid');
-    const skin = heroAnimation.querySelector('.hero-dog-wink-skin');
-    const margin = heroAnimation.querySelector('.hero-dog-wink-margin');
-    const line = heroAnimation.querySelector('.hero-dog-wink-line');
-    const glint = heroAnimation.querySelector('.hero-dog-wink-glint');
-    const shadow = heroAnimation.querySelector('.hero-dog-wink-shadow');
-    const setLid = (clip, skinTransform, marginY, lidY, duration) => {
-      if (lid) {
-        lid.style.transitionDuration = `${duration}ms`;
-        lid.style.webkitClipPath = clip;
-        lid.style.clipPath = clip;
-        lid.style.transform = `translateY(${lidY}%)`;
-      }
-      if (skin) {
-        skin.style.transitionDuration = `${duration}ms`;
-        skin.style.transform = skinTransform;
-      }
-      if (margin) {
-        margin.style.transitionDuration = `${duration}ms`;
-        margin.style.transform = `translateY(${marginY}%) rotate(-5.5deg)`;
-      }
-    };
-    setLid('ellipse(200% 130% at 50% -26%)', 'translateY(0%)', 0, 0, 150);
-    if (line) { line.style.transitionDelay = '80ms'; line.style.opacity = '1'; line.style.transform = 'rotate(-6.5deg) scaleX(1)'; }
-    if (glint) { glint.style.transitionDelay = '110ms'; glint.style.opacity = '1'; }
-    if (shadow) { shadow.style.transitionDelay = '80ms'; shadow.style.opacity = '1'; }
-    clearTimeout(heroAnimation.winkTimer);
-    heroAnimation.winkTimer = setTimeout(() => {
-      heroAnimation.classList.remove('is-winking');
-      setLid('ellipse(200% 130% at 50% -160%)', 'translateY(-6%)', -150, -2.5, 250);
-      if (line) { line.style.transitionDelay = '0ms'; line.style.opacity = '0'; line.style.transform = 'rotate(-6.5deg) scaleX(.84)'; }
-      if (glint) { glint.style.transitionDelay = '0ms'; glint.style.opacity = '0'; }
-      if (shadow) { shadow.style.transitionDelay = '0ms'; shadow.style.opacity = '0'; }
-    }, 400);
-  };
-  if (heroAnimation) {
-    const trackHeroGaze = (event) => {
-      const rect = heroAnimation.getBoundingClientRect();
-      if (!rect.width || !rect.height) return;
-      const cx = rect.left + rect.width * .595;
-      const cy = rect.top + rect.height * .29;
-      const x = (event.clientX - cx) / (rect.width * .5);
-      const y = (event.clientY - cy) / (rect.height * .6);
-      setHeroGaze(x, y);
-    };
-    document.addEventListener('pointermove', trackHeroGaze, { passive:true });
-    document.addEventListener('mousemove', trackHeroGaze, { passive:true });
-    heroBookButton?.addEventListener('mouseenter', () => setHeroSmile(true));
-    heroBookButton?.addEventListener('mouseleave', () => setHeroSmile(heroSmileLocked));
-    heroBookButton?.addEventListener('click', (event) => {
-      event.stopImmediatePropagation();
-      heroAnimation.classList.add('is-booking-active');
-      updateHeroSmileLock(true);
-      setTimeout(() => openBooking(), 450);
-      winkHero();
-    });
-    booking?.addEventListener('close', () => {
-      heroAnimation.classList.remove('is-booking-active');
-      updateHeroSmileLock(false);
-    });
-  }
-
-  document.querySelectorAll('[data-book]').forEach((button) => {
-    if (button !== heroBookButton) button.addEventListener('click', () => openBooking());
-  });
+  document.querySelectorAll('[data-book]').forEach((button) => button.addEventListener('click', () => openBooking()));
   document.querySelector('[data-close-service]')?.addEventListener('click', () => serviceDetail?.close());
   document.querySelector('[data-service-detail-book]')?.addEventListener('click', () => { serviceDetail?.close(); openBooking(activeDetailService); });
 
@@ -633,7 +552,7 @@
     scrollFrame = 0;
     if (reducedMotion) return;
     const hero = document.querySelector('.hero');
-    const heroImage = document.querySelector('.hero-dog-animation, .hero-image-wrap > img');
+    const heroImage = document.querySelector('.hero-image-wrap img');
     if (hero && heroImage) {
       const travelled = Math.max(0, Math.min(1, -hero.getBoundingClientRect().top / (hero.offsetHeight * .72)));
       heroImage.style.transform = `scale(${(1 + travelled * .045).toFixed(4)}) translate3d(0,${(-travelled * 1.2).toFixed(3)}%,0)`;
