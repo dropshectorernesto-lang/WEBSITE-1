@@ -1,0 +1,282 @@
+@font-face{font-family:'Anton';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/anton-latin.woff2') format('woff2')}
+@font-face{font-family:'Bree Serif';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/bree-serif-latin.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:url('assets/fonts/inter-latin.woff2') format('woff2')}
+
+html,body{background:var(--cream)}
+body{font-family:'Inter',Arial,Helvetica,sans-serif;color:var(--ink)}
+
+.site-header{background:transparent}
+
+.brand{
+  font-family:'Bree Serif',Georgia,serif;
+  font-size:30px;
+  font-weight:400;
+  letter-spacing:-1.3px;
+  color:var(--pink);
+  transform:translateY(-2px);
+}
+
+h1,h2,h3,
+.hero h1,
+.services h2,
+.service-info h3,
+.experience-copy h2,
+.gallery-title h2,
+.final-copy h2,
+.service-number{
+  font-family:'Anton',Impact,Haettenschweiler,sans-serif;
+  font-weight:400;
+  letter-spacing:-.15px;
+}
+
+.main-nav{gap:38px}
+.main-nav a{font-family:'Inter',Arial,sans-serif;font-size:8.5px;font-weight:700}
+.main-nav a.active{color:var(--pink)}
+.main-nav a.active:after{background:var(--pink)}
+
+.btn{font-family:'Inter',Arial,sans-serif;font-size:10px;font-weight:800;white-space:nowrap}
+.btn-header{font-size:8.5px}
+.hero-actions .btn{font-size:9px}
+.btn-primary{background:var(--green)}
+.btn-secondary{background:rgba(255,255,255,.82)}
+
+.kicker{font-family:'Inter',Arial,sans-serif;color:var(--pink);font-size:9.5px;font-weight:800}
+.hero h1{font-size:49px;line-height:.91;color:var(--ink);letter-spacing:-.35px}
+.hero h1 .green{color:var(--green)}
+.hero h1 .dot{color:var(--pink)}
+.hero-headline-img{display:block;width:319px;height:auto;max-width:min(319px,calc(100vw - 48px))}
+.hero-copy>p{font-family:'Inter',Arial,sans-serif;font-size:11px}
+
+.services,.gallery{background:#f3ebe7}
+.services h2{font-size:32px;line-height:.98;letter-spacing:-.1px}
+.services h2 span{color:var(--green)}
+.services-intro p{font-family:'Inter',Arial,sans-serif;font-size:9.4px;line-height:1.6}
+.services-intro i,.gallery-more i{background:#f9a9b3}
+
+.service-number{color:var(--pink);font-size:24px}
+.service-info h3{font-size:18px;line-height:1}
+.service-info p{font-family:'Inter',Arial,sans-serif;font-size:9px;line-height:1.45}
+.card-green .service-info{background:#01463c}
+.card-black .service-info{background:#222020}
+.card-orange .service-info{background:#f26312}
+.card-arrow{background:#fbb6bf}
+.pager{color:var(--pink)}
+.pager span,.pager b:before{background:#f7a3ad}
+.pager b:after{color:var(--pink)}
+
+.experience{background:#e8ddd6}
+.experience-copy h2{font-size:29px;line-height:.94;color:var(--ink)}
+.experience-copy h2 span{color:var(--pink)}
+.experience-copy .btn i{background:#f9a9b3}
+.gallery-title h2,.gallery-more{color:var(--green)}
+.final-cta{background:#f3ece8}
+.final-copy h2{font-size:27px;line-height:1}
+.final-copy>p:last-child{font-family:'Inter',Arial,sans-serif;font-size:8.5px}
+
+@media (min-width:851px){
+  .hero-image-wrap:before{background:linear-gradient(90deg,#f1e4da 0%,rgba(241,228,218,.62) 6%,rgba(241,228,218,.18) 14%,transparent 22%)}
+  .hero h1{transform:scaleX(1.02);transform-origin:left top}
+  .services h2{transform:scaleX(1.04);transform-origin:left top}
+  .experience-copy h2{transform:scaleX(1.04);transform-origin:left top}
+  .gallery-title h2,.final-copy h2{transform:scaleX(1.04);transform-origin:left top}
+}
+
+/* Header and hero type are measured from the supplied 1024px composition.
+   The base layout is subsequently scaled for wider screens. */
+@media (min-width:851px){
+  .brand{transform:translateY(-2px) scaleX(1.05);transform-origin:left center}
+  .site-header{display:block;position:absolute;padding:0 26px}
+  .site-header .brand{position:absolute;left:26px;top:20px}
+  .main-nav{position:absolute;left:50%;top:0;height:66px;transform:translateX(-50%)}
+  .btn-header{position:absolute;right:26px;top:14px}
+  .main-nav a{font-family:Arial,Helvetica,sans-serif;font-size:9px;font-weight:400}
+  .site-header .btn,.hero-actions .btn{font-family:Arial,Helvetica,sans-serif}
+  .btn-header{font-size:9px}
+  .hero-actions .btn{font-size:9px}
+  .hero h1{
+    font-family:'Anton',Impact,Haettenschweiler,sans-serif;
+    font-weight:400;
+    letter-spacing:-.35px;
+    font-size:49px;
+    line-height:.895;
+    transform:scaleX(1.12);
+    transform-origin:left top;
+    text-shadow:.45px 0 currentColor;
+  }
+  .hero-copy>p{font-family:Arial,Helvetica,sans-serif;font-size:12px}
+}
+
+.main-nav a::after{
+  content:"";
+  position:absolute;
+  left:-3px;
+  right:-3px;
+  bottom:5px;
+  height:1px;
+  background:var(--pink);
+  transform:scaleX(0);
+  transform-origin:center;
+  transition:transform .16s ease;
+}
+.main-nav a:hover::after,.main-nav a:focus-visible::after,.main-nav a.active::after{transform:scaleX(1)}
+
+#nl-badge-frame{display:none!important}
+
+.final-cta::before,
+.final-cta::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.72);
+  background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.85),rgba(255,255,255,.1) 31%,rgba(255,255,255,.03) 57%,rgba(168,127,98,.1));
+  box-shadow:inset 5px 7px 13px rgba(255,255,255,.5),inset -5px -4px 11px rgba(164,125,99,.12)
+}
+.final-cta{position:relative;background:#efe1d5 url("assets/footer-bubbles-banner.jpg") center center/cover no-repeat}
+.final-cta::before{left:354px;top:35px;width:35px;height:35px}
+.final-cta::after{right:-11px;top:73px;width:51px;height:51px}
+.final-dog img{mix-blend-mode:normal;-webkit-mask-image:none;mask-image:none}
+.final-dog::before{content:"";position:absolute;z-index:0;left:-126px;bottom:15px;width:33px;height:33px;border-radius:50%;border:1px solid rgba(255,255,255,.74);background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.88),rgba(255,255,255,.12) 32%,rgba(255,255,255,.04) 58%,rgba(168,127,98,.1));box-shadow:inset 5px 7px 13px rgba(255,255,255,.5),inset -5px -4px 11px rgba(164,125,99,.12)}
+.final-dog{overflow:visible}
+
+.hero{background-image:url('assets/hero-bg-v2.png');background-size:1024px 536px;background-position:center top;background-repeat:no-repeat}
+.bubble{display:none}
+.hero::after{content:"";position:absolute;z-index:1;inset:0 auto 0 0;width:455px;pointer-events:none;background:linear-gradient(90deg,rgba(243,235,231,.92) 0%,rgba(243,235,231,.87) 73%,rgba(243,235,231,.35) 90%,rgba(243,235,231,0) 100%)}
+.hero::before{content:"";display:block;position:absolute;z-index:8;left:0;right:0;top:0;height:105px;pointer-events:none;background:linear-gradient(180deg,rgba(243,235,231,.94) 0%,rgba(243,235,231,.82) 34%,rgba(243,235,231,.34) 68%,rgba(243,235,231,0) 100%)}
+.hero-image-wrap{display:block}
+@media(min-width:851px){
+  .hero-image-wrap{
+    left:402px;
+    top:0;
+    width:622px;
+    height:538px;
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0,rgba(0,0,0,.2) 34px,#000 92px),linear-gradient(to right,transparent 0,rgba(0,0,0,.7) 5%,#000 13%);
+    -webkit-mask-composite:source-in;
+    mask-image:linear-gradient(to bottom,transparent 0,rgba(0,0,0,.2) 34px,#000 92px),linear-gradient(to right,transparent 0,rgba(0,0,0,.7) 5%,#000 13%);
+    mask-composite:intersect;
+  }
+  .hero-image-wrap img{position:absolute;left:0;top:47px;width:622px}
+}
+
+.service-carousel{position:absolute;left:50px;top:133px;width:924px;height:356px;overflow:visible;touch-action:pan-y;cursor:grab;padding:7px 12px}
+.service-carousel.dragging{cursor:grabbing}
+.service-cards{position:static;left:auto;top:auto;height:342px;width:max-content;display:flex;align-items:flex-end;gap:0;transition:transform .42s cubic-bezier(.22,.72,.24,1);will-change:transform}
+.service-carousel.dragging .service-cards{transition:none}
+.service-card{outline:none;transition:transform .24s ease,box-shadow .24s ease;will-change:transform;transform:translateY(var(--scroll-lift,0)) scale(var(--scroll-scale,1))}
+.service-card:hover,.service-card:focus-visible{z-index:5;transform:translateY(calc(var(--scroll-lift,0px) - 10px)) scale(1.08);box-shadow:0 15px 28px rgba(41,29,24,.22)}
+.service-card:focus-visible{box-shadow:0 0 0 3px var(--pink),0 13px 24px rgba(41,29,24,.2)}
+.service-card:nth-child(n){width:268px;height:298px;margin-left:17px}
+.service-card:first-child{margin-left:0}
+.service-card img{height:calc(100% - 109px);object-fit:cover;pointer-events:none;user-select:none;-webkit-user-select:none;-webkit-user-drag:none}
+.service-card.featured img{height:204px}
+.service-card.featured .service-info{height:94px;min-height:94px}
+.service-card[data-service="TEETH CLEANING"] img{object-fit:contain;object-position:center bottom;background:#fff;padding-top:24px}
+.service-info{margin-top:-1px}
+.pager{top:478px;gap:0}
+.pager button{position:relative;width:15px;height:20px;padding:0;border:0;background:none;opacity:1;transition:transform .18s ease}
+.pager button::before{content:"";position:absolute;left:50%;top:50%;width:7px;height:7px;border-radius:50%;background:#efadb6;transform:translate(-50%,-50%)}
+.pager button.active{width:20px;background:center/20px 20px no-repeat url("assets/paw-indicator-clean.png")}
+.pager button.active::before{display:none}
+.ig-grid img{transition:transform .28s ease,box-shadow .28s ease;transform-origin:center;will-change:transform}
+.ig-grid a:hover,.ig-grid a:focus-visible{position:relative;z-index:3;outline:none}
+.ig-grid a:hover img,.ig-grid a:focus-visible img{transform:translateY(-3px) scale(1.055);box-shadow:0 10px 20px rgba(40,30,24,.2)}
+.hero-image-wrap img{will-change:transform;transform-origin:63% 35%}
+.final-cta{height:155px;overflow:visible}
+.final-dog{left:332px;top:0;width:360px;height:155px;overflow:visible}
+.final-dog img{width:360px;height:155px;object-fit:contain;object-position:center bottom;transform:none;transform-origin:center bottom}
+
+/* Keep the original shallow footer, with the new photo filling the banner. */
+@media(min-width:851px){
+  .final-cta{height:155px;overflow:visible;z-index:3}
+  .final-cta::before,.final-cta::after{display:none}
+  .final-dog{inset:-55px auto auto 372px;width:280px;height:210px;overflow:hidden;clip-path:none}
+  .final-dog img{width:280px;height:280px;object-fit:contain;object-position:center top}
+  .final-copy,.final-book{z-index:1}
+  .legal-links{z-index:1}
+}
+
+@media(max-width:850px){
+  .site-header{background:rgba(243,235,231,.9)}
+  .hero{background:linear-gradient(90deg,#f0e7df 0%,#f1e8e1 50%,#e7d5c7 100%)}
+  .hero::before,.hero::after{display:none}
+  .bubble{display:block}
+  .hero-image-wrap{display:block;-webkit-mask-image:none;mask-image:none}
+  .service-carousel{position:static;width:100%;height:auto;overflow:visible;cursor:default;margin-top:28px}
+  .service-cards{height:auto;width:100%;display:grid;grid-template-columns:1fr;gap:16px;transform:none!important}
+  .service-card,.service-card:nth-child(n){width:100%;height:auto;margin:0}
+  .service-card img{height:auto}
+  .carousel-arrow{display:none}
+  .hero h1,.services h2,.experience-copy h2,.gallery-title h2,.final-copy h2{transform:none}
+  .hero h1{font-size:44px}
+  .services h2{font-size:29px}
+  .experience-copy h2{font-size:26px}
+  .gallery-title h2{font-size:20px}
+  .final-copy h2{font-size:24px}
+  .final-dog{width:100%;height:auto;min-height:170px}
+  .final-dog img{width:100%;height:auto;object-fit:contain;object-position:center bottom}
+  .experience{grid-template-columns:1fr}
+  .experience-img{width:auto}
+  .experience-copy{padding:34px 24px;transform:none;background:none}
+  .experience-copy .kicker{transform:none}
+  .experience-copy .btn{margin-top:15px}
+  .service-card.featured .service-info,.service-card.card-orange .service-info{padding-left:20px}
+  .service-card.card-green .service-info>div,.service-card.featured .service-info>div{transform:none}
+  .service-card .card-arrow{transform:none}
+  .service-info h3{transform:none}
+}
+
+@media(max-width:560px){
+  .hero h1{font-size:36px}
+  .services h2{font-size:25px}
+  .experience-copy h2{font-size:22px}
+  .final-copy h2{font-size:21px}
+}
+
+@media(max-width:360px){.hero h1{font-size:32px}}
+
+/* Use the complete supplied photograph instead of the previous composite. */
+.hero{background:#f1e6da}
+.hero::before,.hero::after,.hero .bubble,.hero-image-wrap::before{display:none}
+.hero-image-wrap{display:block;inset:0;width:100%;height:100%;aspect-ratio:auto;-webkit-mask-image:none;mask-image:none}
+.hero-image-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+@media(max-width:850px){
+  .hero-image-wrap{top:280px;height:calc(100% - 280px)}
+  .hero-image-wrap img{object-position:65% center}
+  .hero-image-wrap::before{display:block;background:linear-gradient(180deg,#f1e6da,transparent 30%)}
+}
+@media(max-width:560px){
+  .hero-image-wrap{top:340px;height:calc(100% - 340px)}
+}
+
+/* Full-width care banner with copy over its open right-hand side. */
+.experience{position:relative;height:342px;background:#ecdbc7}
+.experience-img{position:absolute;inset:0;width:100%;height:100%}
+.experience-img img{width:100%;height:100%;object-fit:cover;object-position:center}
+.experience-copy{position:relative;z-index:1;grid-column:2;transform:none}
+@media(max-width:850px){
+  .experience{display:flex;flex-direction:column;height:auto}
+  .experience-img{position:relative;inset:auto;height:260px}
+  .experience-img img{object-position:12% center}
+  .experience-copy{background:#ecdbc7;padding:30px 24px}
+}
+
+  .grum-instagram { position: relative; width: min(100%, 420px); margin: 0; container-type: inline-size; }
+  .grum-instagram img { display: block; width: 100%; height: auto; }
+  .grum-instagram a { position: absolute; display: block; cursor: pointer; }
+  .grum-instagram a:focus-visible { outline: 3px solid #e44379; outline-offset: 3px; }
+  .grum-instagram .profile { left: 19.67%; top: 17.74%; width: 15.42%; height: 9.47%; border-radius: 50%; background: #fff; box-shadow: 0 0 0 0.25cqw #fff; }
+  .grum-instagram .profile::before { content: ""; position: absolute; inset: 0.85cqw; border-radius: 50%; background-image: url("assets/instagram-phone.webp"); background-size: 725% auto; background-position: 23.765% 20.014%; pointer-events: none; }
+  .grum-instagram .profile:hover::before, .grum-instagram .profile:focus-visible::before { opacity: 0; }
+  .grum-instagram .follow { left: 20.18%; top: 33.86%; width: 25.76%; height: 3.64%; border-radius: 1.3cqw; }
+  .grum-instagram .follow::after { content: "Follow"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: #0095f6; box-shadow: 0 0 0 0.15cqw #0095f6; color: white; font: 500 2.6cqw Arial, sans-serif; border-radius: inherit; opacity: 0; transition: opacity 150ms ease; }
+  .grum-instagram .follow:hover { box-shadow: none; outline: none; }
+  .grum-instagram .follow:hover::after, .grum-instagram .follow:focus-visible::after { opacity: 1; }
+  .grum-instagram .profile:hover, .grum-instagram .profile:focus-visible { background: transparent; box-shadow: none; }
+.grum-instagram.phone-mock{position:absolute;width:215px;height:auto;margin:0;overflow:hidden;border-radius:16px}
+.grum-instagram a:hover{opacity:1}
+@media(max-width:850px){
+  .grum-instagram.phone-mock{display:block;position:relative;left:auto;bottom:auto;width:min(280px,100%);margin:0 auto 24px}
+}
+
+/* Keep the phone's clickable profile visible above the gallery edge. */
+.gallery{position:relative;overflow:visible;z-index:2}

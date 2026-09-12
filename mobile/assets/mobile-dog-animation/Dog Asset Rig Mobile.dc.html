@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  body { margin: 0; background: transparent; overflow: hidden; }
+  a { color: oklch(0.55 0.11 48); }
+  a:hover { color: oklch(0.45 0.10 45); }
+  @keyframes bubRiseM {
+    0%   { transform: translateY(14cqw) scale(0.80); opacity: 0; }
+    8%   { opacity: 0.92; }
+    86%  { opacity: 0.70; }
+    100% { transform: translateY(-118cqw) scale(1.12); opacity: 0; }
+  }
+  @keyframes bubSwayM {
+    0%   { transform: translateX(-1.3cqw) rotate(-3deg); }
+    50%  { transform: translateX(2cqw) rotate(3deg); }
+    100% { transform: translateX(-1.3cqw) rotate(-3deg); }
+  }
+</style>
+</helmet>
+<div ref="{{ rootRef }}" data-rig-root="1" style="container-type: inline-size; position: relative; width: 100%; max-width: 520px; margin: 0 auto; aspect-ratio: 941 / 1672; overflow: hidden; user-select: none; -webkit-tap-highlight-color: transparent; cursor: default;">
+
+  <img src="dog-mobile.jpg" alt="Golden retriever sitting in a bubble bath" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;" />
+
+  <img ref="{{ smileRef }}" src="dog-mobile-smile.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; opacity: 0; transition: opacity 320ms cubic-bezier(.4,0,.2,1);" />
+
+  <div ref="{{ winkLid }}" style="position: absolute; left: 53.10cqw; top: 31.19cqw; width: 16.34cqw; height: 12.16cqw; pointer-events: none; transform: translateY(-2.5%); -webkit-clip-path: ellipse(200% 130% at 50% -160%); clip-path: ellipse(200% 130% at 50% -160%); transition: -webkit-clip-path 150ms cubic-bezier(.38,.05,.3,1), clip-path 150ms cubic-bezier(.38,.05,.3,1), transform 150ms cubic-bezier(.38,.05,.3,1);">
+    <div style="position: absolute; inset: 0; overflow: hidden; -webkit-mask-image: radial-gradient(ellipse 30% 39% at 54.6% 53%, #000 0%, #000 66%, rgba(0,0,0,0) 100%); mask-image: radial-gradient(ellipse 30% 39% at 54.6% 53%, #000 0%, #000 66%, rgba(0,0,0,0) 100%);">
+      <div ref="{{ winkSkin }}" style="position: absolute; inset: 0; transform: translateY(-6%); transition: transform 150ms cubic-bezier(.38,.05,.3,1); filter: saturate(.96) contrast(.98) brightness(1.06);">
+        <img src="dog-mobile.jpg" alt="" style="position: absolute; width: 100cqw; height: 177.69cqw; left: -54.81cqw; top: -41.10cqw; max-width: none;" />
+      </div>
+    </div>
+    <div style="position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 17% 13% at 46% 41%, rgba(255,245,224,.2) 0%, rgba(255,245,224,.06) 58%, rgba(255,245,224,0) 82%), radial-gradient(ellipse 24% 20% at 66% 70%, rgba(32,15,5,.17) 0%, rgba(32,15,5,.05) 60%, rgba(32,15,5,0) 84%), radial-gradient(ellipse 15% 26% at 32% 56%, rgba(26,12,4,.26) 0%, rgba(26,12,4,.08) 58%, rgba(26,12,4,0) 86%), radial-gradient(ellipse 22% 16% at 60% 88%, rgba(150,86,64,.13) 0%, rgba(150,86,64,0) 82%), linear-gradient(180deg, rgba(24,11,4,.2) 0%, rgba(24,11,4,.06) 32%, rgba(24,11,4,.02) 58%, rgba(24,11,4,.05) 86%, rgba(24,11,4,.09) 100%); -webkit-mask-image: radial-gradient(ellipse 29% 37% at 54.6% 53%, #000 0%, #000 62%, rgba(0,0,0,0) 100%); mask-image: radial-gradient(ellipse 29% 37% at 54.6% 53%, #000 0%, #000 62%, rgba(0,0,0,0) 100%);"></div>
+    <div ref="{{ winkMargin }}" style="position: absolute; left: 0; top: 7.03cqw; width: 100%; height: 2.85cqw; overflow: hidden; pointer-events: none; transform: translateY(-150%) rotate(-4.6deg); transition: transform 150ms cubic-bezier(.38,.05,.3,1); -webkit-mask-image: radial-gradient(ellipse 23% 44% at 53% 46%, #000 0%, #000 56%, rgba(0,0,0,0) 100%); mask-image: radial-gradient(ellipse 23% 44% at 53% 46%, #000 0%, #000 56%, rgba(0,0,0,0) 100%);">
+      <img src="dog-mobile.jpg" alt="" style="position: absolute; width: 100cqw; height: 177.69cqw; left: -53.10cqw; top: -32.06cqw; max-width: none;" />
+    </div>
+  </div>
+  <div ref="{{ winkLine }}" style="position: absolute; left: 57.75cqw; top: 39.07cqw; width: 7.03cqw; height: 0.57cqw; pointer-events: none; opacity: 0; transform: rotate(-5.6deg) scaleX(.84); transform-origin: 50% 50%; transition: opacity 110ms ease, transform 150ms cubic-bezier(.38,.05,.3,1); border-radius: 50%; background: linear-gradient(180deg, rgba(28,13,5,.38) 0%, rgba(52,26,10,.24) 100%); filter: blur(0.19cqw);"></div>
+  <div ref="{{ winkGlint }}" style="position: absolute; left: 58.31cqw; top: 39.77cqw; width: 5.89cqw; height: 0.76cqw; pointer-events: none; opacity: 0; transition: opacity 140ms ease; transform: rotate(-5.6deg); border-radius: 50%; background: radial-gradient(ellipse 70% 100% at 50% 40%, rgba(255,232,196,.3) 0%, rgba(255,232,196,.09) 55%, rgba(255,232,196,0) 85%); filter: blur(0.17cqw);"></div>
+  <div ref="{{ winkShadow }}" style="position: absolute; left: 57.09cqw; top: 39.64cqw; width: 8.36cqw; height: 2.37cqw; pointer-events: none; opacity: 0; transition: opacity 200ms ease; border-radius: 50%; background: radial-gradient(ellipse 58% 74% at 50% 10%, rgba(38,20,8,.28) 0%, rgba(38,20,8,.09) 56%, rgba(38,20,8,0) 84%); filter: blur(0.30cqw);"></div>
+
+  <sc-if value="{{ bubbles }}" hint-placeholder-val="{{ true }}">
+    <div style="position: absolute; inset: 0; pointer-events: none;">
+      <div ref="{{ bub0 }}" style="position: absolute; left: 11%; top: 63%; will-change: transform;">
+        <div style="animation: bubRiseM 16s linear infinite 0.4s;">
+          <div style="animation: bubSwayM 5.2s ease-in-out infinite;">
+            <div style="width: 3.4cqw; height: 3.4cqw; border-radius: 50%; backdrop-filter: blur(0.14cqw) saturate(1.18) brightness(1.05); -webkit-backdrop-filter: blur(0.14cqw) saturate(1.18) brightness(1.05); background: radial-gradient(circle at 31% 27%, rgba(255,255,255,0.92) 0 5%, rgba(255,255,255,0) 24%), radial-gradient(circle at 69% 73%, rgba(255,255,255,0.42) 0 3%, rgba(255,255,255,0) 15%), radial-gradient(circle at 50% 50%, rgba(255,255,255,0) 56%, rgba(255,233,206,0.16) 76%, rgba(206,238,255,0.42) 89%, rgba(255,255,255,0.8) 97%, rgba(255,255,255,0) 100%); box-shadow: inset 0 0 0.3cqw rgba(255,255,255,0.45);"></div>
+          </div>
+        </div>
+      </div>
+      <div ref="{{ bub1 }}" style="position: absolute; left: 31%; top: 68%; will-change: transform;">
+        <div style="animation: bubRiseM 12s linear infinite 3.6s;">
+          <div style="animation: bubSwayM 3.9s ease-in-out infinite 0.7s;">
+            <div style="width: 2.2cqw; height: 2.2cqw; border-radius: 50%; backdrop-filter: blur(0.11cqw) saturate(1.15) brightness(1.04); -webkit-backdrop-filter: blur(0.11cqw) saturate(1.15) brightness(1.04); background: radial-gradient(circle at 31% 27%, rgba(255,255,255,0.9) 0 6%, rgba(255,255,255,0) 26%), radial-gradient(circle at 68% 74%, rgba(255,255,255,0.4) 0 4%, rgba(255,255,255,0) 16%), radial-gradient(circle at 50% 50%, rgba(255,255,255,0) 54%, rgba(255,233,206,0.15) 75%, rgba(206,238,255,0.4) 89%, rgba(255,255,255,0.78) 97%, rgba(255,255,255,0) 100%); box-shadow: inset 0 0 0.22cqw rgba(255,255,255,0.42);"></div>
+          </div>
+        </div>
+      </div>
+      <div ref="{{ bub2 }}" style="position: absolute; left: 78%; top: 61%; will-change: transform;">
+        <div style="animation: bubRiseM 19.5s linear infinite 7.2s;">
+          <div style="animation: bubSwayM 6.4s ease-in-out infinite 1.9s;">
+            <div style="width: 2.9cqw; height: 2.9cqw; border-radius: 50%; backdrop-filter: blur(0.12cqw) saturate(1.16) brightness(1.04); -webkit-backdrop-filter: blur(0.12cqw) saturate(1.16) brightness(1.04); background: radial-gradient(circle at 30% 26%, rgba(255,255,255,0.9) 0 5%, rgba(255,255,255,0) 25%), radial-gradient(circle at 70% 72%, rgba(255,255,255,0.4) 0 3%, rgba(255,255,255,0) 15%), radial-gradient(circle at 50% 50%, rgba(255,255,255,0) 55%, rgba(255,233,206,0.16) 76%, rgba(206,238,255,0.41) 89%, rgba(255,255,255,0.79) 97%, rgba(255,255,255,0) 100%); box-shadow: inset 0 0 0.27cqw rgba(255,255,255,0.44);"></div>
+          </div>
+        </div>
+      </div>
+      <div ref="{{ bub3 }}" style="position: absolute; left: 58%; top: 71%; will-change: transform;">
+        <div style="animation: bubRiseM 10s linear infinite 1.8s;">
+          <div style="animation: bubSwayM 3.2s ease-in-out infinite 2.4s;">
+            <div style="width: 1.7cqw; height: 1.7cqw; border-radius: 50%; backdrop-filter: blur(0.1cqw) saturate(1.14) brightness(1.03); -webkit-backdrop-filter: blur(0.1cqw) saturate(1.14) brightness(1.03); background: radial-gradient(circle at 32% 28%, rgba(255,255,255,0.9) 0 6%, rgba(255,255,255,0) 26%), radial-gradient(circle at 68% 72%, rgba(255,255,255,0.38) 0 4%, rgba(255,255,255,0) 16%), radial-gradient(circle at 50% 50%, rgba(255,255,255,0) 54%, rgba(255,233,206,0.14) 75%, rgba(206,238,255,0.38) 89%, rgba(255,255,255,0.76) 97%, rgba(255,255,255,0) 100%); box-shadow: inset 0 0 0.19cqw rgba(255,255,255,0.4);"></div>
+          </div>
+        </div>
+      </div>
+      <div ref="{{ bub4 }}" style="position: absolute; left: 88%; top: 66%; will-change: transform;">
+        <div style="animation: bubRiseM 22s linear infinite 5.1s;">
+          <div style="animation: bubSwayM 7.1s ease-in-out infinite 0.3s;">
+            <div style="width: 4.3cqw; height: 4.3cqw; border-radius: 50%; backdrop-filter: blur(0.16cqw) saturate(1.2) brightness(1.05); -webkit-backdrop-filter: blur(0.16cqw) saturate(1.2) brightness(1.05); background: radial-gradient(circle at 30% 26%, rgba(255,255,255,0.92) 0 5%, rgba(255,255,255,0) 24%), radial-gradient(circle at 70% 73%, rgba(255,255,255,0.44) 0 3%, rgba(255,255,255,0) 15%), radial-gradient(circle at 50% 50%, rgba(255,255,255,0) 57%, rgba(255,233,206,0.17) 77%, rgba(206,238,255,0.44) 90%, rgba(255,255,255,0.82) 97%, rgba(255,255,255,0) 100%); box-shadow: inset 0 0 0.36cqw rgba(255,255,255,0.46);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <button onClick="{{ onBook }}" style="position: absolute; left: 6cqw; bottom: 6cqw; z-index: 3; opacity:0; pointer-events:none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-weight: 600; font-size: 4.1cqw; line-height: 1; padding: 4.4cqw 7cqw; border-radius: 99cqw; border: 0.26cqw solid #3a2a1c; background: #3a2a1c; color: #f7f2ea; cursor: pointer; box-shadow: 0 1.4cqw 3.4cqw -1cqw rgba(20,12,6,.45); transition: background 200ms ease;" style-hover="background: #55402c;">Book this slot</button>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:420,&quot;height&quot;:746},&quot;bubbles&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Animation&quot;},&quot;holdMs&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:400,&quot;min&quot;:200,&quot;max&quot;:900,&quot;step&quot;:25,&quot;unit&quot;:&quot;ms&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Animation&quot;},&quot;smileMs&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:2200,&quot;min&quot;:800,&quot;max&quot;:5000,&quot;step&quot;:100,&quot;unit&quot;:&quot;ms&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Animation&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    const r = () => React.createRef();
+    this.rootRef = r(); this.smileRef = r();
+    this.winkLid = r(); this.winkSkin = r(); this.winkMargin = r();
+    this.winkLine = r(); this.winkGlint = r(); this.winkShadow = r();
+    this.bub0 = r(); this.bub1 = r(); this.bub2 = r(); this.bub3 = r(); this.bub4 = r();
+  }
+
+  get hold() { return this.props.holdMs ?? 400; }
+
+  componentDidMount() {
+    this.onScroll = () => {
+      const y = window.scrollY || document.documentElement.scrollTop || 0;
+      [[this.bub0, 0.10], [this.bub1, 0.16], [this.bub2, 0.07], [this.bub3, 0.20], [this.bub4, 0.05]].forEach(([ref, rate]) => {
+        if (ref.current) ref.current.style.transform = 'translateY(' + (-y * rate).toFixed(1) + 'px)';
+      });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+  }
+
+  componentDidUpdate() { this.applySmile(); }
+
+  applySmile() {
+    const s = this.smileRef.current;
+    if (s) s.style.opacity = this.smiling ? '1' : '0';
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    clearTimeout(this.winkTimer);
+    clearTimeout(this.smileTimer);
+  }
+
+  // booking reward: the muzzle cross-fades to a second photographed frame
+  smile() {
+    this.smiling = true;
+    this.applySmile();
+    clearTimeout(this.smileTimer);
+    this.smileTimer = setTimeout(() => { this.smiling = false; this.applySmile(); }, this.props.smileMs ?? 2200);
+  }
+
+  // brow skin draws down over the eye while a curved lid edge sweeps closed
+  setLid(clip, skinTf, marginY, lidY, dur) {
+    const lid = this.winkLid.current, skin = this.winkSkin.current, mg = this.winkMargin.current;
+    if (lid) {
+      lid.style.transitionDuration = dur + 'ms';
+      lid.style.webkitClipPath = clip;
+      lid.style.clipPath = clip;
+      lid.style.transform = 'translateY(' + lidY + '%)';
+    }
+    if (skin) {
+      skin.style.transitionDuration = dur + 'ms';
+      skin.style.transform = skinTf;
+    }
+    if (mg) {
+      mg.style.transitionDuration = dur + 'ms';
+      mg.style.transform = 'translateY(' + marginY + '%) rotate(-4.6deg)';
+    }
+  }
+
+  wink() {
+    const line = this.winkLine.current, sh = this.winkShadow.current, gl = this.winkGlint.current;
+    this.setLid('ellipse(200% 130% at 50% -26%)', 'translateY(0%)', 0, 0, 150);
+    if (line) { line.style.transitionDelay = '80ms'; line.style.opacity = '1'; line.style.transform = 'rotate(-5.6deg) scaleX(1)'; }
+    if (gl) { gl.style.transitionDelay = '110ms'; gl.style.opacity = '1'; }
+    if (sh) { sh.style.transitionDelay = '80ms'; sh.style.opacity = '1'; }
+    clearTimeout(this.winkTimer);
+    this.winkTimer = setTimeout(() => {
+      this.setLid('ellipse(200% 130% at 50% -160%)', 'translateY(-6%)', -150, -2.5, 250);
+      if (line) { line.style.transitionDelay = '0ms'; line.style.opacity = '0'; line.style.transform = 'rotate(-5.6deg) scaleX(0.84)'; }
+      if (gl) { gl.style.transitionDelay = '0ms'; gl.style.opacity = '0'; }
+      if (sh) { sh.style.transitionDelay = '0ms'; sh.style.opacity = '0'; }
+    }, this.hold);
+  }
+
+  renderVals() {
+    return {
+      rootRef: this.rootRef, smileRef: this.smileRef,
+      bubbles: this.props.bubbles ?? true,
+      onBook: () => { this.smile(); this.wink(); },
+      winkLid: this.winkLid, winkSkin: this.winkSkin, winkMargin: this.winkMargin,
+      winkLine: this.winkLine, winkGlint: this.winkGlint, winkShadow: this.winkShadow,
+      bub0: this.bub0, bub1: this.bub1, bub2: this.bub2, bub3: this.bub3, bub4: this.bub4,
+    };
+  }
+}
+</script>
+<script data-parent-trigger>
+window.addEventListener('message', function(event){
+  if (event && event.data === 'grum-mobile-dog-animate') {
+    var button = document.querySelector('button');
+    if (button) button.click();
+  }
+});
+</script>
+</body>
+</html>
