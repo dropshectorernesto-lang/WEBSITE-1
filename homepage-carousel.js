@@ -1,79 +1,5 @@
 (() => {
   if (document.body.dataset.page !== 'home') return;
-
-  /* The footer booking interaction intentionally waits a moment so the mobile
-     dog can react before the booking dialog covers it. script.js uses 850ms;
-     remap only that exact timeout on the homepage to the requested 450ms. */
-  if (!window.__grumBookingDelay450Patched) {
-    const nativeSetTimeout = window.setTimeout.bind(window);
-    window.setTimeout = (handler, delay, ...args) => nativeSetTimeout(handler, delay === 850 ? 450 : delay, ...args);
-    window.__grumBookingDelay450Patched = true;
-  }
-
-  /* Restore the fuller mobile footer-dog composition from the earlier approved
-     version. Keep the static dog visible by default and only swap to the
-     animated rig while its booking reaction is actually playing. */
-  if (!document.getElementById('mobile-footer-dog-restore')) {
-    const style = document.createElement('style');
-    style.id = 'mobile-footer-dog-restore';
-    style.textContent = `
-      @media(max-width:850px){
-        .final-dog{
-          position:relative!important;
-          left:auto!important;
-          top:auto!important;
-          width:100%!important;
-          height:190px!important;
-          margin:0!important;
-          overflow:hidden!important;
-          display:flex!important;
-          justify-content:center!important;
-          align-items:flex-start!important;
-        }
-        .final-dog>img{
-          display:block!important;
-          width:100%!important;
-          height:auto!important;
-          max-width:none!important;
-          object-fit:contain!important;
-          object-position:center top!important;
-          opacity:1!important;
-          visibility:visible!important;
-          transition:opacity 120ms ease!important;
-        }
-      }
-      @media(max-width:560px){
-        .final-dog.has-mobile-rig>img{opacity:1!important}
-        .final-dog .mobile-dog-rig{
-          opacity:0!important;
-          visibility:hidden!important;
-          transition:opacity 120ms ease!important;
-        }
-        .final-dog.mobile-rig-ready.is-booking-animate>img{opacity:0!important}
-        .final-dog.mobile-rig-ready.is-booking-animate .mobile-dog-rig{
-          opacity:1!important;
-          visibility:visible!important;
-        }
-      }
-    `;
-    document.head.appendChild(style);
-  }
-
-  const markMobileRigReady = () => {
-    const dog = document.querySelector('.final-dog');
-    const rig = dog?.querySelector('.mobile-dog-rig');
-    if (!dog || !rig) return;
-    const ready = () => dog.classList.add('mobile-rig-ready');
-    try {
-      if (rig.contentDocument?.readyState === 'complete') ready();
-      else rig.addEventListener('load', ready, { once:true });
-    } catch (_) {
-      rig.addEventListener('load', ready, { once:true });
-    }
-  };
-  markMobileRigReady();
-  requestAnimationFrame(markMobileRigReady);
-
   const track = document.querySelector('.ig-grid');
   if (!track) return;
   const viewport = document.createElement('div');
@@ -107,7 +33,6 @@
   const scale = () => viewport.getBoundingClientRect().width / viewport.offsetWidth || 1;
   function paint() {
     if (!period) return;
-    // A full repeated set is visually identical at either boundary.
     x = -period + ((x + period) % period + period) % period;
     track.style.transform = `translate3d(${x}px,0,0)`;
   }
@@ -152,4 +77,53 @@
     requestAnimationFrame(tick);
   }
   requestAnimationFrame(tick);
+
+  /* Mobile booking/footer correction.
+     Restore the footer dog exactly as it was in the commit immediately before
+     the mobile animation assets were added, and apply the requested delay to
+     the UPPER hero booking button only. */
+  const mobile = matchMedia('(max-width: 560px)');
+  const footerDog = document.querySelector('.final-dog');
+  const injectedRig = footerDog?.querySelector('.mobile-dog-rig');
+  injectedRig?.remove();
+  footerDog?.classList.remove('has-mobile-rig', 'is-booking-animate');
+
+  const restoreStyle = document.createElement('style');
+  restoreStyle.id = 'pre-animation-footer-dog';
+  restoreStyle.textContent = `
+    @media(max-width:560px){
+      .final-dog{position:static!important;order:2!important;width:100%!important;height:96px!important;margin:0!important;overflow:hidden!important;text-align:center!important;display:flex!important;justify-content:center!important;align-items:flex-start!important}
+      .final-dog>img{display:block!important;height:190px!important;max-width:100%!important;width:auto!important;object-fit:contain!important;object-position:center top!important;transform:translateY(0)!important;opacity:1!important;visibility:visible!important}
+      .mobile-dog-rig{display:none!important}
+    }
+  `;
+  document.head.appendChild(restoreStyle);
+
+  const booking = document.getElementById('bookingModal');
+  let heroBookingTimer = 0;
+  const showBooking = () => {
+    if (!booking) return;
+    if (!booking.open) booking.showModal();
+    document.body.classList.add('modal-open');
+  };
+
+  document.addEventListener('click', (event) => {
+    if (!mobile.matches) return;
+    const button = event.target.closest('[data-book]');
+    if (!button) return;
+
+    if (button.classList.contains('final-book')) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      showBooking();
+      return;
+    }
+
+    if (button.closest('.hero-actions')) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      clearTimeout(heroBookingTimer);
+      heroBookingTimer = setTimeout(showBooking, 450);
+    }
+  }, true);
 })();
