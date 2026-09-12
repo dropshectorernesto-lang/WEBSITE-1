@@ -6,7 +6,7 @@ Tap a demo mode below. **WEB IPAD** uses the full desktop/web layout but disable
 |---|---|---|---|
 | MAI FRIENDS | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/mai-friends/) | — | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/mai-friends/web-ipad/) |
 | BAN KUVO | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/ban-kuvo/) | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/ban-kuvo/web/) | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/ban-kuvo/web-ipad/) |
-| ART GOS | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/art-gos/) | — | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/art-gos/web-ipad/) |
+| ART GOS | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/art-gos/) | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/art-gos/web/) | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/art-gos/web-ipad/) |
 | BUB BUB SCP | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/bub-bub-scp/) | — | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/bub-bub-scp/web-ipad/) |
 | BIGOTIS | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/bigotis/) | — | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/bigotis/web-ipad/) |
 | LISSY | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/lissy/) | — | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/lissy/web-ipad/) |
