@@ -86,3 +86,60 @@
   script.defer = true;
   document.head.appendChild(script);
 })();
+
+(() => {
+  if (document.body.dataset.page !== 'home') return;
+
+  const legalLinks = [...document.querySelectorAll('.legal-links a')].filter(link => {
+    const href = link.getAttribute('href') || '';
+    return href.endsWith('privacy-policy.html') || href.endsWith('terms-and-conditions.html');
+  });
+  if (!legalLinks.length) return;
+
+  const dialog = document.createElement('dialog');
+  dialog.className = 'modal legal-modal';
+  dialog.id = 'legalModal';
+  dialog.innerHTML = `
+    <button class="modal-close" type="button" data-close-legal aria-label="Close">×</button>
+    <div class="legal-modal-tabs" role="tablist" aria-label="Legal documents">
+      <button type="button" role="tab" data-legal-page="privacy-policy.html">Privacy Policy</button>
+      <button type="button" role="tab" data-legal-page="terms-and-conditions.html">Terms &amp; Conditions</button>
+    </div>
+    <iframe class="legal-modal-frame" title="Legal document" loading="eager"></iframe>
+  `;
+  document.body.appendChild(dialog);
+
+  const frame = dialog.querySelector('.legal-modal-frame');
+  const tabs = [...dialog.querySelectorAll('[data-legal-page]')];
+  const closeButton = dialog.querySelector('[data-close-legal]');
+
+  const openLegal = (page) => {
+    tabs.forEach(tab => {
+      const active = tab.dataset.legalPage === page;
+      tab.classList.toggle('active', active);
+      tab.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+    frame.src = page;
+    frame.title = page.startsWith('privacy') ? 'Privacy Policy' : 'Terms and Conditions';
+    if (!dialog.open) dialog.showModal();
+    document.body.classList.add('modal-open');
+  };
+
+  document.addEventListener('click', event => {
+    const link = event.target.closest('.legal-links a');
+    if (!link) return;
+    const href = link.getAttribute('href') || '';
+    const page = href.endsWith('privacy-policy.html') ? 'privacy-policy.html' : href.endsWith('terms-and-conditions.html') ? 'terms-and-conditions.html' : '';
+    if (!page) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    openLegal(page);
+  }, true);
+
+  tabs.forEach(tab => tab.addEventListener('click', () => openLegal(tab.dataset.legalPage)));
+  closeButton.addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', event => {
+    if (event.target === dialog) dialog.close();
+  });
+  dialog.addEventListener('close', () => document.body.classList.remove('modal-open'));
+})();
