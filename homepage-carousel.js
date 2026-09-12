@@ -77,53 +77,12 @@
     requestAnimationFrame(tick);
   }
   requestAnimationFrame(tick);
+})();
 
-  /* Mobile booking/footer correction.
-     Restore the footer dog exactly as it was in the commit immediately before
-     the mobile animation assets were added, and apply the requested delay to
-     the UPPER hero booking button only. */
-  const mobile = matchMedia('(max-width: 560px)');
-  const footerDog = document.querySelector('.final-dog');
-  const injectedRig = footerDog?.querySelector('.mobile-dog-rig');
-  injectedRig?.remove();
-  footerDog?.classList.remove('has-mobile-rig', 'is-booking-animate');
-
-  const restoreStyle = document.createElement('style');
-  restoreStyle.id = 'pre-animation-footer-dog';
-  restoreStyle.textContent = `
-    @media(max-width:560px){
-      .final-dog{position:static!important;order:2!important;width:100%!important;height:96px!important;margin:0!important;overflow:hidden!important;text-align:center!important;display:flex!important;justify-content:center!important;align-items:flex-start!important}
-      .final-dog>img{display:block!important;height:190px!important;max-width:100%!important;width:auto!important;object-fit:contain!important;object-position:center top!important;transform:translateY(0)!important;opacity:1!important;visibility:visible!important}
-      .mobile-dog-rig{display:none!important}
-    }
-  `;
-  document.head.appendChild(restoreStyle);
-
-  const booking = document.getElementById('bookingModal');
-  let heroBookingTimer = 0;
-  const showBooking = () => {
-    if (!booking) return;
-    if (!booking.open) booking.showModal();
-    document.body.classList.add('modal-open');
-  };
-
-  document.addEventListener('click', (event) => {
-    if (!mobile.matches) return;
-    const button = event.target.closest('[data-book]');
-    if (!button) return;
-
-    if (button.classList.contains('final-book')) {
-      event.preventDefault();
-      event.stopImmediatePropagation();
-      showBooking();
-      return;
-    }
-
-    if (button.closest('.hero-actions')) {
-      event.preventDefault();
-      event.stopImmediatePropagation();
-      clearTimeout(heroBookingTimer);
-      heroBookingTimer = setTimeout(showBooking, 450);
-    }
-  }, true);
+(() => {
+  if (document.body.dataset.page !== 'home') return;
+  const script = document.createElement('script');
+  script.src = 'hero-mobile-animation.js?v=hero-dog-1';
+  script.defer = true;
+  document.head.appendChild(script);
 })();
