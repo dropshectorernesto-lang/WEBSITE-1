@@ -88,5 +88,17 @@
 
   <script src="site.config.js"></script>
   <script src="script.js"></script>
+  <script>
+    (() => {
+      const labels={en:'Contact',de:'Kontakt',es:'Contacto',ca:'Contacte'};
+      const sync=()=>{
+        const lang=['en','de','es','ca'].includes(document.documentElement.lang)?document.documentElement.lang:'en';
+        const heading=[...document.querySelectorAll('.legal-card h2')].find(el=>['Contact','Kontakt','Contacto','Contacte'].includes(el.textContent.trim()));
+        if(heading) heading.textContent=labels[lang];
+      };
+      new MutationObserver(sync).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+      sync();
+    })();
+  </script>
 </body>
 </html>
