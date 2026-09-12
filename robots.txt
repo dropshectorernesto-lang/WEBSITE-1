@@ -1,20 +1,4 @@
-# Grüm crawler policy
-# The public site is intentionally crawlable by search engines and AI agents.
-
-User-agent: GPTBot
-Allow: /
-
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
 User-agent: *
 Allow: /
+
+LLMS: /llms.txt

@@ -4,6 +4,7 @@
    layout, since interior pages don't need to match a fixed mockup crop. */
 
 /* ---------- Page hero banner (used at the top of About / Services) ---------- */
+.seo-article-body{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:normal;border:0}
 .page-hero{position:relative;padding:150px 0 70px;overflow:hidden;background:linear-gradient(90deg,#f0e7df 0%,#f1e8e1 35%,#ebddd2 64%,#d8bea8 100%)}
 .page-hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:0 80px}
 .page-hero-copy .kicker{margin:0 0 10px}
@@ -61,11 +62,14 @@
 .svc-card{position:relative;border:0;outline:0;border-radius:var(--radius);overflow:hidden;color:#fff;box-shadow:0 7px 14px rgba(41,29,24,.16);cursor:pointer;display:flex;flex-direction:column;transition:transform .16s ease,box-shadow .16s ease;background:#232121;isolation:isolate}
 .svc-card:hover{transform:translateY(-3px);box-shadow:0 12px 22px rgba(41,29,24,.20)}
 .svc-card:focus,.svc-card:focus-visible{outline:0}
+.svc-card[data-service="HAIRCUT & STYLING"]{background:transparent}
+.svc-card[data-service="HAIRCUT & STYLING"] img{height:200px}
+.svc-card[data-service="HAIRCUT & STYLING"] .svc-body{height:96px;flex-basis:96px}
 .svc-card img{width:100%;height:190px;object-fit:cover;display:block;pointer-events:none;user-select:none;-webkit-user-select:none;-webkit-user-drag:none;transform:translateZ(0);backface-visibility:hidden}
 .svc-card:has(.teeth-cleaning-img){background:linear-gradient(145deg,#f8eee6 0%,#ead6c8 52%,#f6e9df 100%)}
 .svc-card .teeth-cleaning-img{height:190px;object-fit:contain;object-position:center bottom;padding:16px 18px 0;transform:scale(1.12) translateY(7px)}
 .svc-number{position:absolute;left:14px;top:14px;color:#fff;font-family:'Anton',Impact,Haettenschweiler,sans-serif;font-size:22px;text-shadow:0 1px 3px rgba(0,0,0,.25);z-index:2}
-.svc-body{position:relative;z-index:2;margin-top:-1px;padding:19px 20px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex:1}
+.svc-body{position:relative;z-index:2;margin-top:-1px;height:106px;padding:19px 20px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex:0 0 106px}
 .svc-body h3{font-family:'Anton',Impact,Haettenschweiler,sans-serif;font-size:18px;line-height:1;margin:0 0 8px;text-transform:uppercase}
 .svc-body p{font-family:Arial,Helvetica,sans-serif;font-size:10.5px;line-height:1.5;margin:0;color:rgba(255,255,255,.92)}
 .svc-price{font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:800;font-style:normal;letter-spacing:.12px;color:rgba(255,255,255,.88);margin-top:8px;display:block;text-transform:uppercase}

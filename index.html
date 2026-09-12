@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#f5ede6" />
+  <meta name="robots" content="index,follow" />
   <meta name="description" content="Grüm dog grooming — tailored grooming, bathing and coat care." />
   <title>Grüm — Dog Grooming</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23f47b89'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-size='42' font-family='Georgia' font-weight='700' fill='white'%3Eg%3C/text%3E%3C/svg%3E" />
@@ -12,6 +13,18 @@
   <meta property="og:image" content="https://bolt.new/static/og_default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://bolt.new/static/og_default.png">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "PetGrooming",
+      "name": "Grüm",
+      "description": "Grüm dog grooming provides tailored grooming, bathing, coat care, haircuts, nail clipping, teeth cleaning, ear cleaning, and de-shedding treatments.",
+      "url": "index.html",
+      "image": "assets/dog-animation/dog-base.jpg",
+      "sameAs": ["https://www.instagram.com/"],
+      "serviceType": ["Dog grooming", "Bath and brush", "Haircut and styling", "Nail clipping", "Teeth cleaning", "Ear cleaning", "De-shedding treatment"]
+    }
+  </script>
 </head>
 <body data-page="home">
   <header class="site-header" id="home">
@@ -48,7 +61,24 @@
         </div>
       </div>
       <div class="hero-image-wrap">
-        <img src="assets/hero-clean.webp" alt="Golden retriever being washed with bubbles" fetchpriority="high" />
+        <div class="hero-dog-animation" aria-label="Golden retriever in a bubble bath">
+          <img class="hero-dog-base" src="assets/dog-animation/dog-base.jpg" alt="Golden retriever in a bubble bath" fetchpriority="high" />
+          <img class="hero-dog-smile" src="assets/dog-animation/dog-smile.jpg" alt="" aria-hidden="true" />
+          <img class="hero-dog-wink-full" src="assets/dog-animation/dog-wink-full.png" alt="" aria-hidden="true" />
+          <span class="hero-dog-eye hero-dog-eye-left" aria-hidden="true"><span class="hero-dog-iris"><img src="assets/dog-animation/dog-base.jpg" alt="" /></span><span class="hero-dog-eye-shade"></span></span>
+          <span class="hero-dog-eye hero-dog-eye-right" aria-hidden="true"><span class="hero-dog-iris"><img src="assets/dog-animation/dog-base.jpg" alt="" /></span><span class="hero-dog-eye-shade"></span></span>
+          <div class="hero-dog-wink-lid" aria-hidden="true"><div class="hero-dog-wink-mask"><div class="hero-dog-wink-skin"><img src="assets/dog-animation/dog-base.jpg" alt="" /></div></div><div class="hero-dog-wink-texture"></div><div class="hero-dog-wink-margin"><img src="assets/dog-animation/dog-base.jpg" alt="" /></div></div>
+          <div class="hero-dog-wink-line" aria-hidden="true"></div>
+          <div class="hero-dog-wink-glint" aria-hidden="true"></div>
+          <div class="hero-dog-wink-shadow" aria-hidden="true"></div>
+          <div class="hero-asset-bubbles" aria-hidden="true">
+            <span class="hero-asset-bubble hero-asset-bubble-0"><span><span><span></span></span></span></span>
+            <span class="hero-asset-bubble hero-asset-bubble-1"><span><span><span></span></span></span></span>
+            <span class="hero-asset-bubble hero-asset-bubble-2"><span><span><span></span></span></span></span>
+            <span class="hero-asset-bubble hero-asset-bubble-3"><span><span><span></span></span></span></span>
+            <span class="hero-asset-bubble hero-asset-bubble-4"><span><span><span></span></span></span></span>
+          </div>
+        </div>
       </div>
       <div class="bubble b1" aria-hidden="true"></div><div class="bubble b2" aria-hidden="true"></div><div class="bubble b3" aria-hidden="true"></div><div class="bubble b4" aria-hidden="true"></div><div class="bubble b5" aria-hidden="true"></div>
     </section>
@@ -98,7 +128,7 @@
     <section class="gallery" id="gallery">
       <div class="section-width gallery-inner">
         <figure class="phone-mock grum-instagram">
-          <iframe class="instaphone-frame" src="assets/instaphone/doberman-en.html" title="Grum Instagram phone" loading="lazy" scrolling="no"></iframe>
+          <iframe class="instaphone-frame" src="assets/instaphone/doberman-en.html" title="Grum Instagram phone" loading="lazy"></iframe>
         </figure>
         <div class="gallery-title"><p class="kicker">FOLLOW OUR JOURNEY!</p><h2>ON INSTAGRAM</h2></div>
         <a class="gallery-more" href="https://www.instagram.com/" target="_blank" rel="noreferrer">VIEW MORE ON INSTAGRAM <i aria-hidden="true"></i></a>
