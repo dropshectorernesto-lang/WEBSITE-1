@@ -39,11 +39,11 @@ Tap a demo mode below. **WEB IPAD** uses the full desktop/web layout but disable
 
 ## Shared booking tiers
 
-- **Tier 1 (default):** date-based request only. The secure API can forward the request to Zapier so the salon receives a notification and an all-day Google Calendar event is created. The salon chooses the exact time itself.
-- **Tier 2:** adds customer email support and secure booking status actions for confirm/reschedule/cancel/complete, giving Zapier hooks for customer confirmations and reminders.
-- **Tier 3:** adds live available-time selection through the availability API for real-time scheduling.
+- **Tier 1 (default):** customer requests a date plus a preferred 2-hour window and supplies email for confirmation. The request is stored and shown in the simple groomer dashboard. The groomer chooses the exact date/time and presses Confirm; only then does Zapier create/update the exact Google Calendar event and send the customer confirmation.
+- **Tier 2:** keeps the same simple request flow and adds richer reschedule/cancel communication hooks, reminders and optional WhatsApp/email automation.
+- **Tier 3:** adds live exact-time selection through the availability API for real-time scheduling.
 
-Legacy/current demos without a `booking` block inherit Tier 1 automatically. Customer-specific booking tier choice lives in `profile.js`; Zapier webhook URLs, Google credentials and admin tokens must remain server-side. GitHub Pages itself is static, so demo submissions stay in safe demo mode until a secure API endpoint is deployed and `booking.enabled`/`booking.apiBase` are configured. Full setup: `../BOOKING-SYSTEM.md`.
+Legacy/current demos without a `booking` block inherit Tier 1 automatically. Customer-specific booking tier choice and optional preferred-window overrides live in `profile.js`; Zapier webhook URLs, booking-store credentials, Google credentials and admin tokens must remain server-side. GitHub Pages itself is static, so demo submissions stay in safe demo mode until a secure API endpoint is deployed and `booking.enabled`/`booking.apiBase` are configured. The shared groomer dashboard is at `../booking-admin/`. Full setup: `../BOOKING-SYSTEM.md`.
 
 Each customer folder contains `LIVE-DEMO.md` with its permanent demo URLs for quick access from the GitHub app.
 
