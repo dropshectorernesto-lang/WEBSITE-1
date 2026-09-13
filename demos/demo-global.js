@@ -86,15 +86,17 @@
   frame.addEventListener('load', bind);
 })();
 
-// Load the shared inheritance layer. This is intentionally loaded by demo-global.js
-// so legacy demos and future template demos receive the same system-level behavior.
+// Load shared system layers from one permanent entry point. Legacy demos and
+// future template demos inherit these without customer-by-customer patching.
 (() => {
   const current = document.currentScript;
   if (!current?.src) return;
-  const src = new URL('demo-system.js', current.src).href;
-  if ([...document.scripts].some((script) => script.src === src)) return;
-  const script = document.createElement('script');
-  script.src = src;
-  script.dataset.demoSystemLoader = '1';
-  document.head.appendChild(script);
+  ['demo-system.js', 'booking-system.js'].forEach((file) => {
+    const src = new URL(file, current.src).href;
+    if ([...document.scripts].some((script) => script.src === src)) return;
+    const script = document.createElement('script');
+    script.src = src;
+    script.dataset.demoSharedLoader = file;
+    document.head.appendChild(script);
+  });
 })();
