@@ -18,6 +18,13 @@ window.DEMO_CUSTOMER = {
   rating: '__RATING__',
   reviewCount: '__REVIEW_COUNT__',
 
+  seo: {
+    en: { title: '__EN_SEO_TITLE__', description: '__EN_SEO_DESCRIPTION__' },
+    de: { title: '__DE_SEO_TITLE__', description: '__DE_SEO_DESCRIPTION__' },
+    es: { title: '__ES_SEO_TITLE__', description: '__ES_SEO_DESCRIPTION__' },
+    ca: { title: '__CA_SEO_TITLE__', description: '__CA_SEO_DESCRIPTION__' }
+  },
+
   copy: {
     en: {
       hours: '__EN_HOURS_HTML__',
