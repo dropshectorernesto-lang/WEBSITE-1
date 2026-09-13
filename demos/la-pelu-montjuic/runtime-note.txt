@@ -1,0 +1,1 @@
+Uses shared demo-global.js and customer-profile.js.
