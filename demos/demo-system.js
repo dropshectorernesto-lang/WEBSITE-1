@@ -204,16 +204,19 @@
 
   const bind = () => {
     apply();
-    // Reapply after customer-specific load handlers finish so legacy customizers
-    // cannot leave generic Grüm metadata behind.
+    // Reapply after customer-specific load/language handlers finish so legacy
+    // customizers cannot leave generic Grüm metadata behind.
     try {
       const win = frame.contentWindow;
-      win?.setTimeout(apply, 0);
-      win?.setTimeout(apply, 60);
+      const refresh = () => {
+        win?.setTimeout(apply, 0);
+        win?.setTimeout(apply, 60);
+      };
+      refresh();
       const doc = frame.contentDocument;
       if (doc?.documentElement && !doc.documentElement.dataset.demoSystemBound) {
         doc.documentElement.dataset.demoSystemBound = '1';
-        new win.MutationObserver(() => win.setTimeout(apply, 0))
+        new win.MutationObserver(refresh)
           .observe(doc.documentElement, { attributes:true, attributeFilter:['lang'] });
       }
     } catch (_) {}
