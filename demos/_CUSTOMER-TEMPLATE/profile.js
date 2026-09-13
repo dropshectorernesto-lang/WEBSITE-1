@@ -26,7 +26,16 @@ window.DEMO_CUSTOMER = {
     enabled: false,
     apiBase: null,
     submitPath: '/api/bookings',
-    availabilityPath: '/api/availability'
+    availabilityPath: '/api/availability',
+    preferredWindows: [
+      '08:00-10:00',
+      '10:00-12:00',
+      '12:00-14:00',
+      '14:00-16:00',
+      '16:00-18:00',
+      '18:00-20:00',
+      'any'
+    ]
   },
 
   seo: {
