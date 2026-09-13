@@ -1,0 +1,13 @@
+# Real HTTP redirects for Netlify and Cloudflare Pages.
+# GitHub Pages ignores this file because it cannot configure HTTP 301 responses.
+/home                 /                          301
+/index                /                          301
+/about                /about.html                301
+/services             /services.html             301
+/gallery              /gallery.html              301
+/blog                 /blog.html                 301
+/contact              /contact.html              301
+/privacy              /privacy-policy.html       301
+/privacy-policy       /privacy-policy.html       301
+/terms                /terms-and-conditions.html 301
+/terms-and-conditions /terms-and-conditions.html 301
