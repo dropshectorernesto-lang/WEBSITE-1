@@ -14,4 +14,4 @@ Copy URLs:
 
 `https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/__SLUG__/web-ipad/`
 
-SEO note: customer demo wrappers stay `noindex,nofollow` and are intentionally excluded from the public sitemap. The shared public SEO build does not change demo service images, layouts, language behavior or WEB IPAD behavior.
+SEO note: customer demo wrappers stay `noindex,nofollow` and are intentionally excluded from the public sitemap. The title and meta description shown inside each demo must be personalized to the verified customer in EN / DE / ES / CA. The shared public SEO build does not change demo service images, layouts, language behavior or WEB IPAD behavior.
