@@ -3,9 +3,20 @@
   if (!frame) return;
 
   const mode = document.body?.dataset.demoMode || 'mobile';
-  const customerName = window.DEMO_CUSTOMER?.name || 'Customer';
+  const customer = window.DEMO_CUSTOMER || {};
+  const customerName = customer.name || 'Customer';
   const modeLabel = mode === 'web-ipad' ? 'WEB IPAD' : mode === 'web' ? 'Web/Desktop' : 'Mobile';
-  document.title = `${customerName} — ${modeLabel} Demo`;
+  const initialSeo = customer.seo?.en;
+  document.title = initialSeo?.title ? `${initialSeo.title} — ${modeLabel} Demo` : `${customerName} — ${modeLabel} Demo`;
+  if (initialSeo?.description) {
+    let meta = document.querySelector('meta[name="description"]');
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.name = 'description';
+      document.head.appendChild(meta);
+    }
+    meta.content = initialSeo.description;
+  }
   frame.title = `${customerName} ${modeLabel} website demo`;
 
   const applyIpadEyes = () => {
