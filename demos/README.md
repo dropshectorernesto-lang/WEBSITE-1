@@ -4,7 +4,7 @@ Tap a demo mode below. **WEB IPAD** uses the full desktop/web layout but disable
 
 | Customer | Mobile | Web/Desktop | WEB IPAD |
 |---|---|---|---|
-| MAI FRIENDS | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/mai-friends/) | — | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/mai-friends/web-ipad/) |
+| MAI FRIENDS | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/mai-friends/) | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/mai-friends/web/) | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/mai-friends/web-ipad/) |
 | BAN KUVO | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/ban-kuvo/) | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/ban-kuvo/web/) | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/ban-kuvo/web-ipad/) |
 | ART GOS | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/art-gos/) | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/art-gos/web/) | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/art-gos/web-ipad/) |
 | BUB BUB S.C.P. | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/bub-bub-scp/) | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/bub-bub-scp/web/) | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/bub-bub-scp/web-ipad/) |
@@ -31,8 +31,12 @@ Tap a demo mode below. **WEB IPAD** uses the full desktop/web layout but disable
 | BRANCO Perruqueria Canina | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/branco-perruqueria-canina/) | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/branco-perruqueria-canina/web/) | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/branco-perruqueria-canina/web-ipad/) |
 | Peluts I Pelats Barceloneta, perruqueria canina | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/peluts-i-pelats-barceloneta/) | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/peluts-i-pelats-barceloneta/web/) | [Open](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/peluts-i-pelats-barceloneta/web-ipad/) |
 
-Every demo wrapper loads the shared `demo-global.js`, so language-sensitive demo fixes (including Blog preview localization and review-card readability) automatically carry forward to future customer demos that use the same wrapper template.
+## Shared inheritance rule
 
-Each customer folder also contains `LIVE-DEMO.md` with its permanent demo URLs for quick access from the GitHub app.
+**System-level demo changes are retroactive and forward-compatible by default.** Any shared fix or behavior change must be implemented in the shared demo layer first so it reaches existing demos as well as demos created later from `_CUSTOMER-TEMPLATE/`. Customer-specific content stays isolated to that customer.
+
+`demo-global.js` is the entry point every demo inherits. It provides Blog preview localization and review-card readability, and it loads `demo-system.js`, which provides shared personalized SEO/metadata syncing and WEB IPAD static-eye behavior across legacy, current and future demos. Existing profile-based demos derive their SEO from their verified customer content; newer profiles can provide explicit EN/DE/ES/CA SEO. Legacy custom demos use a factual compatibility registry so they do not fall back to generic Grüm metadata.
+
+Each customer folder contains `LIVE-DEMO.md` with its permanent demo URLs for quick access from the GitHub app.
 
 SEO isolation: `/demos/` remains excluded from `robots.txt` and `sitemap.xml`, and every customer wrapper remains `noindex,nofollow`. The global SEO build only processes the shared public pages and their `/mobile/` copies; it does not alter customer profile data, service-card/service-window images, gallery photos, layouts, language behavior, or WEB IPAD behavior.
