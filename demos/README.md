@@ -30,3 +30,5 @@ Tap a demo mode below. **WEB IPAD** uses the full desktop/web layout but disable
 Every demo wrapper loads the shared `demo-global.js`, so language-sensitive demo fixes (including Blog preview localization and review-card readability) automatically carry forward to future customer demos that use the same wrapper template.
 
 Each customer folder also contains `LIVE-DEMO.md` with its permanent demo URLs for quick access from the GitHub app.
+
+SEO isolation: `/demos/` remains excluded from `robots.txt` and `sitemap.xml`, and every customer wrapper remains `noindex,nofollow`. The global SEO build only processes the shared public pages and their `/mobile/` copies; it does not alter customer profile data, service-card/service-window images, gallery photos, layouts, language behavior, or WEB IPAD behavior.
