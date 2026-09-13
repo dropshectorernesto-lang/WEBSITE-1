@@ -18,6 +18,17 @@ window.DEMO_CUSTOMER = {
   rating: '__RATING__',
   reviewCount: '__REVIEW_COUNT__',
 
+  // Booking tiers are shared system behavior. Tier 1 is the default product.
+  // Keep credentials/webhook URLs OUT of this file. apiBase is only the public
+  // server endpoint; Zapier/Google credentials live as server-side env vars.
+  booking: {
+    tier: 1,
+    enabled: false,
+    apiBase: null,
+    submitPath: '/api/bookings',
+    availabilityPath: '/api/availability'
+  },
+
   seo: {
     en: { title: '__EN_SEO_TITLE__', description: '__EN_SEO_DESCRIPTION__' },
     de: { title: '__DE_SEO_TITLE__', description: '__DE_SEO_DESCRIPTION__' },
