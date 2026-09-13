@@ -1,17 +1,13 @@
-# __BUSINESS_NAME__
+# Spa Posa'l Xulo Perruqueria i Estètica Canina Born — Live demos
 
-## [📱 Open Mobile Demo](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/__SLUG__/)
+[📱 Mobile](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/spa-posa-l-xulo-born/) · [🖥️ Web/Desktop](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/spa-posa-l-xulo-born/web/) · [📟 WEB IPAD](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/spa-posa-l-xulo-born/web-ipad/)
 
-## [🖥️ Open Web/Desktop Demo](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/__SLUG__/web/)
+Permanent URLs:
 
-## [🖥️ Open WEB IPAD Demo](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/__SLUG__/web-ipad/)
+`https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/spa-posa-l-xulo-born/`
 
-Copy URLs:
+`https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/spa-posa-l-xulo-born/web/`
 
-`https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/__SLUG__/`
+`https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/spa-posa-l-xulo-born/web-ipad/`
 
-`https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/__SLUG__/web/`
-
-`https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/__SLUG__/web-ipad/`
-
-SEO note: customer demo wrappers stay `noindex,nofollow` and are intentionally excluded from the public sitemap. The shared public SEO build does not change demo service images, layouts, language behavior or WEB IPAD behavior.
+SEO is personalized to Spa Posa'l Xulo Born in EN / DE / ES / CA from `profile.js`. Demo wrappers remain `noindex,nofollow`.
