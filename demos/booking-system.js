@@ -7,34 +7,45 @@
   const slug = demosIndex >= 0 ? parts[demosIndex + 1] : '';
   const mode = document.body?.dataset.demoMode || (parts.includes('web-ipad') ? 'web-ipad' : parts.includes('web') ? 'web' : 'mobile');
 
+  const DEFAULT_WINDOWS = ['08:00-10:00','10:00-12:00','12:00-14:00','14:00-16:00','16:00-18:00','18:00-20:00','any'];
+
   const COPY = {
     en: {
-      email: 'Email', time: 'Available time', chooseTime: 'Choose a time', loading: 'Loading times…',
-      success: 'Request received — the salon will contact you to confirm the appointment time.',
+      email: 'Email', window: 'Preferred time', chooseWindow: 'Choose a time range', noPreference: 'No preference',
+      time: 'Available time', chooseTime: 'Choose a time', loading: 'Loading times…',
+      success: 'Request received — the salon will choose the exact time and send you a confirmation.',
       error: 'Something went wrong. Please try again or contact the salon directly.',
-      demo: 'Demo request received. Connect the secure booking backend to send salon notifications and calendar events.'
+      demo: 'Demo request received. Connect the secure booking backend to save the request and send confirmations.'
     },
     de: {
-      email: 'E-Mail', time: 'Verfügbare Uhrzeit', chooseTime: 'Uhrzeit wählen', loading: 'Zeiten werden geladen…',
-      success: 'Anfrage erhalten — der Salon meldet sich, um die genaue Uhrzeit zu bestätigen.',
+      email: 'E-Mail', window: 'Bevorzugte Zeit', chooseWindow: 'Zeitfenster wählen', noPreference: 'Keine Präferenz',
+      time: 'Verfügbare Uhrzeit', chooseTime: 'Uhrzeit wählen', loading: 'Zeiten werden geladen…',
+      success: 'Anfrage erhalten — der Salon wählt die genaue Uhrzeit und sendet dir eine Bestätigung.',
       error: 'Etwas ist schiefgelaufen. Bitte versuche es erneut oder kontaktiere den Salon direkt.',
-      demo: 'Demo-Anfrage erhalten. Verbinde das sichere Buchungs-Backend, um Benachrichtigungen und Kalendereinträge zu senden.'
+      demo: 'Demo-Anfrage erhalten. Verbinde das sichere Buchungs-Backend, um Anfragen zu speichern und Bestätigungen zu senden.'
     },
     es: {
-      email: 'Email', time: 'Hora disponible', chooseTime: 'Elegir hora', loading: 'Cargando horas…',
-      success: 'Solicitud recibida — el salón se pondrá en contacto contigo para confirmar la hora.',
+      email: 'Email', window: 'Franja preferida', chooseWindow: 'Elegir franja horaria', noPreference: 'Sin preferencia',
+      time: 'Hora disponible', chooseTime: 'Elegir hora', loading: 'Cargando horas…',
+      success: 'Solicitud recibida — el salón elegirá la hora exacta y te enviará una confirmación.',
       error: 'Ha ocurrido un error. Inténtalo de nuevo o contacta directamente con el salón.',
-      demo: 'Solicitud de demostración recibida. Conecta el backend seguro para enviar avisos y eventos de calendario.'
+      demo: 'Solicitud de demostración recibida. Conecta el backend seguro para guardar solicitudes y enviar confirmaciones.'
     },
     ca: {
-      email: 'Email', time: 'Hora disponible', chooseTime: 'Tria una hora', loading: 'Carregant hores…',
-      success: 'Sol·licitud rebuda — el saló es posarà en contacte amb tu per confirmar l’hora.',
+      email: 'Email', window: 'Franja preferida', chooseWindow: 'Tria una franja horària', noPreference: 'Sense preferència',
+      time: 'Hora disponible', chooseTime: 'Tria una hora', loading: 'Carregant hores…',
+      success: 'Sol·licitud rebuda — el saló triarà l’hora exacta i t’enviarà una confirmació.',
       error: 'Hi ha hagut un error. Torna-ho a provar o contacta directament amb el saló.',
-      demo: 'Sol·licitud de demostració rebuda. Connecta el backend segur per enviar avisos i esdeveniments de calendari.'
+      demo: 'Sol·licitud de demostració rebuda. Connecta el backend segur per desar sol·licituds i enviar confirmacions.'
     }
   };
 
   const clampTier = (value) => Math.max(1, Math.min(3, Number(value) || 1));
+  const normalizeWindows = (value) => {
+    const raw = Array.isArray(value) && value.length ? value : DEFAULT_WINDOWS;
+    return raw.map((item) => String(item || '').trim()).filter((item) => item === 'any' || /^\d{2}:\d{2}-\d{2}:\d{2}$/.test(item));
+  };
+
   const customerConfig = () => {
     const booking = window.DEMO_CUSTOMER?.booking || {};
     return {
@@ -42,7 +53,8 @@
       enabled: booking.enabled === true,
       apiBase: typeof booking.apiBase === 'string' ? booking.apiBase.replace(/\/$/, '') : '',
       submitPath: booking.submitPath || '/api/bookings',
-      availabilityPath: booking.availabilityPath || '/api/availability'
+      availabilityPath: booking.availabilityPath || '/api/availability',
+      preferredWindows: normalizeWindows(booking.preferredWindows)
     };
   };
 
@@ -76,25 +88,56 @@
     status.style.color = type === 'error' ? '#9f1c1c' : '';
   };
 
-  const ensureEmailField = (doc, form, tier) => {
+  const ensureEmailField = (doc, form) => {
     const grid = form.querySelector('.form-grid');
     if (!grid) return;
-    let label = grid.querySelector('[data-booking-email]');
-    if (tier < 2) {
-      label?.remove();
-      return;
-    }
+    let input = grid.querySelector('input[name="email"]');
+    let label = input?.closest('label') || grid.querySelector('[data-booking-email]');
     if (!label) {
       label = doc.createElement('label');
       label.dataset.bookingEmail = '1';
-      label.innerHTML = '<span data-booking-email-label>Email</span><input type="email" name="email" autocomplete="email" />';
+      label.innerHTML = '<span data-booking-email-label>Email</span><input type="email" name="email" autocomplete="email" required />';
       const phone = grid.querySelector('input[name="phone"]')?.closest('label');
       if (phone?.nextSibling) grid.insertBefore(label, phone.nextSibling);
       else grid.appendChild(label);
+      input = label.querySelector('input[name="email"]');
     }
+    label.dataset.bookingEmail = '1';
+    if (input) input.required = true;
     const text = COPY[langOf(doc)];
     const span = label.querySelector('[data-booking-email-label]');
     if (span) span.textContent = text.email;
+  };
+
+  const windowLabel = (value, text) => value === 'any' ? text.noPreference : value.replace('-', '–');
+
+  const ensureWindowField = (doc, form, cfg) => {
+    const grid = form.querySelector('.form-grid');
+    if (!grid) return null;
+    let label = grid.querySelector('[data-booking-window]');
+    if (cfg.tier >= 3) {
+      label?.remove();
+      return null;
+    }
+    if (!label) {
+      label = doc.createElement('label');
+      label.dataset.bookingWindow = '1';
+      label.innerHTML = '<span data-booking-window-label>Preferred time</span><select name="preferredWindow" data-booking-window-select required></select>';
+      const date = grid.querySelector('input[name="date"]')?.closest('label');
+      if (date?.nextSibling) grid.insertBefore(label, date.nextSibling);
+      else grid.appendChild(label);
+    }
+    const text = COPY[langOf(doc)];
+    const span = label.querySelector('[data-booking-window-label]');
+    const select = label.querySelector('[data-booking-window-select]');
+    if (span) span.textContent = text.window;
+    if (select) {
+      const current = select.value;
+      select.required = true;
+      select.innerHTML = `<option value="">${text.chooseWindow}</option>${cfg.preferredWindows.map((value) => `<option value="${value}">${windowLabel(value, text)}</option>`).join('')}`;
+      if (cfg.preferredWindows.includes(current)) select.value = current;
+    }
+    return select;
   };
 
   const ensureTimeField = (doc, form, cfg) => {
@@ -140,6 +183,7 @@
     select.disabled = true;
     if (!date || !cfg.enabled) {
       select.innerHTML = `<option value="">${text.chooseTime}</option>`;
+      select.disabled = false;
       return;
     }
     try {
@@ -171,6 +215,7 @@
     email: String(form.elements.email?.value || '').trim(),
     service: String(form.elements.service?.value || '').trim(),
     date: String(form.elements.date?.value || '').trim(),
+    preferredWindow: cfg.tier < 3 ? String(form.elements.preferredWindow?.value || '').trim() : '',
     time: cfg.tier >= 3 ? String(form.elements.time?.value || '').trim() : '',
     notes: String(form.elements.notes?.value || '').trim(),
     website: ''
@@ -183,9 +228,9 @@
       const form = doc.getElementById('bookingForm');
       if (!form) return;
       const cfg = customerConfig();
-      const text = COPY[langOf(doc)];
       const status = ensureStatus(doc, form);
-      ensureEmailField(doc, form, cfg.tier);
+      ensureEmailField(doc, form);
+      ensureWindowField(doc, form, cfg);
       const timeSelect = ensureTimeField(doc, form, cfg);
       const dateInput = form.elements.date;
       if (dateInput) {
@@ -247,7 +292,6 @@
           .observe(doc.documentElement, { attributes:true, attributeFilter:['lang'] });
       }
 
-      // Tier 3 can preview its time field immediately; live slots only load when backend is enabled.
       if (timeSelect) loadAvailability(doc, form, cfg, timeSelect);
     } catch (_) {}
   };
