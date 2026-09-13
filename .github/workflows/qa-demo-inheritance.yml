@@ -75,7 +75,7 @@ jobs:
             grep -q "'$slug'" "$file" || { echo "Missing SEO coverage for $slug"; exit 1; }
           done
           for slug in cancan-barcelona spa-posa-l-xulo-born branco-perruqueria-canina peluts-i-pelats-barceloneta mai-friends; do
-            grep -q 'seo:' "demos/$slug/profile.js" || { echo "Missing explicit SEO profile for $slug"; exit 1; }
+            grep -Eq '(seo\s*:|["'"']seo["'"']\s*:)' "demos/$slug/profile.js" || { echo "Missing explicit SEO profile for $slug"; exit 1; }
           done
 
       - name: Verify protected files stayed untouched
