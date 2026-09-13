@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /demos/
 
+Sitemap: https://dropshectorernesto-lang.github.io/WEBSITE-1/sitemap.xml
 LLMS: /llms.txt
