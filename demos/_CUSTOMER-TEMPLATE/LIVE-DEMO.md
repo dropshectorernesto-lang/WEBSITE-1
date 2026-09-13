@@ -13,3 +13,5 @@ Copy URLs:
 `https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/__SLUG__/web/`
 
 `https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/__SLUG__/web-ipad/`
+
+SEO note: customer demo wrappers stay `noindex,nofollow` and are intentionally excluded from the public sitemap. The shared public SEO build does not change demo service images, layouts, language behavior or WEB IPAD behavior.
