@@ -23,6 +23,30 @@
     }
   };
 
+  const applyReviewCardFix = (doc) => {
+    if (!doc?.head) return;
+    let style = doc.getElementById('demo-review-card-fix');
+    if (!style) {
+      style = doc.createElement('style');
+      style.id = 'demo-review-card-fix';
+      style.textContent = `
+        .reviews-section{display:block!important;background:#fffaf6!important}
+        .reviews-section .kicker{color:#01463c!important}
+        .reviews-section .content-heading{color:#222121!important}
+        .reviews-section .content-heading span{color:#01463c!important}
+        .review-card{opacity:1!important;visibility:visible!important;color:#fff!important}
+        .review-card.vc-green{background:#01463c!important}
+        .review-card.vc-black{background:#232121!important}
+        .review-card.vc-orange{background:#f26312!important}
+        .review-card.vc-pink{background:#f87686!important}
+        .review-card p,.review-card strong{color:#fff!important}
+        .review-card span{color:rgba(255,255,255,.78)!important}
+        .review-stars{color:#fff3b0!important}
+      `;
+      doc.head.appendChild(style);
+    }
+  };
+
   const applyBlogPreviewLocale = (doc) => {
     if (!doc?.documentElement) return;
     const lang = (doc.documentElement.lang || 'en').toLowerCase();
@@ -45,11 +69,15 @@
     try {
       const doc = frame.contentDocument;
       if (!doc?.documentElement) return;
+      applyReviewCardFix(doc);
       applyBlogPreviewLocale(doc);
       if (!doc.documentElement.dataset.demoBlogLocaleBound) {
         doc.documentElement.dataset.demoBlogLocaleBound = '1';
         new doc.defaultView.MutationObserver(() => {
-          doc.defaultView.setTimeout(() => applyBlogPreviewLocale(doc), 0);
+          doc.defaultView.setTimeout(() => {
+            applyReviewCardFix(doc);
+            applyBlogPreviewLocale(doc);
+          }, 0);
         }).observe(doc.documentElement, { attributes:true, attributeFilter:['lang'] });
       }
     } catch (_) {}
