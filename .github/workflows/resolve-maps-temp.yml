@@ -1,0 +1,61 @@
+name: Temporary Maps Resolver
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/resolve-maps-temp.yml'
+  workflow_dispatch:
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resolve Google Maps short links
+        shell: bash
+        run: |
+          set -u
+          urls=(
+            'https://maps.app.goo.gl/XKEM2FVXx1BLR87i9'
+            'https://maps.app.goo.gl/K1yC17pAjMdmfu8x5'
+            'https://maps.app.goo.gl/mUQtFfWJmaegwUXf9'
+            'https://maps.app.goo.gl/J5krdGX3iYN2tGK97'
+            'https://maps.app.goo.gl/okguahYHJ5J2EaGB9'
+            'https://maps.app.goo.gl/qhWraMBd74LdqqxFA'
+            'https://maps.app.goo.gl/8pCUrsWmBXfV6dcj8'
+            'https://maps.app.goo.gl/FdGkxtoJq8QxV5vU6'
+            'https://maps.app.goo.gl/hTzTcb4yRuYnRKwU9'
+            'https://maps.app.goo.gl/bnrbmabPdX9q2dc58'
+            'https://maps.app.goo.gl/SoYcaxXuNtm3Xp4NA'
+            'https://maps.app.goo.gl/2Dsd7qgRP5kGwmsYA'
+          )
+          i=0
+          for u in "${urls[@]}"; do
+            i=$((i+1))
+            echo "===== MAP $i ====="
+            echo "SHORT=$u"
+            final=$(curl -A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/140 Safari/537.36' -LsS --max-time 30 -o "/tmp/map-$i.html" -w '%{url_effective}' "$u" || true)
+            echo "FINAL=$final"
+            python3 - "$final" "/tmp/map-$i.html" <<'PY'
+import html, re, sys, urllib.parse
+final=sys.argv[1]
+path=sys.argv[2]
+print('DECODED_FINAL='+urllib.parse.unquote(final))
+try:
+    text=open(path,'r',encoding='utf-8',errors='ignore').read()
+except Exception:
+    text=''
+patterns=[
+    r'https://www\.google\.com/maps/(?:preview/)?place/[^"<>\\ ]+',
+    r'https://www\.google\.com/maps/[^"<>\\ ]+',
+    r'(?i)<meta[^>]+(?:property|name)=["\']og:title["\'][^>]+content=["\']([^"\']+)',
+    r'(?i)<title>(.*?)</title>',
+]
+for pat in patterns:
+    m=re.search(pat,text,re.S)
+    if m:
+        val=m.group(1) if m.lastindex else m.group(0)
+        val=html.unescape(val)
+        print('FOUND='+urllib.parse.unquote(val)[:2000])
+PY
+          done
