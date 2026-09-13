@@ -1,0 +1,61 @@
+{
+  "siteUrl": "https://dropshectorernesto-lang.github.io/WEBSITE-1",
+  "pages": {
+    "index.html": {
+      "path": "/",
+      "en": {"title": "Grüm | Dog Grooming, Bathing & Coat Care", "description": "Grüm offers tailored dog grooming, bathing, coat care and spa-style grooming services designed around each pet’s comfort."},
+      "de": {"title": "Grüm | Hundepflege, Baden & Fellpflege", "description": "Grüm bietet individuelle Hundepflege, Baden, Fellpflege und Spa-Behandlungen, abgestimmt auf Komfort und Bedürfnisse jedes Hundes."},
+      "es": {"title": "Grüm | Peluquería canina, baño y cuidado del pelo", "description": "Grüm ofrece peluquería canina, baño, cuidado del pelo y tratamientos de spa adaptados a la comodidad y necesidades de cada mascota."},
+      "ca": {"title": "Grüm | Perruqueria canina, bany i cura del pelatge", "description": "Grüm ofereix perruqueria canina, bany, cura del pelatge i tractaments de spa adaptats a la comoditat i necessitats de cada mascota."}
+    },
+    "about.html": {
+      "path": "/about.html",
+      "en": {"title": "About Grüm | One-on-One Dog Grooming Care", "description": "Learn about Grüm’s approach to calm, one-on-one dog grooming, gentle handling and thoughtful care for every pet."},
+      "de": {"title": "Über Grüm | Individuelle Hundepflege", "description": "Erfahre mehr über Grüm und unseren ruhigen Ansatz mit individueller Hundepflege, sanfter Betreuung und persönlicher Aufmerksamkeit."},
+      "es": {"title": "Sobre Grüm | Peluquería canina personalizada", "description": "Conoce el enfoque de Grüm: peluquería canina tranquila y personalizada, trato suave y atención cuidada para cada mascota."},
+      "ca": {"title": "Sobre Grüm | Perruqueria canina personalitzada", "description": "Descobreix l’enfocament de Grüm: perruqueria canina tranquil·la i personalitzada, tracte suau i atenció acurada per a cada mascota."}
+    },
+    "services.html": {
+      "path": "/services.html",
+      "en": {"title": "Dog Grooming Services | Grüm", "description": "Explore Grüm dog grooming services including bath and brush, haircuts, nail care, teeth and ear cleaning, de-shedding and add-ons."},
+      "de": {"title": "Hundepflege-Services | Grüm", "description": "Entdecke Grüm Services wie Bad und Bürsten, Haarschnitt, Krallenpflege, Zahn- und Ohrenreinigung, Enthaarung und Zusatzpflege."},
+      "es": {"title": "Servicios de peluquería canina | Grüm", "description": "Descubre los servicios de Grüm: baño y cepillado, corte, uñas, limpieza dental y de oídos, deslanado y cuidados extra."},
+      "ca": {"title": "Serveis de perruqueria canina | Grüm", "description": "Descobreix els serveis de Grüm: bany i raspallat, tall, ungles, neteja dental i d’orelles, anticaiguda i cures extra."}
+    },
+    "gallery.html": {
+      "path": "/gallery.html",
+      "en": {"title": "Dog Grooming Gallery | Grüm", "description": "See Grüm’s dog grooming gallery with freshly groomed pets, studio moments and examples of thoughtful coat care."},
+      "de": {"title": "Hundepflege-Galerie | Grüm", "description": "Sieh dir Grüm’s Galerie mit frisch gepflegten Hunden, Studio-Momenten und Beispielen sorgfältiger Fellpflege an."},
+      "es": {"title": "Galería de peluquería canina | Grüm", "description": "Descubre la galería de Grüm con mascotas recién arregladas, momentos del estudio y ejemplos de cuidado del pelo."},
+      "ca": {"title": "Galeria de perruqueria canina | Grüm", "description": "Descobreix la galeria de Grüm amb mascotes acabades de cuidar, moments de l’estudi i exemples de cura del pelatge."}
+    },
+    "blog.html": {
+      "path": "/blog.html",
+      "en": {"title": "Dog Grooming Guides & Care Tips | Grüm", "description": "Read Grüm dog grooming guides with practical advice on bathing, brushing, coat care, nails and making grooming visits easier."},
+      "de": {"title": "Hundepflege-Ratgeber & Tipps | Grüm", "description": "Lies Grüm Ratgeber mit praktischen Tipps zu Baden, Bürsten, Fellpflege, Krallen und entspannten Grooming-Besuchen."},
+      "es": {"title": "Guías y consejos de peluquería canina | Grüm", "description": "Lee las guías de Grüm con consejos prácticos sobre baño, cepillado, pelo, uñas y visitas de peluquería más tranquilas."},
+      "ca": {"title": "Guies i consells de perruqueria canina | Grüm", "description": "Llegeix les guies de Grüm amb consells pràctics sobre bany, raspallat, pelatge, ungles i visites de perruqueria més tranquil·les."}
+    },
+    "contact.html": {
+      "path": "/contact.html",
+      "en": {"title": "Contact Grüm | Dog Grooming Appointments", "description": "Contact Grüm for dog grooming enquiries and appointment requests. Find the current contact details, hours and booking form on this page."},
+      "de": {"title": "Grüm kontaktieren | Termine für Hundepflege", "description": "Kontaktiere Grüm für Fragen und Terminanfragen zur Hundepflege. Aktuelle Kontaktdaten, Öffnungszeiten und Buchungsformular findest du hier."},
+      "es": {"title": "Contacta con Grüm | Citas de peluquería canina", "description": "Contacta con Grüm para consultas y solicitudes de cita. Consulta aquí los datos de contacto, horarios y formulario de reserva actuales."},
+      "ca": {"title": "Contacta amb Grüm | Cites de perruqueria canina", "description": "Contacta amb Grüm per consultes i sol·licituds de cita. Consulta aquí les dades de contacte, horaris i formulari de reserva actuals."}
+    },
+    "privacy-policy.html": {
+      "path": "/privacy-policy.html",
+      "en": {"title": "Privacy Policy | Grüm", "description": "Read the Grüm privacy policy covering website use and dog grooming appointment requests."},
+      "de": {"title": "Datenschutzerklärung | Grüm", "description": "Lies die Datenschutzerklärung von Grüm zur Nutzung der Website und zu Terminanfragen für Hundepflege."},
+      "es": {"title": "Política de privacidad | Grüm", "description": "Consulta la política de privacidad de Grüm sobre el uso del sitio web y las solicitudes de cita de peluquería canina."},
+      "ca": {"title": "Política de privacitat | Grüm", "description": "Consulta la política de privacitat de Grüm sobre l’ús del web i les sol·licituds de cita de perruqueria canina."}
+    },
+    "terms-and-conditions.html": {
+      "path": "/terms-and-conditions.html",
+      "en": {"title": "Terms & Conditions | Grüm", "description": "Read the Grüm terms and conditions for website use and dog grooming appointment requests."},
+      "de": {"title": "Allgemeine Geschäftsbedingungen | Grüm", "description": "Lies die Bedingungen von Grüm für die Nutzung der Website und für Terminanfragen zur Hundepflege."},
+      "es": {"title": "Términos y condiciones | Grüm", "description": "Consulta los términos y condiciones de Grüm para el uso del sitio web y las solicitudes de cita de peluquería canina."},
+      "ca": {"title": "Termes i condicions | Grüm", "description": "Consulta els termes i condicions de Grüm per a l’ús del web i les sol·licituds de cita de perruqueria canina."}
+    }
+  }
+}
