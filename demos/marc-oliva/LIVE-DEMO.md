@@ -1,11 +1,5 @@
-# MARC OLIVA
+# Peluquería Canina Marc Oliva — Live demos
 
-## [📱 Open Mobile Demo](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/marc-oliva/)
+[📱 Mobile](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/marc-oliva/) · [🖥️ Web/Desktop](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/marc-oliva/web/) · [📟 WEB IPAD](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/marc-oliva/web-ipad/)
 
-## [🖥️ Open WEB IPAD Demo](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/marc-oliva/web-ipad/)
-
-Copy URLs:
-
-`https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/marc-oliva/`
-
-`https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/marc-oliva/web-ipad/`
+WEB IPAD uses the full desktop layout with the cursor-following eye overlay disabled.

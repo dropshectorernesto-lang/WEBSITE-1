@@ -1,11 +1,5 @@
-# LAIKA
+# LAIKA — Live demos
 
-## [📱 Open Mobile Demo](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/laika/)
+[📱 Mobile](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/laika/) · [🖥️ Web/Desktop](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/laika/web/) · [📟 WEB IPAD](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/laika/web-ipad/)
 
-## [🖥️ Open WEB IPAD Demo](https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/laika/web-ipad/)
-
-Copy URLs:
-
-`https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/laika/`
-
-`https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/laika/web-ipad/`
+WEB IPAD uses the full desktop layout with the cursor-following eye overlay disabled.

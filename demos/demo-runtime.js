@@ -9,11 +9,7 @@
   const slug = demosIndex >= 0 ? parts[demosIndex + 1] : 'demo';
   const mode = document.body?.dataset.demoMode || (parts.includes('web-ipad') ? 'web-ipad' : parts.includes('web') ? 'web' : 'mobile');
 
-  const names = {
-    'mai-friends':'MAI FRIENDS','ban-kuvo':'BAN-KUVO','art-gos':'ART GOS','bub-bub-scp':'BUB BUB S.C.P.',
-    'bigotis':'BIGOTIS','lissy':'LISSY','gusboral':'GUSBORAL','woodys':"WOODY'S SALON",'amigo-mio':'AMIGO MIO',
-    'laika':'LAIKA','marc-oliva':'MARC OLIVA'
-  };
+  const names = {"mai-friends":"MAI FRIENDS","ban-kuvo":"BAN-KUVO","art-gos":"ART GOS","bub-bub-scp":"BUB BUB S.C.P.","bigotis":"BIGOTIS","lissy":"LISSY","gusboral":"GUSBORAL","woodys":"WOODY'S SALON","amigo-mio":"AMIGO MIO","la-pelu-montjuic":"La Pelu de Montjuïc By Lluïsa Royo","laika":"LAIKA","marc-oliva":"Peluquería Canina Marc Oliva","midoki-maria-cubi":"MIDOKI-Marià Cubí Perruqueria Canina I Més","animalades-gracia":"Animalades Gràcia","animals-amb-gracia":"Animals amb gràcia","bamboo-mascotas":"BAMBOO MASCOTAS","el-can-amb-gracia":"El CAN AMB GRÀCIA","cris-perruqueria-canina-felina":"Cris perruqueria canina i felina","urban-pets":"Urban Pets","buf-peluqueria-canina":"Buf Peluquería Canina","kololo-pets":"Kololo pets","can-bau":"Peluquería Canina Can Bau"};
   const name = names[slug] || slug.split('-').map(w => w.toUpperCase()).join(' ');
   document.title = `${name} — ${mode === 'web-ipad' ? 'WEB IPAD' : mode === 'web' ? 'Web' : 'Mobile'} Demo`;
 
@@ -34,8 +30,9 @@
     return promise;
   };
 
-  const profileSlugs = new Set(['lissy','gusboral','woodys','amigo-mio']);
-  const hasCustomerLayer = ['ban-kuvo','art-gos','bub-bub-scp','bigotis',...profileSlugs].includes(slug);
+  const legacyProfileSlugs = new Set(['lissy','gusboral','woodys','amigo-mio']);
+  const batchProfileSlugs = new Set(['laika','marc-oliva','midoki-maria-cubi','animalades-gracia','animals-amb-gracia','bamboo-mascotas','el-can-amb-gracia','cris-perruqueria-canina-felina','urban-pets','buf-peluqueria-canina','kololo-pets','can-bau']);
+  const hasCustomerLayer = ['ban-kuvo','art-gos','bub-bub-scp','bigotis',...legacyProfileSlugs,...batchProfileSlugs].includes(slug);
 
   const applyIpadEyes = () => {
     if (mode !== 'web-ipad') return;
@@ -67,8 +64,11 @@
       await loadScript('art-gos/customize.js');
     } else if (slug === 'bub-bub-scp' || slug === 'bigotis') {
       await loadScript('customer-skins.js');
-    } else if (profileSlugs.has(slug)) {
+    } else if (legacyProfileSlugs.has(slug)) {
       const profileLoaded = await loadScript(`profiles/${slug}.js`);
+      if (profileLoaded) await loadScript('customer-profile.js');
+    } else if (batchProfileSlugs.has(slug)) {
+      const profileLoaded = await loadScript('profiles/round-20260913.js');
       if (profileLoaded) await loadScript('customer-profile.js');
     }
 
