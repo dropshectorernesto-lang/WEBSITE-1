@@ -17,23 +17,24 @@ const getTier = (slug) => {
 };
 const getWebhook = (slug) => process.env[`ZAPIER_BOOKING_WEBHOOK_${slugKey(slug)}`] || process.env.ZAPIER_BOOKING_WEBHOOK_URL || '';
 
-const allowedOrigin = (origin) => {
-  const configured = String(process.env.BOOKING_ALLOWED_ORIGINS || '').split(',').map((item) => item.trim()).filter(Boolean);
+const allowedOrigin = (origin, host) => {
   if (!origin) return true;
-  if (!configured.length) return true;
-  return configured.includes(origin);
+  const configured = String(process.env.BOOKING_ALLOWED_ORIGINS || '').split(',').map((item) => item.trim()).filter(Boolean);
+  if (configured.length) return configured.includes(origin);
+  try { return new URL(origin).host === host; } catch (_) { return false; }
 };
 
 module.exports = async (req, res) => {
   const origin = req.headers.origin || '';
-  if (origin && allowedOrigin(origin)) res.setHeader('Access-Control-Allow-Origin', origin);
+  const host = req.headers['x-forwarded-host'] || req.headers.host || '';
+  if (origin && allowedOrigin(origin, host)) res.setHeader('Access-Control-Allow-Origin', origin);
   res.setHeader('Vary', 'Origin');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   res.setHeader('Access-Control-Allow-Methods', 'POST,OPTIONS');
 
-  if (req.method === 'OPTIONS') return res.status(204).end();
+  if (req.method === 'OPTIONS') return allowedOrigin(origin, host) ? res.status(204).end() : res.status(403).end();
   if (req.method !== 'POST') return res.status(405).json({ error:'method_not_allowed' });
-  if (!allowedOrigin(origin)) return res.status(403).json({ error:'origin_not_allowed' });
+  if (!allowedOrigin(origin, host)) return res.status(403).json({ error:'origin_not_allowed' });
 
   try {
     const body = await readJson(req);
