@@ -1,0 +1,73 @@
+name: QA preferred-window booking
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check JavaScript syntax
+        run: |
+          node --check demos/booking-system.js
+          node --check api/_booking-store.js
+          node --check api/bookings.js
+          node --check api/booking-action.js
+          node --check api/availability.js
+          node --check demos/demo-global.js
+          node --check demos/demo-system.js
+          node --check demos/_CUSTOMER-TEMPLATE/profile.js
+          python - <<'PY'
+          from pathlib import Path
+          html = Path('booking-admin/index.html').read_text()
+          start = html.index('<script>') + len('<script>')
+          end = html.index('</script>', start)
+          Path('/tmp/booking-admin.js').write_text(html[start:end])
+          PY
+          node --check /tmp/booking-admin.js
+
+      - name: Verify Tier 1 preferred-window flow
+        run: |
+          grep -q "preferredWindow" demos/booking-system.js
+          grep -q "08:00-10:00" demos/booking-system.js
+          grep -q "preferred_window_required" api/bookings.js
+          grep -q "booking.confirmed" api/booking-action.js
+          grep -q "calendarAction" api/booking-action.js
+          grep -q "customerNotification" api/booking-action.js
+          grep -q "createCalendar:false" api/bookings.js
+          grep -q "BOOKING_STORE_URL" api/_booking-store.js
+          grep -q "Confirm booking" booking-admin/index.html
+          grep -q "outside the customer’s preferred window" booking-admin/index.html
+
+      - name: Verify no customer secrets are committed
+        run: |
+          ! grep -R "hooks.zapier.com/hooks/catch/[0-9]" demos api booking-admin --include='*.js' --include='*.html'
+          ! grep -R "BOOKING_STORE_TOKEN=" demos booking-admin --include='*.js' --include='*.html'
+          ! grep -R "BOOKING_ADMIN_TOKEN=" demos booking-admin --include='*.js' --include='*.html'
+
+      - name: Verify protected source stayed untouched
+        run: |
+          BASE=44189d0ee07d096eec73f66e0f4c2bb93d47b107
+          git diff --name-only "$BASE"..HEAD > /tmp/changed.txt
+          cat /tmp/changed.txt
+          if grep -Ev '^(api/|booking-admin/|BOOKING-SYSTEM\.md$|demos/booking-system\.js$|demos/README\.md$|demos/_CUSTOMER-TEMPLATE/(profile\.js|README\.md|LIVE-DEMO\.md)$|\.github/workflows/qa-booking-window\.yml$)' /tmp/changed.txt | grep -q .; then
+            echo "Unexpected protected/root file change detected"
+            grep -Ev '^(api/|booking-admin/|BOOKING-SYSTEM\.md$|demos/booking-system\.js$|demos/README\.md$|demos/_CUSTOMER-TEMPLATE/(profile\.js|README\.md|LIVE-DEMO\.md)$|\.github/workflows/qa-booking-window\.yml$)' /tmp/changed.txt
+            exit 1
+          fi
+
+      - name: Verify every demo still has all three modes
+        run: |
+          for dir in demos/*/; do
+            name=$(basename "$dir")
+            [ "$name" = "_CUSTOMER-TEMPLATE" ] && continue
+            [ -f "$dir/index.html" ] || continue
+            test -f "$dir/web/index.html"
+            test -f "$dir/web-ipad/index.html"
+            test -f "$dir/LIVE-DEMO.md"
+          done
