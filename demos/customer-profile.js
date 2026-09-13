@@ -14,6 +14,40 @@
     es:{reviews:'RESEÑAS DE GOOGLE',review:'Reseña de Google'},
     ca:{reviews:'RESSENYES DE GOOGLE',review:'Ressenya de Google'}
   };
+  const mode = document.body?.dataset.demoMode || 'mobile';
+  const modeLabel = mode === 'web-ipad' ? 'WEB IPAD' : mode === 'web' ? 'Web/Desktop' : 'Mobile';
+
+  const ensureMeta = (doc, name) => {
+    let meta = doc.querySelector(`meta[name="${name}"]`);
+    if (!meta) {
+      meta = doc.createElement('meta');
+      meta.name = name;
+      doc.head?.appendChild(meta);
+    }
+    return meta;
+  };
+
+  const syncSeo = (doc) => {
+    const lang = langOf(doc);
+    const seo = c.seo?.[lang] || c.seo?.en;
+    if (!seo?.title || !seo?.description) return;
+
+    doc.title = seo.title;
+    const innerMeta = ensureMeta(doc, 'description');
+    if (innerMeta) innerMeta.content = seo.description;
+
+    document.title = `${seo.title} — ${modeLabel} Demo`;
+    const outerMeta = ensureMeta(document, 'description');
+    if (outerMeta) outerMeta.content = seo.description;
+
+    const cfg = doc.defaultView.SITE_CONFIG;
+    if (cfg?.business) {
+      cfg.business.name = c.name;
+      cfg.business.title = seo.title;
+      cfg.business.description = seo.description;
+      if (c.social) cfg.business.instagramUrl = c.social;
+    }
+  };
 
   const replaceBrand = (doc) => {
     if (!doc.body) return;
@@ -89,6 +123,7 @@
       });
     }
     replaceBrand(doc);
+    syncSeo(doc);
   };
 
   frame.addEventListener('load',()=>{
