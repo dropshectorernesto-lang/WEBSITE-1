@@ -7,8 +7,9 @@ This folder is the safe source for every new customer demo.
 2. Rename the copy to the customer's URL slug, for example `happy-dog-barcelona`.
 3. Edit **only** `profile.js` and `LIVE-DEMO.md` unless you have a verified reason to change something else.
 4. Set `booking.tier` in `profile.js`; Tier 1 is the default product.
-5. Add the customer to `demos/README.md` and `demos/index.html` for quick access.
-6. Push and verify Mobile, Web/Desktop and WEB IPAD after GitHub Pages deploys.
+5. Adjust `booking.preferredWindows` only when the salon's opening hours require different request windows.
+6. Add the customer to `demos/README.md` and `demos/index.html` for quick access.
+7. Push and verify Mobile, Web/Desktop and WEB IPAD after GitHub Pages deploys.
 
 ## Do NOT edit these for normal customer customization
 - root website files
@@ -29,7 +30,7 @@ This folder is the safe source for every new customer demo.
 - Review copy must be a faithful paraphrase of public reviews; do not invent testimonials or quote text you cannot verify.
 - Keep the existing layout and behavior intact.
 - **Shared system changes are retroactive + future by default.** Any fix intended for all customers must be implemented in the shared demo layer so existing demos and future demos inherit it automatically. Only customer-specific changes belong in an individual demo folder.
-- Never put Zapier webhook URLs, Google credentials or admin tokens in a customer profile or browser JavaScript.
+- Never put Zapier webhook URLs, Google credentials, booking-store credentials or admin tokens in a customer profile or browser JavaScript.
 
 ## Shared inheritance architecture
 - `demo-global.js` is the shared entry point loaded by every demo.
@@ -44,13 +45,14 @@ This folder is the safe source for every new customer demo.
 
 ## Booking tiers
 Tier 1:
-- Date-based booking request only; customer does not choose an exact hour.
-- Secure backend forwards to Zapier.
-- Zapier can notify the salon and create an all-day Google Calendar event.
+- Customer submits name, pet, phone, email, service, preferred date and a preferred 2-hour time window.
+- Groomer sees the request in the simple booking dashboard and chooses the exact date + time.
+- Confirming sends `booking.confirmed`; Zapier then creates/updates the exact Google Calendar appointment and sends the customer confirmation email.
+- New requests do **not** create calendar events before the groomer confirms.
 
 Tier 2:
-- Adds customer email support and secure status actions (`confirm`, `reschedule`, `cancel`, `complete`).
-- Zapier can send customer confirmations/reminders or WhatsApp/email flows.
+- Keeps the same simple request flow.
+- Adds richer reschedule/cancel communication hooks and reminder/WhatsApp/email automation.
 - Salon still controls the exact appointment time.
 
 Tier 3:
@@ -87,6 +89,7 @@ Required core fields:
 - `booking.tier`
 - `booking.enabled`
 - `booking.apiBase`
+- `booking.preferredWindows`
 - `seo.en`, `seo.de`, `seo.es`, `seo.ca`
 - `copy.en`, `copy.de`, `copy.es`, `copy.ca`
 
@@ -97,6 +100,7 @@ Optional fields:
 Booking rules:
 - Keep `booking.enabled: false` in demos until a secure server endpoint is actually deployed and connected.
 - `booking.apiBase` may contain only the public server API origin; never a Zapier hook or secret.
+- Keep the default preferred windows unless verified opening hours call for different ones.
 - Server-side tier and profile tier must match.
 
 Each language requires:
@@ -115,6 +119,8 @@ For a slug called `happy-dog-barcelona`:
 - Web/Desktop: `https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/happy-dog-barcelona/web/`
 - WEB IPAD: `https://dropshectorernesto-lang.github.io/WEBSITE-1/demos/happy-dog-barcelona/web-ipad/`
 
+The simple groomer dashboard lives at `/booking-admin/`. In production, give the groomer a customer-specific dashboard URL with the business slug and API origin already supplied so they only need their access key.
+
 ## Final QA before calling a demo finished
 - Business name is correct everywhere; no accidental `Grüm` remains where customer branding should appear.
 - Maps opens the correct business/location.
@@ -124,7 +130,7 @@ For a slug called `happy-dog-barcelona`:
 - SEO title and description are factual, customer-specific and switch correctly in EN/DE/ES/CA.
 - Review cards have colored backgrounds and readable white text.
 - Blog card category/title/preview change with EN/DE/ES/CA.
-- Booking form is date-based in Tier 1, Tier 2 adds email/status support, and Tier 3 shows live-time selection only when its backend is configured.
+- Tier 1 form shows email + preferred date + preferred time window; Tier 3 shows live exact-time selection only when its backend is configured.
 - Booking copy works in EN/DE/ES/CA.
 - Mobile dog animation still works.
 - WEB IPAD has static eyes; Web/Desktop keeps normal cursor-following eyes.
