@@ -35,8 +35,16 @@ Tap a demo mode below. **WEB IPAD** uses the full desktop/web layout but disable
 
 **System-level demo changes are retroactive and forward-compatible by default.** Any shared fix or behavior change must be implemented in the shared demo layer first so it reaches existing demos as well as demos created later from `_CUSTOMER-TEMPLATE/`. Customer-specific content stays isolated to that customer.
 
-`demo-global.js` is the entry point every demo inherits. It provides Blog preview localization and review-card readability, and it loads `demo-system.js`, which provides shared personalized SEO/metadata syncing and WEB IPAD static-eye behavior across legacy, current and future demos. Existing profile-based demos derive their SEO from their verified customer content; newer profiles can provide explicit EN/DE/ES/CA SEO. Legacy custom demos use a factual compatibility registry so they do not fall back to generic Grüm metadata.
+`demo-global.js` is the entry point every demo inherits. It provides Blog preview localization and review-card readability, and it loads both `demo-system.js` and `booking-system.js`. `demo-system.js` provides shared personalized SEO/metadata syncing and WEB IPAD static-eye behavior across legacy, current and future demos. `booking-system.js` provides the shared Tier 1/2/3 booking behavior across legacy, current and future demos. Existing profile-based demos derive their SEO from their verified customer content; newer profiles can provide explicit EN/DE/ES/CA SEO. Legacy custom demos use a factual compatibility registry so they do not fall back to generic Grüm metadata.
+
+## Shared booking tiers
+
+- **Tier 1 (default):** date-based request only. The secure API can forward the request to Zapier so the salon receives a notification and an all-day Google Calendar event is created. The salon chooses the exact time itself.
+- **Tier 2:** adds customer email support and secure booking status actions for confirm/reschedule/cancel/complete, giving Zapier hooks for customer confirmations and reminders.
+- **Tier 3:** adds live available-time selection through the availability API for real-time scheduling.
+
+Legacy/current demos without a `booking` block inherit Tier 1 automatically. Customer-specific booking tier choice lives in `profile.js`; Zapier webhook URLs, Google credentials and admin tokens must remain server-side. GitHub Pages itself is static, so demo submissions stay in safe demo mode until a secure API endpoint is deployed and `booking.enabled`/`booking.apiBase` are configured. Full setup: `../BOOKING-SYSTEM.md`.
 
 Each customer folder contains `LIVE-DEMO.md` with its permanent demo URLs for quick access from the GitHub app.
 
-SEO isolation: `/demos/` remains excluded from `robots.txt` and `sitemap.xml`, and every customer wrapper remains `noindex,nofollow`. The global SEO build only processes the shared public pages and their `/mobile/` copies; it does not alter customer profile data, service-card/service-window images, gallery photos, layouts, language behavior, or WEB IPAD behavior.
+SEO isolation: `/demos/` remains excluded from `robots.txt` and `sitemap.xml`, and every customer wrapper remains `noindex,nofollow`. The global SEO build only processes the shared public pages and their `/mobile/` copies; it does not alter customer profile data, service-card/service-window images, gallery photos, layouts, language behavior, booking credentials, or WEB IPAD behavior.
