@@ -1,0 +1,75 @@
+name: QA four new demos
+
+on:
+  push:
+    paths:
+      - '.github/workflows/qa-four-new-demos.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Remove unverified CanCan weekend claim
+        shell: python
+        run: |
+          from pathlib import Path
+          p = Path('demos/cancan-barcelona/profile.js')
+          s = p.read_text()
+          replacements = {
+            'MON–FRI<br>10:00–20:00<br>SAT–SUN<br>CLOSED': 'MON–FRI<br>10:00–20:00',
+            'MO–FR<br>10:00–20:00<br>SA–SO<br>GESCHLOSSEN': 'MO–FR<br>10:00–20:00',
+            'LUN–VIE<br>10:00–20:00<br>SÁB–DOM<br>CERRADO': 'LUN–VIE<br>10:00–20:00',
+            'DL–DV<br>10:00–20:00<br>DS–DG<br>TANCAT': 'DL–DV<br>10:00–20:00',
+          }
+          for old, new in replacements.items():
+            if old not in s:
+              raise SystemExit(f'Missing expected CanCan hours string: {old}')
+            s = s.replace(old, new)
+          p.write_text(s)
+      - name: Verify folder completeness and JavaScript syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          slugs=(cancan-barcelona spa-posa-l-xulo-born branco-perruqueria-canina peluts-i-pelats-barceloneta)
+          for slug in "${slugs[@]}"; do
+            for file in index.html profile.js runtime.js web/index.html web-ipad/index.html LIVE-DEMO.md README.md COPY-PASTE-PROMPT.md; do
+              test -f "demos/$slug/$file" || { echo "Missing demos/$slug/$file"; exit 1; }
+            done
+            ! grep -Eq '__[A-Z][A-Z0-9_]*__' "demos/$slug/profile.js" || { echo "Placeholder remains in demos/$slug/profile.js"; exit 1; }
+            grep -q '../demo-global.js' "demos/$slug/index.html"
+            grep -q '../../demo-global.js' "demos/$slug/web/index.html"
+            grep -q '../../demo-global.js' "demos/$slug/web-ipad/index.html"
+            node --check "demos/$slug/profile.js"
+            node --check "demos/$slug/runtime.js"
+          done
+          node --check demos/customer-profile.js
+      - name: Verify protected files stayed untouched
+        shell: bash
+        run: |
+          set -euo pipefail
+          base=4f19227da638aa142c7960e7c37ecd5dd8b5f020
+          git diff --quiet "$base" -- demos/demo-global.js
+          changed="$(git diff --name-only "$base" --)"
+          echo "$changed"
+          if echo "$changed" | grep -Eq '^(assets/|mobile/|index\.html$|about\.html$|services\.html$|gallery\.html$|blog\.html$|contact\.html$|privacy-policy\.html$|terms-and-conditions\.html$|styles\.css$|reference\.css$|enhancements\.css$|script\.js$|site\.config\.js$|gallery-carousel\.js$|homepage-carousel\.js$)'; then
+            echo 'Protected root/mobile/asset file changed unexpectedly.'
+            exit 1
+          fi
+      - name: Commit QA correction and remove temporary workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm .github/workflows/qa-four-new-demos.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add demos/cancan-barcelona/profile.js .github/workflows/qa-four-new-demos.yml
+          git commit -m "QA four new customer demos"
+          git push origin HEAD:main
