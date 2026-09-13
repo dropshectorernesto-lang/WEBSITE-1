@@ -85,3 +85,16 @@
 
   frame.addEventListener('load', bind);
 })();
+
+// Load the shared inheritance layer. This is intentionally loaded by demo-global.js
+// so legacy demos and future template demos receive the same system-level behavior.
+(() => {
+  const current = document.currentScript;
+  if (!current?.src) return;
+  const src = new URL('demo-system.js', current.src).href;
+  if ([...document.scripts].some((script) => script.src === src)) return;
+  const script = document.createElement('script');
+  script.src = src;
+  script.dataset.demoSystemLoader = '1';
+  document.head.appendChild(script);
+})();
