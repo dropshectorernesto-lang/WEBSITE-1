@@ -1,0 +1,55 @@
+name: Temporary Resolve Map Links
+
+on:
+  push:
+    paths:
+      - '.github/workflows/resolve-map-links.yml'
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resolve Google Maps links
+        shell: python
+        run: |
+          import json
+          import re
+          import urllib.parse
+          import urllib.request
+
+          links = [
+            'https://maps.app.goo.gl/t1Mnh786C8PMfXE87',
+            'https://maps.app.goo.gl/ASKYVV86Xi6zdJ7Q6',
+            'https://maps.app.goo.gl/GBmJehqazCapK4ob8',
+            'https://maps.app.goo.gl/ZKh2m6wCt2ixdYou8',
+            'https://maps.app.goo.gl/HrgvSe1rX7WbDEJu8',
+            'https://maps.app.goo.gl/CTwyeVjwLLhZxti67',
+            'https://maps.app.goo.gl/UfQhG6Uny8gwFCKB9',
+            'https://maps.app.goo.gl/zTAK4RWnoH7m9rJt5',
+            'https://maps.app.goo.gl/5nr2QB4XKcg2wxbXA',
+          ]
+
+          headers = {'User-Agent': 'Mozilla/5.0'}
+          for link in links:
+              print('\n===', link, '===')
+              try:
+                  api = 'https://mapu.retiolus.net/unshortener?link=' + urllib.parse.quote(link, safe='')
+                  req = urllib.request.Request(api, headers=headers)
+                  with urllib.request.urlopen(req, timeout=30) as r:
+                      payload = json.loads(r.read().decode('utf-8', 'replace'))
+                  print('MAPU', json.dumps(payload, ensure_ascii=False))
+              except Exception as e:
+                  print('MAPU_ERROR', repr(e))
+
+              try:
+                  req = urllib.request.Request(link, headers=headers)
+                  with urllib.request.urlopen(req, timeout=30) as r:
+                      final_url = r.geturl()
+                      body = r.read(400000).decode('utf-8', 'replace')
+                  print('FINAL_URL', final_url)
+                  title = re.search(r'<title[^>]*>(.*?)</title>', body, re.I | re.S)
+                  og = re.search(r'<meta[^>]+property=["\']og:title["\'][^>]+content=["\']([^"\']+)', body, re.I)
+                  print('TITLE', re.sub(r'\s+', ' ', title.group(1)).strip() if title else '')
+                  print('OG_TITLE', og.group(1).strip() if og else '')
+              except Exception as e:
+                  print('DIRECT_ERROR', repr(e))
