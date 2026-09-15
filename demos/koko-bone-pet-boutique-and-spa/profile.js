@@ -1,0 +1,2 @@
+/* Customer-specific facts only. Shared behavior lives in demos/*.js. */
+window.DEMO_CUSTOMER={name:"Koko-Bone Pet Boutique And Spa",phoneDisplay:null,phoneHref:null,email:null,social:"https://www.instagram.com/kokobonepets/",addressLine1:"Weston",addressLine2:"United States",mapsUrl:null,mapEmbed:null,rating:null,reviewCount:null,booking:{tier:1,enabled:false,apiBase:null,submitPath:"/api/bookings",availabilityPath:"/api/availability",preferredWindows:["08:00-10:00","10:00-12:00","12:00-14:00","14:00-16:00","16:00-18:00","18:00-20:00","any"]}};
